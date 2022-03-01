@@ -1,0 +1,103 @@
+-----------------------------------------------------------------
+
+æ au 25 février 
+
+## A FAIRE ##
+
+## Build ##
+- build vers public plutôt que dist pour faciliter les push/commit
+
+
+Chiffre clé
+- nb structures
+- nb qpv
+
+Graphique 2
+- supprimer noms en abscisse
+- utiliser comme filtre sur tableau
+
+-----------------------------------------------------------------
+
+æ au 16 février 
+
+## A FAIRE ##
+
+# Routage ##
+- création d'une page accueil et à propos des données
+- introduction sur la raison d'être de cette appli et les entrées possibles d'exploration
+
+# Composants #
+
+Liste
+- champ de recherche au clic
+- ajouter filtre département ?
+
+
+Chiffre clé :
+- animation au changement de chiffre
+- ajouter deux autres chiffres clés en plus
+
+Doughnut:
+- clic une 2e fois pour désactiver le filtre et réinitialiser les chiffres
+
+
+Carte
+- animation cercle (bug pour le moment, cercles qui scintillent lorsque animation activée)
+- mise en forme tooltip
+- styliser au passage de souris
+- légende cercles proportionnels
+
+Tableau
+- trier au clic sur une entête
+- pagination
+
+## Données ##
+
+Géometrie
+- position rapprochée des DROM
+- affichage des limites de CDV à partir d'un certain zoom
+
+
+-----------------------------------------------------------------
+
+
+æ au 10 février 
+
+
+## A FAIRE
+
+# Par composant
+
+Chiffre clé 
+- création composant chiffre clé 
+
+Liste CDV 
+- input autocomplétion au clic
+- à la sélection, ajout du marqueur correspondant sur la carte
+
+Doghnut 
+- au clic, changement style : contour rouge pour portion sélection + griser autres portions
+- position légende
+
+Tableau
+- entête cliquable pour tri
+- pagination
+
+carte 
+- Au clic sur un cercle, sélectionner équivalent dans Liste
+- animation cercles (réduction/augmentation taille)
+- mise en forme tooltip
+- contour rouge au passage de souris 
+- cliquer sur polygone contrat de ville plutot que cercle (trop petit)
+
+
+# Fonctionnement général
+- interacion au filtre : garder les mêmes tables
+- afficher quelque part le territoire et le thème sélectionné 
+
+
+# Style
+- police marianne
+- couleurs charte vie associative
+- 
+
