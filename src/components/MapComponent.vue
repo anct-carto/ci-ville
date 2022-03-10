@@ -6,8 +6,10 @@
 <script>
 
 // import actions from '@/assets/actions_financees.json'
-import cv_geom from '@/assets/cv_geom.json'
+// import cv_geom from '@/assets/cv_geom.json'
+import cv_geom from '@/assets/geom_cv_ctr.json'
 import dep_geom from '@/assets/geom_dep.json'
+import cercles_drom from '@/assets/cercles_drom.json'
 import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
 import * as aq from 'arquero'
@@ -28,6 +30,7 @@ export default {
     return {
       cvGeom:cv_geom,
       depGeom:dep_geom,
+      cerclesDrom:cercles_drom
     }
   },
   computed: {
@@ -37,7 +40,7 @@ export default {
     ...mapState({
       actions: state => state.data,
       filterKey: state => state.filterKey,
-      filterCodeGlobal: state => state.filterCodeGlobal,
+      filterCodeGlobal: state => state.filterCode,
       themeColor: state => state.themeColor
     }),
     // 2. Initialisation carte avec fond 
@@ -51,8 +54,19 @@ export default {
       }).setView([46.413220, 1.219482],6);
 
       L.control.zoom({position:'topright'}).addTo(map);
+      // ajout fond cercles drom
+      new L.GeoJSON(this.cerclesDrom, {
+        interactive:false,
+        style:{
+          fillColor:'rgb(250,250,250)',
+          color:'#3b5fa9',
+          fillOpacity:1,
+          weight:0.5,
+        }
+      }).addTo(map)
+
       // ajout fond département
-      new L.GeoJSON(this.depGeom, {
+       new L.GeoJSON(this.depGeom, {
         interactive:false,
         style:{
           fillColor:'rgb(245, 233, 223)',
@@ -62,6 +76,8 @@ export default {
         }
       }).addTo(map)
       
+      // map.fitBounds(geomDepLayer.getBounds())
+
       return map
     },
     // 3. CALQUES
@@ -89,37 +105,38 @@ export default {
   },
   watch: {
     filterKey() {
-      // méthode animation cercles
       this.computeData();
-      this.bubbleLayer.eachLayer(layer => {
-        layer.setStyle({fillColor:this.themeColor});
-        layer.eachLayer(e => {
-          let newRadius = this.computeRadius(e.feature.properties["count"]);
+      
+      // méthode animation cercles
+      // this.bubbleLayer.eachLayer(layer => {
+      //   layer.setStyle({fillColor:this.themeColor});
+      //   layer.eachLayer(e => {
+      //     let newRadius = this.computeRadius(e.feature.properties["count"]);
 
-          if(newRadius != e.getRadius) {
-            let intervalMinus = setInterval(() => {
-              let currentRadius = e.getRadius();
-              if(currentRadius<newRadius) {
-                e.setRadius(++currentRadius)
-              } else {
-                clearInterval(intervalMinus)
-              }
-            }, 10);
+      //     if(newRadius != e.getRadius) {
+      //       let intervalMinus = setInterval(() => {
+      //         let currentRadius = e.getRadius();
+      //         if(currentRadius<newRadius) {
+      //           e.setRadius(++currentRadius)
+      //         } else {
+      //           clearInterval(intervalMinus)
+      //         }
+      //       }, 10);
   
-            let intervalPlus = setInterval(() => {
-              let currentRadius = e.getRadius();
-              if(currentRadius>newRadius) {
-                e.setRadius(--currentRadius)
-              } else {
-                clearInterval(intervalPlus)
-              }
-            }, 10);            
-          } 
-        })
-      })
+      //       let intervalPlus = setInterval(() => {
+      //         let currentRadius = e.getRadius();
+      //         if(currentRadius>newRadius) {
+      //           e.setRadius(--currentRadius)
+      //         } else {
+      //           clearInterval(intervalPlus)
+      //         }
+      //       }, 10);            
+      //     } 
+      //   })
+      // })
       // méthode 2 : regénérer les cercles (un peu plus long)
-      // this.bubbleLayer.clearLayers();
-      // this.drawBubbles();
+      this.bubbleLayer.clearLayers();
+      this.drawBubbles();
 
       // regnérer la taille du cercle cliqué
       this.clickedBubbleLayer.clearLayers();
@@ -127,6 +144,7 @@ export default {
       clickedFeature.addTo(this.clickedBubbleLayer)
     },
     filterCodeGlobal(e) {
+      console.log(e);
       // efface contenu précédent calque si non vide, puis remplis le avec le cercle créé au choix d'un territoire
       this.clickedBubbleLayer.clearLayers();
       let clickedFeature = this.pinSelected(e);
@@ -250,6 +268,8 @@ export default {
         }
       }).addTo(this.bubbleLayer);
 
+      this.map.fitBounds(this.bubbleLayer.getBounds().pad(0.2,0.2,0.2,0.2))
+
     },
     // créé un marqueur au dessus du cercle survolé 
     stylishHovered(feature) {
@@ -280,7 +300,7 @@ export default {
     // calcul du rayon des cercles
     computeRadius(baseCount) {
       // changer la valeur "100" pour agrandir ou réduire la taille max des cercles
-      return Math.sqrt(baseCount)*(100/Math.sqrt(this.maxCount))
+      return Math.sqrt(baseCount)*(50/Math.sqrt(this.maxCount))
     },
     setMapExtent() {
       let map = this.map;
@@ -296,6 +316,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -304,23 +325,13 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-a {
-  color: #42b983;
-}
 
 #map {
   width: auto;
-  /* height:calc(100vh - 69px) !important; */
-  height:calc(100vh - 80px) !important;
-  background: none;
-    background: white;
+  height:calc(100vh - 95px) !important;
+  background: white;
   box-shadow: 0 2px 2px rgba(0,0,0,.02), 0 0px 2px rgba(0,0,0,.01);
   border-radius: 5px;
-}
-
-.leaflet-tooltip {
-  text-align: center !important;
-  align-content: center !important;
 }
 
 </style>

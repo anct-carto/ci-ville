@@ -17,10 +17,12 @@
                 <MapComponent id="map"/>
               </div>
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <div v-if="this.$store.state.filterCode">
-                  <Table class="widget" id="table-actions" />
-                </div>
-                <div v-else>Sélectionnez un contrat de ville pour afficher la liste des actions menées</div>
+                <Card>
+                  <div v-if="this.$store.state.filterCode">
+                    <Table class="widget" id="table-actions"/>
+                  </div>
+                  <div v-else>Sélectionnez un contrat de ville pour afficher la liste des actions menées</div>
+                </Card>
               </div>
             </div>
             <!-- <h5>Nombre d'actions financées par contrat de ville</h5>
@@ -35,18 +37,15 @@
 import MapComponent from '@/components/MapComponent.vue';
 import SidePanel from '@/components/SidePanel.vue';
 import Table from '@/components/Table.vue';
+import Card from '@/components/CardComponent.vue';
 
 export default {
   components: {
     MapComponent,
     SidePanel,
-    Table:Table
-  },
-  computed: {
-    resultList() {
-      return this.$store.state.resultsList
-    }
-  },
+    Table,
+    Card
+  }
 }
 </script>
 
@@ -66,12 +65,12 @@ html, body {
 }
 
 .wrapper {
-  background: rgb(240,240,240);  
   background-color: #eef3ff;
 }
 
 #sidepanel {
-  height: calc(100vh - 34px);
+  /* height: calc(100vh - 34px); */
+  height: calc(100vh - 49px);
   text-align: left;
   overflow-y: auto;
   overflow-x: hidden;

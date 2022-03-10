@@ -35,11 +35,17 @@ export default {
     .table {
         overflow-y:auto;
         display:block;
-        height: 235px;
+        height: 790px;
+        background: white;
+        border-radius: 4px;
     }
 
     thead {
         position:sticky; 
         width: 100%;
+    }
+
+    tbody > tr:hover {
+        background: rgb(245,245,245);
     }
 </style>

@@ -125,7 +125,12 @@ export default {
                                 display:false
                             },
                             ticks:{
-                                display:false
+                                display:true
+                            }
+                        },
+                        y: {
+                            tick: {
+                                precision:0
                             }
                         }
                     },
@@ -145,7 +150,7 @@ export default {
 
 <style scoped>
     canvas {
-        height: 290px;
+        height: 300px;
     }
 
 </style>

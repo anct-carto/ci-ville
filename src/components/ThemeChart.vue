@@ -121,12 +121,15 @@ export default {
           },
           plugins: {
               legend: {
-                  display: false,
-                  position:'bottom',
-                  direction:'horizontal',
-                  align: "start",  // alignement à gauche 
+                  display: true,
+                  position:'right',
+                  direction:'vertical',
+                  // align: "start",  // alignement à gauche 
                   labels:{
                     usePointStyle:true,
+                    font:{
+                      family:'Marianne-Regular'
+                    }
                   },
                   onClick: null, // désactive le filtre au clic sur un item de légende
                   // onHover: function handleHover(evt, item, legend) {
@@ -151,6 +154,9 @@ export default {
               },
               tooltip: {
                 position: 'nearest',
+                bodyFont:{
+                  family:'Marianne-Regular'
+                },
               }
           },
           layout: {

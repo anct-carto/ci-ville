@@ -26,27 +26,24 @@
                     class="widget"/>
           </div>
           <div class="col-3">
-            <!-- <br><button class="btn btn-primary" @click="resetData">Réinitialiser</button> -->
           </div>
         </div>
         <div class="row">
-          <div class="col-6">
-            <h5>Répartition par thème</h5>
-            <ThemeChart class="widget"/><br>
-          </div>
-          <div class="col-6">
-            <h5>Répartition par sous-thème</h5>
-            <div v-if="this.$store.state.filterKey">
-              <SubThemeChart class="widget"
-                              v-if="this.$store.state.filterKey"/><br>
-            </div>
-            <i v-else>Sélectionnez un thème pour voir la répartition par sous-thème</i>
+          <div class="col-12">
+            <Card :title='"Répartition par thème"'>
+              <ThemeChart/>
+            </Card>
+          </div><br>
+          <div class="col-12">
+            <Card :title='"Répartition par sous-thème"'>
+              <SubThemeChart v-if="this.$store.state.filterKey"/>
+            </Card>
           </div>
         </div>
-        <h5>Liste des actions engagées</h5>
+        <!-- <h5>Liste des actions engagées</h5>
           <div v-if="this.$store.state.filterCode">
             <Table class="widget" />
-          </div>
+          </div> -->
       </div>
 </template>
 
@@ -56,21 +53,32 @@
 import ThemeChart from "@/components/ThemeChart.vue";
 import SubThemeChart from "@/components/SubThemeChart.vue";
 import List from "@/components/List.vue";
-import Table from "@/components/Table.vue";
+// import Table from "@/components/Table.vue";
 import Number from "@/components/Number.vue";
+import Card from "@/components/CardComponent.vue";
 
 export default {
   name: 'SidePanel',
   components: {
     ThemeChart,
     List,
-    Table,
+    // Table,
     Number,
-    SubThemeChart
+    SubThemeChart,
+    Card
+  },
+  data() {
+    return {
+      component:ThemeChart
+    }
+  },
+  computed: {
+      pageName() {
+          return this.$router.currentRoute._value.name
+      }
   },
   methods: {
     resetData() {
-      console.log("hey");
       this.$store.state.filteredData = this.$store.state.data;
       this.$store.commit('clearFilter','cdv')
       this.$store.commit('clearFilter','theme')

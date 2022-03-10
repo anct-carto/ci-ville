@@ -32,9 +32,6 @@ export default {
         actions() {
             return this.$store.state.data
         },
-        // cvList() {
-        //     return this.$store.state.cvList;
-        // },
         cvList() {
             let sortedArray = this.actions.filter(e => {
                 return e.code_cv != "HORSCONTVILLE"

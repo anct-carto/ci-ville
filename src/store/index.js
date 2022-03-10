@@ -5,7 +5,7 @@ import actionsFinancees from '@/assets/actions_financees2.json'
 
 export default createStore({
   state: {
-    data:actionsFinancees,
+    // data:actionsFinancees,
     filteredData:actionsFinancees,
     map:'',
     filterCode:null,
@@ -22,7 +22,7 @@ export default createStore({
     },
     montant(state) {
       return state.filteredData.map(e => e.montant).reduce((a,b) => a + b,0);
-    }
+    },
   },
   mutations: {
     updateThemeColor(state,color) {
@@ -65,6 +65,15 @@ export default createStore({
           state.filterkey = null
           state.filteredData = state.data
           break;
+      }
+    },
+    getDataByPage(state,filter) {
+      console.log(filter);
+      if(filter == "National") {
+        console.log(filter);
+        state.data = actionsFinancees.filter(e => e.code_cv == "HORSCONTVILLE")
+      } else {
+        state.data = actionsFinancees.filter(e => e.code_cv != "HORSCONTVILLE")
       }
     }
   },

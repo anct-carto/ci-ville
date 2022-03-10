@@ -1,6 +1,8 @@
 <template>
     <div class="chiffre-cle-wrapper">
-        <span class="chiffre-cle"> {{ chiffreCle.toLocaleString("fr-FR") }}</span><br>
+        <span class="chiffre-cle"> 
+            {{ chiffreCle.toLocaleString("fr-FR") }}
+        </span><br>
         <span class="text"> {{ texte }}</span>
     </div>
 </template>
@@ -47,7 +49,7 @@ export default {
 .chiffre-cle {
     color:#d24b6b;
     font-size: 1.6em;
-    font-weight: bolder;
+    font-family: 'Marianne-Extrabold';
 }
 
 .text {
