@@ -1,6 +1,6 @@
 <template>
-      <div>
         <canvas id="subtheme-chart"></canvas>
+      <div>
       </div>
 </template>
 
@@ -150,7 +150,9 @@ export default {
 
 <style scoped>
     canvas {
-        height: 300px;
+        /* height: 300px; */
+        /* height: 30vh; */
+        /* height: 25% !important; */
     }
 
 </style>

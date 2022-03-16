@@ -43,7 +43,7 @@ export default {
     border-radius: 5px;
     text-align: center;
     /* white-space: pre; */
-    margin: 10px 0 10px 0;
+    margin: 15px 0 8px 0;
 }
 
 .chiffre-cle {

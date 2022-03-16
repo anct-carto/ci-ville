@@ -8,6 +8,8 @@
 // import actions from '@/assets/actions_financees.json'
 // import cv_geom from '@/assets/cv_geom.json'
 import cv_geom from '@/assets/geom_cv_ctr.json'
+import dep_geom_ctr from '@/assets/geom_dep_ctr.json'
+import reg_geom_ctr from '@/assets/geom_reg_ctr.json'
 import dep_geom from '@/assets/geom_dep.json'
 import cercles_drom from '@/assets/cercles_drom.json'
 import L from 'leaflet'
@@ -26,9 +28,10 @@ L.Icon.Default.mergeOptions({
 
 export default {
   name: 'MapComponent',
+  props: ['echelle','idGeo','libGeo'],
   data() {
     return {
-      cvGeom:cv_geom,
+      // cvGeom:cv_geom,
       depGeom:dep_geom,
       cerclesDrom:cercles_drom
     }
@@ -43,6 +46,28 @@ export default {
       filterCodeGlobal: state => state.filterCode,
       themeColor: state => state.themeColor
     }),
+    // choix du fichier de géométrie à charger en fonction del'échelle choisie : reg, dep ou cdv
+    cvGeom() {
+    // baseGeom() {
+      if(this.echelle == "cdv") {
+        return cv_geom
+      } else if (this.echelle == "dep") {
+        return dep_geom_ctr
+      } else {
+        return reg_geom_ctr
+      }
+    },
+    // colonne d'identifiant geographique
+    // idGeo() {
+    // // baseGeom() {
+    //   if(this.echelle == "cdv") {
+    //     return "code_cv"
+    //   } else if (this.echelle == "dep") {
+    //     return "insee_dep"
+    //   } else {
+    //     return "insee_reg"
+    //   }
+    // },
     // 2. Initialisation carte avec fond 
     map() {
       // let extent = this.$route.query['@'].split(',');
@@ -50,7 +75,7 @@ export default {
       let map = L.map('map', {
         zoomControl:false,
         zoomSnap:0.05,
-        minZoom:6
+        minZoom:6,
       }).setView([46.413220, 1.219482],6);
 
       L.control.zoom({position:'topright'}).addTo(map);
@@ -66,7 +91,7 @@ export default {
       }).addTo(map)
 
       // ajout fond département
-       new L.GeoJSON(this.depGeom, {
+       let bgGeom = new L.GeoJSON(this.depGeom, {
         interactive:false,
         style:{
           fillColor:'rgb(245, 233, 223)',
@@ -77,6 +102,7 @@ export default {
       }).addTo(map)
       
       // map.fitBounds(geomDepLayer.getBounds())
+      map.fitBounds(bgGeom.getBounds().pad(0.2,0.2,0.2,0.2))
 
       return map
     },
@@ -96,7 +122,7 @@ export default {
     // 4. calcul valeur max à utilisée pour garder proportionnalité des cercles
     maxCount() {
       let actionsCount = aq.from(this.actions)
-      .groupby('code_cv')
+      .groupby('codgeo')
       .count()
       .objects();
       let max = actionsCount.reduce((a,b) => (a.count > b.count) ? a : b).count;
@@ -107,9 +133,10 @@ export default {
     filterKey() {
       this.computeData();
       
-      // méthode animation cercles
+      // méthode 1 : animation cercles
       // this.bubbleLayer.eachLayer(layer => {
       //   layer.setStyle({fillColor:this.themeColor});
+      //   let intervalDuration = 10
       //   layer.eachLayer(e => {
       //     let newRadius = this.computeRadius(e.feature.properties["count"]);
 
@@ -121,7 +148,7 @@ export default {
       //         } else {
       //           clearInterval(intervalMinus)
       //         }
-      //       }, 10);
+      //       }, intervalDuration);
   
       //       let intervalPlus = setInterval(() => {
       //         let currentRadius = e.getRadius();
@@ -130,7 +157,7 @@ export default {
       //         } else {
       //           clearInterval(intervalPlus)
       //         }
-      //       }, 10);            
+      //       }, intervalDuration);
       //     } 
       //   })
       // })
@@ -144,7 +171,6 @@ export default {
       clickedFeature.addTo(this.clickedBubbleLayer)
     },
     filterCodeGlobal(e) {
-      console.log(e);
       // efface contenu précédent calque si non vide, puis remplis le avec le cercle créé au choix d'un territoire
       this.clickedBubbleLayer.clearLayers();
       let clickedFeature = this.pinSelected(e);
@@ -153,7 +179,7 @@ export default {
       // change style des autres cercles au clic excepté celui cliqué
       // this.bubbleLayer.eachLayer(layer => {
       //   layer.eachLayer(e => {
-      //     if(e.feature.properties.code_cv == this.filterCodeGlobal) {
+      //     if(e.feature.properties.codgeo == this.filterCodeGlobal) {
       //       e.setStyle({fillColor:this.themeColor})
       //       console.log(e);
       //     } else {
@@ -182,7 +208,7 @@ export default {
 
       // grouper pour compter par code
       let actionsCount = aq.from(data)
-      .groupby('code_cv')
+      .groupby('codgeo')
       .count()
       .objects();
 
@@ -193,8 +219,10 @@ export default {
           delete e.properties.count
         }
         actionsCount.forEach(f => {
-          if(e.properties.code_cv == f.code_cv) {
+          if(e.properties[this.idGeo] == f.codgeo) {
             e.properties.count = f.count
+            // !! ne pas oublier d'intégrer le codegeo
+            e.properties["codgeo"] = f.codgeo
           }
         })
         if(e.properties.count === undefined) {
@@ -211,12 +239,12 @@ export default {
       // alimenter liste contrats de ville présents sur la carte vers liste déroulante
       this.$store.state.cvList = this.cvGeom.features.map(e => {
         return {
-          code_cv:e.properties.code_cv,
-          lib_cv:e.properties.lib_cv,
+          codgeo:e.properties[this.idGeo],
+          lib_cv:e.properties[this.libGeo],
         }
       }).sort((a,b) => {
-                if(a.lib_cv<b.lib_cv) return -1
-                if(a.lib_cv>b.lib_cv) return 1
+                if(a[this.libGeo]<b[this.libGeo]) return -1
+                if(a[this.libGeo]>b[this.libGeo]) return 1
                 return 0
       });
     },
@@ -236,10 +264,12 @@ export default {
             fillColor:this.themeColor,
             fillOpacity:.5,
             color:'white',
-            weight:1
+            weight:1,
+            interactie:true,
+            pane: 'markerPane'
           })
           .on("click", () => {
-            let code = feature.properties.code_cv;
+            let code = feature.properties[this.idGeo];
             this.$store.commit('crossFilter',{type:'cdv',value:code});
 
             this.clickedBubbleLayer.clearLayers();
@@ -250,47 +280,54 @@ export default {
           .on("mouseover", (e) => {
             // console.log(e);
             e.originalEvent.stopPropagation();
-            this.hoveredFeature = feature.properties.code_cv
-            // this.stylishHovered(feature)
+            this.hoveredFeature = feature.properties[this.idGeo]
+            this.stylishHovered(feature)
 
-            new L.marker(e.sourceTarget._latlng)
-            .bindTooltip(feature.properties.lib_cv + "<br>" + feature.properties.count.toLocaleString() + " actions financées", {
-              permanent:true,
-              direction:'top',
-              className:'leaflet-tooltip'
-            })
-            .addTo(this.hoveredLayer);
+            // new L.marker(e.sourceTarget._latlng)
+            // .bindTooltip(feature.properties[this.libGeo] + " : " + feature.properties.count.toLocaleString(), {
+            //   permanent:true,
+            //   direction:'top',
+            //   className:'leaflet-tooltip'
+            // })
+            // .addTo(this.hoveredLayer);
           })
           .on("mouseout", () => {
-            // console.log("ok");
             this.hoveredLayer.clearLayers();
           })
         }
       }).addTo(this.bubbleLayer);
 
-      this.map.fitBounds(this.bubbleLayer.getBounds().pad(0.2,0.2,0.2,0.2))
+      
 
     },
     // créé un marqueur au dessus du cercle survolé 
     stylishHovered(feature) {
-      let hoveredFeature = this.pinSelected(feature.properties.code_cv);
+      let hoveredFeature = this.pinSelected(feature.properties[this.idGeo]);
       hoveredFeature.addTo(this.hoveredLayer)
     },
     // créé un cercle correspond similaire à celui qui a été cliqué
     pinSelected(code) {
       let selectedFeature = new L.GeoJSON(this.cvGeom, {
         filter:feature => {
-          return feature.properties.code_cv == code
+          return feature.properties[this.idGeo] == code
         },
         pointToLayer: (feature, latlng) => {
           // this.map.flyTo(latlng)
           return L.circleMarker(latlng, {
             radius:this.computeRadius(feature.properties["count"]),
             color:'red',
-            fillOpacity:0,
+            fillOpacity:.8,
+            fillColor:this.themeColor,
             opacity:1,
-            weight:2
-          })
+            weight:2,
+            interactive:false,
+            pane: 'markerPane'
+          }).bindTooltip(`${feature.properties[this.libGeo]} (${feature.properties[this.idGeo]}) : ${feature.properties.count.toLocaleString()}`, {
+            permanent:true,
+            direction:'top',
+            className:'leaflet-tooltip-custom',
+            offset:[0,-this.computeRadius(feature.properties["count"])]
+          }).openTooltip()
         },
         interactive:false
       });
@@ -300,7 +337,7 @@ export default {
     // calcul du rayon des cercles
     computeRadius(baseCount) {
       // changer la valeur "100" pour agrandir ou réduire la taille max des cercles
-      return Math.sqrt(baseCount)*(50/Math.sqrt(this.maxCount))
+      return Math.sqrt(baseCount)*(65/Math.sqrt(this.maxCount))
     },
     setMapExtent() {
       let map = this.map;
@@ -308,7 +345,7 @@ export default {
       let lat = center.lat.toFixed(4);
       let lng = center.lng.toFixed(4);
       let z = map.getZoom();
-      this.$router.push({path:'contrat-de-ville', query: {'@':`${lat},${lng},${z}`}});
+      this.$router.push({path:this.$route.path, query: {'@':`${lat},${lng},${z}`}});
     },
   }
 }
@@ -328,10 +365,14 @@ li {
 
 #map {
   width: auto;
-  height:calc(100vh - 95px) !important;
+  height:calc(100vh - 60px) !important;
   background: white;
   box-shadow: 0 2px 2px rgba(0,0,0,.02), 0 0px 2px rgba(0,0,0,.01);
   border-radius: 5px;
+}
+
+.leaflet-tooltip-custom {
+  background: red !important;
 }
 
 </style>

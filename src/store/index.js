@@ -1,12 +1,12 @@
 import { createStore } from 'vuex'
 import * as aq from 'arquero'
-import actionsFinancees from '@/assets/actions_financees2.json'
+import actionsFinancees from '@/assets/actions-2020.json'
 
 
 export default createStore({
   state: {
     // data:actionsFinancees,
-    filteredData:actionsFinancees,
+    // filteredData:actionsFinancees,
     map:'',
     filterCode:null,
     filterKey:null,
@@ -61,19 +61,32 @@ export default createStore({
           state.filterCode = null
           break;
         case "theme":
-          console.log("HEY");
+          console.log("filtre thème effacé");
           state.filterkey = null
           state.filteredData = state.data
+          state.themeColor = 'gray'
           break;
       }
     },
     getDataByPage(state,filter) {
       console.log(filter);
-      if(filter == "National") {
-        console.log(filter);
-        state.data = actionsFinancees.filter(e => e.code_cv == "HORSCONTVILLE")
-      } else {
-        state.data = actionsFinancees.filter(e => e.code_cv != "HORSCONTVILLE")
+      switch (filter) {
+        case "National":
+          state.data = actionsFinancees.filter(e => e.echelle == "nat")
+          state.filteredData = state.data
+          break;
+        case "Region":
+          state.data = actionsFinancees.filter(e => e.echelle == "reg")
+          state.filteredData = state.data
+          break;
+        case "Departement":
+          state.data = actionsFinancees.filter(e => e.echelle == "dep")
+          state.filteredData = state.data
+          break;
+        case "ContratDeVille":
+          state.data = actionsFinancees.filter(e => e.echelle == "cdv")
+          state.filteredData = state.data
+          break;
       }
     }
   },

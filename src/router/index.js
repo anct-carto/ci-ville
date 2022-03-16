@@ -18,12 +18,17 @@ const routes = [
     component: () => import(/*webpackChunkName: "MapView"*/ '../views/ContratDeVille.vue'),
   },
   {
-    path: '/reg-dep',
-    name: 'RegDep',
+    path: '/departement',
+    name: 'Departement',
+    component: () => import(/*webpackChunkName: "MapView"*/ '../views/Departement.vue'),
+  },
+  {
+    path: '/region',
+    name: 'Region',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/RegDep.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Region.vue')
   }
 ]
 

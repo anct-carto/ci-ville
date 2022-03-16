@@ -1,13 +1,22 @@
 <template>
   <!-- <body class="d-flex flex-column vh-100"> -->
-  <body class="">
-    <div id="nav" class="nav">
-      <router-link to="/">Accueil</router-link> 
-      <router-link to="/national">National</router-link> 
-      <router-link to="/reg-dep">Région/département</router-link> 
-      <router-link to="/contrat-de-ville">Contrat de ville</router-link> 
+  <body class="d-flex flex-column ">
+    <div class="row g-0 h-100" >
+      <div class="col-sm-1">
+        <div id="nav" class="nav h-100">
+          <router-link to="/">Accueil</router-link> 
+          <h5>Hors contrat de ville</h5>
+          <router-link to="/national">National</router-link> 
+          <router-link to="/region">Région</router-link> 
+          <router-link to="/departement">Département</router-link> 
+          <router-link to="/contrat-de-ville">Contrat de ville</router-link> 
+        </div>
+      </div>
+      <div class="col-md-11">
+
+        <router-view class="container-fluid"/>
+      </div>
     </div>
-    <router-view class="container-fluid"/>
   </body>
 </template>
 
@@ -15,13 +24,18 @@
 export default {
   watch: {
     $route() {
+      if(this.currentRoute | this.currentRoute != this.$route.name) {
         this.updateData(this.$route.name)
+      }
+      this.currentRoute = this.$route.name;
     }
   },
   methods: {
     updateData(filter) {
       this.$store.commit('getDataByPage',filter)
-    }
+      this.$store.commit('clearFilter','theme')
+      this.$store.commit('clearFilter','cdv')
+    },
   },
 }
 </script>
@@ -47,16 +61,27 @@ export default {
   font-family: 'Marianne-Regular';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  margin: 0;
 }
+
+html, body {
+  font-size:0.9em;
+  font-family: 'Marianne-Regular' !important;
+  background-color: #e6eaf5 !important;
+  margin:0;
+  height: 100%;
+}
+
 
 #nav {
   background: #5473b6;
-  padding: 0px 0 0px 0;
+  padding: 0px;
+  text-align: center;
+  display: block;
 }
 
 #nav a {
+  display: block;
+  text-align: center;
   font-weight: bold;
   color: white;
   padding: 5px 10px 5px 10px;
@@ -69,17 +94,19 @@ export default {
 
 #nav a.router-link-exact-active {
   /* background-color: #d24b6b; */
-  border-bottom: solid 5px #d24b6b !important;
+  background: #3c6cd3;
+  border-left: solid 4px #d24b6b !important;
+  font-family: 'Marianne-Extrabold';
 }
 
-html, body {
-  font-size:0.8em;
-  font-family: 'Marianne-Regular' !important;
-  background-color: #eef3ff !important;
-}
 
 .container-fluid {
   padding:10px;
+  display: inline-block;
+}
+
+.row {
+  align-items: stretch
 }
 
 @import'~bootstrap/dist/css/bootstrap.css'

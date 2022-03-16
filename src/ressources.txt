@@ -27,3 +27,8 @@ https://stackoverflow.com/questions/70190821/how-can-i-change-the-cursor-on-pie-
 # chart width/height 
 https://stackoverflow.com/questions/69082583/resizing-vue-chartjs-height-while-keeping-it-responsive
 
+# solution for leaflet mouseover/mouseout firing too much time
+https://gis.stackexchange.com/questions/368461/using-circlemarker-with-mouseover-in-leaflet 
+
+# sticky header
+https://css-tricks.com/position-sticky-and-table-headers/

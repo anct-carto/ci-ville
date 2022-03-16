@@ -1,11 +1,11 @@
 <template>
     <!-- <div class="container"> -->
-    <div class="container-fluid">
+    <!-- <div class="container-fluid"> -->
       <div class="row no-gutters">
-          <div class="col-md-5 wrapper" id="sidepanel-container">
+          <div class="col-md-5" id="sidepanel-container">
             <SidePanel id="sidepanel"/>
           </div>
-          <div class="col-md-7 wrapper map-container">
+          <div class="col-md-7 map-container">
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Nombre d'actions par contrat de ville</button>
@@ -14,12 +14,15 @@
             </nav>
             <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <MapComponent id="map"/>
+                <MapComponent id="map" 
+                              :echelle="'cdv'"
+                              :idGeo="'code_cv'"
+                              :libGeo="'lib_cv'"/>
               </div>
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <Card>
                   <div v-if="this.$store.state.filterCode">
-                    <Table class="widget" id="table-actions"/>
+                    <Table id="table-actions"/>
                   </div>
                   <div v-else>Sélectionnez un contrat de ville pour afficher la liste des actions menées</div>
                 </Card>
@@ -29,7 +32,7 @@
             <MapComponent id="map"/> -->
           </div>
       </div>
-    </div>
+    <!-- </div> -->
 </template>
 
 <script>
@@ -51,27 +54,8 @@ export default {
 
 <style scoped>
 
-
-
-html, body {
-  font-size:.7em;
-  width: 100%;
-  height:100%;
-  /* overflow:hidden; */
-}
-
-.map-container {
-  text-align: left;
-}
-
-.wrapper {
-  background-color: #eef3ff;
-}
-
 #sidepanel {
   /* height: calc(100vh - 34px); */
-  height: calc(100vh - 49px);
-  text-align: left;
   overflow-y: auto;
   overflow-x: hidden;
 }

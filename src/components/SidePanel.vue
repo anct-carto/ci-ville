@@ -1,44 +1,45 @@
 <template>
       <div id="sidepanel">
-        <i>Sélectionnez un contrat de ville dans la liste ci-dessous 
-          ou sur la carte ci-contre.</i>
         <div class="row">
-          <List :filterCodeFromStore="this.$store.state.filterCode"/>
+          <i>Sélectionnez un contrat de ville dans la liste ci-dessous 
+            ou sur la carte ci-contre.</i>
+          <List :filterCodeFromStore="filterCode"/>
           <div class="col-3">
-            <Number :chiffreCle="this.$store.state.filteredData.length" 
+            <Number :chiffreCle="filteredData.length" 
                     :texte="'actions financées'"
-                    v-if="this.$store.state.filteredData"
-                    class="widget"/>
+                    />
           </div>
           <div class="col-3">
-            <Number :chiffreCle="this.$store.getters.nbStructures" 
-                    :texte="'structures'"
-                    class="widget"/>
+            <Number :chiffreCle="nbStructures" 
+                    :texte="'porteurs de projets'"
+                    />
           </div>
           <div class="col-3">
-            <Number :chiffreCle="Math.round(this.$store.getters.montant)" 
+            <Number :chiffreCle="Math.round(montant)" 
                     :texte="'euros engagés'"
-                    class="widget"/>
+                    />
           </div>
           <div class="col-3">
-            <Number :chiffreCle="'XX'" 
+            <Number :chiffreCle="0" 
                     :texte="'habitants en QPV'"
-                    class="widget"/>
-          </div>
-          <div class="col-3">
+                    />
           </div>
         </div>
         <div class="row">
-          <div class="col-12">
-            <Card :title='"Répartition par thème"'>
+          <div class="col-md-12">
+            <Card :title="`Nombre d'actions par thème`" 
+                  :about='"Sélectionnez un thème pour filtrer les valeurs des chiffres clés et de la carte"'>
               <ThemeChart/>
             </Card>
-          </div><br>
-          <div class="col-12">
-            <Card :title='"Répartition par sous-thème"'>
-              <SubThemeChart v-if="this.$store.state.filterKey"/>
+          </div>  
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <Card :title="`Nombre d'actions par sous-thème`"
+                  :about='"Sélectionnez un sous-thème pour filtrer la table des actions"'>
+              <SubThemeChart v-if="filterKey"/>
             </Card>
-          </div>
+          </div>  
         </div>
         <!-- <h5>Liste des actions engagées</h5>
           <div v-if="this.$store.state.filterCode">
@@ -56,6 +57,8 @@ import List from "@/components/List.vue";
 // import Table from "@/components/Table.vue";
 import Number from "@/components/Number.vue";
 import Card from "@/components/CardComponent.vue";
+import {mapGetters} from 'vuex'
+import {mapState} from 'vuex'
 
 export default {
   name: 'SidePanel',
@@ -67,15 +70,9 @@ export default {
     SubThemeChart,
     Card
   },
-  data() {
-    return {
-      component:ThemeChart
-    }
-  },
   computed: {
-      pageName() {
-          return this.$router.currentRoute._value.name
-      }
+      ...mapGetters(['nbStructures','montant']),
+      ...mapState(['filteredData','filterCode','filterKey']),
   },
   methods: {
     resetData() {
@@ -90,15 +87,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-
-.widget {
-  background: white;
-  box-shadow: 0 2px 2px rgba(0,0,0,.02), 0 0px 2px rgba(0,0,0,.01);
-  border-radius: 5px;
-}
-
 .row {
   margin-bottom: 10px;
+  /* align-items: stretch */
 }
 
 </style>

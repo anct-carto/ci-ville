@@ -1,0 +1,25 @@
+{
+"type": "FeatureCollection",
+"name": "geom_ctr_reg",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "insee_reg": "01", "lib_reg": "Guadeloupe" }, "geometry": { "type": "Point", "coordinates": [ -4.117059318559323, 45.351386302312129 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "02", "lib_reg": "Martinique" }, "geometry": { "type": "Point", "coordinates": [ -3.648936622352123, 44.073863488582703 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "03", "lib_reg": "Guyane" }, "geometry": { "type": "Point", "coordinates": [ -2.937953765016647, 42.419019697928469 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "04", "lib_reg": "La Réunion" }, "geometry": { "type": "Point", "coordinates": [ -2.297571545496812, 44.555303036938625 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "06", "lib_reg": "Mayotte" }, "geometry": { "type": "Point", "coordinates": [ -2.172175314731111, 45.551024801937729 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "11", "lib_reg": "Île-de-France" }, "geometry": { "type": "Point", "coordinates": [ 2.503356626548497, 48.710713444705419 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "24", "lib_reg": "Centre-Val de Loire" }, "geometry": { "type": "Point", "coordinates": [ 1.685984378869189, 47.483089013391634 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "27", "lib_reg": "Bourgogne-Franche-Comté" }, "geometry": { "type": "Point", "coordinates": [ 4.808389134046165, 47.234324184767196 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "28", "lib_reg": "Normandie" }, "geometry": { "type": "Point", "coordinates": [ 0.10787140378749, 49.119075234473875 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "32", "lib_reg": "Hauts-de-France" }, "geometry": { "type": "Point", "coordinates": [ 2.768956938045132, 49.969904487152007 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "44", "lib_reg": "Grand Est" }, "geometry": { "type": "Point", "coordinates": [ 5.612279222492855, 48.68916974523448 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "52", "lib_reg": "Pays de la Loire" }, "geometry": { "type": "Point", "coordinates": [ -0.813090165303573, 47.477264611289883 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "53", "lib_reg": "Bretagne" }, "geometry": { "type": "Point", "coordinates": [ -2.837873685567258, 48.179330772600359 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "75", "lib_reg": "Nouvelle-Aquitaine" }, "geometry": { "type": "Point", "coordinates": [ 0.213578717754645, 45.202606813483833 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "76", "lib_reg": "Occitanie" }, "geometry": { "type": "Point", "coordinates": [ 2.147656248402642, 43.702562678011709 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "84", "lib_reg": "Auvergne-Rhône-Alpes" }, "geometry": { "type": "Point", "coordinates": [ 4.536569287314451, 45.514730295604679 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "93", "lib_reg": "Provence-Alpes-Côte d'Azur" }, "geometry": { "type": "Point", "coordinates": [ 6.056740984855986, 43.957359999601103 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "94", "lib_reg": "Corse" }, "geometry": { "type": "Point", "coordinates": [ 9.108209246821476, 42.151866367555527 ] } }
+]
+}

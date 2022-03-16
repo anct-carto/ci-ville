@@ -1,6 +1,6 @@
 <template>
-      <div>
         <canvas id="theme-chart"></canvas>
+      <div>
       </div>
 </template>
 
@@ -8,7 +8,7 @@
 <script>
 
 import Chart from 'chart.js/auto';
-import actionsSource from '@/assets/actions_financees2.json'
+import actionsSource from '@/assets/actions-2020.json'
 import * as aq from 'arquero'
 import {mapState} from 'vuex'
 
@@ -37,22 +37,21 @@ export default {
   watch: {
     filterCode() {
       this.actions = actionsSource.filter(e => {
-        return e.code_cv == this.filterCode
+        return e.codgeo == this.filterCode
       });
 
       this.actionsCount = this.countActions();
       let dataset = this.actionsCount.map(e => e.count );
       let labels = this.actionsCount.map(e => e.theme );
-      console.log(this.actionsCount);
       
       this.chart.data.datasets[0].data = dataset;
       this.chart.data.labels = labels;
+      console.log(dataset);
       this.chart.update()
     }
   },
   mounted() {
     this.createDoghnut();
-    console.log(this.$router.currentRoute._value.name);
   },
   methods: {
     createDoghnut() {
@@ -157,6 +156,12 @@ export default {
                 bodyFont:{
                   family:'Marianne-Regular'
                 },
+                // formattage texte tooltip
+                callbacks: {
+                  label: tooltip => {
+                    return `${tooltip.label} : ${tooltip.parsed.toLocaleString("fr-FR")}`
+                  }
+                }
               }
           },
           layout: {
@@ -207,15 +212,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-div {
-  width: 100%;
-  background-color: white;
-  padding:10px;
-  border-radius: 5px;
-}
 
 canvas {
-  height: 270px;
+  /* height: 270px; */
+  /* height:30vh */
+  /* height:30% */
 }
 
 

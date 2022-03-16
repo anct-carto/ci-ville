@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HomeComponent msg="Tableau de bord de suivi des actions menées dans le cadre de la politique de la ville"/>
+    <HomeComponent msg="Exploration des actions financées par les subventions de la politique de la ville"/>
   </div>
 </template>
 

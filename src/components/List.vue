@@ -4,8 +4,8 @@
                 id="select-transport"
                 data-live-search="true" 
                 v-model = "selected"
+                placeholder="Sélectionnez un territoire"
                 :onchange="onChange">
-            <input type="text" name="" id="">
             <option v-for="cv in cvList" :value="cv.code_cv" :key="cv.code_cv"> 
                 {{ cv.lib_cv}} ({{ cv.code_cv }})
             </option>

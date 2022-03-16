@@ -1,5 +1,81 @@
 -----------------------------------------------------------------
 
+## au 15 mars
+
+## UI ## 
+- stylisation
+
+## A FAIRE ##
+
+## Build ##
+- configuration fichier yml pour pages gitlab
+
+
+## Route ##
+- effacement des valeurs enregistrées pour chaque graphique
+
+## UI ##
+
+- hauteur fixe de la page : pas d'ascenseur
+- info bulle sur chaque composant decrivant l'indicateur et le filtre appliqué au clic
+- mise en forme "sélectionnez un XX" sur les composants requierant une sélection
+- construction page d'accueil avec : 
+    - logos, dessin vecteur, 
+    - introduction
+    - guide de démarrage
+    - source données
+    - réalisation, technos et code source
+    - ressources, liens utiles
+- bien faire la distinction en/hors contrat de ville
+- proposition sidebar plutôt navbar
+- séparation actions en/hors contrat de ville
+
+
+
+## Composants ## 
+
+Accueil
+- rubriques : 
+    - in
+
+Liste 
+- champ de saisie avec autocomplétion
+- alimenter la liste en fonction de l'échelle
+
+Chiffre clé
+- animation chiffres clés
+- ajout nb hab qpv
+
+Graphique 1 / doughnut:
+- clic une 2e fois pour désactiver le filtre et réinitialiser les chiffres
+- résolution bug couleurs 
+
+Graphique 2 / barres
+- utiliser comme filtre sur tableau
+
+Carte
+- animation cercle (bug pour le moment, cercles qui scintillent lorsque animation activée)
+- légende cercles proportionnels
+- garder proportionnalité des symboles entre échelle
+
+Tableau
+- pagination
+- entete de colonnes cliquables
+- font marianne
+- position fixe de l'en-tête
+
+
+## Données ##
+
+Données d'actions
+- décomposition sous-thème 1.5 lien social
+- affichage des limites de CDV à partir d'un certain zoom
+- harmonisation noms d'actions : suppression de l'année, du code département et nom contrat
+- intégration données 2021
+
+
+-----------------------------------------------------------------
+
 æ au 25 février 
 
 ## A FAIRE ##
@@ -8,13 +84,27 @@
 - build vers public plutôt que dist pour faciliter les push/commit
 
 
+## Composants ## 
+
+Génér
+
 Chiffre clé
 - nb structures
 - nb qpv
 
+Graphique 1 / doughnut:
+- clic une 2e fois pour désactiver le filtre et réinitialiser les chiffres
+
 Graphique 2
 - supprimer noms en abscisse
 - utiliser comme filtre sur tableau
+
+Carte
+- animation cercle (bug pour le moment, cercles qui scintillent lorsque animation activée)
+- légende cercles proportionnels
+
+
+
 
 -----------------------------------------------------------------
 
