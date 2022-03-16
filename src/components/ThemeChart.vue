@@ -1,6 +1,6 @@
 <template>
-        <canvas id="theme-chart"></canvas>
       <div>
+        <canvas id="theme-chart"></canvas>
       </div>
 </template>
 
@@ -167,8 +167,8 @@ export default {
           layout: {
             padding:10
           },
-          responsive: true,
-          maintainAspectRatio: false
+          responsive:true,
+          maintainAspectRatio:false
         }
       };
       
@@ -212,6 +212,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+div {
+  width: 100%;
+  background-color: white;
+  padding:1px;
+}
 
 canvas {
   /* height: 270px; */

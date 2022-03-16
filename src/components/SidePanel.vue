@@ -88,8 +88,8 @@ export default {
 <style scoped>
 
 .row {
-  margin-bottom: 10px;
-  /* align-items: stretch */
+  /* margin-bottom: 10px; */
 }
+
 
 </style>

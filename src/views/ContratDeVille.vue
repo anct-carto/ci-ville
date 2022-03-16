@@ -28,11 +28,8 @@
                 </Card>
               </div>
             </div>
-            <!-- <h5>Nombre d'actions financées par contrat de ville</h5>
-            <MapComponent id="map"/> -->
           </div>
       </div>
-    <!-- </div> -->
 </template>
 
 <script>

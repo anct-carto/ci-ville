@@ -38,6 +38,7 @@ export default {
   border-radius: 5px;
   padding:10px;
   margin-bottom:10px;
+  margin-top:10px;
   /* border:solid 1px #dfdfdf */
 }
 

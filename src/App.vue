@@ -1,9 +1,10 @@
 <template>
   <!-- <body class="d-flex flex-column vh-100"> -->
-  <body class="d-flex flex-column ">
-    <div class="row g-0 h-100" >
+  <body class="d-flex flex-column vh-100">
+    <!-- ajouter g-0 (gutters=0) permet de ne pas avoir d'ascenseur en horizontal -->
+    <div class="row g-0"> 
       <div class="col-sm-1">
-        <div id="nav" class="nav h-100">
+        <div id="nav" class="nav vh-100">
           <router-link to="/">Accueil</router-link> 
           <router-link to="/national">National</router-link> 
           <router-link to="/region">Région</router-link> 
@@ -11,8 +12,7 @@
           <router-link to="/contrat-de-ville">Contrat de ville</router-link> 
         </div>
       </div>
-      <div class="col-md-11">
-
+      <div class="col-sm-11">
         <router-view class="container-fluid"/>
       </div>
     </div>
@@ -63,7 +63,6 @@ export default {
 }
 
 html, body {
-  /* font-size:0.9em; */
   font-size:12.5px;
   font-family: 'Marianne-Regular' !important;
   background-color: #e6eaf5 !important;
