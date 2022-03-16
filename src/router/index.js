@@ -1,5 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import National from '../views/National.vue'
+import Region from '../views/Region.vue'
+import Departement from '../views/Departement.vue'
+import ContratDeVille from '../views/ContratDeVille.vue'
+
 
 const routes = [
   {
@@ -10,25 +15,22 @@ const routes = [
   {
     path: '/national',
     name: 'National',
-    component: () => import(/*webpackChunkName: "National"*/ '../views/National.vue'),
+    component: National,
   },
   {
     path: '/contrat-de-ville',
     name: 'ContratDeVille',
-    component: () => import(/*webpackChunkName: "ContratDeVille"*/ '../views/ContratDeVille.vue'),
+    component: ContratDeVille
   },
   {
     path: '/departement',
     name: 'Departement',
-    component: () => import(/*webpackChunkName: "Departement"*/ '../views/Departement.vue'),
+    component: Departement,
   },
   {
     path: '/region',
     name: 'Region',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "Region" */ '../views/Region.vue')
+    component: Region
   }
 ]
 

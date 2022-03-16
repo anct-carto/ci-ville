@@ -9,6 +9,7 @@ pages:
   stage: deploy
   script:
     # - echo "Nothing to do…"
+    - echo $CI_PROJECT_NAME
     - shopt -s extglob
     - mv public public-vue
     - mv dist public
