@@ -8,7 +8,11 @@
 pages:
   stage: deploy
   script:
-    - echo "Nothing to do…"
+    # - echo "Nothing to do…"
+    - npm ci
+    - npm run build
+    - mv public public-vue # GitLab Pages hooks on the public folder
+    - mv dist public
   artifacts:
     paths:
       - public
