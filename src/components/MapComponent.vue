@@ -5,8 +5,6 @@
 
 <script>
 
-// import actions from '@/assets/actions_financees.json'
-// import cv_geom from '@/assets/cv_geom.json'
 import cv_geom from '@/assets/geom_cv_ctr.json'
 import dep_geom_ctr from '@/assets/geom_dep_ctr.json'
 import reg_geom_ctr from '@/assets/geom_reg_ctr.json'
