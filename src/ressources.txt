@@ -32,3 +32,6 @@ https://gis.stackexchange.com/questions/368461/using-circlemarker-with-mouseover
 
 # sticky header
 https://css-tricks.com/position-sticky-and-table-headers/
+
+# chartjs maintain ratio / fill parent's height
+https://stackoverflow.com/questions/45485323/chart-js-not-height-responsive

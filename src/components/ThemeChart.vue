@@ -168,7 +168,8 @@ export default {
             padding:10
           },
           responsive:true,
-          maintainAspectRatio:false
+          maintainAspectRatio:false,
+          aspectRatio: 1, 
         }
       };
       
