@@ -1,11 +1,11 @@
 <template>
     <!-- <div class="container"> -->
     <!-- <div class="container-fluid"> -->
-      <div class="row no-gutters">
-          <div class="col-md-5" id="sidepanel-container">
+      <div class="row">
+          <div class="col-sm-5" id="sidepanel-container">
             <SidePanel id="sidepanel"/>
           </div>
-          <div class="col-md-7 map-container">
+          <div class="col-sm-7 map-container">
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Nombre d'actions par contrat de ville</button>
@@ -57,9 +57,5 @@ export default {
   overflow-x: hidden;
 }
 
-#map-container {
-  display: flex;
-  flex: 2;
-}
 
 </style>

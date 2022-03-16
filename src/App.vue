@@ -1,9 +1,9 @@
 <template>
   <!-- <body class="d-flex flex-column vh-100"> -->
-  <body class="vh-100">
+  <body>
     <!-- ajouter g-0 (gutters=0) permet de ne pas avoir d'ascenseur en horizontal -->
     <div class="row g-0"> 
-      <div class="col-sm-1">
+      <div class="col-1">
         <div id="nav" class="nav vh-100">
           <router-link to="/">Accueil</router-link> 
           <router-link to="/national">National</router-link> 
@@ -12,7 +12,7 @@
           <router-link to="/contrat-de-ville">Contrat de ville</router-link> 
         </div>
       </div>
-      <div class="col-sm-11">
+      <div class="col-11">
         <router-view class="container-fluid"/>
       </div>
     </div>
