@@ -29,7 +29,6 @@ export default {
   props: ['echelle','idGeo','libGeo'],
   data() {
     return {
-      // cvGeom:cv_geom,
       depGeom:dep_geom,
       cerclesDrom:cercles_drom
     }
