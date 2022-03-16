@@ -63,7 +63,8 @@ export default {
 }
 
 html, body {
-  font-size:0.9em;
+  /* font-size:0.9em; */
+  font-size:12.5px;
   font-family: 'Marianne-Regular' !important;
   background-color: #e6eaf5 !important;
   margin:0;
@@ -102,10 +103,6 @@ html, body {
 .container-fluid {
   padding:10px;
   display: inline-block;
-}
-
-.row {
-  align-items: stretch
 }
 
 @import'~bootstrap/dist/css/bootstrap.css'
