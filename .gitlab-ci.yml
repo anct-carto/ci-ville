@@ -12,7 +12,7 @@ pages:
     - echo $CI_PROJECT_NAME
     - shopt -s extglob
     - mv public public-vue
-    - mv dist public
+    - mv dist publique
   artifacts:
     paths:
       - public
