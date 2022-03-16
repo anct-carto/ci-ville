@@ -1,6 +1,6 @@
 <template>
   <!-- <body class="d-flex flex-column vh-100"> -->
-  <body class="d-flex flex-column vh-100">
+  <body class="vh-100">
     <!-- ajouter g-0 (gutters=0) permet de ne pas avoir d'ascenseur en horizontal -->
     <div class="row g-0"> 
       <div class="col-sm-1">

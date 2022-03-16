@@ -57,5 +57,9 @@ export default {
   overflow-x: hidden;
 }
 
+#map-container {
+  display: flex;
+  flex: 2;
+}
 
 </style>
