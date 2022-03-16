@@ -5,7 +5,6 @@
       <div class="col-sm-1">
         <div id="nav" class="nav h-100">
           <router-link to="/">Accueil</router-link> 
-          <h5>Hors contrat de ville</h5>
           <router-link to="/national">National</router-link> 
           <router-link to="/region">Région</router-link> 
           <router-link to="/departement">Département</router-link> 
