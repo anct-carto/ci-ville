@@ -72,8 +72,9 @@ export default {
       let map = L.map('map', {
         zoomControl:false,
         zoomSnap:0.05,
-        minZoom:6,
-      }).setView([46.413220, 1.219482],6);
+        minZoom:5.75,
+      })
+      // .setView([46.413220, 1.219482],6);
 
       L.control.zoom({position:'topright'}).addTo(map);
       // ajout fond cercles drom
