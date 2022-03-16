@@ -10,7 +10,7 @@ pages:
   script:
     # - echo "Nothing to do…"
     - shopt -s extglob
-    - mv !(public) public-vue
+    - mv public public-vue
     - mv dist public
   artifacts:
     paths:
