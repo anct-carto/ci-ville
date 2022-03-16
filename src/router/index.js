@@ -10,17 +10,17 @@ const routes = [
   {
     path: '/national',
     name: 'National',
-    component: () => import(/*webpackChunkName: "MapView"*/ '../views/National.vue'),
+    component: () => import(/*webpackChunkName: "National"*/ '../views/National.vue'),
   },
   {
     path: '/contrat-de-ville',
     name: 'ContratDeVille',
-    component: () => import(/*webpackChunkName: "MapView"*/ '../views/ContratDeVille.vue'),
+    component: () => import(/*webpackChunkName: "ContratDeVille"*/ '../views/ContratDeVille.vue'),
   },
   {
     path: '/departement',
     name: 'Departement',
-    component: () => import(/*webpackChunkName: "MapView"*/ '../views/Departement.vue'),
+    component: () => import(/*webpackChunkName: "Departement"*/ '../views/Departement.vue'),
   },
   {
     path: '/region',
@@ -28,7 +28,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Region.vue')
+    component: () => import(/* webpackChunkName: "Region" */ '../views/Region.vue')
   }
 ]
 

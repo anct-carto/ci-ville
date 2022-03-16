@@ -9,9 +9,8 @@ pages:
   stage: deploy
   script:
     # - echo "Nothing to do…"
-    - npm ci
-    - npm run build
-    - mv public public-vue # GitLab Pages hooks on the public folder
+    - shopt -s extglob
+    - mv !(public) public-vue
     - mv dist public
   artifacts:
     paths:
