@@ -148,13 +148,7 @@ export default {
 }
 </script>
 
-<style scoped>
-    canvas {
-        /* height: 300px;   */
-        /* height: 30vh; */
-        /* height: 25% !important; */
-    }
-    
+<style scoped>   
     div {
         width: 100%;
         background-color: white;

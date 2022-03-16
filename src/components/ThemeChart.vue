@@ -218,11 +218,6 @@ div {
   padding:1px;
 }
 
-canvas {
-  /* height: 270px; */
-  /* height:30vh */
-  /* height:30% */
-}
 
 
 </style>
