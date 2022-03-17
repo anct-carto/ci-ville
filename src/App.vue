@@ -4,7 +4,7 @@
     <!-- ajouter g-0 (gutters=0) permet de ne pas avoir d'ascenseur en horizontal -->
     <div class="row g-0"> 
       <div class="col-1 d-flex flex-column">
-        <div id="nav" class="nav h-100">
+        <div id="nav" class="nav vh-100">
           <router-link to="/">Accueil</router-link> 
           <router-link to="/national">National</router-link> 
           <router-link to="/region">Région</router-link> 
