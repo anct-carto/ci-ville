@@ -1,10 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import National from '../views/National.vue'
-import Region from '../views/Region.vue'
-import Departement from '../views/Departement.vue'
-import ContratDeVille from '../views/ContratDeVille.vue'
-
 
 const routes = [
   {
@@ -15,22 +10,22 @@ const routes = [
   {
     path: '/national',
     name: 'National',
-    component: National,
+    component:() => import(/* webpackChunkName: "national" */ '../views/National.vue')
   },
   {
     path: '/contrat-de-ville',
     name: 'ContratDeVille',
-    component: ContratDeVille
+    component:() => import(/* webpackChunkName: "contrat-de-ville" */ '../views/ContratDeVille.vue')
   },
   {
     path: '/departement',
     name: 'Departement',
-    component: Departement,
+    component:() => import(/* webpackChunkName: "departement" */ '../views/Departement.vue')
   },
   {
     path: '/region',
     name: 'Region',
-    component: Region
+    component:() => import(/* webpackChunkName: "region" */ '../views/Region.vue')
   }
 ]
 

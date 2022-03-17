@@ -35,3 +35,6 @@ https://css-tricks.com/position-sticky-and-table-headers/
 
 # chartjs maintain ratio / fill parent's height
 https://stackoverflow.com/questions/45485323/chart-js-not-height-responsive
+
+# vue lazy loading components
+https://router.vuejs.org/guide/advanced/lazy-loading.html#with-webpack
