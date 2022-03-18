@@ -44,6 +44,7 @@ export default {
     text-align: center;
     /* white-space: pre; */
     margin: 15px 0 8px 0;
+    padding: 5px;
 }
 
 .chiffre-cle {
