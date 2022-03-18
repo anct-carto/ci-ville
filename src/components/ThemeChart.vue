@@ -8,7 +8,6 @@
 <script>
 
 import Chart from 'chart.js/auto';
-import actionsSource from '@/assets/actions-2020.json'
 import * as aq from 'arquero'
 import {mapState} from 'vuex'
 
@@ -17,32 +16,30 @@ export default {
   data() {
     this.chart = null
     return {
-      actions:this.$store.state.data,
       filterMode:false,
       clicked:false
     }
   },
   computed: {
     ...mapState({
+      actions: state => state.data,
       filterCode: state => state.filterCode,
+      filteredData: state => state.filteredData
     }),
-    // actions() {
-    //   return this.$store.state.filteredData
-    // },
     actionsCount() {
-      let actionsCount = this.countActions()
+      let actionsCount = this.countActions(this.actions)
       return actionsCount
     },
   },
   watch: {
     filterCode() {
-      this.actions = actionsSource.filter(e => {
+      let filteredByCode = this.actions.filter(e => {
         return e.codgeo == this.filterCode
       });
+      let actionsCount = this.countActions(filteredByCode);
 
-      this.actionsCount = this.countActions();
-      let dataset = this.actionsCount.map(e => e.count );
-      let labels = this.actionsCount.map(e => e.theme );
+      let dataset = actionsCount.map(e => e.count );
+      let labels = actionsCount.map(e => e.theme );
       
       this.chart.data.datasets[0].data = dataset;
       this.chart.data.labels = labels;
@@ -199,8 +196,8 @@ export default {
       });
       return bgColorsArray
     },
-    countActions() {
-      return aq.from(this.actions)
+    countActions(data) {
+      return aq.from(data)
             .groupby('theme')
             .count()
             .orderby('theme')
