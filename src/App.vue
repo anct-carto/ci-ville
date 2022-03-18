@@ -91,10 +91,8 @@ html, body {
 }
 
 #nav a.router-link-exact-active {
-  /* background-color: #d24b6b; */
   background: #3c6cd3;
   border-left: solid 4px #d24b6b !important;
-  font-family: 'Marianne-Extrabold';
 }
 
 
