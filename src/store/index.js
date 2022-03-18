@@ -5,9 +5,6 @@ import actionsFinancees from '@/assets/actions-2020.json'
 
 export default createStore({
   state: {
-    // data:actionsFinancees,
-    // filteredData:actionsFinancees,
-    map:'',
     filterCode:null,
     filterKey:null,
     themeColor:'gray',
@@ -65,6 +62,8 @@ export default createStore({
           state.filterkey = null
           state.filteredData = state.data
           state.themeColor = 'gray'
+          console.log("couleur thème : " + state.themeColor);
+          console.log(state.filterkey);
           break;
       }
     },

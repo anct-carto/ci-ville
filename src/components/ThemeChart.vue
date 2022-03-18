@@ -85,29 +85,43 @@ export default {
               let color = chart.data.datasets[point[0].datasetIndex].backgroundColor[point[0].index];
               let themeSelected = chart.data.datasets[point[0].datasetIndex].labels[point[0].index];
 
-              this.selected = themeSelected
-              // 2. ... à transmettre au store
-              this.$store.commit('crossFilter',{type:'theme',value:themeSelected}); // filtrage de tout le jeu de données sur le thème
-              this.$store.commit('updateThemeColor',color); // thème sélectionné à appliquer à la carte
-  
-              // 3. style en gris les autres éléments du graphique
               let datasetColors = chart.data.datasets[point[0].datasetIndex].backgroundColor;
-  
-              for(let i=0;i<datasetColors.length;i++) {
-                if(datasetColors[i] != color) {
-                  datasetColors[i] = "lightgrey"
-                } else {
+
+              // 2. ... à transmettre au store
+              // 2.1 ...si thème sélectionné est nouveau ou est différent du précédent sélectionné
+              if(themeSelected != this.selected) {
+                // enregistre la nouvelle variable
+                this.selected = themeSelected;
+
+                // filtre le filteredData dans le store
+                this.$store.commit('crossFilter',{type:'theme',value:themeSelected}); // filtrage de tout le jeu de données sur le thème
+                this.$store.commit('updateThemeColor',color); // thème sélectionné à appliquer à la carte
+
+                // style en gris les autres éléments du graphique
+                for(let i=0;i<datasetColors.length;i++) {
+                  if(datasetColors[i] != color) {
+                    datasetColors[i] = "lightgrey"
+                  } else {
+                    datasetColors[i] = this.getbgColors()[i]
+                  }
+                }
+              } else {
+                console.log(this.selected);
+                // 2.2 .. sinon efface le filtre thème appliqué
+                // enregistre la nouvelle variable
+                this.selected = null;
+
+                this.$store.commit('clearFilter','theme');
+                this.$store.commit('updateThemeColor','gray');
+
+                // remet les couleurs d'origine 
+                for(let i=0;i<datasetColors.length;i++) {
                   datasetColors[i] = this.getbgColors()[i]
                 }
               }
-  
+              
+              // actualise le graphique
               this.chart.update();
-              // si cliqué précédemment
-              // if(this.selected != themeSelected) {
-              // } else {
-              //   console.log(this.selected);
-              //   this.$store.commit('clearFilter','theme')
-              // }
             }
           },
           onHover:(evt,activeElem) => {
