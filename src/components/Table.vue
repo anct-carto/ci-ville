@@ -37,7 +37,7 @@ export default {
         overflow-y:auto;
         display:inline-block;
         width: 100%;
-        height:85vh;
+        height:calc(100vh - 60px) !important;
         background: white;
         border-radius: 4px;
     }

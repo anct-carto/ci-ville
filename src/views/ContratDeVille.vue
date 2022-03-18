@@ -20,12 +20,10 @@
                               :libGeo="'lib_cv'"/>
               </div>
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <Card>
-                  <div v-if="this.$store.state.filterCode">
-                    <Table id="table-actions"/>
-                  </div>
-                  <div v-else>Sélectionnez un contrat de ville pour afficher la liste des actions menées</div>
-                </Card>
+                <div v-if="this.$store.state.filterCode">
+                  <Table id="table-actions"/>
+                </div>
+                <div v-else>Sélectionnez un contrat de ville pour afficher la liste des actions menées</div>
               </div>
             </div>
           </div>
@@ -37,14 +35,12 @@
 import MapComponent from '@/components/MapComponent.vue';
 import SidePanel from '@/components/SidePanel.vue';
 import Table from '@/components/Table.vue';
-import Card from '@/components/CardComponent.vue';
 
 export default {
   components: {
     MapComponent,
     SidePanel,
     Table,
-    Card
   }
 }
 </script>
