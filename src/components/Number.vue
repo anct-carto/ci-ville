@@ -1,7 +1,14 @@
 <template>
     <div class="chiffre-cle-wrapper">
         <span class="chiffre-cle"> 
-            {{ chiffreCle.toLocaleString("fr-FR") }}
+            <span v-if="chiffreCle>1000000">
+                {{ (chiffreCle/1000000).toLocaleString("fr-FR", {
+                    maximumFractionDigits: 2
+                }) }} M
+            </span>
+            <span v-else>
+                {{ chiffreCle.toLocaleString("fr-FR") }}
+            </span>
         </span><br>
         <span class="text"> {{ texte }}</span>
     </div>
