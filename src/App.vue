@@ -104,6 +104,11 @@ html, body {
   height:100px !important
 }
 
+.nav-link {
+  font-family: 'Marianne-Bold';
+  font-size: 1.3em;
+}
+
 @import'~bootstrap/dist/css/bootstrap.css'
 
 </style>

@@ -1,6 +1,4 @@
 <template>
-    <!-- <div class="container"> -->
-    <!-- <div class="container-fluid"> -->
       <div class="row ">
           <div class="col-sm-5 d-flex flex-column h-100" id="sidepanel-container">
               <SidePanel id="sidepanel"/>
@@ -23,7 +21,7 @@
                 <div v-if="this.$store.state.filterCode">
                   <Table id="table-actions"/>
                 </div>
-                <div v-else>Sélectionnez un contrat de ville pour afficher la liste des actions menées</div>
+                <span v-else>Sélectionnez un contrat de ville pour consulter la liste des actions</span>
               </div>
             </div>
           </div>

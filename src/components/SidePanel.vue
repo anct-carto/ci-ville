@@ -1,7 +1,7 @@
 <template>
       <div id="sidepanel" class="d-flex flex-column h-100">
         <div class="row ">
-          <i>Sélectionnez un contrat de ville dans la liste ci-dessous 
+          <i>Pour démarrer, sélectionnez un territoire ci-dessous 
             ou sur la carte ci-contre.</i>
           <List :filterCodeFromStore="filterCode"/>
           <div class="col-3">
