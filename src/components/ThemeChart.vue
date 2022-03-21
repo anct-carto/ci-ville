@@ -33,17 +33,24 @@ export default {
   },
   watch: {
     filterCode() {
-      let filteredByCode = this.actions.filter(e => {
-        return e.codgeo == this.filterCode
-      });
-      let actionsCount = this.countActions(filteredByCode);
+      let actionsCount
+      if(this.filterCode) {
+        let filteredByCode = this.actions.filter(e => {
+          return e.codgeo == this.filterCode
+        });
+        actionsCount = this.countActions(filteredByCode);        
+      } else {
+        actionsCount = this.countActions(this.actions)
+      }
 
       let dataset = actionsCount.map(e => e.count );
       let labels = actionsCount.map(e => e.theme );
       
       this.chart.data.datasets[0].data = dataset;
       this.chart.data.labels = labels;
-      console.log(dataset);
+      this.chart.data.datasets[0].labels = labels;
+      // this.chart.data.datasets[0].backgroundColor = this.getbgColors();
+      console.table(this.chart.data.datasets[0].backgroundColor);
       this.chart.update()
     }
   },
@@ -84,7 +91,6 @@ export default {
 
               let color = chart.data.datasets[point[0].datasetIndex].backgroundColor[point[0].index];
               let themeSelected = chart.data.datasets[point[0].datasetIndex].labels[point[0].index];
-
               let datasetColors = chart.data.datasets[point[0].datasetIndex].backgroundColor;
 
               // 2. ... à transmettre au store
@@ -111,7 +117,7 @@ export default {
                 // enregistre la nouvelle variable
                 this.selected = null;
 
-                this.$store.commit('clearFilter','theme');
+                this.$store.dispatch('resetTheme');
                 this.$store.commit('updateThemeColor','gray');
 
                 // remet les couleurs d'origine 
