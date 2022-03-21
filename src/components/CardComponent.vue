@@ -2,13 +2,15 @@
   <div class="widget">
       <div class="header">
           {{ title }}
-          <span class="circle" style="float:right"
+          <span class="circle"
                 v-if="about"
-                @mouseover="showTooltip=true" 
+                @mousemove="displayTooltip" 
                 @mouseout="showTooltip=false">
                 ?
           </span>
-          <div class="card-tooltip" v-if="showTooltip">
+          <div class="card-tooltip" v-if="showTooltip" 
+                id="cardTooltip"
+                :style="style">
               {{ about }}
           </div>
       </div>
@@ -23,7 +25,21 @@ export default {
     props: ['title','about'],
     data() {
         return {
-            showTooltip:false
+            showTooltip:false,
+            style:''
+        }
+    },
+    methods: {
+        displayTooltip(e) {
+            this.showTooltip = true;
+
+            // faire bouger l'étiquette en fonction de la div
+            let left = e.pageX;
+            let top = e.pageY;
+            this.style = {
+                left: left + 'px',
+                top: top + 'px'
+            };
         }
     },
 }
@@ -45,10 +61,12 @@ export default {
 .header {
     font-family: 'Marianne-Bold';
     font-size: 1.3em;
+    display: flex;
 }
 
 
 .circle {
+    margin-left: auto;
     border:solid 2px rgb(187, 187, 187);
     border-radius:15px;
     width: 25px;
@@ -61,12 +79,12 @@ export default {
 }
 
 .card-tooltip {
-    display: block;
-    position: absolute;
+    margin-left: auto;
+    position:fixed;
     background: rgb(252, 252, 252);
     box-shadow: 0 2px 2px rgba(0,0,0,.09), 0 0px 2px rgba(0,0,0,.1);
-    margin-left:350px;
-	margin-top:-10px;
+    /* margin-left:350px;*/
+	/* margin-top:-10px; */
     z-index: 1000;
     max-width: 300px;
     padding: 5px 10px 5px 10px;
