@@ -1,8 +1,8 @@
 <template>
     <div>
         <select class="form-select" 
-                id="select-transport"
-                data-live-search="true" 
+                id="select-geo"
+                autocomplete="off"
                 v-model = "selected"
                 placeholder="Sélectionnez un territoire"
                 :onchange="onChange">
@@ -10,14 +10,18 @@
                 {{ cv.libgeo}} ({{ cv.codgeo }})
             </option>
         </select>
+        <vSelect :options="actions" label="libgeo"></vSelect>
     </div>
 </template>
 
 <script>
+import vSelect from 'vue-select'
+
 
 export default {
     name:'List',
     props:['filterCodeFromStore'],
+    component:vSelect,
     data() {
         return {
             selected:''
@@ -33,7 +37,6 @@ export default {
             return this.$store.state.data
         },
         cvList() {
-            console.log(this.$store.getters.geoList);
             return this.$store.state.cvList
             // let sortedArray = this.actions.filter(e => {
             //     return e.code_cv != "HORSCONTVILLE"
@@ -64,3 +67,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    select {
+        display: block;
+    }
+</style>
