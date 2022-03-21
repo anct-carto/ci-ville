@@ -1,5 +1,4 @@
 <template>
-  <!-- <body class="d-flex flex-column vh-100"> -->
   <body>
     <!-- ajouter g-0 (gutters=0) permet de ne pas avoir d'ascenseur en horizontal -->
     <div class="row g-0 vh-100"> 
@@ -75,6 +74,8 @@ html, body {
   text-align: center;
   display: block;
   height: 100% !important;
+  -webkit-box-shadow: 7px 2px 4px -7px rgba(0,0,0,0.56); 
+  box-shadow: 7px 2px 4px -7px rgba(0,0,0,0.56);
 }
 
 #nav a {

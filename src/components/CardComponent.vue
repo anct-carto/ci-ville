@@ -1,21 +1,24 @@
 <template>
-  <div class="widget">
-      <div class="header">
-          {{ title }}
-          <span class="circle"
-                v-if="about"
-                @mousemove="displayTooltip" 
-                @mouseout="showTooltip=false">
-                ?
-          </span>
-          <div class="card-tooltip" v-if="showTooltip" 
-                id="cardTooltip"
-                :style="style">
-              {{ about }}
-          </div>
-      </div>
-      <div class="body">
-          <slot></slot>
+  <div class="widget row justify-content-center flex-grow-1">
+      <div class="col-12">
+        <div class="header">
+            {{ title }}
+            <span class="circle"
+                    v-if="about"
+                    @mousemove="displayTooltip" 
+                    @mouseout="showTooltip=false">
+                    ?
+            </span>
+            <div class="card-tooltip" v-if="showTooltip" 
+                    id="cardTooltip"
+                    :style="style">
+                {{ about }}
+            </div>
+        </div>
+        <div class="body">
+            <slot></slot>
+        </div>
+
       </div>
   </div>
 </template>
@@ -53,7 +56,7 @@ export default {
   box-shadow: 0 2px 2px rgba(0,0,0,.02), 0 0px 2px rgba(0,0,0,.01);
   border-radius: 5px;
   padding:10px;
-  margin-bottom:10px;
+  /* margin-bottom:10px; */
   margin-top:10px;
   /* border:solid 1px #dfdfdf */
 }
@@ -93,6 +96,15 @@ export default {
     font-family:'Marianne-Regular';
     font-size:0.7em;
     border-radius: 4px;
+}
+
+/* SOLUTION POUR GARDER ASPECT GRAPHIQUES AU ZOOM */
+.body > div {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 </style>

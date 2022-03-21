@@ -1,9 +1,9 @@
 <template>
     <!-- <div class="container"> -->
     <!-- <div class="container-fluid"> -->
-      <div class="row">
-          <div class="col-sm-5" id="sidepanel-container">
-            <SidePanel id="sidepanel"/>
+      <div class="row ">
+          <div class="col-sm-5 d-flex flex-column h-100" id="sidepanel-container">
+              <SidePanel id="sidepanel"/>
           </div>
           <div class="col-sm-7 map-container">
             <nav>
@@ -49,7 +49,7 @@ export default {
 
 #sidepanel {
   /* height: calc(100vh - 34px); */
-  overflow-y: auto;
+  /* overflow-y: auto; */
   overflow-x: hidden;
 }
 

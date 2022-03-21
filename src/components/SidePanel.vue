@@ -1,6 +1,6 @@
 <template>
-      <div id="sidepanel">
-        <div class="row">
+      <div id="sidepanel" class="d-flex flex-column h-100">
+        <div class="row ">
           <i>Sélectionnez un contrat de ville dans la liste ci-dessous 
             ou sur la carte ci-contre.</i>
           <List :filterCodeFromStore="filterCode"/>
@@ -25,22 +25,15 @@
                     />
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <Card :title="`Nombre d'actions par thème`" 
-                  :about='"Sélectionnez un thème pour filtrer les valeurs des chiffres clés et de la carte"'>
-              <ThemeChart/>
-            </Card>
-          </div>  
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <Card :title="`Nombre d'actions par sous-thème`"
-                  :about='"Sélectionnez un sous-thème pour filtrer la table des actions"'>
-              <SubThemeChart v-if="filterKey"/>
-            </Card>
-          </div>  
-        </div>
+          <Card :title="`Nombre d'actions par thème`" 
+                :about='"Sélectionnez un thème pour filtrer les valeurs des chiffres clés et de la carte"'>
+            <ThemeChart/>
+          </Card>
+          <Card :title="`Nombre d'actions par sous-thème`"
+                :about='"Sélectionnez un sous-thème pour filtrer la table des actions"'>
+            <SubThemeChart v-if="filterKey"/>
+            <span class="msg-else" v-else>Sélectionnez un thème pour accéder à la répartition par sous-thème</span>
+          </Card>
         <!-- <h5>Liste des actions engagées</h5>
           <div v-if="this.$store.state.filterCode">
             <Table class="widget" />
@@ -64,10 +57,10 @@ export default {
   name: 'SidePanel',
   components: {
     ThemeChart,
+    SubThemeChart,
     List,
     // Table,
     Number,
-    SubThemeChart,
     Card
   },
   computed: {
@@ -87,5 +80,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.msg-else {
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+}
 
 </style>
