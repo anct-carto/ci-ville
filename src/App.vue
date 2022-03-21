@@ -30,8 +30,8 @@ export default {
   methods: {
     updateData(filter) {
       this.$store.commit('getDataByPage',filter)
-      this.$store.commit('clearFilter','theme')
-      this.$store.commit('clearFilter','cdv')
+      this.$store.dispatch('resetTheme')
+      this.$store.dispatch('resetCodegeo')
     },
   },
 }
