@@ -102,12 +102,17 @@ export default {
       // map.fitBounds(geomDepLayer.getBounds())
       map.fitBounds(bgGeom.getBounds().pad(0.2,0.2,0.2,0.2))
 
+      map.on("click", () => {
+        this.clickedBubbleLayer.clearLayers()
+        this.$store.dispatch('resetCodegeo')
+      })
+
       return map
     },
     // 3. CALQUES
     bubbleLayer() {
       // calque accueillant les cercles proportionnels
-      return L.featureGroup({interactive:true}).addTo(this.map)
+      return L.featureGroup({interactive:true, className:'bubbles'}).addTo(this.map)
     },
     clickedBubbleLayer() {
       // calque accueillant le cercle surligné de l'élément cliqué
@@ -266,7 +271,8 @@ export default {
             interactie:true,
             pane: 'markerPane'
           })
-          .on("click", () => {
+          .on("click", (e) => {
+            L.DomEvent.stopPropagation(e);
             let code = feature.properties[this.idGeo];
             this.$store.commit('crossFilter',{type:'cdv',value:code});
 

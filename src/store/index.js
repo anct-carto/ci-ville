@@ -8,7 +8,6 @@ export default createStore({
     filterCode:null,
     filterKey:null,
     themeColor:'gray',
-    filters:[]
   },
   getters: {
     nbStructures(state) {
@@ -20,6 +19,20 @@ export default createStore({
     montant(state) {
       return state.filteredData.map(e => e.montant).reduce((a,b) => a + b,0);
     },
+    geoList(state) {
+      let sortedArray = state.data.sort((a,b) => {
+          if(a.lib_cv<b.lib_cv) return -1
+          if(a.lib_cv>b.lib_cv) return 1
+          return 0
+      });
+      let uniqueValues = sortedArray.map(e => {
+          let columns = ['lib_cv','code_cv'];
+          let key = columns.map(k => e[k]).join('|');
+          return [key,e]
+      });
+      uniqueValues = new Map(uniqueValues);
+      return Array.from(uniqueValues.values())
+    }
   },
   mutations: {
     updateThemeColor(state,color) {
@@ -31,6 +44,7 @@ export default createStore({
 
       switch (type) {
         case "theme":
+          console.log(value); // brest metropole
           state.filterKey = value;
           if(state.filterCode) {
             console.log("filtre actif sur THEME et CDV");
@@ -39,9 +53,11 @@ export default createStore({
             console.log("filtre actif sur THEME");
             state.filteredData = state.data.filter(e => e.theme == value);
           }
+          console.table(state.filteredData);
           break;
         case "cdv":
           state.filterCode = value;
+          // debugger; // eslint-disable-line no-debugger
           if(state.filterKey) {
             console.log("filtre actif sur CDV et THEME");
             state.filteredData = state.data.filter(e => e.code_cv == value & e.theme == state.filterKey);
@@ -62,34 +78,51 @@ export default createStore({
           state.filterkey = null
           state.filteredData = state.data
           state.themeColor = 'gray'
-          console.log("couleur thème : " + state.themeColor);
-          console.log(state.filterkey);
           break;
       }
     },
     getDataByPage(state,filter) {
-      console.log(filter);
       switch (filter) {
         case "National":
           state.data = actionsFinancees.filter(e => e.echelle == "nat")
-          state.filteredData = state.data
           break;
         case "Region":
           state.data = actionsFinancees.filter(e => e.echelle == "reg")
-          state.filteredData = state.data
           break;
         case "Departement":
           state.data = actionsFinancees.filter(e => e.echelle == "dep")
-          state.filteredData = state.data
           break;
         case "ContratDeVille":
           state.data = actionsFinancees.filter(e => e.echelle == "cdv")
-          state.filteredData = state.data
           break;
+      }
+      state.filteredData = state.data
+    },
+    RESET_THEME(state) {
+      state.filterKey = null;
+      if(state.filterCode) {
+        state.filteredData = state.data.filter(e => e.code_cv == state.filterCode)
+      } else {
+        state.filteredData = state.data
+      }
+      state.themeColor = 'gray';
+    },
+    RESET_CODEGEO(state) {
+      state.filterCode = null;
+      if(state.filterKey) {
+        state.filteredData = state.data.filter(e => e.theme == state.filterKey)
+      } else {
+        state.filteredData = state.data
       }
     }
   },
   actions: {
+    resetTheme({commit}) {
+      commit('RESET_THEME')
+    },
+    resetCodegeo({commit}) {
+      commit('RESET_CODEGEO')
+    }
   },
   modules: {
   }
