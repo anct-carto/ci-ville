@@ -6,8 +6,8 @@
                 v-model = "selected"
                 placeholder="Sélectionnez un territoire"
                 :onchange="onChange">
-            <option v-for="cv in cvList" :value="cv.code_cv" :key="cv.code_cv"> 
-                {{ cv.lib_cv}} ({{ cv.code_cv }})
+            <option v-for="cv in cvList" :value="cv.codgeo" :key="cv.codgeo"> 
+                {{ cv.libgeo}} ({{ cv.codgeo }})
             </option>
         </select>
     </div>
@@ -34,7 +34,7 @@ export default {
         },
         cvList() {
             console.log(this.$store.getters.geoList);
-            return this.$store.getters.geoList
+            return this.$store.state.cvList
             // let sortedArray = this.actions.filter(e => {
             //     return e.code_cv != "HORSCONTVILLE"
             // }).sort((a,b) => {

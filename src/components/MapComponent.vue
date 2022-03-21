@@ -240,14 +240,15 @@ export default {
       });
       
       // alimenter liste contrats de ville présents sur la carte vers liste déroulante
-      this.$store.state.cvList = this.cvGeom.features.map(e => {
+      this.$store.state.cvList = this.cvGeom.features.filter(e => e.properties.count>0).
+      map(e => {
         return {
           codgeo:e.properties[this.idGeo],
-          lib_cv:e.properties[this.libGeo],
+          libgeo:e.properties[this.libGeo],
         }
       }).sort((a,b) => {
-                if(a[this.libGeo]<b[this.libGeo]) return -1
-                if(a[this.libGeo]>b[this.libGeo]) return 1
+                if(a.libgeo<b.libgeo) return -1
+                if(a.libgeo>b.libgeo) return 1
                 return 0
       });
     },

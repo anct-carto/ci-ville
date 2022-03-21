@@ -26,7 +26,7 @@ export default createStore({
           return 0
       });
       let uniqueValues = sortedArray.map(e => {
-          let columns = ['lib_cv','code_cv'];
+          let columns = ['lib_cv','codgeo'];
           let key = columns.map(k => e[k]).join('|');
           return [key,e]
       });
@@ -48,7 +48,7 @@ export default createStore({
           state.filterKey = value;
           if(state.filterCode) {
             console.log("filtre actif sur THEME et CDV");
-            state.filteredData = state.data.filter(e => e.theme == value & e.code_cv == state.filterCode);
+            state.filteredData = state.data.filter(e => e.theme == value & e.codgeo == state.filterCode);
           } else {
             console.log("filtre actif sur THEME");
             state.filteredData = state.data.filter(e => e.theme == value);
@@ -60,10 +60,10 @@ export default createStore({
           // debugger; // eslint-disable-line no-debugger
           if(state.filterKey) {
             console.log("filtre actif sur CDV et THEME");
-            state.filteredData = state.data.filter(e => e.code_cv == value & e.theme == state.filterKey);
+            state.filteredData = state.data.filter(e => e.codgeo == value & e.theme == state.filterKey);
           } else {
             console.log("filtre actif sur CDV");
-            state.filteredData = state.data.filter(e => e.code_cv == value);
+            state.filteredData = state.data.filter(e => e.codgeo == value);
           }
           break;
       }
@@ -101,7 +101,7 @@ export default createStore({
     RESET_THEME(state) {
       state.filterKey = null;
       if(state.filterCode) {
-        state.filteredData = state.data.filter(e => e.code_cv == state.filterCode)
+        state.filteredData = state.data.filter(e => e.codgeo == state.filterCode)
       } else {
         state.filteredData = state.data
       }
