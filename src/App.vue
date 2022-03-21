@@ -71,7 +71,6 @@ html, body {
 #nav {
   background: #5473b6;
   padding: 0px;
-  text-align: center;
   display: block;
   height: 100% !important;
   -webkit-box-shadow: 7px 2px 4px -7px rgba(0,0,0,0.56); 
@@ -80,7 +79,6 @@ html, body {
 
 #nav a {
   display: block;
-  text-align: center;
   font-weight: bold;
   color: white;
   padding: 5px 10px 5px 10px;
