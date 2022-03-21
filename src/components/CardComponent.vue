@@ -34,11 +34,11 @@ export default {
             this.showTooltip = true;
 
             // faire bouger l'étiquette en fonction de la div
-            let left = e.pageX;
-            let top = e.pageY;
+            let left = e.clientX;
+            let top = e.clientY;
             this.style = {
-                left: left + 'px',
-                top: top + 'px'
+                left: left-150 + 'px',
+                top: top-55 + 'px'
             };
         }
     },
@@ -75,13 +75,15 @@ export default {
     text-align: center;
     align-items: center;
     font-size:15px;
-    cursor:help;
+    cursor:default;
 }
 
 .card-tooltip {
     margin-left: auto;
     position:fixed;
-    background: rgb(252, 252, 252);
+    /* background: rgb(252, 252, 252); */
+    background: #5473b6;
+    color:white;
     box-shadow: 0 2px 2px rgba(0,0,0,.09), 0 0px 2px rgba(0,0,0,.1);
     /* margin-left:350px;*/
 	/* margin-top:-10px; */
