@@ -1,5 +1,31 @@
 -----------------------------------------------------------------
 
+## au 18 mars
+
+## FAIT ##
+
+- Réinitialisation des filtres thème/territoire
+
+---- BUILD -----
+
+- configuration fichier yml pour pages gitlab
+
+
+---- COMPOSANTS -----
+
+Carte
+- au clic à l'extérieur d'un cercle, effacer filtre territoire
+
+Graphique 1 / Doghnut
+- au 2e clic, effacer filtre thème
+
+
+
+
+
+
+-----------------------------------------------------------------
+
 ## au 15 mars
 
 ## UI ## 
