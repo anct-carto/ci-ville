@@ -38,3 +38,6 @@ https://stackoverflow.com/questions/45485323/chart-js-not-height-responsive
 
 # vue lazy loading components
 https://router.vuejs.org/guide/advanced/lazy-loading.html#with-webpack
+
+# git edit commits 
+https://stackoverflow.com/questions/454734/how-can-one-change-the-timestamp-of-an-old-commit-in-git
