@@ -100,7 +100,7 @@ export default {
       }).addTo(map)
       
       // map.fitBounds(geomDepLayer.getBounds())
-      map.fitBounds(bgGeom.getBounds().pad(0.2,0.2,0.2,0.2))
+      map.fitBounds(bgGeom.getBounds().pad(0.1,0.1,0.1,0.1))
 
       map.on("click", () => {
         this.clickedBubbleLayer.clearLayers()
