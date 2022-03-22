@@ -10,18 +10,18 @@
                 {{ cv.libgeo}} ({{ cv.codgeo }})
             </option>
         </select>
-        <vSelect :options="actions" label="libgeo"></vSelect>
+        <!-- <vSelect :options="actions" label="libgeo"></vSelect> -->
     </div>
 </template>
 
 <script>
-import vSelect from 'vue-select'
+// import vSelect from 'vue-select'
 
 
 export default {
     name:'List',
     props:['filterCodeFromStore'],
-    component:vSelect,
+    // component:vSelect,
     data() {
         return {
             selected:''
