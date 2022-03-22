@@ -1,6 +1,6 @@
 <template>
       <div class="row ">
-          <div class="col-sm-5 d-flex flex-column h-100" id="sidepanel-container">
+          <div class="col-sm-5 d-flex flex-column min-h-100" id="sidepanel-container">
               <SidePanel id="sidepanel"/>
           </div>
           <div class="col-sm-7 map-container">
