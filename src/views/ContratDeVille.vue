@@ -1,5 +1,5 @@
 <template>
-      <div class="row ">
+      <div class="row vh-100">
           <div class="col-sm-5 d-flex flex-column min-h-100" id="sidepanel-container">
               <SidePanel id="sidepanel"/>
           </div>
