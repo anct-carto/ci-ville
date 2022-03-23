@@ -114,6 +114,13 @@ export default {
                         },
                         tooltip: {
                             position: 'nearest',
+                            titleFont:{
+                                family:'Marianne-Regular',
+                                weight:'regular'
+                            },
+                            bodyFont:{
+                                family:'Marianne-Regular'
+                            },
                         }
                     },
                     layout: {
@@ -125,12 +132,18 @@ export default {
                                 display:false
                             },
                             ticks:{
-                                display:true
+                                display:true,
+                                font: {
+                                    family: 'Marianne-Regular'
+                                }
                             }
                         },
                         y: {
-                            tick: {
-                                precision:0
+                            ticks: {
+                                precision:0,
+                                font: {
+                                    family: 'Marianne-Regular'
+                                }
                             }
                         }
                     },
