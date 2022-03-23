@@ -60,14 +60,13 @@ export default {
 }
 
 #app {
-  font-family: 'Marianne-Regular';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 html, body {
   font-size:12.5px;
-  font-family: 'Marianne-Regular' !important;
+  font-family: 'Marianne-Regular', Arial, Helvetica, sans-serif !important;
   background-color: #e6eaf5 !important;
   margin:0;
   height: 100%;
@@ -105,6 +104,7 @@ html, body {
   font-family: 'Marianne-Bold';
   font-size: 1.3em;
 }
+
 
 @import'~bootstrap/dist/css/bootstrap.css'
 
