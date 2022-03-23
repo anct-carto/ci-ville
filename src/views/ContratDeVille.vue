@@ -1,6 +1,6 @@
 <template>
-      <div class="row vh-100">
-          <div class="col-sm-5 d-flex flex-column min-h-100" id="sidepanel-container">
+      <div class="row h-100">
+          <div class="col-sm-5" id="sidepanel-container">
               <SidePanel id="sidepanel"/>
           </div>
           <div class="col-sm-7 map-container">
@@ -48,7 +48,7 @@ export default {
 #sidepanel {
   /* height: calc(100vh - 34px); */
   /* overflow-y: auto; */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 

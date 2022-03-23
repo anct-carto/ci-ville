@@ -1,6 +1,6 @@
 <template>
-      <div class="row vh-100">
-          <div class="col-sm-5 d-flex flex-column min-h-100" id="sidepanel-container">
+      <div class="row h-100">
+          <div class="col-sm-5" id="sidepanel-container">
               <SidePanel id="sidepanel"/>
           </div>
           <div class="col-sm-7 map-container">
@@ -21,7 +21,7 @@
                 <div v-if="this.$store.state.filterCode">
                   <Table id="table-actions"/>
                 </div>
-                <div v-else>Sélectionnez un département pour consulter la liste des actions</div>
+                <span v-else>Sélectionnez un département pour consulter la liste des actions</span>
               </div>
             </div>
           </div>
