@@ -92,6 +92,7 @@ export default {
               let color = chart.data.datasets[point[0].datasetIndex].backgroundColor[point[0].index];
               let themeSelected = chart.data.datasets[point[0].datasetIndex].labels[point[0].index];
               let datasetColors = chart.data.datasets[point[0].datasetIndex].backgroundColor;
+              this.datasetColors = datasetColors
 
               // 2. ... à transmettre au store
               // 2.1 ...si thème sélectionné est nouveau ou est différent du précédent sélectionné
@@ -128,6 +129,21 @@ export default {
               
               // actualise le graphique
               this.chart.update();
+            } else {
+              console.log(this.selected);
+              // 2.2 .. sinon efface le filtre thème appliqué
+              // enregistre la nouvelle variable
+              this.selected = null;
+
+              this.$store.dispatch('resetTheme');
+              this.$store.commit('updateThemeColor','gray');
+
+              // remet les couleurs d'origine 
+              for(let i=0;i<this.datasetColors.length;i++) {
+                this.datasetColors[i] = this.getbgColors()[i]
+              }
+              this.chart.update();
+
             }
           },
           onHover:(evt,activeElem) => {
