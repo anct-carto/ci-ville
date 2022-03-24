@@ -1,9 +1,11 @@
 <template>
       <div id="sidepanel" class="d-flex flex-column h-100">
-        <div class="row ">
-          <i>Pour démarrer, sélectionnez un territoire ci-dessous 
-            ou sur la carte ci-contre.</i>
-          <List :filterCodeFromStore="filterCode"/>
+        <div class="row">
+          <div v-if="this.$route.name != 'National'">
+            <i>Pour démarrer, sélectionnez un territoire ci-dessous 
+              ou sur la carte ci-contre.</i>
+            <List :filterCodeFromStore="filterCode"/>
+          </div>
           <div class="col-3">
             <Number :chiffreCle="filteredData.length" 
                     :texte="'actions financées'"
