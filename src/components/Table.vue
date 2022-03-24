@@ -1,20 +1,19 @@
 <template>
-    <div>
+    <div class="table-responsive w-100">
         <!-- <span>Liste des actions dans le contrat de ville</span> -->
         <table class="table" data-toggle="table" data-pagination="true">
             <thead>
                 <tr>
                     <th scope="col">Libellé de d'action</th>
-                    <th scope="col">Structure</th>
-                    <th scope="col">Thème</th>
+                    <th scope="col">Structure porteuse</th>
+                    <!-- <th scope="col">Objectif</th> -->
                 </tr>
             </thead>
             <tbody v-if="actionsList">
                 <tr v-for="action in actionsList" :key="action.id_action">
                     <td>{{ action.lib_action }}</td>
                     <td>{{ action.raison_sociale }}</td>
-                    <td>{{ action.theme }}</td>
-                    <td>{{ action.sous_theme }}</td>
+                    <!-- <td>{{ action.objectif }}</td> -->
                 </tr>
             </tbody>
         </table>
@@ -33,7 +32,7 @@ export default {
 </script>
 
 <style>
-    table {
+    .table {
         overflow-y:auto;
         display:inline-block;
         width: 100%;
