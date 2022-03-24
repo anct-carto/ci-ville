@@ -4,7 +4,7 @@
         <table class="table" data-toggle="table" data-pagination="true">
             <thead>
                 <tr>
-                    <th scope="col">Libellé de d'action</th>
+                    <th scope="col">Libellé de l'action</th>
                     <th scope="col">Structure porteuse</th>
                     <!-- <th scope="col">Objectif</th> -->
                 </tr>
