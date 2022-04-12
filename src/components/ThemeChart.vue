@@ -8,7 +8,7 @@
 <script>
 
 import Chart from 'chart.js/auto';
-import * as aq from 'arquero'
+import * as _ from "underscore"
 import {mapState} from 'vuex'
 
 export default {
@@ -151,6 +151,9 @@ export default {
             // 3. surligne  l'élément cliqué
             activeElem.length > 0 ? evt.chart.canvas.style.cursor = 'pointer' : evt.chart.canvas.style.cursor = 'default';
           },
+          animation: {
+            duration:1500
+          },
           plugins: {
               legend: {
                   display: true,
@@ -198,7 +201,7 @@ export default {
               }
           },
           layout: {
-            padding:10
+            padding:5
           },
           responsive:true,
           maintainAspectRatio:false,
@@ -233,11 +236,17 @@ export default {
       return bgColorsArray
     },
     countActions(data) {
-      return aq.from(data)
-            .groupby('theme')
-            .count()
-            .orderby('theme')
-            .objects();
+      let actionsCount = _.countBy(data,'theme')
+      actionsCount = _.map(actionsCount,(value,key) => {
+        return {
+          theme:key,
+          count:value
+        }
+      }).sort((a, b) => {
+        if (a.count > b.count) { return -1 }
+        if (b.count < b.count) { return 1 }
+      });
+      return actionsCount
     }
   },
 }

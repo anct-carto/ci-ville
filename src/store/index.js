@@ -2,6 +2,10 @@ import { createStore } from 'vuex'
 import * as aq from 'arquero'
 import actionsFinancees from '@/assets/actions-2020.json'
 
+const dataNat = actionsFinancees.filter(e => e.echelle == "nat")
+const dataReg = actionsFinancees.filter(e => e.echelle == "reg")
+const dataDep= actionsFinancees.filter(e => e.echelle == "dep")
+const dataCdv = actionsFinancees.filter(e => e.echelle == "cdv")
 
 export default createStore({
   state: {
@@ -53,7 +57,6 @@ export default createStore({
             console.log("filtre actif sur THEME");
             state.filteredData = state.data.filter(e => e.theme == value);
           }
-          console.table(state.filteredData);
           break;
         case "cdv":
           state.filterCode = value;
@@ -84,16 +87,16 @@ export default createStore({
     getDataByPage(state,filter) {
       switch (filter) {
         case "National":
-          state.data = actionsFinancees.filter(e => e.echelle == "nat")
+          state.data = dataNat
           break;
         case "Region":
-          state.data = actionsFinancees.filter(e => e.echelle == "reg")
+          state.data = dataReg
           break;
         case "Departement":
-          state.data = actionsFinancees.filter(e => e.echelle == "dep")
+          state.data = dataDep
           break;
         case "ContratDeVille":
-          state.data = actionsFinancees.filter(e => e.echelle == "cdv")
+          state.data = dataCdv
           break;
       }
       state.filteredData = state.data

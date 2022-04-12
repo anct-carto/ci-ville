@@ -14,6 +14,7 @@ import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
 import * as aq from 'arquero'
 import {mapState} from 'vuex'
+import * as _ from "underscore"
 
 delete L.Icon.Default.prototype._getIconUrl
 
@@ -210,10 +211,17 @@ export default {
       }
 
       // grouper pour compter par code
-      let actionsCount = aq.from(data)
-      .groupby('codgeo')
-      .count()
-      .objects();
+      let actionsCount = _.countBy(data,'codgeo')
+      actionsCount = _.map(actionsCount,(value,key) => {
+        return {
+          codgeo:key,
+          count:value
+        }
+      })
+      // let actionsCount = aq.from(data)
+      // .groupby('codgeo')
+      // .count()
+      // .objects();
 
       // jointure géomtries CV / nb d'actions par CV
       this.cvGeom.features.forEach(e => {
@@ -279,8 +287,6 @@ export default {
 
             this.clickedBubbleLayer.clearLayers();
             this.pinSelected(code).addTo(this.clickedBubbleLayer)
-
-            console.log(feature.properties.count);
           })
           .on("mouseover", (e) => {
             // console.log(e);

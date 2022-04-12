@@ -1,8 +1,7 @@
 <template>
   <body class="container-fluid d-flex flex-column p-0">
     <!-- ajouter g-0 (gutters=0) permet de ne pas avoir d'ascenseur en horizontal -->
-    <div class="row w-100 vh-100"> 
-      <div class="col-1">
+    <div class="row w-100"> 
         <div id="nav" class="nav">
           <router-link to="/">Accueil</router-link> 
           <router-link to="/national">National</router-link> 
@@ -10,8 +9,7 @@
           <router-link to="/departement">Département</router-link> 
           <router-link to="/contrat-de-ville">Contrat de ville</router-link> 
         </div>
-      </div>
-      <div class="col-11 app-view">
+      <div class="row app-view">
         <router-view/>
       </div>
     </div>
@@ -70,39 +68,34 @@ html, body {
   background-color: #e6eaf5 !important;
   margin:0;
   height: 100%;
+  text-align: center;
 }
 
 
 #nav {
-  background: #5473b6;
+  /* background: #5473b6; */
   padding: 0px;
-  display: block;
-  height: 100% !important;
-  -webkit-box-shadow: 7px 2px 4px -7px rgba(0,0,0,0.56); 
-  box-shadow: 7px 2px 4px -7px rgba(0,0,0,0.56);
+  display: flex;
+  justify-content: center;
 }
 
 #nav a {
-  display: block;
   font-weight: bold;
-  color: white;
-  padding: 5px 10px 5px 10px;
+  color: #5473b6; 
+  padding: 5px 10px 2px 10px;
   text-decoration: none;
 }
 
-#nav a:hover {
-  background: #305bb6;
-}
-
-#nav a.router-link-exact-active {
-  background: #3c6cd3;
-  border-left: solid 4px #d24b6b !important;
+#nav a:hover, a.router-link-exact-active {
+  /* background: #3c6cd3; */
+  border-bottom: solid 4px #5473b6;   
+  text-decoration: solid 1px black !important;
 }
 
 
 .nav-link {
   font-family: 'Marianne-Bold';
-  font-size: 1.3em;
+  font-size: 1.5em !important;
 }
 
 

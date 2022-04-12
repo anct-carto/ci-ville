@@ -6,7 +6,7 @@
 
 <script>
 import Chart from 'chart.js/auto';
-import * as aq from 'arquero';
+import * as _ from "underscore"
 import { mapState } from 'vuex';
 
 export default {
@@ -24,11 +24,16 @@ export default {
             filterCode: state => state.filterCode,
         }),
         countPerSubTheme() {
-            let count = aq.from(this.actions)
-                .groupby('sous_theme')
-                .count()
-                .orderby('sous_theme')
-                .objects();
+            let count = _.countBy(this.actions,'sous_theme')
+            count = _.map(count,(value,key) => {
+                return {
+                    'sous_theme':key,
+                    'count':value
+                }
+            }).sort((a, b) => {
+                if (a.sous_theme < b.sous_theme) { return -1 }
+                if (b.sous_theme > b.sous_theme) { return 1 }
+            })
             return count
         },
     },
