@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HomeComponent msg="Exploration des actions financées par les subventions de la politique de la ville"/>
+    <HomeComponent msg="Panorama des actions financées par les subventions politiques de la ville"/>
   </div>
 </template>
 

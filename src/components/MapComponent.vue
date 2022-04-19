@@ -376,7 +376,7 @@ li {
 
 #map {
   width: auto;
-  height:calc(100vh - 60px) !important;
+  height:calc(100vh - 90px) !important;
   background: white;
   box-shadow: 0 2px 2px rgba(0,0,0,.02), 0 0px 2px rgba(0,0,0,.01);
   border-radius: 5px;

@@ -1,15 +1,27 @@
 <template>
-  <body class="container-fluid d-flex flex-column p-0">
+  <body class="container-fluid d-flex flex-column">
     <!-- ajouter g-0 (gutters=0) permet de ne pas avoir d'ascenseur en horizontal -->
-    <div class="row w-100"> 
+    <div class="row w-100 g-0"> 
         <div id="nav" class="nav">
           <router-link to="/">Accueil</router-link> 
-          <router-link to="/national">National</router-link> 
-          <router-link to="/region">Région</router-link> 
-          <router-link to="/departement">Département</router-link> 
-          <router-link to="/contrat-de-ville">Contrat de ville</router-link> 
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+              Exploration
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <span>Hors contrat de ville</span>
+              <router-link to="/national">National</router-link> 
+              <router-link to="/region">Région</router-link> 
+              <router-link to="/departement">Département</router-link> 
+              <span>
+                En contrat de ville
+              </span>
+              <router-link to="/contrat-de-ville">Contrat de ville</router-link> 
+            </ul>
+          </div>
+          <router-link to="/a-propos">À propos</router-link> 
         </div>
-      <div class="row app-view">
+      <div class="row app-view vh-100">
         <router-view/>
       </div>
     </div>
@@ -37,6 +49,15 @@ export default {
 </script>
 
 <style>
+
+:root {
+	--bleu-anct:rgb(41, 49, 115);
+	--bleu-second:#5770be;
+	--jaune-anct:#ffe800;
+	--vert-anct:#00ac8c;
+	--font-size-global:1.1em;
+	--thumbNumber:"10";
+}
 
 .app-view {
   padding:10px
@@ -79,23 +100,34 @@ html, body {
   justify-content: center;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #5473b6; 
+#nav a, #dropdownMenu2 {
+  text-transform: uppercase;
+  background: none;
+  border:none;
+  color: var(--bleu-second); 
   padding: 5px 10px 2px 10px;
   text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.dropdown-menu {
+  width: 200px;
 }
 
 #nav a:hover, a.router-link-exact-active {
   /* background: #3c6cd3; */
-  border-bottom: solid 4px #5473b6;   
-  text-decoration: solid 1px black !important;
+  border-bottom: solid 3px var(--bleu-second);   
+  font-family: 'Marianne-Bold';
 }
 
+a.router-link-exact-active {
+  border-bottom: solid 3px var(--bleu-second);   
+}
 
 .nav-link {
   font-family: 'Marianne-Bold';
-  font-size: 1.5em !important;
+  font-size: 1.2em !important;
 }
 
 

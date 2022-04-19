@@ -6,26 +6,26 @@
               ou sur la carte ci-contre.</i>
             <List :filterCodeFromStore="filterCode"/>
           </div>
-          <div class="col-3">
+          <div class="col-4">
             <Number :chiffreCle="filteredData.length" 
                     :texte="'actions financées'"
                     />
           </div>
-          <div class="col-3">
+          <div class="col-4">
             <Number :chiffreCle="nbStructures" 
                     :texte="'porteurs de projets'"
                     />
           </div>
-          <div class="col-3">
+          <div class="col-4">
             <Number :chiffreCle="Math.round(montant)" 
                     :texte="'euros engagés'"
                     />
           </div>
-          <div class="col-3">
+          <!-- <div class="col-3">
             <Number :chiffreCle="0" 
                     :texte="'habitants en QPV'"
                     />
-          </div>
+          </div> -->
         </div>
           <Card :title="`Nombre d'actions par thème`" 
                 :about='"Sélectionnez un thème pour filtrer les valeurs des chiffres clés et de la carte"'>
