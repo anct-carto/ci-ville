@@ -105,7 +105,6 @@ html, body {
   border:none;
   text-transform: uppercase;
   color: var(--bleu-second); 
-  
 }
 
 #nav a  {
