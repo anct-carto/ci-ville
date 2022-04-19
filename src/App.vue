@@ -100,10 +100,16 @@ html, body {
   justify-content: center;
 }
 
-#nav a, #dropdownMenu2 {
-  text-transform: uppercase;
+#dropdownMenu2 {
   background: none;
   border:none;
+  text-transform: uppercase;
+  color: var(--bleu-second); 
+  
+}
+
+#nav a  {
+  text-transform: uppercase;
   color: var(--bleu-second); 
   padding: 5px 10px 2px 10px;
   text-decoration: none;
