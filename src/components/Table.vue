@@ -6,14 +6,14 @@
                 <tr>
                     <th scope="col">Libellé de l'action</th>
                     <th scope="col">Structure porteuse</th>
-                    <!-- <th scope="col">Objectif</th> -->
+                    <th scope="col">Objectif</th>
                 </tr>
             </thead>
             <tbody v-if="actionsList">
                 <tr v-for="action in actionsList" :key="action.id_action">
                     <td>{{ action.lib_action }}</td>
                     <td>{{ action.raison_sociale }}</td>
-                    <!-- <td>{{ action.objectif }}</td> -->
+                    <td>{{ action.objectif }}</td>
                 </tr>
             </tbody>
         </table>

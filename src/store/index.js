@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 import * as aq from 'arquero'
 import actionsFinancees0 from '@/assets/actions-2020-2021.json'
 
-let actionsFinancees = actionsFinancees0.filter(e => e.annee == "2021")
+let actionsFinancees = actionsFinancees0.filter(e => e.annee == "2020")
 
 const dataNat = actionsFinancees.filter(e => e.echelle == "nat")
 const dataReg = actionsFinancees.filter(e => e.echelle == "reg")
