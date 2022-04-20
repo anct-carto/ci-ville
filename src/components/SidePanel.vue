@@ -4,11 +4,7 @@
           <div class="col-12">
             <div class="row">
               <div class="col-3">
-                <label for="select-annee">Choisir une année</label>
-                <select class="form-select" id="select-annee" placeholder="Année">
-                  <option value="2020">2020</option>
-                  <option value="2021">2021</option>
-                </select>
+                <ListYear/>
               </div>
               <div class="col-9" v-if="this.$route.name != 'National'">
                 <label for="select-territoire">Choisir un territoire</label>
@@ -59,6 +55,7 @@
 import ThemeChart from "@/components/ThemeChart.vue";
 import SubThemeChart from "@/components/SubThemeChart.vue";
 import ListGeo from "@/components/ListGeo.vue";
+import ListYear from "@/components/ListYear.vue";
 // import Table from "@/components/Table.vue";
 import Number from "@/components/Number.vue";
 import Card from "@/components/CardComponent.vue";
@@ -71,7 +68,7 @@ export default {
     ThemeChart,
     SubThemeChart,
     ListGeo,
-    // Table,
+    ListYear,
     Number,
     Card
   },

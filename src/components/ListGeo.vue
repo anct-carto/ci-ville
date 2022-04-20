@@ -36,7 +36,6 @@ export default {
         }
     },
     updated() {
-         console.log(this.selected);
          if(this.selected) {
              this.onChange()
          } else {

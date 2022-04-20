@@ -11,6 +11,7 @@ const dataCdv = actionsFinancees.filter(e => e.echelle == "cdv")
 
 export default createStore({
   state: {
+    year:null,
     filterCode:null,
     filterKey:null,
     themeColor:'gray',
@@ -69,6 +70,18 @@ export default createStore({
           } else {
             console.log("filtre actif sur CDV");
             state.filteredData = state.data.filter(e => e.codgeo == value);
+          }
+          break;
+        case "year":
+          console.log("hey");
+          state.year = value;
+          // debugger; // eslint-disable-line no-debugger
+          if(state.filterKey & state.filterCode) {
+            state.filteredData = state.data.filter(e => e.annee == value & e.codgeo == state.filterCode & e.theme == state.filterKey);
+          } else if (state.filterKey) {
+            state.filteredData = state.data.filter(e => e.annee == value &  e.theme == state.filterKey);
+          } else if (state.filterCode) {
+            state.filteredData = state.data.filter(e => e.codgeo == value &  e.theme == state.filterCode);
           }
           break;
       }
