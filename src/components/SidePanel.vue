@@ -1,10 +1,20 @@
 <template>
       <div id="sidepanel" class="d-flex flex-column h-100">
         <div class="row">
-          <div v-if="this.$route.name != 'National'">
-            <i>Pour démarrer, sélectionnez un territoire ci-dessous 
-              ou sur la carte ci-contre.</i>
-            <List :filterCodeFromStore="filterCode"/>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-3">
+                <label for="select-annee">Choisir une année</label>
+                <select class="form-select" id="select-annee" placeholder="Année">
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                </select>
+              </div>
+              <div class="col-9" v-if="this.$route.name != 'National'">
+                <label for="select-territoire">Choisir un territoire</label>
+                <ListGeo id="select-territoire" :filterCodeFromStore="filterCode"/>
+              </div>
+            </div>
           </div>
           <div class="col-4">
             <Number :chiffreCle="filteredData.length" 
@@ -27,11 +37,11 @@
                     />
           </div> -->
         </div>
-          <Card :title="`Nombre d'actions par thème`" 
+          <Card :title="`Répartition des actions par thème`" 
                 :about='"Sélectionnez un thème pour filtrer les valeurs des chiffres clés et de la carte"'>
             <ThemeChart/>
           </Card>
-          <Card :title="`Nombre d'actions par sous-thème`"
+          <Card :title="`Répartition des actions par sous-thème`"
                 :about='"Sélectionnez un sous-thème pour filtrer la table des actions"'>
             <SubThemeChart v-if="filterKey"/>
             <span class="msg-else" v-else>Sélectionnez un thème pour accéder à la répartition par sous-thème</span>
@@ -48,7 +58,7 @@
 
 import ThemeChart from "@/components/ThemeChart.vue";
 import SubThemeChart from "@/components/SubThemeChart.vue";
-import List from "@/components/List.vue";
+import ListGeo from "@/components/ListGeo.vue";
 // import Table from "@/components/Table.vue";
 import Number from "@/components/Number.vue";
 import Card from "@/components/CardComponent.vue";
@@ -60,7 +70,7 @@ export default {
   components: {
     ThemeChart,
     SubThemeChart,
-    List,
+    ListGeo,
     // Table,
     Number,
     Card
