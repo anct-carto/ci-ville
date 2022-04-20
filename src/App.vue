@@ -120,7 +120,12 @@ html, body {
 }
 
 .dropdown-menu {
-  width: 200px;
+  text-align: center !important;
+  width: 150px;
+}
+
+.dropdown-menu > span {
+  font-style: italic;
 }
 
 #dropdownMenu2:focus {
