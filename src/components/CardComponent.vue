@@ -55,7 +55,8 @@ export default {
   position: relative;
   box-shadow: 0 2px 2px rgba(0,0,0,.02), 0 0px 2px rgba(0,0,0,.01);
   border-radius: 5px;
-  padding:10px;
+  padding:5px;
+  margin:0;
   /* margin-bottom:10px; */
   margin-top:10px;
   /* border:solid 1px #dfdfdf */
@@ -101,7 +102,7 @@ export default {
 /* SOLUTION POUR GARDER ASPECT GRAPHIQUES AU ZOOM */
 .body > div {
     position: absolute;
-    top: 40px;
+    top: 30px;
     left: 0;
     right: 0;
     bottom: 0;
