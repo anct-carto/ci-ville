@@ -50,7 +50,6 @@ export default {
       this.chart.data.labels = labels;
       this.chart.data.datasets[0].labels = labels;
       // this.chart.data.datasets[0].backgroundColor = this.getbgColors();
-      console.table(this.chart.data.datasets[0].backgroundColor);
       this.chart.update()
     }
   },
@@ -113,7 +112,6 @@ export default {
                   }
                 }
               } else {
-                console.log(this.selected);
                 // 2.2 .. sinon efface le filtre thème appliqué
                 // enregistre la nouvelle variable
                 this.selected = null;
@@ -220,16 +218,16 @@ export default {
       themes.forEach(theme => {
         switch (theme) {
           case "1 - Pilier cohésion sociale":
-            bgColorsArray.push('#DA837B')
+            bgColorsArray.push('#3b5fa9')
             break
           case "2- Pilier développement économique et emploi":
-            bgColorsArray.push('#6F2481')
+            bgColorsArray.push('#009f79')
             break
           case "3-Pilier cadre de vie et renouvellement urbain":
-            bgColorsArray.push('#399AD2')
+            bgColorsArray.push('#293173') 
             break
           case "4-Pilotage, ingénierie, ressources et évaluations":
-            bgColorsArray.push('#A3934C')
+            bgColorsArray.push('#ff9b4f')
             break
         }
       });
