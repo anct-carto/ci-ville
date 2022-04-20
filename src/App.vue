@@ -62,7 +62,7 @@ export default {
 
 .app-view {
   padding:10px;
-  height:calc(100vh - 90px);
+  height:calc(100vh - 30px);
 }
 
 @font-face {
