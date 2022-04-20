@@ -6,7 +6,7 @@
           <router-link to="/">Accueil</router-link> 
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-              Exploration
+              Maille d'analyse
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
               <span>Hors contrat de ville</span>
@@ -21,7 +21,7 @@
           </div>
           <router-link to="/a-propos">À propos</router-link> 
         </div>
-      <div class="row app-view vh-100">
+      <div class="row app-view">
         <router-view/>
       </div>
     </div>
@@ -55,12 +55,14 @@ export default {
 	--bleu-second:#5770be;
 	--jaune-anct:#ffe800;
 	--vert-anct:#00ac8c;
+  --rose-gerr:#d24b6b;
 	--font-size-global:1.1em;
 	--thumbNumber:"10";
 }
 
 .app-view {
-  padding:10px
+  padding:10px;
+  height:calc(100vh - 90px);
 }
 
 @font-face {
@@ -104,13 +106,13 @@ html, body {
   background: none;
   border:none;
   text-transform: uppercase;
-  color: var(--bleu-second); 
+  color: var(--rose-gerr); 
 }
 
 #nav a  {
   text-transform: uppercase;
-  color: var(--bleu-second); 
-  padding: 5px 10px 2px 10px;
+  color: var(--rose-gerr); 
+  margin: 5px 10px 2px 10px;
   text-decoration: none;
   display: block;
   text-align: center;
@@ -120,14 +122,19 @@ html, body {
   width: 200px;
 }
 
+#dropdownMenu2:focus {
+  outline:none;
+  box-shadow: none;
+}
+
 #nav a:hover, a.router-link-exact-active {
   /* background: #3c6cd3; */
-  border-bottom: solid 3px var(--bleu-second);   
+  border-bottom: solid 3px var(--rose-gerr);   
   font-family: 'Marianne-Bold';
 }
 
 a.router-link-exact-active {
-  border-bottom: solid 3px var(--bleu-second);   
+  border-bottom: solid 3px var(--rose-gerr);   
 }
 
 .nav-link {
