@@ -216,17 +216,18 @@ export default {
       let bgColorsArray = [];
       let themes = this.actionsCount.map(e => e.theme);
       themes.forEach(theme => {
-        switch (theme) {
-          case "1 - Pilier cohésion sociale":
+        let themeCode = theme.substring(0,1)
+        switch (themeCode) {
+          case "1":
             bgColorsArray.push('#3b5fa9')
             break
-          case "2- Pilier développement économique et emploi":
+          case "2":
             bgColorsArray.push('#009f79')
             break
-          case "3-Pilier cadre de vie et renouvellement urbain":
+          case "3":
             bgColorsArray.push('#293173') 
             break
-          case "4-Pilotage, ingénierie, ressources et évaluations":
+          case "4":
             bgColorsArray.push('#ff9b4f')
             break
         }

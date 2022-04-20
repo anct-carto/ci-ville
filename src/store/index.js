@@ -1,7 +1,8 @@
 import { createStore } from 'vuex'
 import * as aq from 'arquero'
-import actionsFinancees0 from '@/assets/actions-2020-2021.json'
+// import actionsFinancees from '@/assets/actions-2020-2021.json'
 
+import actionsFinancees0 from '@/assets/actions-2020-2021.json'
 let actionsFinancees = actionsFinancees0.filter(e => e.annee == "2020")
 
 const dataNat = actionsFinancees.filter(e => e.echelle == "nat")
@@ -81,7 +82,9 @@ export default createStore({
           } else if (state.filterKey) {
             state.filteredData = state.data.filter(e => e.annee == value &  e.theme == state.filterKey);
           } else if (state.filterCode) {
-            state.filteredData = state.data.filter(e => e.codgeo == value &  e.theme == state.filterCode);
+            state.filteredData = state.data.filter(e => e.annee == value &  e.codgeo == state.filterCode);
+          } else {
+            state.filteredData = state.data.filter(e => e.annee == value)
           }
           break;
       }
