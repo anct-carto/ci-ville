@@ -1,6 +1,6 @@
 <template>
     <div>
-        <select class="form-select" 
+        <!-- <select class="form-select" 
                 id="select-geo"
                 autocomplete="off"
                 v-model = "selected"
@@ -9,23 +9,38 @@
             <option v-for="cv in cvList" :value="cv.codgeo" :key="cv.codgeo"> 
                 {{ cv.libgeo}} ({{ cv.codgeo }})
             </option>
-        </select>
-        <!-- <vSelect :options="actions" label="libgeo"></vSelect> -->
+        </select> -->
+        <v-select :options="cvList"
+                label="libgeo" 
+                :reduce="e => e.codgeo"
+                v-model="selected"
+                class="select-input"/>
     </div>
 </template>
 
 <script>
-// import vSelect from 'vue-select'
-
+import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css';
+// https://codepen.io/anon/pen/PgyLXz
 
 export default {
     name:'List',
     props:['filterCodeFromStore'],
-    // component:vSelect,
+    components:{
+        'v-select':vSelect,
+    },
     data() {
         return {
             selected:''
         }
+    },
+    updated() {
+         console.log(this.selected);
+         if(this.selected) {
+             this.onChange()
+         } else {
+            this.$store.dispatch('resetCodegeo')
+         }
     },
     watch: {
         filterCodeFromStore() {
@@ -33,9 +48,6 @@ export default {
         }
     },
     computed:{
-        actions() {
-            return this.$store.state.data
-        },
         cvList() {
             return this.$store.state.cvList
             // let sortedArray = this.actions.filter(e => {
@@ -58,7 +70,6 @@ export default {
     methods: {
         onChange() {
             this.$store.state.filterCode = this.selected;
-            // this.$store.commit('clearFilter','cdv');
             this.$store.commit('crossFilter', {
                 type:'cdv',
                 value:this.selected
@@ -69,7 +80,11 @@ export default {
 </script>
 
 <style scoped>
-    select {
+    /* select {
         display: block;
+    } */
+
+    .select-input {
+        background: white;
     }
 </style>
