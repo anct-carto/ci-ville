@@ -7,6 +7,7 @@
                     <th scope="col">Libellé de l'action</th>
                     <th scope="col">Structure porteuse</th>
                     <th scope="col">Objectif</th>
+                    <th scope="col">Montant en euros</th>
                 </tr>
             </thead>
             <tbody v-if="actionsList">
@@ -14,6 +15,7 @@
                     <td>{{ action.lib_action }}</td>
                     <td>{{ action.raison_sociale }}</td>
                     <td>{{ action.objectif }}</td>
+                    <td>{{ action.montant.toLocaleString()}}</td>
                 </tr>
             </tbody>
         </table>
@@ -26,7 +28,8 @@ export default {
     computed:{
         actionsList() {
             return this.$store.state.filteredData
-        }
+        },
+
     },
 }
 </script>
@@ -39,6 +42,9 @@ export default {
         height:calc(100vh - 90px) !important;
         background: white;
         border-radius: 4px;
+        text-align: left;
+        padding-left:10px;
+        padding-right:10px
     }
 
     thead {
