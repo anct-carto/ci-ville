@@ -17,7 +17,7 @@ export default {
     name:'ListYear',
     data() {
         return {
-            selected:''
+            selected:'2021'
         }
     },
     methods: {
