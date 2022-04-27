@@ -23,13 +23,13 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 
 export default {
-    computed:{
-        actionsList() {
-            return this.$store.state.filteredData
-        },
-
+    computed: {
+      ...mapState({
+          actionsList: state => state.filteredData
+        }),
     },
 }
 </script>
