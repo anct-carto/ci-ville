@@ -1,14 +1,7 @@
 <template>
     <div class="chiffre-cle-wrapper">
         <span class="chiffre-cle"> 
-            <span v-if="chiffreCle>1000000">
-                {{ (chiffreCle/1000000).toLocaleString("fr-FR", {
-                    maximumFractionDigits: 2
-                }) }} M
-            </span>
-            <span v-else>
-                {{ chiffreCle.toLocaleString("fr-FR") }}
-            </span>
+            {{ animatedNumber }}
         </span><br>
         <span class="text"> {{ texte }}</span>
     </div>
@@ -16,6 +9,8 @@
 
 
 <script>
+import gsap from "gsap";
+
 export default {
     name:'Number',
     props:{
@@ -23,24 +18,27 @@ export default {
         texte:String
     },
     // animation compteur
-    // data() {
-    //     return {
-    //         number:0,
-    //         interval:0
-    //     }
-    // },
-    // watch:{
-    //     chiffreCle() {
-    //         setTimeout(() => {
-    //             this.interval = setInterval(() => {
-    //                 this.number+=1000;
-    //                 if(this.number>=this.chiffreCle) {
-    //                     clearInterval(this.interval)
-    //                 }
-    //             },1)
-    //         }, 1);
-    //     }
-    // }
+    data() {
+        return {
+            tweenedNumber: this.chiffreCle,
+        }
+    },
+    computed: {
+        animatedNumber() {
+            // this.tweenedNumber = this.tweenedNumber.toFixed(0);
+            if(this.chiffreCle>1000000) {
+                return (this.tweenedNumber/1000000).toLocaleString("fr-FR", {maximumFractionDigits: 2}) + "M"
+            } else {
+                return (this.tweenedNumber).toLocaleString("fr-FR", { maximumFractionDigits: 0})
+            }
+            // return this.tweenedNumber.toFixed(0)
+        }
+    },
+    watch: {
+        chiffreCle(newVal) {
+            gsap.to(this.$data, {duration: 0.5, tweenedNumber:newVal})
+        }
+    }
 }
 </script>
 
