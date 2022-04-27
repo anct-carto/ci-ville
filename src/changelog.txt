@@ -1,5 +1,52 @@
 -----------------------------------------------------------------
 
+## au 27 avril
+
+---- UI -----
+- amélioration graphisme 
+- page d'accueil
+
+
+---- DONNEES -----
+
+Vérification
+- réassignation de l'échelon géographique
+
+Nettoyage
+- suppression de l'année et du libellé de territoire dans le libellé d'action si possible
+- suppression des colonnes non utilisées
+
+
+---- COMPOSANTS -----
+
+
+Liste
+- bug : "undefined" au chargement à résoudre
+
+Chiffre clé
+- animation au changement
+
+Carte
+- ajout légende
+- nom des DROM 
+
+Graphique 1 / thème
+- bug : réparation clic sélection couleurs
+
+Graphique 2 / sous-thème
+- au clic, filtrer chiffres + table des actions
+- nom abscisse à supprimer ou apparaitre en légende
+
+Table
+- filtre texte
+- tri 
+- pagination
+(implémentation de Data-table)
+
+
+
+-----------------------------------------------------------------
+
 ## au 18 mars
 
 ## FAIT ##
