@@ -1,14 +1,14 @@
 import { createStore } from 'vuex'
 import * as aq from 'arquero'
-// import actionsFinancees from '@/assets/actions-2020-2021.json'
+import actionsFinancees from '@/assets/actions-2020-2021.json'
 
-import actionsFinancees0 from '@/assets/actions-2020-2021.json'
-let actionsFinancees = actionsFinancees0.filter(e => e.annee == "2021")
+// import actionsFinancees0 from '@/assets/actions-2020-2021.json'
+// let actionsFinancees = actionsFinancees0.filter(e => e.annee == "2021")
 
-const dataNat = actionsFinancees.filter(e => e.echelle == "nat")
-const dataReg = actionsFinancees.filter(e => e.echelle == "reg")
-const dataDep= actionsFinancees.filter(e => e.echelle == "dep")
-const dataCdv = actionsFinancees.filter(e => e.echelle == "cdv")
+// const dataNat = actionsFinancees.filter(e => e.echelle == "nat")
+// const dataReg = actionsFinancees.filter(e => e.echelle == "reg")
+// const dataDep= actionsFinancees.filter(e => e.echelle == "dep")
+// const dataCdv = actionsFinancees.filter(e => e.echelle == "cdv")
 
 export default createStore({
   state: {
@@ -105,16 +105,20 @@ export default createStore({
     getDataByPage(state,filter) {
       switch (filter) {
         case "National":
-          state.data = dataNat
+          // state.data = dataNat
+          state.data = actionsFinancees.filter(e => e.echelle == "nat")
           break;
         case "Region":
-          state.data = dataReg
+          // state.data = dataReg
+          state.data = actionsFinancees.filter(e => e.echelle == "reg")
           break;
         case "Departement":
-          state.data = dataDep
+          // state.data = dataDep
+          state.data = actionsFinancees.filter(e => e.echelle == "dep")
           break;
         case "ContratDeVille":
-          state.data = dataCdv
+          // state.data = dataCdv
+          state.data = actionsFinancees.filter(e => e.echelle == "cdv")
           break;
       }
       state.filteredData = state.data
@@ -135,7 +139,18 @@ export default createStore({
       } else {
         state.filteredData = state.data
       }
-    }
+    },
+    CHANGE_ANNEE(state,annee) {
+      console.log(annee);
+      state.data = actionsFinancees.filter(e => e.annee == annee)
+      if(state.filterKey) {
+        state.filteredData = state.data.filter(e => e.theme == state.filterKey)
+      } else if(state.filterCode) {
+        state.filteredData = state.data.filter(e => e.codgeo == state.filterCode)
+      } else if(state.filterCode & state.filterKey) {
+        state.filteredData = state.data.filter(e => e.codgeo == state.filterCode & e.theme == state.filterKey)
+      }
+    },
   },
   actions: {
     resetTheme({commit}) {
@@ -143,6 +158,9 @@ export default createStore({
     },
     resetCodegeo({commit}) {
       commit('RESET_CODEGEO')
+    },
+    changeAnnee({commit},annee) {
+      commit('CHANGE_ANNEE',annee)
     }
   },
   modules: {

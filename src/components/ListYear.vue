@@ -23,6 +23,9 @@ export default {
     methods: {
         onChange() {
             this.$store.state.year = this.selected;
+            this.$store.dispatch('changeAnnee',this.selected)
+            this.$store.dispatch('resetCodegeo')
+            this.$store.dispatch('resetTheme')
             // this.$store.commit('crossFilter', {
             //     type:'year',
             //     value:this.selected
