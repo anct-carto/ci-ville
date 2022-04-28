@@ -32,7 +32,12 @@ export default {
     },
     data() {
         return {
-            selected:''
+            selected:null
+        }
+    },
+    computed:{
+        cvList() {
+            return this.$store.state.cvList
         }
     },
     updated() {
@@ -42,17 +47,9 @@ export default {
             this.$store.dispatch('resetCodegeo')
          }
     },
-    mounted() {
-        this.selected = ''
-    },
     watch: {
         filterCodeFromStore() {
             this.selected = this.filterCodeFromStore
-        }
-    },
-    computed:{
-        cvList() {
-            return this.$store.state.cvList
         }
     },
     methods: {

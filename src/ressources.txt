@@ -41,3 +41,6 @@ https://router.vuejs.org/guide/advanced/lazy-loading.html#with-webpack
 
 # git edit commits 
 https://stackoverflow.com/questions/454734/how-can-one-change-the-timestamp-of-an-old-commit-in-git
+
+# animate counters numbers
+https://fr.vuejs.org/v2/guide/transitioning-state.html 

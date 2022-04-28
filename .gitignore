@@ -24,3 +24,4 @@ pnpm-debug.log*
 *.lnk
 *.pdf
 App_old.vue
+*.ai
