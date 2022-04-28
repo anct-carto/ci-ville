@@ -44,3 +44,9 @@ https://stackoverflow.com/questions/454734/how-can-one-change-the-timestamp-of-a
 
 # animate counters numbers
 https://fr.vuejs.org/v2/guide/transitioning-state.html 
+
+# table component
+data-table : https://github.com/DataTables/DataTables (trop vieux + requiert JQuery)
+vue-good-table : https://xaksis.github.io/vue-good-table/ (présence possible de bugs)
+bootstrap-table : https://bootstrap-table.com/ (incompatible avec vue3 + requiert JQuery)
+primevue table : https://www.primefaces.org/primevue/datatable/basic (nécessite de charger toute la librairie, trop lourd)

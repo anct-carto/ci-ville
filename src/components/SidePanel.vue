@@ -14,17 +14,17 @@
           </div>
           <div class="col-4">
             <Number :chiffreCle="filteredData.length" 
-                    :texte="'actions financées'"
+                    :texte="`Actions financées`"
                     />
           </div>
           <div class="col-4">
             <Number :chiffreCle="nbStructures" 
-                    :texte="'porteurs de projets'"
+                    :texte="'Porteurs de projets'"
                     />
           </div>
           <div class="col-4">
             <Number :chiffreCle="Math.round(montant)" 
-                    :texte="'euros engagés'"
+                    :texte="'Montant engagé (€)'"
                     />
           </div>
           <!-- <div class="col-3">

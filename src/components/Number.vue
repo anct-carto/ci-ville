@@ -1,9 +1,7 @@
 <template>
     <div class="chiffre-cle-wrapper">
-        <span class="chiffre-cle"> 
-            {{ animatedNumber }}
-        </span><br>
-        <span class="text"> {{ texte }}</span>
+        <div class="text"> {{ texte }}</div>
+        <div class="chiffre-cle">{{ animatedNumber }}</div>
     </div>
 </template>
 
@@ -27,7 +25,7 @@ export default {
         animatedNumber() {
             // this.tweenedNumber = this.tweenedNumber.toFixed(0);
             if(this.chiffreCle>1000000) {
-                return (this.tweenedNumber/1000000).toLocaleString("fr-FR", {maximumFractionDigits: 2}) + "M"
+                return (this.tweenedNumber/1000000).toLocaleString("fr-FR", {maximumFractionDigits: 2}) + " M"
             } else {
                 return (this.tweenedNumber).toLocaleString("fr-FR", { maximumFractionDigits: 0})
             }
@@ -46,21 +44,25 @@ export default {
 .chiffre-cle-wrapper {
     background: white;
     border-radius: 5px;
-    text-align: center;
+    /* text-align: left; */
     /* white-space: pre; */
     margin: 15px 0 8px 0;
     padding: 5px;
+    padding-left:10px;
+    padding-right:10px;
 }
 
 .chiffre-cle {
     color:#d24b6b;
-    font-size: 1.6em;
+    font-size: 2.2em;
+    text-align: right;
     font-family: 'Marianne-Extrabold';
 }
 
 .text {
     color:#d24b6b;
-    font-size:.9em;
+    text-align: left;
+    /* font-size:.9em; */
 }
 
 </style>
