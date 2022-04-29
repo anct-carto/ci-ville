@@ -24,40 +24,45 @@ export default {
     ...mapState({
       actions: state => state.data,
       filterCode: state => state.filterCode,
+      annee: state => state.annee,
       filteredData: state => state.filteredData
     }),
     actionsCount() {
-      let actionsCount = this.countActions(this.actions)
+      let actionsCount;    
+      if(this.filterCode || this.annee) {
+        let filteredData = this.actions.filter(e => {
+          if(this.filterCode) {
+            return e.codgeo === this.filterCode
+          } else if(this.annee) {
+            return e.annee == this.annee
+          }
+        });
+        actionsCount = this.countActions(filteredData);        
+      } else {
+        actionsCount = this.countActions(this.actions)
+      }
       return actionsCount
+    },
+    labels() {
+      return this.actionsCount.map(e => e.theme)
+    },
+    dataset() {
+      return this.actionsCount.map(e => e.count)
     },
   },
   watch: {
     filterCode() {
-      let actionsCount
-      if(this.filterCode) {
-        let filteredByCode = this.actions.filter(e => {
-          return e.codgeo == this.filterCode
-        });
-        actionsCount = this.countActions(filteredByCode);        
-      } else {
-        actionsCount = this.countActions(this.actions)
-      }
-
-      let dataset = actionsCount.map(e => e.count );
-      let labels = actionsCount.map(e => e.theme );
-      
-      this.chart.data.datasets[0].data = dataset;
-      this.chart.data.labels = labels;
-      this.chart.data.datasets[0].labels = labels;
-      // this.chart.data.datasets[0].backgroundColor = this.getbgColors();
-      this.chart.update()
+      this.updateChart()
+    },
+    annee() {
+      this.updateChart()
     }
   },
   mounted() {
-    this.createDoghnut();
+    this.createChart();
   },
   methods: {
-    createDoghnut() {
+    createChart() {
       let labels = this.actionsCount.map(e => {
         return e.theme
       });
@@ -67,6 +72,7 @@ export default {
       });
 
       const ctx = document.getElementById('theme-chart');
+
       let chartOptions = {
         type: 'doughnut',   // le type du graphique
         data:{
@@ -108,6 +114,7 @@ export default {
                   if(datasetColors[i] != color) {
                     datasetColors[i] = "lightgrey"
                   } else {
+                    console.log("%c"+themeSelected,"background-color:"+this.getbgColors()[i]);
                     datasetColors[i] = this.getbgColors()[i]
                   }
                 }
@@ -117,7 +124,6 @@ export default {
                 this.selected = null;
 
                 this.$store.dispatch('resetTheme');
-                this.$store.commit('updateThemeColor','gray');
 
                 // remet les couleurs d'origine 
                 for(let i=0;i<datasetColors.length;i++) {
@@ -128,13 +134,11 @@ export default {
               // actualise le graphique
               this.chart.update();
             } else {
-              console.log(this.selected);
               // 2.2 .. sinon efface le filtre thème appliqué
               // enregistre la nouvelle variable
               this.selected = null;
 
               this.$store.dispatch('resetTheme');
-              this.$store.commit('updateThemeColor','gray');
 
               // remet les couleurs d'origine 
               for(let i=0;i<this.datasetColors.length;i++) {
@@ -212,6 +216,14 @@ export default {
       this.chart = chart;
   
     },
+    updateChart() {
+      this.chart.data.labels = this.labels;
+      this.chart.data.datasets[0].data = this.dataset;
+      this.chart.data.datasets[0].labels = this.labels;
+      // this.chart.data.datasets[0].backgroundColor = this.getbgColors();
+      
+      this.chart.update()
+    },
     getbgColors() {
       let bgColorsArray = [];
       let themes = this.actionsCount.map(e => e.theme);
@@ -241,10 +253,8 @@ export default {
           theme:key,
           count:value
         }
-      }).sort((a, b) => {
-        if (a.count > b.count) { return -1 }
-        if (b.count < b.count) { return 1 }
-      });
+      })
+      actionsCount = _.sortBy(actionsCount,'theme')
       return actionsCount
     }
   },

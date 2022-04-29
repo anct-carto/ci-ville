@@ -7,13 +7,12 @@
                 <ListYear/>
               </div>
               <div class="col-9" v-if="this.$route.name != 'National'">
-                <label for="select-territoire">Choisir un territoire</label>
                 <ListGeo id="select-territoire" :filterCodeFromStore="filterCode"/>
               </div>
             </div>
           </div>
           <div class="col-4">
-            <Number :chiffreCle="filteredData.length" 
+            <Number :chiffreCle="nbActions" 
                     :texte="`Actions financées`"
                     />
           </div>
@@ -73,7 +72,7 @@ export default {
     Card
   },
   computed: {
-      ...mapGetters(['nbStructures','montant']),
+      ...mapGetters(['nbActions','nbStructures','montant']),
       ...mapState(['filteredData','filterCode','filterKey']),
   },
   methods: {

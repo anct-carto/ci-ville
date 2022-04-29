@@ -42,7 +42,8 @@ export default {
       actions: state => state.data,
       filterKey: state => state.filterKey,
       filterCodeGlobal: state => state.filterCode,
-      themeColor: state => state.themeColor
+      themeColor: state => state.themeColor,
+      annee: state => state.annee
     }),
     // choix du fichier de géométrie à charger en fonction del'échelle choisie : reg, dep ou cdv
     cvGeom() {
@@ -135,44 +136,10 @@ export default {
   },
   watch: {
     filterKey() {
-      this.computeData();
-      
-      // méthode 1 : animation cercles
-      // this.bubbleLayer.eachLayer(layer => {
-      //   layer.setStyle({fillColor:this.themeColor});
-      //   let intervalDuration = 10
-      //   layer.eachLayer(e => {
-      //     let newRadius = this.computeRadius(e.feature.properties["count"]);
-
-      //     if(newRadius != e.getRadius) {
-      //       let intervalMinus = setInterval(() => {
-      //         let currentRadius = e.getRadius();
-      //         if(currentRadius<newRadius) {
-      //           e.setRadius(++currentRadius)
-      //         } else {
-      //           clearInterval(intervalMinus)
-      //         }
-      //       }, intervalDuration);
-  
-      //       let intervalPlus = setInterval(() => {
-      //         let currentRadius = e.getRadius();
-      //         if(currentRadius>newRadius) {
-      //           e.setRadius(--currentRadius)
-      //         } else {
-      //           clearInterval(intervalPlus)
-      //         }
-      //       }, intervalDuration);
-      //     } 
-      //   })
-      // })
-      // méthode 2 : regénérer les cercles (un peu plus long)
-      this.bubbleLayer.clearLayers();
-      this.drawBubbles();
-
-      // regnérer la taille du cercle cliqué
-      this.clickedBubbleLayer.clearLayers();
-      let clickedFeature = this.pinSelected(this.filterCodeGlobal);
-      clickedFeature.addTo(this.clickedBubbleLayer)
+      this.updateBubbles();
+    },    
+    annee() {
+      this.updateBubbles()
     },
     filterCodeGlobal(e) {
       // efface contenu précédent calque si non vide, puis remplis le avec le cercle créé au choix d'un territoire
@@ -307,8 +274,46 @@ export default {
           })
         }
       }).addTo(this.bubbleLayer);
-
+    },
+    updateBubbles() {
+      this.computeData();
       
+      // méthode 1 : animation cercles
+      // this.bubbleLayer.eachLayer(layer => {
+      //   layer.setStyle({fillColor:this.themeColor});
+      //   let intervalDuration = 10
+      //   layer.eachLayer(e => {
+      //     let newRadius = this.computeRadius(e.feature.properties["count"]);
+
+      //     if(newRadius != e.getRadius) {
+      //       let intervalMinus = setInterval(() => {
+      //         let currentRadius = e.getRadius();
+      //         if(currentRadius<newRadius) {
+      //           e.setRadius(++currentRadius)
+      //         } else {
+      //           clearInterval(intervalMinus)
+      //         }
+      //       }, intervalDuration);
+  
+      //       let intervalPlus = setInterval(() => {
+      //         let currentRadius = e.getRadius();
+      //         if(currentRadius>newRadius) {
+      //           e.setRadius(--currentRadius)
+      //         } else {
+      //           clearInterval(intervalPlus)
+      //         }
+      //       }, intervalDuration);
+      //     } 
+      //   })
+      // })
+      // méthode 2 : regénérer les cercles (un peu plus long)
+      this.bubbleLayer.clearLayers();
+      this.drawBubbles();
+
+      // regnérer la taille du cercle cliqué
+      this.clickedBubbleLayer.clearLayers();
+      let clickedFeature = this.pinSelected(this.filterCodeGlobal);
+      clickedFeature.addTo(this.clickedBubbleLayer)
 
     },
     // créé un marqueur au dessus du cercle survolé 

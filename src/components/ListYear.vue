@@ -22,7 +22,7 @@ export default {
     },
     methods: {
         onChange() {
-            // this.$store.dispatch('changeAnnee',this.selected)
+            this.$store.dispatch('changeAnnee',this.selected)
         }
     }
 }

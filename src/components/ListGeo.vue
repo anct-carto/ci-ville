@@ -10,11 +10,13 @@
                 {{ cv.libgeo}} ({{ cv.codgeo }})
             </option>
         </select> -->
+        <label for="select-territoire">Territoire</label>
         <v-select :options="cvList"
                 :get-option-label="e => `${e.libgeo} (${e.codgeo})`" 
                 :reduce="e => e.codgeo"
                 placeholder="Nom, code ..."
                 v-model="selected"
+                id="select-territoire"
                 class="select-input"/>
     </div>
 </template>
