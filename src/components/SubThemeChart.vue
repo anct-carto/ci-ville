@@ -26,17 +26,24 @@ export default {
         }),
         countPerSubTheme() {
             let count = _.countBy(this.actions,'sous_theme')
-            count = _.map(count,(value,key) => {
+            count = _.chain(count)
+            .map((value,key) => {
                 return {
                     'sous_theme':key,
                     'count':value
                 }
-            }).sort((a, b) => {
-                if (a.sous_theme < b.sous_theme) { return -1 }
-                if (b.sous_theme > b.sous_theme) { return 1 }
-            })
+            }).sortBy('count')
+            .reverse()
+            ._wrapped
             return count
         },
+        dataset() {
+            return this.countPerSubTheme.map(e => e.count );
+        },
+        labels() {
+            console.log("actualisation");
+            return this.countPerSubTheme.map(e => e.sous_theme )
+        } 
     },
     watch: {
         filterTheme() {
@@ -47,23 +54,10 @@ export default {
             // this.createChart()
 
             // 2e méthode : mettre à jour en injecter les données actualisées
-            let dataset = this.countPerSubTheme.map(e => e.count );
-            let labels = this.countPerSubTheme.map(e => e.sous_theme );
-            
-            this.chart.data.datasets[0].data = dataset;
-            this.chart.data.labels = labels;
-            this.chart.data.datasets[0].backgroundColor = this.themeColor;
-            
-            this.chart.update()
+            this.updateChart()
         },
         filterCode() {
-            // même code qu'au dessus
-            let dataset = this.countPerSubTheme.map(e => e.count );
-            let labels = this.countPerSubTheme.map(e => e.sous_theme );
-            this.chart.data.datasets[0].data = dataset;
-            this.chart.data.labels = labels;
-            this.chart.data.datasets[0].backgroundColor = this.themeColor
-            this.chart.update()
+            this.updateChart()
         }
     },
     mounted() {
@@ -71,22 +65,22 @@ export default {
     },
     methods: {
         createChart() {
-            let labels = this.countPerSubTheme.map(e => {
-                return e.sous_theme
-            });
+            // let labels = this.countPerSubTheme.map(e => {
+            //     return e.sous_theme
+            // });
             
-            let dataset = this.countPerSubTheme.map(e => {
-                return e.count
-            });
+            // let dataset = this.countPerSubTheme.map(e => {
+            //     return e.count
+            // });
 
             const ctx = document.getElementById('subtheme-chart');
             let chartOptions = {
                 type: 'bar',   // le type du graphique
                 data:{
-                labels: labels,
+                labels: this.labels,
                 datasets:[{
-                    data:dataset,
-                    labels:labels,
+                    data:this.dataset,
+                    labels:this.labels,
                     backgroundColor:this.themeColor,
                     // backgroundColor: ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
                     //                 '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
@@ -169,7 +163,16 @@ export default {
             // initialisation sur la page
             let chart = new Chart(ctx, chartOptions);
             this.chart = chart;
-        },        
+        },
+        updateChart() {
+            // actualise les valeurs : dataset(valeurs), labels (nom des valeurs), couleur
+            this.chart.data.labels = this.labels;
+            this.chart.data.datasets[0].data = this.dataset;
+            this.chart.data.datasets[0].backgroundColor = this.themeColor;
+
+            this.chart.update()
+        }
+
     },
 
 }
