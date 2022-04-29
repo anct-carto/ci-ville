@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label for="select-annee">Choisir une année</label>
+        <label for="select-annee">Année</label>
         <select class="form-select" 
                 id="select-annee"
                 placeholder="Année"
@@ -22,14 +22,7 @@ export default {
     },
     methods: {
         onChange() {
-            this.$store.state.year = this.selected;
-            this.$store.dispatch('changeAnnee',this.selected)
-            this.$store.dispatch('resetCodegeo')
-            this.$store.dispatch('resetTheme')
-            // this.$store.commit('crossFilter', {
-            //     type:'year',
-            //     value:this.selected
-            // })
+            // this.$store.dispatch('changeAnnee',this.selected)
         }
     }
 }

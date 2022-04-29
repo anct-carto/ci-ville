@@ -91,7 +91,6 @@ html, body {
   background-color: #e6eaf5 !important;
   margin:0;
   height: 100%;
-  text-align: center;
 }
 
 
