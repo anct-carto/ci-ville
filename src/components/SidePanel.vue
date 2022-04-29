@@ -3,10 +3,13 @@
         <div class="row">
           <div class="col-12">
             <div class="row">
-              <div class="col-3">
+              <div class="col-4">
+                <ListEchelle/>
+              </div>
+              <div class="col-4">
                 <ListYear/>
               </div>
-              <div class="col-9" v-if="this.$route.name != 'National'">
+              <div class="col-4" v-if="this.$route.name != 'National'">
                 <ListGeo id="select-territoire" :filterCodeFromStore="filterCode"/>
               </div>
             </div>
@@ -55,6 +58,7 @@ import ThemeChart from "@/components/ThemeChart.vue";
 import SubThemeChart from "@/components/SubThemeChart.vue";
 import ListGeo from "@/components/ListGeo.vue";
 import ListYear from "@/components/ListYear.vue";
+import ListEchelle from "@/components/ListEchelle.vue";
 // import Table from "@/components/Table.vue";
 import Number from "@/components/Number.vue";
 import Card from "@/components/CardComponent.vue";
@@ -68,8 +72,9 @@ export default {
     SubThemeChart,
     ListGeo,
     ListYear,
+    ListEchelle,
     Number,
-    Card
+    Card,
   },
   computed: {
       ...mapGetters(['nbActions','nbStructures','montant']),
