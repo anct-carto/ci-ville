@@ -14,17 +14,17 @@ Vérification
 
 Nettoyage
 - suppression de l'année et du libellé de territoire dans le libellé d'action si possible
-- suppression des colonnes non utilisées
+- suppression des colonnes non utilisées -> ok
 
 
 ---- COMPOSANTS -----
 
 
 Liste
-- bug : "undefined" au chargement à résoudre
+- bug : "undefined" au chargement à résoudre -> ok
 
 Chiffre clé
-- animation au changement
+- animation au changement -> ok
 
 Carte
 - ajout légende
@@ -38,10 +38,7 @@ Graphique 2 / sous-thème
 - nom abscisse à supprimer ou apparaitre en légende
 
 Table
-- filtre texte
-- tri 
-- pagination
-(implémentation de Data-table)
+- implémentation Data-table
 
 
 
