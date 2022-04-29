@@ -4,7 +4,7 @@
     <div class="row w-100 g-0"> 
         <div id="nav" class="nav">
           <router-link to="/">Accueil</router-link> 
-          <div class="dropdown">
+          <!-- <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
               Maille d'analyse
             </button>
@@ -18,7 +18,8 @@
               </span>
               <router-link to="/contrat-de-ville">Contrat de ville</router-link> 
             </ul>
-          </div>
+          </div> -->
+          <router-link to="/contrat-de-ville">Visualisation</router-link> 
           <router-link to="/a-propos">À propos</router-link> 
         </div>
       <div class="row app-view">

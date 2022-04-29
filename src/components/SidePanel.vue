@@ -3,13 +3,13 @@
         <div class="row">
           <div class="col-12">
             <div class="row">
-              <div class="col-4">
+              <div class="col-3">
                 <ListEchelle/>
               </div>
-              <div class="col-4">
+              <div class="col-2">
                 <ListYear/>
               </div>
-              <div class="col-4" v-if="this.$route.name != 'National'">
+              <div class="col-7" v-if="this.$route.name != 'National'">
                 <ListGeo id="select-territoire" :filterCodeFromStore="filterCode"/>
               </div>
             </div>
