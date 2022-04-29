@@ -55,7 +55,7 @@ export default {
 .chiffre-cle {
     color:#d24b6b;
     font-size: 2.2em;
-    text-align: right;
+    text-align: left;
     font-family: 'Marianne-Extrabold';
 }
 
