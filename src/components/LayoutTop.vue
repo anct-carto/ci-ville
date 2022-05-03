@@ -3,23 +3,21 @@
         <div class="col-2">
             <ListEchelle/>
         </div>
-        <div class="col-2">
+        <div class="col-1">
             <ListYear/>
         </div>
-        <div class="col-3" v-if="this.$route.name != 'National'">
+        <div class="col-4" v-if="this.$route.name != 'National'">
             <ListGeo id="select-territoire" :filterCodeFromStore="filterCode"/>
         </div>
-        <div class="col-3 filter-indicator">
-            <b>
-                Filtres actifs :
-            </b><br>
-            <div class="filter-info" v-if="filterCode">{{ filterCode }}</div>
-            <div class="filter-info" v-if="filterKey">{{ filterKey }}</div>
+        <div class="col-4 filter-indicator">
+            Filtres actifs :<br>
+            <span class="filter-info" v-if="filterKey">{{ filterKey }}</span>
+            <span class="filter-info" v-if="filterCode">{{ filterCode }}</span>
         </div>
-        <div class="col-2 btn-container">
+        <!-- <div class="col-2 btn-container">
             <button class="btn btn-primary">Partager</button>
             <button class="btn btn-primary">Télécharger</button>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -55,9 +53,14 @@ export default {
         gap:10px;
     }
 
+    .filter-indicator {
+        display: inline-block;
+    }
+
     .filter-info {
         background: #d24b6b;
-        margin-left: 10px;
+        margin-top: 5px;
+        margin-right: 5px;
         display: inline;  
         color:white;
         padding: 4px !important;
@@ -65,17 +68,12 @@ export default {
         z-index: 100;
     }
 
-    .filter-indicator {
-        display: inline-block;
-
-    }
-
     .form-select {
-        padding:10px;
+        padding:8px;
     }
 
     .vs__dropdown-toggle {
-        padding:8px
+        padding:5px
     }
 
     .btn-container {

@@ -46,7 +46,7 @@ export default {
             let newLabels = [];
             labels.forEach(e => {
                 let newEl = e.split(' - ')[1]
-                newEl = this.strToArray(newEl,1);
+                newEl = this.strToArray(newEl,10);
                 console.log(newEl);
                 newLabels.push(newEl)
             })
@@ -101,7 +101,6 @@ export default {
                     //                 '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
                     //                 '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
                     //                 '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'],
-                    // backgroundColor: this.getbgColors(),
                     hoverOffset: 5,
                 }]
                 },
@@ -142,7 +141,7 @@ export default {
                     scales: {
                         x: {
                             grid: {
-                                display:true
+                                display:false
                             },
                             ticks:{
                                 display:true,
@@ -155,7 +154,7 @@ export default {
                         y: {
                             labelMaxWidth:10,
                             grid: {
-                                display:false
+                                display:true
                             },
                             ticks: {
                                 precision:0,

@@ -39,7 +39,7 @@ export default {
         overflow-y:auto;
         display:inline-block;
         width: 100%;
-        height:calc(100vh - 90px) !important;
+        height:calc(100vh - 150px) !important;
         background: white;
         border-radius: 4px;
         text-align: left;

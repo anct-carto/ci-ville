@@ -12,7 +12,7 @@ import dep_geom from '@/assets/geom_dep.json'
 import cercles_drom from '@/assets/cercles_drom.json'
 import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
-import * as aq from 'arquero'
+// import * as aq from 'arquero'
 import {mapState} from 'vuex'
 import * as _ from "underscore"
 
@@ -126,11 +126,12 @@ export default {
     },
     // 4. calcul valeur max à utilisée pour garder proportionnalité des cercles
     maxCount() {
-      let actionsCount = aq.from(this.actions)
-      .groupby('codgeo')
-      .count()
-      .objects();
-      let max = actionsCount.reduce((a,b) => (a.count > b.count) ? a : b).count;
+      // let actionsCount = aq.from(this.actions)
+      // .groupby('codgeo')
+      // .count()
+      // .objects();
+      // let max = actionsCount.reduce((a,b) => (a.count > b.count) ? a : b).count;
+      let max = 1235;
       return max
     }
   },
@@ -381,21 +382,27 @@ li {
 
 #map {
   width: auto;
-  height:calc(100vh - 90px) !important;
+  height:calc(100vh - 150px) !important;
   background: white;
-  box-shadow: 0 2px 2px rgba(0,0,0,.02), 0 0px 2px rgba(0,0,0,.01);
+  /* box-shadow: 0 2px 2px rgba(0,0,0,.02), 0 0px 2px rgba(0,0,0,.01); */
   border-radius: 5px;
 }
 
 .leaflet-tooltip-custom {
   font-family: 'Marianne-Regular';
   font-size:1em;
-  background: rgba(0,0,0,.85) !important;
+  background: rgba(0,0,0,.85);
   color:white;
   border-radius:6px;
-  border:0px !important;
-  padding:5px 10px 5px 10px;
+  border:0px;
+  padding:3px 6px 3px 6px;
+  box-shadow: none;
 }
 
+.leaflet-tooltip-top::before {
+  bottom: 0;
+  margin-bottom: -12px;
+  border-top-color:rgba(0,0,0,.85);
+}
 
 </style>

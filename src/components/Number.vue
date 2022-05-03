@@ -46,7 +46,7 @@ export default {
     border-radius: 5px;
     /* text-align: left; */
     /* white-space: pre; */
-    margin: 15px 0 8px 0;
+    /* margin: 15px 0 8px 0; */
     padding: 5px;
     padding-left:10px;
     padding-right:10px;

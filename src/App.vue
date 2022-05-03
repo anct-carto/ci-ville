@@ -63,7 +63,7 @@ export default {
 
 .app-view {
   padding:10px;
-  height:calc(100vh - 30px);
+  height:calc(100vh - 110px);
 }
 
 @font-face {
@@ -119,7 +119,7 @@ html, body {
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
 }
 
-.dropdown-menu {
+/* .dropdown-menu {
   text-align: center !important;
   width: 150px;
 }
@@ -131,16 +131,15 @@ html, body {
 #dropdownMenu2:focus {
   outline:none;
   box-shadow: none;
-}
+} */
 
-#nav a:hover, a.router-link-exact-active {
-  /* background: #3c6cd3; */
-  border-bottom: solid 3px var(--rose-gerr);   
-  font-family: 'Marianne-Bold';
+#nav a:hover {
+  border-bottom: solid 2px var(--rose-gerr);   
 }
 
 a.router-link-exact-active {
   border-bottom: solid 3px var(--rose-gerr);   
+  font-family: 'Marianne-Bold';
 }
 
 .nav-link {
