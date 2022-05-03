@@ -41,8 +41,16 @@ export default {
             return this.countPerSubTheme.map(e => e.count );
         },
         labels() {
-            console.log("actualisation");
-            return this.countPerSubTheme.map(e => e.sous_theme )
+            let labels = this.countPerSubTheme.map(e => e.sous_theme )
+            // return labels
+            let newLabels = [];
+            labels.forEach(e => {
+                let newEl = e.split(' - ')[1]
+                newEl = this.strToArray(newEl,1);
+                console.log(newEl);
+                newLabels.push(newEl)
+            })
+            return newLabels
         } 
     },
     watch: {
@@ -81,6 +89,7 @@ export default {
                 datasets:[{
                     data:this.dataset,
                     labels:this.labels,
+                    borderRadius: 5,
                     backgroundColor:this.themeColor,
                     // backgroundColor: ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
                     //                 '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
@@ -97,7 +106,7 @@ export default {
                 }]
                 },
                 options:{
-                    indexAxis:'y',
+                    // indexAxis:'y',
                     plugins: {
                         legend: {
                             display: false,
@@ -138,11 +147,13 @@ export default {
                             ticks:{
                                 display:true,
                                 font: {
+                                    size:11,
                                     family: 'Marianne-Regular'
                                 }
                             }
                         },
                         y: {
+                            labelMaxWidth:10,
                             grid: {
                                 display:false
                             },
@@ -171,8 +182,28 @@ export default {
             this.chart.data.datasets[0].backgroundColor = this.themeColor;
 
             this.chart.update()
-        }
+        },
+        // https://github.com/chartjs/Chart.js/issues/608#issuecomment-646318994
+        strToArray (str, limit) {
+            const words = str.split(' ')
+            let aux = []
+            let concat = []
 
+            for (let i = 0; i < words.length; i++) {
+                concat.push(words[i])
+                let join = concat.join(' ')
+                if (join.length > limit) {
+                    aux.push(join)
+                    concat = []
+                }
+            }
+
+            if (concat.length) {
+                aux.push(concat.join(' ').trim())
+            }
+
+            return aux
+        }
     },
 
 }
