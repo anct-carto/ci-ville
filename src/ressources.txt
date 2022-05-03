@@ -50,3 +50,6 @@ data-table : https://github.com/DataTables/DataTables (trop vieux + requiert JQu
 vue-good-table : https://xaksis.github.io/vue-good-table/ (présence possible de bugs)
 bootstrap-table : https://bootstrap-table.com/ (incompatible avec vue3 + requiert JQuery)
 primevue table : https://www.primefaces.org/primevue/datatable/basic (nécessite de charger toute la librairie, trop lourd)
+
+# animation menu hover
+https://stackoverflow.com/questions/28623446/hover-effect-expand-bottom-border
