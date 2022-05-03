@@ -93,17 +93,17 @@ export default createStore({
           state.echelle = "nat";
           state.data = state.data.filter(e => e.echelle == "nat")
           break;
-        case "Region":
+        case "Région":
           // state.data = dataReg
           state.echelle = "reg";
           state.data = state.data.filter(e => e.echelle == "reg")
           break;
-        case "Departement":
+        case "Département":
           // state.data = dataDep
           state.echelle = "dep";
           state.data = state.data.filter(e => e.echelle == "dep")
           break;
-        case "ContratDeVille":
+        case "Contrat de Ville":
           // state.data = dataCdv
           state.echelle = "cdv"
           state.data = state.data.filter(e => e.echelle == "cdv")

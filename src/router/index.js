@@ -15,17 +15,17 @@ const routes = [
   },
   {
     path: '/contrat-de-ville',
-    name: 'ContratDeVille',
+    name: 'Contrat de Ville',
     component:() => import(/* webpackChunkName: "contrat-de-ville" */ '../views/ContratDeVille.vue')
   },
   {
     path: '/departement',
-    name: 'Departement',
+    name: 'Département',
     component:() => import(/* webpackChunkName: "departement" */ '../views/Departement.vue')
   },
   {
     path: '/region',
-    name: 'Region',
+    name: 'Région',
     component:() => import(/* webpackChunkName: "region" */ '../views/Region.vue')
   },
   {

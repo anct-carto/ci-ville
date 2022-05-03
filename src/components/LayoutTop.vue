@@ -44,12 +44,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .parent {
         display: flex;
         flex: row;
         margin-top:-10px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         gap:10px;
     }
 

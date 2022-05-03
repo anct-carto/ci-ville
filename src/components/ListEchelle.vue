@@ -3,11 +3,11 @@
         <label for="select-annee">Echelle</label>
         <select class="form-select" 
                 id="select-echelle"
-                placeholder="Echelle"
                 v-model="selected"
-                :onchange="onChange">
-            <option v-for="option in options" :value="option" :key="option">
-                {{ option }}
+                :onchange="changeRoute">
+            <option disabled>{{selected}}</option>
+            <option v-for="option in options" :value="option.path" :key="option">
+                {{ option.name }}
             </option>
             <!-- <option value="national">Hors contrat de ville - ensemble QPV</option>
             <option value="region">Hors contrat de ville - tous les QPV d'une région</option>
@@ -19,27 +19,41 @@
 
 <script>
 export default {
-    name:'ListYear',
+    name:'ListEchelle',
     data() {
         return {
-            selected:null,
-            options:['national','region','departement','contrat-de-ville']
+            selected:this.route,
+            options:[
+                {
+                    name:'National',
+                    path:'national'
+                },
+                {
+                    name:'Région',
+                    path:'region'
+                },
+                {
+                    name:'Département',
+                    path:'departement'
+                },
+                {
+                    name:'Contrat de ville',
+                    path:'contrat-de-ville'
+                },
+            ],
+            // options:['national','region','departement','contrat-de-ville']
+        }
+    },
+    computed: {
+        route() {
+            return this.$route.name
         }
     },
     created() {
-        this.select = this.$route.name
-    },
-    watch: {
-        $route() {
-        if(this.currentRoute | this.currentRoute != this.$route.name) {
-            // this.updateData(this.$route.name)
-        }
-        this.currentRoute = this.$route.name;
-        }
+        this.selected = this.route
     },
     methods: {
-        onChange() {
-            this.$store.commit('getDataByPage',this.selected)
+        changeRoute() {
             this.$router.push({path:this.selected})
         }
     }

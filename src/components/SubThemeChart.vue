@@ -47,7 +47,6 @@ export default {
             labels.forEach(e => {
                 let newEl = e.split(' - ')[1]
                 newEl = this.strToArray(newEl,10);
-                console.log(newEl);
                 newLabels.push(newEl)
             })
             return newLabels
