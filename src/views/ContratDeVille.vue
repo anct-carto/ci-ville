@@ -48,14 +48,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-#sidepanel {
-  /* height: calc(100vh - 34px); */
-  /* overflow-y: auto; */
-  /* overflow-x: hidden; */
-}
-
-
-</style>
