@@ -368,7 +368,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 
 ul {
   list-style-type: none;
@@ -388,7 +388,14 @@ li {
 }
 
 .leaflet-tooltip-custom {
-  background: red !important;
+  font-family: 'Marianne-Regular';
+  font-size:1em;
+  background: rgba(0,0,0,.85) !important;
+  color:white;
+  border-radius:6px;
+  border:0px !important;
+  padding:5px 10px 5px 10px;
 }
+
 
 </style>
