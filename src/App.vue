@@ -19,7 +19,7 @@
               <router-link to="/contrat-de-ville">Contrat de ville</router-link> 
             </ul>
           </div> -->
-          <router-link to="/contrat-de-ville">Visualisation</router-link> 
+          <router-link to="/panorama">Visualisation</router-link> 
           <router-link to="/a-propos">À propos</router-link> 
         </div>
       <div class="row app-view">
@@ -139,7 +139,7 @@ html, body {
   transform: scaleX(1);
 }
 
-#nav a.router-link-exact-active {
+#nav a.router-link-active {
   font-family: 'Marianne-Bold';
   border-bottom: solid 3px var(--rose-gerr);
   border-bottom-width: 50% !important;
