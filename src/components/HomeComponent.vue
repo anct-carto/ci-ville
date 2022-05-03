@@ -20,16 +20,16 @@
     <p>Explorer les actions menées à l'échelle :</p>
     <ul>
       <li> 
-        <router-link to="/national" class = "btn ptn-primary">National</router-link>  
+        <router-link to="panorama/national" class = "btn ptn-primary">National</router-link>  
       </li>
       <li>
-        <router-link to="/region" class = "btn ptn-primary">Région</router-link> 
+        <router-link to="panorama/region" class = "btn ptn-primary">Région</router-link> 
       </li>
       <li>
-        <router-link to="/departement" class = "btn ptn-primary">Département</router-link> 
+        <router-link to="panorama/departement" class = "btn ptn-primary">Département</router-link> 
       </li>
       <li>        
-        <router-link to="/contrat-de-ville" class = "btn ptn-primary">Contrat de ville</router-link> 
+        <router-link to="panorama/contrat-de-ville" class = "btn ptn-primary">Contrat de ville</router-link> 
       </li>
     </ul>
     <h4>Bonne navigation !</h4>
