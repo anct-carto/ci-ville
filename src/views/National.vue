@@ -4,7 +4,7 @@
     </div>
     <div class="row">
       <div class="col-sm-5" id="sidepanel-container">
-          <SidePanel id="sidepanel"/>
+         <SidePanel id="sidepanel"/>
       </div>
       <div class="col-7">
             <nav>
