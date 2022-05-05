@@ -210,8 +210,13 @@ export default {
 <style scoped>   
     div {
         width: 100%;
-        background-color: white;
+        /* background-color: white; */
         padding:1px;
+    }
+
+    .text-select-territoire {
+        text-align: center;
+        font-style: italic;
     }
 
 </style>
