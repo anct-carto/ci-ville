@@ -7,18 +7,18 @@
                     <th scope="col">Libellé de l'action</th>
                     <th scope="col">Structure porteuse</th>
                     <th scope="col">Objectif</th>
-                    <th scope="col">Montant en euros</th>
+                    <th scope="col">Montant</th>
                 </tr>
             </thead>
-            <tbody v-if="filterCode">
+            <tbody v-if="filterCode || route == 'National'">
                 <tr v-for="action in actionsList" :key="action.id_action">
                     <td>{{ action.lib_action }}</td>
                     <td>{{ action.raison_sociale }}</td>
                     <td>{{ action.objectif }}</td>
-                    <td>{{ action.montant.toLocaleString()}}</td>
+                    <td class="col-montant">{{ action.montant.toLocaleString()}} €</td>
                 </tr>
             </tbody>
-            <div v-else>
+            <div class="text-select-territoire" v-else>
                 <i>Sélectionnez un territoire pour consulter la liste des actions</i>
             </div>
         </table>
@@ -32,9 +32,16 @@ export default {
     computed: {
       ...mapState({
           actionsList: state => state.filteredData,
-          filterCode: state => state.filterCode
+          filterCode: state => state.filterCode,
         }),
+        route() {
+            console.log(this.$route.name);
+            return this.$route.name
+        }
     },
+    mounted() {
+        console.log(this.route);
+    }
 }
 </script>
 
@@ -62,5 +69,15 @@ export default {
 
     tbody > tr:hover {
         background: rgb(245,245,245);
+    }
+
+    .text-select-territoire {
+        text-align: center;
+        /* margin-top:50%; */
+        vertical-align: center;
+    }
+
+    .col-montant {
+        text-align: right;
     }
 </style>
