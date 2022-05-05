@@ -1,5 +1,5 @@
 <template class="parent">
-    <div class="parent">
+    <div class="row parent">
         <div class="col-2">
             <ListEchelle/>
         </div>

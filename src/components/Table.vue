@@ -10,7 +10,7 @@
                     <th scope="col">Montant en euros</th>
                 </tr>
             </thead>
-            <tbody v-if="actionsList">
+            <tbody v-if="filterCode">
                 <tr v-for="action in actionsList" :key="action.id_action">
                     <td>{{ action.lib_action }}</td>
                     <td>{{ action.raison_sociale }}</td>
@@ -18,6 +18,9 @@
                     <td>{{ action.montant.toLocaleString()}}</td>
                 </tr>
             </tbody>
+            <div v-else>
+                <i>Sélectionnez un territoire pour consulter la liste des actions</i>
+            </div>
         </table>
     </div>
 </template>
@@ -28,7 +31,8 @@ import {mapState} from 'vuex'
 export default {
     computed: {
       ...mapState({
-          actionsList: state => state.filteredData
+          actionsList: state => state.filteredData,
+          filterCode: state => state.filterCode
         }),
     },
 }
@@ -44,7 +48,8 @@ export default {
         border-radius: 4px;
         text-align: left;
         padding-left:10px;
-        padding-right:10px
+        padding-right:10px;
+        margin-bottom:0px;
     }
 
     thead {

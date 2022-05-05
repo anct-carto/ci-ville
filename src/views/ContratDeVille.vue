@@ -1,8 +1,8 @@
 <template>
       <div class="row">
-            <LayoutTop/>
+          <LayoutTop/>
       </div>
-      <div class="row h-100">
+      <div class="row">
           <div class="col-sm-5" id="sidepanel-container">
               <SidePanel id="sidepanel"/>
           </div>
@@ -21,10 +21,7 @@
                               :libGeo="'lib_cv'"/>
               </div>
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <div v-if="this.$store.state.filterCode">
                   <Table id="table-actions"/>
-                </div>
-                <span v-else>Sélectionnez un contrat de ville pour consulter la liste des actions</span>
               </div>
             </div>
           </div>

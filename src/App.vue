@@ -131,7 +131,7 @@ html, body {
   visibility: hidden;
   z-index: 1000;
   transform: scaleX(0);  
-  transition: transform 100ms ease-in-out;
+  transition: transform 250ms ease-in-out;
 }
 
 #nav a:hover:after {
