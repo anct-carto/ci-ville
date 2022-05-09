@@ -42,14 +42,14 @@ export default {
         },
         labels() {
             let labels = this.countPerSubTheme.map(e => e.sous_theme )
-            // return labels
-            let newLabels = [];
-            labels.forEach(e => {
-                let newEl = e.split(' - ')[1]
-                newEl = this.strToArray(newEl,10);
-                newLabels.push(newEl)
-            })
-            return newLabels
+            return labels
+            // let newLabels = [];
+            // labels.forEach(e => {
+            //     let newEl = e.split(' - ')[1]
+            //     newEl = this.strToArray(newEl,10);
+            //     newLabels.push(newEl)
+            // })
+            // return newLabels
         } 
     },
     watch: {

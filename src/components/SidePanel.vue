@@ -42,7 +42,7 @@
           <Card :title="`Répartition des actions par sous-thème`"
                 :about='"Sélectionnez un sous-thème pour filtrer la table des actions"'>
             <SubThemeChart v-if="filterKey"/>
-            <!-- <span class="msg-else" v-else>Sélectionnez un thème pour accéder à la répartition par sous-thème</span> -->
+            <span class="msg-else" v-else>Sélectionnez un thème pour accéder à la répartition par sous-thème</span>
           </Card>
         <!-- <h5>Liste des actions engagées</h5>
           <div v-if="this.$store.state.filterCode">
@@ -98,6 +98,9 @@ export default {
   display: flex;
   justify-content: center;
   vertical-align: middle;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 
 </style>
