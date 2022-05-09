@@ -14,8 +14,17 @@ export default {
     }
   },
   mounted() {
-    const echelle = this.$route.params.echelle;
-    echelle ? this.$router.push({path:`/panorama/${echelle}`}) : this.$router.push({path:`/panorama/contrat-de-ville`}) 
+    const echelleFromParams = this.$route.params.echelle;
+    console.log(this.$route);
+    const echelleFromPath = this.$route.fullPath.split('/')[2]
+    console.log(echelleFromPath);
+    if(echelleFromParams) {
+       this.$router.push({path:`/panorama/${echelleFromParams}`}) 
+    } else if (echelleFromPath) {
+      this.$router.push({path:`/panorama/${echelleFromPath}`}) 
+    } else {
+      this.$router.push({path:`/panorama/contrat-de-ville`})
+    }
   }
 }
 </script>
