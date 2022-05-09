@@ -164,7 +164,7 @@ export default {
   mounted() {
     this.computeData();
     this.drawBubbles();
-    this.map.on('moveend',this.setMapExtent);
+    // this.map.on('moveend',this.setMapExtent);
   },
   methods: {
     // FONCTIONS APPELEES

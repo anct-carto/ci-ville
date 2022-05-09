@@ -13,19 +13,19 @@
         <ul>
           <li>
             La carte des actions financées au niveau des contrats de villes
-            <router-link to="panorama/contrat-de-ville" class = "btn ptn-primary">Contrat de ville</router-link> 
+            <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'contrat-de-ville'}}" class = "btn ptn-primary">Contrat de ville</router-link> 
           </li>
           <li>
             La carte des actions départementales financées à l'échelle du département mais hors des contrats de ville
-            <router-link to="panorama/departement" class = "btn ptn-primary">Département</router-link> 
+            <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'departement'}}" class = "btn ptn-primary">Département</router-link> 
           </li>
           <li>
             La carte des actions régionales financées à l'échelle de la région hors des contrats de ville
-            <router-link to="panorama/region" class = "btn ptn-primary">Région</router-link> 
+            <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'region'}}" class = "btn ptn-primary">Région</router-link> 
           </li>
           <li>
             La liste des actions ayant été financées au niveau national
-            <router-link to="panorama/national" class = "btn ptn-primary">National</router-link>  
+            <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'national'}}" class = "btn ptn-primary">National</router-link>  
           </li>
         </ul>
       </div>

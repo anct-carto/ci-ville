@@ -8,8 +8,14 @@
 
 export default {
   name: 'Panorama',
+  props: {
+    routeTo: {
+      type:String,
+    }
+  },
   mounted() {
-    this.$router.push({path:'/panorama/contrat-de-ville'})
+    const echelle = this.$route.params.echelle;
+    echelle ? this.$router.push({path:`/panorama/${echelle}`}) : this.$router.push({path:`/panorama/contrat-de-ville`}) 
   }
 }
 </script>

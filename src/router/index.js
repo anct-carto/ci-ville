@@ -13,6 +13,7 @@ const routes = [
     path:'/panorama',
     name:'Panorama',
     component:Panorama,
+    props:true,
     children: [
       {
         path: 'national',
