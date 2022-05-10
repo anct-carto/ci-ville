@@ -16,22 +16,22 @@ const routes = [
     props:true,
     children: [
       {
-        path: 'national',
+        path: '/panorama/national',
         name: 'National',
         component:() => import(/* webpackChunkName: "national" */ '../views/National.vue')
       },
       {
-        path: 'region',
+        path: '/panorama/region',
         name: 'Région',
         component:() => import(/* webpackChunkName: "region" */ '../views/Region.vue')
       },
       {
-        path: 'departement',
+        path: '/panorama/departement',
         name: 'Département',
         component:() => import(/* webpackChunkName: "departement" */ '../views/Departement.vue')
       },
       {
-        path: 'contrat-de-ville',
+        path: '/panorama/contrat-de-ville',
         name: 'Contrat de Ville',
         component:() => import(/* webpackChunkName: "contrat-de-ville" */ '../views/ContratDeVille.vue')
       },
