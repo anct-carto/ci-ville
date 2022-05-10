@@ -266,7 +266,7 @@ export default {
 
 div {
   width: 100%;
-  background-color: white;
+  /* background-color: white; */
   padding:1px;
 }
 
