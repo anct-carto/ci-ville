@@ -1,55 +1,64 @@
 <template>
-  <div class="hello container">
+  <div class="hello">
     <img :src="logo_anct" alt="" id="logo-anct"><br><br>
     <!-- <h1>{{ msg }}</h1> -->
+    <b style="color:red">! Pages en cours de développement !</b><br>
+    <span>Bienvenue sur les</span>
     <div class="app-name">
-      <h3>
-        Cartes interactives des actions politique de la ville subventionnées par année
-      </h3>
+        Cartes interactives<br> des actions politique de la ville<br>subventionnées par année
     </div>
     <div class="row">
-      <div class="col-6">
-        <p>Plusieurs échelles sont proposées :</p>
-        <ul>
-          <li>
-            La carte des actions financées au niveau des contrats de villes<br>
-            <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'contrat-de-ville'}}" class = "btn ptn-primary">Contrat de ville</router-link> 
-          </li>
-          <li>
-            La carte des actions départementales financées à l'échelle du département mais hors des contrats de ville<br>
-            <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'departement'}}" class = "btn ptn-primary">Département</router-link> 
-          </li>
-          <li>
-            La carte des actions régionales financées à l'échelle de la région hors des contrats de ville<br>
-            <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'region'}}" class = "btn ptn-primary">Région</router-link> 
-          </li>
-          <li>
-            La liste des actions ayant été financées au niveau national<br>
-            <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'national'}}" class = "btn ptn-primary">National</router-link>  
-          </li>
-        </ul>
-      </div>
-      <div class="col-6">
-        <h5>Quelles sont les données représentées ?</h5>
+      <div class="col-4">
         <p>
-          Les données sont issues de XXXXX. Elles représentent le montant financé, les actions déployées ainsi que les tiers concernés. Les postes adultes relais et Fonjep ne sont pas représentés.
+          Cette application présente, à l'aide d'une carte et de graphiques filtrables, la répartition et la liste des actions menées dans les quartiers prioritaires de la politique de la ville et financées par le programme 147.
         </p>
         <p>
-          Les cercles figurant sur les cartes sont dimensionnés en fonction du nombre d’actions financées. Ils permettent de comparer les volumes d'actions par territoire. 
+          La répartition des actions est présentée en fonction :
+          <ul>
+            <li>
+              - de l'échelon territorial bénéficiaire : du contrat de ville au national ;
+            </li>
+            <li>
+              - de l'année de financement : 2020 ou 2021 ;
+            </li>
+            <li>
+              - de la thématique portée : piliers de la pilitique de la ville et sous-thèmes
+            </li>
+          </ul>
         </p>
-        <p>
-          La liste des actions financées permet également d'avoir accès au nom et aux porteurs des projets. 
-        </p>
-        <h5>Comment fonctionne l'application ?</h5>
-        <p>
-          Vous pouvez naviguer en choisissant la taille du maillage territorial ou en recherchant un contrat de ville directement. 
-        </p>
-        <p>
-          Pour revenir en arrière, il vous suffit de cliquer sur la carte 
-        </p>
+        <div class="row btns">
+          <div class="col-6">
+            <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'contrat-de-ville'}}" class = "btn btn-primary btn-principal">-> Démarrage rapide</router-link> 
+            <!-- <button class="btn btn-primary btn-principal">
+              Démarrage rapide
+            </button> -->
+          </div>
+          <div class="col-6">
+            <router-link to="a-propos" class = "btn btn-primary btn-principal">-> En savoir plus</router-link> 
+            <!-- <button class="btn btn-primary btn-principal">En savoir plus</button>             -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <p>ou explorer les actions à l'échelle : </p>
+            <ul>
+              <li>
+                <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'contrat-de-ville'}}" class = "btn-shortcut">Contrat de ville</router-link> 
+              </li>
+              <li>
+                <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'departement'}}" class = "btn-shortcut">Département</router-link> 
+              </li>
+              <li>
+                <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'region'}}" class = "btn-shortcut">Région</router-link> 
+              </li>
+              <li>
+                <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'national'}}" class = "btn-shortcut">National</router-link>  
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-    <h4>Bonne navigation !</h4>
     <!-- <img :src="bg" alt="" srcset="" class="bg-img"> -->
   </div>
 </template>
@@ -77,18 +86,19 @@ export default {
 <style scoped>
 
 div {
-  text-align: center;
+  /* text-align: center; */
+}
+
+.hello {
+  padding-left:50px;
 }
 
 .app-name {
   font-family: 'Marianne-Bold';
-  color:#d24b6b;
-  line-height: 1rem;
-}
-
-h5 {
-  font-family: 'Marianne-Bold';
-
+  color:rgb(41, 49, 115);
+  text-transform: uppercase;
+  font-size:2.5em;
+  margin-bottom: 30px;
 }
 
 ul {
@@ -103,7 +113,7 @@ li {
 
 
 #logo-anct {
-  width:400px;
+  width:200px;
 }
 
 .bg-img {
@@ -112,25 +122,56 @@ li {
   height: auto;
 }
 
-.btn {
-  /* width: 150px; */
-  margin: 10px 10px;
-  color: #d24b6b;
-  border-radius:0px;
+.btn-principal {
+  font-size: 1.3em;
+  border-radius: 20px;
   text-transform: uppercase;
-}
-
-.btn:hover {
-  opacity: .9;
+  width: 100%;
+  /* display: inline-block;
+  width: 50%; */
+  background: #d24b6b;
+  border: solid 2px #d24b6b;
   font-family: 'Marianne-Bold';
-  color:#d24b6b;
-  border-bottom:solid 2px #d24b6b
 }
 
-.btn:focus {
-  outline:#d24b6b;
-    box-shadow: none;
+.btn-principal:hover {
+  background: none;
+  border: solid 2px #d24b6b;
+  color: #d24b6b;
+}
 
+.btns {
+  margin-top:40px;
+  margin-bottom:20px
+}
+
+.btn-shortcut  {
+  text-transform: uppercase;
+  color: var(--rose-gerr); 
+  margin: 5px 10px 2px 10px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  /* transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important; */
+  letter-spacing: 1px;
+}
+
+.btn-shortcut::after {
+  content: "";
+  display:block;
+  margin:0 auto;
+  margin-bottom: -2px;
+  height: 2px;
+  background-color: var(--rose-gerr);
+  visibility: hidden;
+  z-index: 1000;
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+
+.btn-shortcut:hover:after {
+  visibility: visible;
+  transform: scaleX(1);
 }
 
 </style>
