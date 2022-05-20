@@ -197,7 +197,7 @@ export default {
                 // formattage texte tooltip
                 callbacks: {
                   label: tooltip => {
-                    return `${tooltip.label} : ${tooltip.parsed.toLocaleString("fr-FR")}`
+                    return `${tooltip.label} : ${tooltip.parsed.toLocaleString("fr-FR")} €`
                   }
                 }
               }
@@ -247,11 +247,13 @@ export default {
       return bgColorsArray
     },
     countActions(data) {
-      let actionsCount = _.countBy(data,'theme')
+      let actionsCount = _.groupBy(data,'theme')
       actionsCount = _.map(actionsCount,(value,key) => {
         return {
           theme:key,
-          count:value
+          count:_.reduce(value, (total, o) => {
+                    return total + o.montant
+                },0)
         }
       })
       actionsCount = _.sortBy(actionsCount,'theme')

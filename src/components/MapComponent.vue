@@ -74,7 +74,7 @@ export default {
       let map = L.map('map', {
         zoomControl:false,
         zoomSnap:0.05,
-        minZoom:5.75,
+        minZoom:5,
       })
       // .setView([46.413220, 1.219482],6);
 
@@ -131,7 +131,7 @@ export default {
       // .count()
       // .objects();
       // let max = actionsCount.reduce((a,b) => (a.count > b.count) ? a : b).count;
-      let max = 1235;
+      let max =  15000000;
       return max
     }
   },
@@ -179,11 +179,20 @@ export default {
       }
 
       // grouper pour compter par code
-      let actionsCount = _.countBy(data,'codgeo')
-      actionsCount = _.map(actionsCount,(value,key) => {
+      // let actionsCount = _.countBy(data,'codgeo')
+      // actionsCount = _.map(actionsCount,(value,key) => {
+      //   return {
+      //     codgeo:key,
+      //     count:value
+      //   }
+      // })
+      let actionsCount = _.groupBy(data,'codgeo')
+      actionsCount = _.map(actionsCount, (v,k) => {
         return {
-          codgeo:key,
-          count:value
+          codgeo:k,
+          count:_.reduce(v, (total, o) => {
+            return total + o.montant
+          },0)
         }
       })
       // let actionsCount = aq.from(data)
@@ -339,7 +348,7 @@ export default {
             weight:2,
             interactive:false,
             pane: 'markerPane'
-          }).bindTooltip(`${feature.properties[this.libGeo]} (${feature.properties[this.idGeo]}) : ${feature.properties.count.toLocaleString()}`, {
+          }).bindTooltip(`${feature.properties[this.libGeo]} (${feature.properties[this.idGeo]}) : ${feature.properties.count.toLocaleString("fr-FR")} €`, {
             permanent:true,
             direction:'top',
             className:'leaflet-tooltip-custom',
@@ -354,7 +363,7 @@ export default {
     // calcul du rayon des cercles
     computeRadius(baseCount) {
       // changer la valeur "100" pour agrandir ou réduire la taille max des cercles
-      return Math.sqrt(baseCount)*(65/Math.sqrt(this.maxCount))
+      return Math.sqrt(baseCount)*(50/Math.sqrt(this.maxCount))
     },
     setMapExtent() {
       let map = this.map;

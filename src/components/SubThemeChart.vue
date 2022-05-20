@@ -25,16 +25,27 @@ export default {
             themeColor: state => state.themeColor,
         }),
         countPerSubTheme() {
-            let count = _.countBy(this.actions,'sous_theme')
-            count = _.chain(count)
-            .map((value,key) => {
+            let count = _.groupBy(this.actions,'sous_theme')
+            count = _.map(count,(v,k) => {
                 return {
-                    'sous_theme':key,
-                    'count':value
+                'sous_theme':k,
+                count:_.reduce(v, (total, o) => {
+                    return total + o.montant
+                },0)
                 }
-            }).sortBy('count')
-            .reverse()
-            ._wrapped
+            })
+            console.log(this.count);
+
+            // let count = _.countBy(this.actions,'sous_theme')
+            // count = _.chain(count)
+            // .map((value,key) => {
+            //     return {
+            //         'sous_theme':key,
+            //         'count':value
+            //     }
+            // }).sortBy('count')
+            // .reverse()
+            // ._wrapped
             return count
         },
         dataset() {
