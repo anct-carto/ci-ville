@@ -109,6 +109,26 @@ export default {
         this.$store.dispatch('resetCodegeo')
       })
 
+      // https://cartographicperspectives.org/index.php/journal/article/view/cp76-donohue-et-al/1307
+      // let legend = L.control({position:'topleft'});
+      // legend.onAdd = function() {
+      //   var div = L.DomUtil.create('div','info-legend');
+      //   let values = [1200,500,100,10];
+      //   let labels = [];
+      //   values.forEach(e => {
+          
+      //     let radius = Math.sqrt(e)*(65/Math.sqrt(1200))
+      //     labels.push(`
+      //     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      //       <circle cx="50" cy="50" r="${radius}"/>
+      //     </svg>
+      //     <span class="legend-bubble">${e}</span>`)
+      //   })
+      //   div.innerHTML = labels.join('<br>')
+      //   return div
+      // }
+      // legend.addTo(map)
+
       return map
     },
     // 3. CALQUES
