@@ -9,11 +9,11 @@
         <div class="col-4" v-if="this.$route.name != 'National'">
             <ListGeo id="select-territoire" :filterCodeFromStore="filterCode"/>
         </div>
-        <div class="col-4 filter-indicator" v-if="filterKey||filterCode">
+        <!-- <div class="col-4 filter-indicator" v-if="filterKey||filterCode">
             Filtres actifs :<br>
             <span class="filter-info" v-if="filterKey">{{ filterKey }}</span>
             <span class="filter-info" v-if="filterCode">{{ filterCode }}</span>
-        </div>
+        </div> -->
         <!-- <div class="col-2 btn-container">
             <button class="btn btn-primary">Partager</button>
             <button class="btn btn-primary">Télécharger</button>
