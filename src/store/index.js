@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import _ from 'underscore'
-import actionsFinancees from '@/assets/actions-2020-2021.json'
+import actionsFinancees from '@/assets/actions-2020-2021-test.json'
 
 // const actions2020 = actionsFinancees.filter(e=> e.annee == 2020)
 // const actions2021 = actionsFinancees.filter(e=> e.annee == 2021)
@@ -87,6 +87,7 @@ export default createStore({
     // },
     getDataByPage(state,echelle) {
       state.data = actionsFinancees.filter(e => e.annee == state.annee)
+      console.log(state.data);
       switch (echelle) {
         case "National":
           // state.data = dataNat
@@ -96,17 +97,26 @@ export default createStore({
         case "Région":
           // state.data = dataReg
           state.echelle = "reg";
-          state.data = state.data.filter(e => e.echelle == "reg")
+          state.data = state.data.filter(e => e.echelle != "nat")
+          state.data.forEach(e => {
+            e.codgeo = e.insee_reg
+          })
           break;
         case "Département":
           // state.data = dataDep
           state.echelle = "dep";
-          state.data = state.data.filter(e => e.echelle == "dep")
+          state.data = state.data.filter(e => e.echelle == "dep" || e.echelle == "cdv")
+          state.data.forEach(e => {
+            e.codgeo = e.insee_dep
+          })
           break;
         case "Contrat de Ville":
           // state.data = dataCdv
           state.echelle = "cdv"
           state.data = state.data.filter(e => e.echelle == "cdv")
+          state.data.forEach(e => {
+            e.codgeo = e.code_cv
+          })
           break;
       }
       state.filteredData = state.data
