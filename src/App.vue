@@ -150,6 +150,9 @@ html, body {
   font-size: 1.2em !important;
 }
 
+select,option {
+  cursor:pointer
+}
 
 @import'~bootstrap/dist/css/bootstrap.css'
 
