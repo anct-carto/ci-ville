@@ -73,5 +73,6 @@ export default {
 
     .select-input {
         background: white;
+        z-index: 10000 !important;
     }
 </style>
