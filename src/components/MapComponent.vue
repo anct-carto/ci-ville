@@ -110,24 +110,6 @@ export default {
       })
 
       // https://cartographicperspectives.org/index.php/journal/article/view/cp76-donohue-et-al/1307
-      // let legend = L.control({position:'topleft'});
-      // legend.onAdd = function() {
-      //   var div = L.DomUtil.create('div','info-legend');
-      //   let values = [1200,500,100,10];
-      //   let labels = [];
-      //   values.forEach(e => {
-          
-      //     let radius = Math.sqrt(e)*(65/Math.sqrt(1200))
-      //     labels.push(`
-      //     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      //       <circle cx="50" cy="50" r="${radius}"/>
-      //     </svg>
-      //     <span class="legend-bubble">${e}</span>`)
-      //   })
-      //   div.innerHTML = labels.join('<br>')
-      //   return div
-      // }
-      // legend.addTo(map)
 
       return map
     },
@@ -146,11 +128,17 @@ export default {
     },
     // 4. calcul valeur max à utilisée pour garder proportionnalité des cercles
     maxCount() {
-      // let actionsCount = aq.from(this.actions)
-      // .groupby('codgeo')
-      // .count()
-      // .objects();
+      // let actionsCount = _.groupBy(this.actions,'codgeo')
+      // actionsCount = _.map(actionsCount, (v,k) => {
+      //   return {
+      //     codgeo:k,
+      //     count:_.reduce(v, (total, o) => {
+      //       return total + o.montant
+      //     },0)
+      //   }
+      // })
       // let max = actionsCount.reduce((a,b) => (a.count > b.count) ? a : b).count;
+
       let max =  15000000;
       return max
     }
@@ -184,9 +172,51 @@ export default {
   mounted() {
     this.computeData();
     this.drawBubbles();
+    this.createLegend()
     // this.map.on('moveend',this.setMapExtent);
   },
   methods: {
+    createLegend() {
+      let legend = L.control({position:'topleft'});
+      let previousLegend = document.getElementsByClassName('info-legend')
+
+      // si légende déjà présente, supprimer et regénérer, sinon elle sera duppliquée
+      if(previousLegend.length) {
+        previousLegend[0].remove()
+      }
+      
+      legend.onAdd = function() {
+        var legendContainer = L.DomUtil.create('div','info-legend');
+
+
+        let val1 = createLegendBubble(1200)
+        let val2 = createLegendBubble(500)
+        let val3 = createLegendBubble(100)
+
+        let legend = `
+        <div class="legend-bubble max" style="width:${val1}px;height:${val1}px;">
+          <span class="legend-bubble-text">1200</span>
+          <div class="legend-bubble mean" style="width:${val2}px;height:${val2}px;">
+            <span class="legend-bubble-text">500</span>
+            <div class="legend-bubble min" style="width:${val3}px;height:${val3}px;">
+              <span class="legend-bubble-text">100</span>
+            </div>
+          </div>
+        </div>`
+
+        legendContainer.innerHTML += "<b>Montant engagé, <br>en millions d'euros</b><br>";
+        legendContainer.innerHTML += legend;
+
+        function createLegendBubble(r) {
+          let radius = Math.sqrt(r)*(65/Math.sqrt(1200))
+          return radius
+        }
+
+
+        return legendContainer
+      }
+      legend.addTo(this.map)
+    },
     // FONCTIONS APPELEES
     // agrégation par code cv avant de faire la carte
     computeData() {
@@ -307,7 +337,7 @@ export default {
     },
     updateBubbles() {
       this.computeData();
-      
+      this.createLegend();
       // méthode 1 : animation cercles
       // this.bubbleLayer.eachLayer(layer => {
       //   layer.setStyle({fillColor:this.themeColor});
@@ -432,6 +462,49 @@ li {
   bottom: 0;
   margin-bottom: -12px;
   border-top-color:rgba(0,0,0,.85);
+}
+
+.info-legend {
+  font-family: 'Marianne-Regular';
+  background-color: rgba(255,255,255,0.8);
+  box-shadow: 0 2px 2px rgba(0,0,0,.2), 0 0px 2px rgba(0,0,0,.01);
+  border-radius: 7px;
+  padding:10px;
+  display: block;
+  height: 120px;
+}
+
+.legend-bubble {
+  border-radius:50%;
+  border: 1px solid rgb(116, 116, 116);
+  position: absolute;
+}
+
+.legend-bubble-text {
+  position: absolute;
+  transform: translateX(250%);
+}
+
+.info-legend > span {
+  position:absolute
+}
+
+.mean {
+  left:18%;
+  bottom:-1%;
+}
+
+.min {
+  left: 26%;
+  bottom:-1%;
+}
+
+.min > .legend-bubble-text {
+  left:-30%;
+}
+
+.mean > .legend-bubble-text {
+  left:5%;
 }
 
 </style>
