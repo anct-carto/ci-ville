@@ -53,3 +53,6 @@ primevue table : https://www.primefaces.org/primevue/datatable/basic (nécessite
 
 # animation menu hover
 https://stackoverflow.com/questions/28623446/hover-effect-expand-bottom-border
+
+# légende cercles proportionnels empilés
+https://jsfiddle.net/hy2dn0oz/4/
