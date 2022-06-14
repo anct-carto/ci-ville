@@ -14,7 +14,7 @@
             </nav>
             <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                  <Table id="table-actions"/>
+                  <!-- <Table id="table-actions"/> -->
               </div>
             </div>
       </div>
@@ -24,13 +24,15 @@
 <script>
 // @ is an alias to /src
 import SidePanel from '@/components/SidePanel.vue'
-import Table from '@/components/Table.vue'
+// import Table from '@/components/Table.vue'
 import LayoutTop from "@/components/LayoutTop.vue";
 
 export default {
   name: 'Home',
   components: { 
-    SidePanel,Table,LayoutTop
+    SidePanel,
+    // Table,
+    LayoutTop
   }
 }
 
