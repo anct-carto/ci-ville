@@ -177,7 +177,7 @@ export default {
   },
   methods: {
     createLegend() {
-      let legend = L.control({position:'topleft'});
+      let legend = L.control({position:'bottomright'});
       let previousLegend = document.getElementsByClassName('info-legend')
 
       // si légende déjà présente, supprimer et regénérer, sinon elle sera duppliquée
