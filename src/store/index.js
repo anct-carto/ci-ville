@@ -41,12 +41,12 @@ export default createStore({
       state.themeColor = color
     },
     crossFilter(state,filterParams) {
-      let type = filterParams.type;
+      let filterName = filterParams.type;
       let value = filterParams.value;
 
       let data = state.data
 
-      switch (type) {
+      switch (filterName) {
         case "theme":
           console.log(value); // brest metropole
           state.filterKey = value;
@@ -90,17 +90,13 @@ export default createStore({
       console.log(state.data);
       switch (echelle) {
         case "National":
-          // state.data = dataNat
           state.echelle = "nat";
-          state.data = state.data.filter(e => e.echelle == "nat")
+          // state.data = state.data.filter(e => e.echelle == "nat")
           break;
         case "Région":
-          // state.data = dataReg
-          state.echelle = "reg";
-          state.data = state.data.filter(e => e.echelle != "nat")
-          state.data.forEach(e => {
-            e.codgeo = e.insee_reg
-          })
+          state.echelle = "reg"; // 1. définition de l'échelle de filtre
+          state.data = state.data.filter(e => e.echelle != "nat") // 2. Filtrage sur les échelles concernées par l'option choisie
+          state.data.forEach(e => e.codgeo = e.insee_reg) // 3. assignation du code géographique correspond : reg, dep ou cdv 
           break;
         case "Département":
           // state.data = dataDep
@@ -140,7 +136,25 @@ export default createStore({
     },
     CHANGE_ANNEE(state,annee) {
       state.annee = annee;
-      state.data = actionsFinancees.filter(e => e.annee == annee && e.echelle == state.echelle)
+      state.data = actionsFinancees.filter(e => e.annee == annee)
+      console.log(state.echelle);
+      switch (state.echelle) {
+        case "nat":
+          // state.data = state.data
+          break;
+        case "reg":
+          state.data = state.data.filter(e => e.echelle != "nat") 
+          state.data.forEach(e => e.codgeo = e.insee_reg)  
+          break;
+        case "dep":
+          state.data = state.data.filter(e => e.echelle == "dep" || e.echelle == "cdv")
+          state.data.forEach(e => e.codgeo = e.insee_dep )
+          break;
+        case "cdv":
+          state.data = state.data.filter(e => e.echelle == "cdv")
+          state.data.forEach(e => e.codgeo = e.code_cv)
+          break;
+      }
       state.filteredData = state.data
     },
   },
@@ -153,15 +167,6 @@ export default createStore({
     },
     changeAnnee({commit},annee) {
       commit('CHANGE_ANNEE',annee);
-      // const state = this.state;
-      // if(state.filterKey) {
-      //   console.log("theme appliqué");
-      //   commit('crossFilter',{type:'theme',value:state.filterKey})
-      // }
-      // if(state.filterCode) {
-      //   console.log("geo appliqué");
-      //   commit('crossFilter',{type:'cdv',value:state.filterCode})
-      // }      
     }
   },
 })
