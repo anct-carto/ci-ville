@@ -89,10 +89,9 @@ export default {
     background: #5473b6;
     color:white;
     box-shadow: 0 2px 2px rgba(0,0,0,.09), 0 0px 2px rgba(0,0,0,.1);
-    /* margin-left:350px;*/
-	/* margin-top:-10px; */
-    z-index: 1000;
-    max-width: 300px;
+    /* z-index: 1000; */
+    max-width: 350px;
+    z-index: 500;
     padding: 5px 10px 5px 10px;
     font-family:'Marianne-Regular';
     font-size:0.7em;
