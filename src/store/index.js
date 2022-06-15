@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import _ from 'underscore'
-import actionsFinancees from '@/assets/actions-2020-2021-test.json'
+import actionsFinancees from '@/assets/actions-2020-2021.json'
 
 // const actions2020 = actionsFinancees.filter(e=> e.annee == 2020)
 // const actions2021 = actionsFinancees.filter(e=> e.annee == 2021)
