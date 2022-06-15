@@ -26,15 +26,18 @@ export default {
         }),
         countPerSubTheme() {
             let count = _.groupBy(this.actions,'sous_theme')
-            count = _.map(count,(v,k) => {
+            count = _.chain(count)
+            .map((v,k) => {
                 return {
-                'sous_theme':k,
-                count:_.reduce(v, (total, o) => {
-                    return total + o.montant
-                },0)
+                    'sous_theme':k,
+                    count:_.reduce(v, (total, o) => {
+                            return total + o.montant
+                    },0)
                 }
             })
-            console.log(this.count);
+            .sortBy('count')
+            .reverse()
+            ._wrapped
 
             // let count = _.countBy(this.actions,'sous_theme')
             // count = _.chain(count)
@@ -154,7 +157,7 @@ export default {
                                 display:false
                             },
                             ticks:{
-                                display:true,
+                                display:false,
                                 font: {
                                     size:11,
                                     family: 'Marianne-Regular'
