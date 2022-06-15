@@ -189,28 +189,29 @@ export default {
         var legendContainer = L.DomUtil.create('div','info-legend');
 
 
-        let val1 = createLegendBubble(1200)
-        let val2 = createLegendBubble(500)
-        let val3 = createLegendBubble(100)
+        // let val1 = createLegendBubble(2000000)
+        // let val2 = createLegendBubble(500000)
+        // let val3 = createLegendBubble(100000)
 
-        let legend = `
-        <div class="legend-bubble max" style="width:${val1}px;height:${val1}px;">
-          <span class="legend-bubble-text">1200</span>
-          <div class="legend-bubble mean" style="width:${val2}px;height:${val2}px;">
-            <span class="legend-bubble-text">500</span>
-            <div class="legend-bubble min" style="width:${val3}px;height:${val3}px;">
-              <span class="legend-bubble-text">100</span>
-            </div>
-          </div>
-        </div>`
+        // let legend = `
+        // <div class="legend-bubble max" style="width:${val1}px;height:${val1}px;">
+        //   <span class="legend-bubble-text">2 millions</span>
+        //   <div class="legend-bubble mean" style="width:${val2}px;height:${val2}px;">
+        //     <span class="legend-bubble-text">500 000</span>
+        //     <div class="legend-bubble min" style="width:${val3}px;height:${val3}px;">
+        //       <span class="legend-bubble-text">100 000</span>
+        //     </div>
+        //   </div>
+        // </div>`
 
-        legendContainer.innerHTML += "<b>Montant engagé, <br>en millions d'euros</b><br>";
-        legendContainer.innerHTML += legend;
+        // function createLegendBubble(r) {
+        //   let radius = Math.sqrt(r)*(65/Math.sqrt(1500000))
+        //   return radius
+        // }
 
-        function createLegendBubble(r) {
-          let radius = Math.sqrt(r)*(65/Math.sqrt(1200))
-          return radius
-        }
+        legendContainer.innerHTML += "<b>Montant total en euros</b><br><i>Les cercles sont<br>proportionnels aux<br>montants des subventions";
+        // legendContainer.innerHTML += legend;
+
 
 
         return legendContainer
@@ -471,7 +472,7 @@ li {
   border-radius: 7px;
   padding:10px;
   display: block;
-  height: 120px;
+  height: 100px;
 }
 
 .legend-bubble {
