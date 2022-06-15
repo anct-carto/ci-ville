@@ -7,7 +7,7 @@
                     <th scope="col">Libellé de l'action</th>
                     <th scope="col">Structure porteuse</th>
                     <th scope="col">Objectif</th>
-                    <th scope="col">Montant</th>
+                    <th scope="col" class="col-montant">Montant</th>
                 </tr>
             </thead>
             <tbody v-if="filterCode || route == 'National'">
@@ -79,5 +79,6 @@ export default {
 
     .col-montant {
         text-align: right;
+        max-width: 100px;
     }
 </style>
