@@ -2,43 +2,43 @@
   <div class="hello">
     <img :src="logo_anct" alt="" id="logo-anct"><br><br>
     <!-- <h1>{{ msg }}</h1> -->
-    <b style="color:red">! Pages en cours de développement !</b><br>
-    <span>Bienvenue sur les</span>
+    <b style="color:red">! Site web en cours de développement !</b><br>
     <div class="app-name">
         Cartes interactives<br> des actions politique de la ville<br>subventionnées par année
     </div>
     <div class="row">
       <div class="col-4">
         <p>
-          Cette application présente, à l'aide d'une carte et de graphiques filtrables, la répartition et la liste des actions menées dans les quartiers prioritaires de la politique de la ville et financées par le programme 147.
+          Cet outil de datavisualisation présente une répartition multi-échelle et pluri-thématique des crédits alloués aux actions subventionnées dans les quartiers de la politique de la ville.
         </p>
         <p>
-          La répartition des actions est présentée en fonction :
+          Quatre échelons géographiques sont fléchés :
           <ul>
             <li>
-              - de l'échelon territorial bénéficiaire : du contrat de ville au national ;
+              Le contrat de ville : sont exclus de cette vue les crédits fléchés sur plusieurs contrats de ville, qu'ils soient instruits par le niveau national, régional ou départemental
+            </li>
+              le départemental : les valeurs agrègent les crédits affectés aux contrats de ville du département, ainsi que les crédits hors contrat de ville. 
+            <li>
+              le régional : les valeurs agrègent les crédits affectés aux contrats de ville de la région, ainsi que les crédits hors contrat de ville. 
             </li>
             <li>
-              - de l'année de financement : 2020 ou 2021 ;
-            </li>
-            <li>
-              - de la thématique portée : piliers de la pilitique de la ville et sous-thèmes
+              le national : les valeurs agrègent tous les crédits affectés, qu'ils soient en contrat de ville ou hors contrat de ville. 
             </li>
           </ul>
         </p>
         <div class="row btns">
           <div class="col-6">
-            <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'contrat-de-ville'}}" class = "btn btn-primary btn-principal">-> Démarrage rapide</router-link> 
+            <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'contrat-de-ville'}}" class = "btn btn-primary btn-principal">Accéder aux cartes</router-link> 
             <!-- <button class="btn btn-primary btn-principal">
               Démarrage rapide
             </button> -->
           </div>
           <div class="col-6">
-            <router-link to="a-propos" class = "btn btn-primary btn-principal">-> En savoir plus</router-link> 
+            <router-link to="a-propos" class = "btn btn-primary btn-principal">En savoir plus</router-link> 
             <!-- <button class="btn btn-primary btn-principal">En savoir plus</button>             -->
           </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-6">
             <p>ou explorer les actions à l'échelle : </p>
             <ul>
@@ -56,7 +56,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- <img :src="bg" alt="" srcset="" class="bg-img"> -->
@@ -97,13 +97,9 @@ export default {
   margin-bottom: 30px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
 li {
-  display: block;
+  /* display: block; */
+   list-style: square !important;
   /* display: block; */
 }
 
