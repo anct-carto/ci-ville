@@ -15,6 +15,11 @@
             </div>
           </div> -->
           <div class="col-4">
+            <Number :chiffreCle="Math.round(montant)" 
+                    :texte="'Montant engagé (€)'"
+                    />
+          </div>
+          <div class="col-4">
             <Number :chiffreCle="nbActions" 
                     :texte="`Actions financées`"
                     />
@@ -24,30 +29,21 @@
                     :texte="'Porteurs de projets'"
                     />
           </div>
-          <div class="col-4">
-            <Number :chiffreCle="Math.round(montant)" 
-                    :texte="'Montant engagé (€)'"
-                    />
-          </div>
           <!-- <div class="col-3">
             <Number :chiffreCle="0" 
                     :texte="'habitants en QPV'"
                     />
           </div> -->
         </div>
-          <Card :title="`Répartition des actions par thème`" 
-                :about='"Sélectionnez un thème pour filtrer les valeurs des chiffres clés et de la carte"'>
-            <ThemeChart/>
-          </Card>
-          <Card :title="`Répartition des actions par sous-thème`"
-                :about='"Sélectionnez un sous-thème pour filtrer la table des actions"'>
-            <SubThemeChart v-if="filterKey"/>
-            <span class="msg-else" v-else>Sélectionnez un thème pour accéder à la répartition par sous-thème</span>
-          </Card>
-        <!-- <h5>Liste des actions engagées</h5>
-          <div v-if="this.$store.state.filterCode">
-            <Table class="widget" />
-          </div> -->
+        <Card :title="`Répartition par pilier`" 
+              :about='"Sélectionnez un thème pour filtrer les chiffres clés, la carte et la répartition dans les sous-thèmes correspondants"'>
+          <ThemeChart/>
+        </Card>
+        <Card :title="`Répartition par sous-thème de pilier`"
+              :about="`Survolez chaque barre pour connaître le sous-thème correspondant et la valeur exacte de son montant.`">
+          <SubThemeChart v-if="filterKey"/>
+          <span class="msg-else" v-else>Sélectionnez un thème pour accéder à la répartition par sous-thème</span>
+        </Card>
       </div>
 </template>
 
