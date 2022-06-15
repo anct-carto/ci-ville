@@ -128,18 +128,18 @@ export default {
     },
     // 4. calcul valeur max à utilisée pour garder proportionnalité des cercles
     maxCount() {
-      // let actionsCount = _.groupBy(this.actions,'codgeo')
-      // actionsCount = _.map(actionsCount, (v,k) => {
-      //   return {
-      //     codgeo:k,
-      //     count:_.reduce(v, (total, o) => {
-      //       return total + o.montant
-      //     },0)
-      //   }
-      // })
-      // let max = actionsCount.reduce((a,b) => (a.count > b.count) ? a : b).count;
+      let actionsCount = _.groupBy(this.actions,'codgeo')
+      actionsCount = _.map(actionsCount, (v,k) => {
+        return {
+          codgeo:k,
+          count:_.reduce(v, (total, o) => {
+            return total + o.montant
+          },0)
+        }
+      })
+      let max = actionsCount.reduce((a,b) => (a.count > b.count) ? a : b).count;
 
-      let max =  15000000;
+      // let max =  15000000;
       return max
     }
   },
@@ -414,7 +414,7 @@ export default {
     // calcul du rayon des cercles
     computeRadius(baseCount) {
       // changer la valeur "100" pour agrandir ou réduire la taille max des cercles
-      return Math.sqrt(baseCount)*(50/Math.sqrt(this.maxCount))
+      return Math.sqrt(baseCount)*(80/Math.sqrt(this.maxCount))
     },
     setMapExtent() {
       let map = this.map;
