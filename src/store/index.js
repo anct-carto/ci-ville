@@ -72,24 +72,11 @@ export default createStore({
           break;
       }
     },
-    // clearFilter(state,filter) {
-    //   switch (filter) {
-    //     case "cdv":
-    //       state.filterCode = null
-    //       break;
-    //     case "theme":
-    //       console.log("filtre thème effacé");
-    //       state.filterkey = null
-    //       state.filteredData = state.data
-    //       state.themeColor = 'gray'
-    //       break;
-    //   }
-    // },
     getDataByPage(state,echelle) {
       state.data = actionsFinancees.filter(e => e.annee == state.annee)
       console.log(state.data);
       switch (echelle) {
-        case "National":
+        case "Global":
           state.echelle = "nat";
           // state.data = state.data.filter(e => e.echelle == "nat")
           break;
