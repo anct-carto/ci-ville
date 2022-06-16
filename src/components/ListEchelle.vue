@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label for="select-annee">Echelle</label>
+        <label for="select-annee">Échelle géographique</label>
         <select class="form-select" 
                 id="select-echelle"
                 v-model="selected"
@@ -41,7 +41,6 @@ export default {
                     path:'contrat-de-ville'
                 },
             ],
-            // options:['national','region','departement','contrat-de-ville']
         }
     },
     computed: {

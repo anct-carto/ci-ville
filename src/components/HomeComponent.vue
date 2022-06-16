@@ -11,33 +11,33 @@
         <p>
           Cet outil de datavisualisation présente une répartition multi-échelle et pluri-thématique des crédits alloués aux actions subventionnées dans les quartiers de la politique de la ville.
         </p>
+        <div class="row btns">
+          <div class="row btns">
+            <div class="col-6">
+              <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'contrat-de-ville'}}" class = "btn btn-primary btn-principal">Accéder aux cartes</router-link> 
+            </div>
+            <div class="col-6">
+              <router-link to="a-propos" class = "btn btn-primary btn-principal">En savoir plus</router-link> 
+            </div>
+          </div>
+        </div>
         <p>
-          Quatre échelons géographiques sont fléchés :
+          Quatre échelles géographiques sont fléchées :
           <ul>
             <li>
-              Le contrat de ville : sont exclus de cette vue les crédits fléchés sur plusieurs contrats de ville, qu'ils soient instruits par le niveau national, régional ou départemental
+              le national : les valeurs agrègent tous les crédits affectés, qu'ils soient en contrat de ville ou hors contrat de ville. 
             </li>
-              le départemental : les valeurs agrègent les crédits affectés aux contrats de ville du département, ainsi que les crédits hors contrat de ville. 
             <li>
               le régional : les valeurs agrègent les crédits affectés aux contrats de ville de la région, ainsi que les crédits hors contrat de ville. 
             </li>
             <li>
-              le national : les valeurs agrègent tous les crédits affectés, qu'ils soient en contrat de ville ou hors contrat de ville. 
+              le départemental : les valeurs agrègent les crédits affectés aux contrats de ville du département, ainsi que les crédits hors contrat de ville. 
+            </li>
+            <li>
+              Le contrat de ville : sont exclus de cette vue les crédits fléchés sur plusieurs contrats de ville, qu'ils soient instruits par le niveau national, régional ou départemental
             </li>
           </ul>
         </p>
-        <div class="row btns">
-          <div class="col-6">
-            <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'contrat-de-ville'}}" class = "btn btn-primary btn-principal">Accéder aux cartes</router-link> 
-            <!-- <button class="btn btn-primary btn-principal">
-              Démarrage rapide
-            </button> -->
-          </div>
-          <div class="col-6">
-            <router-link to="a-propos" class = "btn btn-primary btn-principal">En savoir plus</router-link> 
-            <!-- <button class="btn btn-primary btn-principal">En savoir plus</button>             -->
-          </div>
-        </div>
         <!-- <div class="row">
           <div class="col-6">
             <p>ou explorer les actions à l'échelle : </p>
@@ -98,9 +98,7 @@ export default {
 }
 
 li {
-  /* display: block; */
    list-style: square !important;
-  /* display: block; */
 }
 
 
@@ -133,8 +131,8 @@ li {
 }
 
 .btns {
-  margin-top:40px;
-  margin-bottom:20px
+  margin-top:10px;
+  margin-bottom:10px
 }
 
 .btn-shortcut  {
@@ -163,7 +161,6 @@ li {
 
 .btn-shortcut:hover:after {
   visibility: visible;
-  transform: scaleX(1);
 }
 
 </style>

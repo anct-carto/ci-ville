@@ -1,5 +1,38 @@
 -----------------------------------------------------------------
 
+## au 16 juin
+
+Travaux restants
+
+---- UI ----
+
+- rétablir liste "national" avec crédits P/N 
+
+---- COMPOSANTS ----
+
+Chiffres clés
+- ajouter nombre d'habitants en QPV - à faire varier uniquement en fonction des territoires sélectionnés
+
+Liste échelle 
+- enlever doublon échelle géographique
+
+Liste territoire
+- ajouter code departement avant nom contrat de ville 
+- ajouter lien vers SIG ville pour aider à trouver contrat de ville
+
+Doghnut / répartition par pilier
+- résoudre bug couleurs lors d'un filtrage
+- sélection d'un thème au clic sur la légende
+
+Carte 
+- déplacer légende (Corse cachée)
+- afficher noms de villes (pref/sous-prefs) au zoom
+
+
+
+
+-----------------------------------------------------------------
+
 ## au 27 avril
 
 ---- UI -----

@@ -8,7 +8,7 @@
         les actions déployées ainsi que les tiers concernés. Les postes adultes relais et Fonjep ne sont pas représentés.
       </p>
       <p>
-        Les cercles figurant sur les cartes sont propostionnels au montant octroyé.
+        Les cercles figurant sur les cartes sont proportionnels au montant octroyé.
       </p>
       <p>
         La liste des actions financées permet également d'avoir accès au nom et aux porteurs des projets.
@@ -30,10 +30,10 @@
       <ul>
         <li>
           Portail de la campagne nationale de demande de subventions politique de la ville (Dauphin): 
-          <a href="https://usager-dauphin.cget.gouv.fr/" target="_blank">usager-dauphin.cget.gouv.fr</a> 
+          <a href="https://usager-dauphin.cget.gouv.fr/" target="_blank">usager-dauphin.anct.gouv.fr</a> 
         </li>
         <li>
-          Système d'information géographique de la politique de la ville (SIG Ville) : 
+          Système d'information géographique de la politique de la ville (SIG Ville) :
           <a href="http://sig.ville.gouv.fr" target="_blank">sig.ville.gouv.fr</a>
         </li>
         <li>
@@ -42,28 +42,32 @@
         <li>
           Cartothèque de l'ANCT : <a href="https://cartotheque.anct.gouv.fr" target="_blank">cartotheque.anct.gouv.fr</a>
         </li>
+        <li>
+          Téléchargement des données : <a href="https://www.data.gouv.fr/fr/datasets/subventions-politique-de-la-ville/" target="_blank">data.gouv.fr</a>
+        </li>
       </ul>
-      <h3>Des questions ?</h3>
+      <h3>Des questions ? Des suggestions</h3>
       <p>
         Pour toute question relative aux données, vous pouvez contacter l'équipe de la mission Soutien à la vie associative et à la médiation sociale : <a href="mailto:mission.soutienvieassociative@anct.gouv.fr">mission.soutienvieassociative@anct.gouv.fr</a> 
-        <br>
-        Si vous constatez la présence d'un problème technique lors de la navigation sur le site, vous pouvez ouvrir un ticket sur <a href="https://www.github.com/anct-carto" target="_blank">Github</a>
+      </p>
+      <p>
+        Si vous constatez la présence d'un problème technique lors de la navigation sur le site ou une idée d'amélioration, vous pouvez ouvrir un ticket sur <a href="https://www.github.com/anct-carto" target="_blank">Github</a>.
       </p>
     </div>
   </div>
   <div class="footer">
-        <img :src="logo_anct" alt="" id="logo-anct"><br><br>
+        <!-- <img :src="logo_anct" alt="" id="logo-anct"><br><br> -->
   </div>
 </template>
 
 <script>
-import logo_anct from "@/assets/logo_anct.png"
+// import logo_anct from "@/assets/logo_anct.png"
 
 export default {
   name: 'About',
   data() {
     return {
-      logo_anct:logo_anct,
+      // logo_anct:logo_anct,
     }
   }
 }
