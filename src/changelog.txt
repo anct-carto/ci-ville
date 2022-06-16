@@ -28,7 +28,10 @@ Carte
 - déplacer légende (Corse cachée)
 - afficher noms de villes (pref/sous-prefs) au zoom
 
+---- STORE ----
 
+- supprimer les lenteurs (passage d'une année à l'autre pour un territoire sélectionné)
+- simplifier process d'appel aux pages
 
 
 -----------------------------------------------------------------

@@ -7,7 +7,7 @@
                     <th scope="col">Libellé de l'action</th>
                     <th scope="col">Structure porteuse</th>
                     <th scope="col">Objectif</th>
-                    <th scope="col" class="col-montant">Montant</th>
+                    <th scope="col" class="col-montant">Montant (€)</th>
                 </tr>
             </thead>
             <tbody v-if="filterCode || route == 'National'">
@@ -15,7 +15,7 @@
                     <td>{{ action.lib_action }}</td>
                     <td>{{ action.raison_sociale }}</td>
                     <td>{{ action.objectif }}</td>
-                    <td class="col-montant">{{ action.montant.toLocaleString()}} €</td>
+                    <td class="col-montant">{{ action.montant.toLocaleString()}}</td>
                 </tr>
             </tbody>
             <div class="text-select-territoire" v-else>
@@ -79,6 +79,6 @@ export default {
 
     .col-montant {
         text-align: right;
-        max-width: 100px;
+        min-width: 100px;
     }
 </style>
