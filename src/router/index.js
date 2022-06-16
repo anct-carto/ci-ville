@@ -16,9 +16,9 @@ const routes = [
     props:true,
     children: [
       {
-        path: '/panorama/national',
-        name: 'National',
-        component:() => import(/* webpackChunkName: "national" */ '../views/National.vue')
+        path: '/panorama/global',
+        name: 'Global',
+        component:() => import(/* webpackChunkName: "national" */ '../views/Global.vue')
       },
       {
         path: '/panorama/region',

@@ -25,8 +25,8 @@ export default {
             selected:this.route,
             options:[
                 {
-                    name:'National',
-                    path:'national'
+                    name:'Global',
+                    path:'global'
                 },
                 {
                     name:'Région',
