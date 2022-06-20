@@ -35,6 +35,13 @@ export default createStore({
     montant(state) {
       return state.filteredData ? state.filteredData.map(e => e.montant).reduce((a,b) => a + b,0) : 0 
     },
+    population(state) {
+      if(state.filterCode) {
+        let pop = state.cvList.filter(e => e.codgeo == state.filterCode);
+        console.log(pop);
+      }
+      return state.filterCode ? state.cvList.filter(e => e.codgeo == state.filterCode)[0].pop : 5400000
+    }
   },
   mutations: {
     updateThemeColor(state,color) {

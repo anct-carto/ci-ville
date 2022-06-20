@@ -14,19 +14,24 @@
               </div>
             </div>
           </div> -->
-          <div class="col-4">
+          <div class="col-3">
             <Number :chiffreCle="Math.round(montant)" 
                     :texte="'Montant engagé (€)'"
                     />
           </div>
-          <div class="col-4">
+          <div class="col-3">
             <Number :chiffreCle="nbActions" 
                     :texte="`Actions financées`"
                     />
           </div>
-          <div class="col-4">
+          <div class="col-3">
             <Number :chiffreCle="nbStructures" 
                     :texte="'Porteurs de projets'"
+                    />
+          </div>
+          <div class="col-3">
+            <Number :chiffreCle="population" 
+                    :texte="'Habitants en QPV'"
                     />
           </div>
           <!-- <div class="col-3">
@@ -73,7 +78,7 @@ export default {
     Card,
   },
   computed: {
-      ...mapGetters(['nbActions','nbStructures','montant']),
+      ...mapGetters(['nbActions','nbStructures','montant','population']),
       ...mapState(['filteredData','filterCode','filterKey']),
   },
   methods: {

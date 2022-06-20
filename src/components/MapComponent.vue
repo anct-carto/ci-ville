@@ -281,6 +281,7 @@ export default {
         return {
           codgeo:e.properties[this.idGeo],
           libgeo:e.properties[this.libGeo],
+          pop:e.properties.pop
         }
       }).sort((a,b) => {
                 if(a.libgeo<b.libgeo) return -1
