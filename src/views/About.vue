@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .footer {
     display: flex;
     flex-direction: column wrap;
