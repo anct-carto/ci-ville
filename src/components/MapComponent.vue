@@ -499,15 +499,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
 #map {
   width: auto;
   height:calc(100vh - 150px) !important;
