@@ -48,9 +48,7 @@ export default {
     .parent {
         display: flex;
         flex: row;
-        margin-top:-10px;
-        margin-bottom: 15px;
-        gap:10px;
+        margin-bottom: 10px;
     }
 
     .filter-indicator {
@@ -87,15 +85,4 @@ export default {
         background: #d24b6b;
         border:none
     }
-
-    /* div {
-        display: flex;
-        align-items: flex-start;
-        width: 100%;
-        vertical-align: middle;
-    }
-
-    label {
-        flex: 1;
-    } */
 </style>

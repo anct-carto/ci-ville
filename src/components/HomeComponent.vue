@@ -86,7 +86,7 @@ export default {
 <style scoped>
 
 .hello {
-  padding-left:50px;
+  padding-left:25px;
 }
 
 .app-name {

@@ -11,6 +11,8 @@ import Chart from 'chart.js/auto';
 import * as _ from "underscore"
 import {mapState} from 'vuex'
 
+Chart.defaults.font.size = 11;
+
 export default {
   name: 'ThemeChart',
   data() {

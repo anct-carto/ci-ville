@@ -44,9 +44,6 @@ export default {
 .chiffre-cle-wrapper {
     background: white;
     border-radius: 5px;
-    /* text-align: left; */
-    /* white-space: pre; */
-    /* margin: 15px 0 8px 0; */
     padding: 5px;
     padding-left:10px;
     padding-right:10px;
@@ -62,7 +59,7 @@ export default {
 .text {
     color:#d24b6b;
     text-align: left;
-    font-size:10px;
+    font-size:0.9rem;
 }
 
 </style>
