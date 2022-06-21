@@ -10,7 +10,12 @@
                 {{ cv.libgeo}} ({{ cv.codgeo }})
             </option>
         </select> -->
-        <label for="select-territoire">Territoire</label>
+        <label for="select-territoire">
+            Territoire
+            <span v-if="route=='Contrat de Ville'">
+                (trouvez le nom de votre contrat de ville sur <a href="https://sig.ville.gouv.fr/" target="_blank">SIG Ville</a>)
+            </span>
+        </label>
         <v-select :options="cvList"
                 :get-option-label="e => `${e.libgeo} (${e.codgeo})`" 
                 :reduce="e => e.codgeo"
@@ -40,6 +45,9 @@ export default {
     computed:{
         cvList() {
             return this.$store.state.cvList
+        },
+        route() {
+            return this.$route.name
         }
     },
     updated() {
@@ -75,4 +83,15 @@ export default {
         background: white;
         z-index: 10000 !important;
     }
+
+    a {
+        color:var(--rose-gerr);
+        text-decoration: none;
+    }
+
+    a:hover {
+        color:var(--rose-gerr);
+        text-decoration: underline;
+    }
+
 </style>

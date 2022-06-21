@@ -23,6 +23,7 @@ Liste échelle
 Liste territoire
 - ajouter code departement avant nom contrat de ville 
 - ajouter lien vers SIG ville pour aider à trouver contrat de ville
+21/06 ok
 
 Doghnut / répartition par pilier
 - résoudre bug couleurs lors d'un filtrage
@@ -30,7 +31,10 @@ Doghnut / répartition par pilier
 
 Carte 
 - déplacer légende (Corse cachée)
-- afficher noms de villes (pref/sous-prefs) au zoom (21/06 ok)
+21/06 ok
+- afficher noms de villes (pref/sous-prefs) au zoom 
+21/06 ok
+
 
 ---- STORE ----
 
