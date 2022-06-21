@@ -18,7 +18,12 @@ const routes = [
       {
         path: '/panorama/global',
         name: 'Global',
-        component:() => import(/* webpackChunkName: "national" */ '../views/Global.vue')
+        component:() => import(/* webpackChunkName: "global" */ '../views/Global.vue')
+      },
+      {
+        path: '/panorama/national',
+        name: 'National',
+        component:() => import(/* webpackChunkName: "national" */ '../views/National.vue')
       },
       {
         path: '/panorama/region',
