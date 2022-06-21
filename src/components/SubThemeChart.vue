@@ -149,7 +149,14 @@ export default {
                             },
                             bodyFont:{
                                 family:'Marianne-Regular'
-                            },
+                            },                
+                            // formattage texte tooltip
+                            callbacks: {
+                                label: tooltip => {
+                                    console.log(tooltip);
+                                    return `${tooltip.label} : ${tooltip.raw.toLocaleString("fr-FR")} €`
+                                }
+                            }
                         }
                     },
                     layout: {

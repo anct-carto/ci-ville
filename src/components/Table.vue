@@ -15,7 +15,7 @@
                     <td>{{ action.lib_action }}</td>
                     <td>{{ action.raison_sociale }}</td>
                     <td>{{ action.objectif }}</td>
-                    <td class="col-montant">{{ action.montant.toLocaleString()}}</td>
+                    <td class="col-montant">{{ action.montant.toLocaleString("fr-FR")}}</td>
                 </tr>
             </tbody>
             <div class="text-select-territoire" v-else>
