@@ -7,14 +7,18 @@ Travaux restants
 ---- UI ----
 
 - rétablir liste "national" avec crédits P/N 
+21/06 : ok
+
 
 ---- COMPOSANTS ----
 
 Chiffres clés
 - ajouter nombre d'habitants en QPV - à faire varier uniquement en fonction des territoires sélectionnés
+20/06 : ok
 
 Liste échelle 
 - enlever doublon échelle géographique
+20/06 : ok
 
 Liste territoire
 - ajouter code departement avant nom contrat de ville 
@@ -26,12 +30,13 @@ Doghnut / répartition par pilier
 
 Carte 
 - déplacer légende (Corse cachée)
-- afficher noms de villes (pref/sous-prefs) au zoom
+- afficher noms de villes (pref/sous-prefs) au zoom (21/06 ok)
 
 ---- STORE ----
 
 - supprimer les lenteurs (passage d'une année à l'autre pour un territoire sélectionné)
 - simplifier process d'appel aux pages
+21/06 : ok
 
 
 -----------------------------------------------------------------

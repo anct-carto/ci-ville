@@ -10,6 +10,7 @@ import dep_geom_ctr from '@/assets/geom_dep_ctr.json'
 import reg_geom_ctr from '@/assets/geom_reg_ctr.json'
 import dep_geom from '@/assets/geom_dep.json'
 import cercles_drom from '@/assets/cercles_drom.json'
+import labels from '@/assets/labels.json'
 import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
 // import * as aq from 'arquero'
@@ -126,6 +127,10 @@ export default {
       // calque accueillant le cercle créé au passage de souris
       return L.layerGroup({interactive:false}).addTo(this.map)
     },
+    labelLayer() {
+      // calque accueillant le cercle créé au passage de souris
+      return L.layerGroup({interactive:false}).addTo(this.map)
+    },
     // 4. calcul valeur max à utilisée pour garder proportionnalité des cercles
     maxCount() {
       let actionsCount = _.groupBy(this.actions,'codgeo')
@@ -172,10 +177,72 @@ export default {
   mounted() {
     this.computeData();
     this.drawBubbles();
-    this.createLegend()
+    this.createLegend();
+    this.displayChefsLieux()
     // this.map.on('moveend',this.setMapExtent);
   },
   methods: {
+    displayChefsLieux() {
+      const data = labels;
+      const map = this.map
+      let labelLayer = this.labelLayer
+
+      let labelPref = new L.GeoJSON(data, {
+        pointToLayer: function (feature, latlng) {
+          return L.marker(latlng,{
+            icon:createLabelIcon("labelClassDep", feature.properties.libgeom),
+            interactive: false
+          })
+        },
+        filter : function (feature) {
+          return feature.properties.STATUT == "département" || feature.properties.STATUT == "région";
+        },
+        className:"depLabels",
+        rendererFactory: L.canvas()
+      });
+
+      let labelSspref = new L.GeoJSON(data, {
+        pointToLayer: function (feature, latlng) {
+          return L.marker(latlng,{
+            icon:createLabelIcon("labelClassDep", feature.properties.libgeom),
+            interactive: false
+          })
+        },
+        filter : function (feature) {
+          return feature.properties.STATUT == "sous-prefecture";
+        },
+        className:"depLabels",
+        rendererFactory: L.canvas()
+      });
+
+      map.on('zoomend', function() {
+        let zoom = map.getZoom();
+
+        switch (true) {
+          case zoom < 7 :
+            labelLayer.clearLayers()
+            break;
+          case zoom >= 7 && zoom < 9:
+            labelPref.addTo(labelLayer);
+            break;
+          case zoom > 9:
+            labelPref.addTo(labelLayer);
+            labelSspref.addTo(labelLayer);
+            break;
+        }
+      });
+
+      function createLabelIcon(labelClass,labelText){
+          return L.divIcon({
+              className: svgText(labelClass),
+              html: svgText(labelText)
+          })
+      }
+      function svgText(txt) {
+          return '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><text x="0" y = "10">'
+          + txt + '</text></svg>';
+      }
+    },
     createLegend() {
       let legend = L.control({position:'bottomright'});
       let previousLegend = document.getElementsByClassName('info-legend')
@@ -507,6 +574,11 @@ li {
 
 .mean > .legend-bubble-text {
   left:5%;
+}
+
+.depLabels {
+  font-size: 1em;
+  color:white
 }
 
 </style>
