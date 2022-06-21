@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     updateData(filter) {
-      this.$store.commit('getDataByPage',filter)
+      this.$store.dispatch('changeEchelle',filter)
       this.$store.dispatch('resetTheme')
       this.$store.dispatch('resetCodegeo')
     },
@@ -131,7 +131,7 @@ html, body {
   visibility: hidden;
   z-index: 1000;
   transform: scaleX(0);  
-  transition: transform 250ms ease-in-out;
+  transition: transform 200ms ease-in-out;
 }
 
 #nav a:hover:after {

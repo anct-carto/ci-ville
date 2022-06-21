@@ -2,19 +2,11 @@ import { createStore } from 'vuex'
 import _ from 'underscore'
 import actionsFinancees from '@/assets/actions-2020-2021.json'
 
-// const actions2020 = actionsFinancees.filter(e=> e.annee == 2020)
-// const actions2021 = actionsFinancees.filter(e=> e.annee == 2021)
-
-// const dataNat = actionsFinancees.filter(e => e.echelle == "nat")
-// const dataReg = actionsFinancees.filter(e => e.echelle == "reg")
-// const dataDep= actionsFinancees.filter(e => e.echelle == "dep")
-// const dataCdv = actionsFinancees.filter(e => e.echelle == "cdv")
-
 export default createStore({
   state: {
     annee:2021,
     filterCode:null,
-    filterKey:null,
+    filterTheme:null,
     themeColor:'gray',
   },
   getters: {
@@ -36,131 +28,97 @@ export default createStore({
       return state.filteredData ? state.filteredData.map(e => e.montant).reduce((a,b) => a + b,0) : 0 
     },
     population(state) {
-      if(state.filterCode) {
-        let pop = state.cvList.filter(e => e.codgeo == state.filterCode);
-        console.log(pop);
-      }
       return state.filterCode ? state.cvList.filter(e => e.codgeo == state.filterCode)[0].pop : 5400000
     }
   },
   mutations: {
-    updateThemeColor(state,color) {
-      state.themeColor = color
-    },
-    crossFilter(state,filterParams) {
-      let filterName = filterParams.type;
-      let value = filterParams.value;
-
-      let data = state.data
-
-      switch (filterName) {
-        case "theme":
-          console.log(value); // brest metropole
-          state.filterKey = value;
-          if(state.filterCode) {
-            console.log("filtre actif sur THEME et CDV");
-            // state.filteredData = state.data.filter(e => e.theme == value & e.codgeo == state.filterCode);
-            state.filteredData = data.filter(e => e.theme == value & e.codgeo == state.filterCode);
-          } else {
-            console.log("filtre actif sur THEME");
-            state.filteredData = data.filter(e => e.theme == value);
-          }
-          break;
-        case "cdv":
-          state.filterCode = value;
-          // debugger; // eslint-disable-line no-debugger
-          if(state.filterKey) {
-            console.log("filtre actif sur CDV et THEME");
-            state.filteredData = data.filter(e => e.codgeo == value & e.theme == state.filterKey);
-          } else {
-            console.log("filtre actif sur CDV");
-            state.filteredData = data.filter(e => e.codgeo == value);
-          }
-          break;
-      }
-    },
-    getDataByPage(state,echelle) {
+    CHANGE_ECHELLE(state,echelle) {
+      // filtre les données en fonction de l'échelle choisie ; par défaut, contrat de ville
       state.data = actionsFinancees.filter(e => e.annee == state.annee)
-      console.log(state.data);
+      state.echelle = echelle
       switch (echelle) {
-        case "Global":
-          state.echelle = "nat";
-          // state.data = state.data.filter(e => e.echelle == "nat")
+        case "National":
+          state.data = state.data.filter(e => e.echelle == "nat")
           break;
         case "Région":
-          state.echelle = "reg"; // 1. définition de l'échelle de filtre
-          state.data = state.data.filter(e => e.echelle != "nat") // 2. Filtrage sur les échelles concernées par l'option choisie
-          state.data.forEach(e => e.codgeo = e.insee_reg) // 3. assignation du code géographique correspond : reg, dep ou cdv 
+          state.data = state.data.filter(e => e.echelle != "nat") // 1. Filtrage sur les échelles concernées par l'option choisie
+          state.data.forEach(e => e.codgeo = e.insee_reg) // 2. assignation du code géographique correspond : reg, dep ou cdv 
           break;
         case "Département":
-          // state.data = dataDep
-          state.echelle = "dep";
           state.data = state.data.filter(e => e.echelle == "dep" || e.echelle == "cdv")
-          state.data.forEach(e => {
-            e.codgeo = e.insee_dep
-          })
+          state.data.forEach(e => e.codgeo = e.insee_dep)
           break;
         case "Contrat de Ville":
-          // state.data = dataCdv
-          state.echelle = "cdv"
-          state.data = state.data.filter(e => e.echelle == "cdv")
-          state.data.forEach(e => {
-            e.codgeo = e.code_cv
-          })
-          break;
-      }
-      state.filteredData = state.data
-    },
-    RESET_THEME(state) {
-      state.filterKey = null;
-      if(state.filterCode) {
-        state.filteredData = state.data.filter(e => e.codgeo == state.filterCode)
-      } else {
-        state.filteredData = state.data
-      }
-      state.themeColor = 'gray';
-    },
-    RESET_CODEGEO(state) {
-      state.filterCode = null;
-      if(state.filterKey) {
-        state.filteredData = state.data.filter(e => e.theme == state.filterKey)
-      } else {
-        state.filteredData = state.data
-      }
-    },
-    CHANGE_ANNEE(state,annee) {
-      state.annee = annee;
-      state.data = actionsFinancees.filter(e => e.annee == annee)
-      console.log(state.echelle);
-      switch (state.echelle) {
-        case "nat":
-          // state.data = state.data
-          break;
-        case "reg":
-          state.data = state.data.filter(e => e.echelle != "nat") 
-          state.data.forEach(e => e.codgeo = e.insee_reg)  
-          break;
-        case "dep":
-          state.data = state.data.filter(e => e.echelle == "dep" || e.echelle == "cdv")
-          state.data.forEach(e => e.codgeo = e.insee_dep )
-          break;
-        case "cdv":
           state.data = state.data.filter(e => e.echelle == "cdv")
           state.data.forEach(e => e.codgeo = e.code_cv)
           break;
       }
       state.filteredData = state.data
     },
+    UPDATE_COLOR(state,color) {
+      state.themeColor = color
+    },
+    CROSS_FILTER(state,filterParams) {
+      // 1. récupère les valeurs de filtres (même si elles sont vides)
+      let filterName = filterParams.type;
+      let value = filterParams.value;
+      switch (filterName) {
+        case "theme":
+          state.filterTheme = value
+          break;
+        case "codgeo":
+          state.filterCode = value
+          break;
+      }
+
+      // 2. créé une liste des filtres avec leurs valeurs
+      let filters = {theme:state.filterTheme,codgeo:state.filterCode}
+      // dans cette liste, supprime les filtres dont la valeur est null
+      Object.keys(filters).forEach(e => {
+        if(filters[e] === null) {
+          delete filters[e]
+        }
+      })
+      // 3. donne moi le nom des filtres obtenus dans une liste / array []
+      const selectedFilterKeys = Object.keys(filters)
+
+      // 4. si la liste des filtres est vide ...
+      if(state.filterTheme == null && state.filterCode == null) {
+        // 4.1 ... renvoie les données par défaut
+        state.filteredData = state.data
+      } else {
+        // 4.2 ... sinon filtre le tableau sur la base de la liste des filtres non vides
+        state.filteredData = state.data.filter(e => selectedFilterKeys.every(key => 
+            filters[key] === e[key] 
+        ))
+      }
+    },
+    CHANGE_ANNEE(state,annee) {
+      state.annee = annee;
+    },
   },
   actions: {
+    crossFilter({commit},filterParams) {
+      commit('CROSS_FILTER',filterParams)
+    },
+    updateThemeColor({commit},color) {
+      commit('UPDATE_COLOR',color)
+    },
     resetTheme({commit}) {
-      commit('RESET_THEME')
+      commit('UPDATE_COLOR','gray')
+      commit('CROSS_FILTER',{type:"theme",value:null})
     },
     resetCodegeo({commit}) {
-      commit('RESET_CODEGEO')
+      commit('CROSS_FILTER',{type:"codgeo",value:null})
     },
-    changeAnnee({commit},annee) {
+    changeEchelle({commit},echelle) {
+      commit('CHANGE_ECHELLE',echelle)
+    },
+    changeAnnee({commit,state},annee) {
       commit('CHANGE_ANNEE',annee);
-    }
+      commit('CHANGE_ECHELLE',state.echelle)
+      commit('CROSS_FILTER',{type:"theme",value:state.filterTheme})
+      commit('CROSS_FILTER',{type:"codgeo",value:state.filterCode})
+    },
   },
 })

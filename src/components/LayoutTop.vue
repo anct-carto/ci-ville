@@ -6,12 +6,12 @@
         <div class="col-1">
             <ListYear/>
         </div>
-        <div class="col-4" v-if="this.$route.name != 'National'">
+        <div class="col-4" v-if="this.$route.name != 'National' && this.$route.name != 'Global'">
             <ListGeo id="select-territoire" :filterCodeFromStore="filterCode"/>
         </div>
-        <!-- <div class="col-4 filter-indicator" v-if="filterKey||filterCode">
+        <!-- <div class="col-4 filter-indicator" v-if="filterTheme||filterCode">
             Filtres actifs :<br>
-            <span class="filter-info" v-if="filterKey">{{ filterKey }}</span>
+            <span class="filter-info" v-if="filterTheme">{{ filterTheme }}</span>
             <span class="filter-info" v-if="filterCode">{{ filterCode }}</span>
         </div> -->
         <!-- <div class="col-2 btn-container">
@@ -39,7 +39,7 @@ export default {
     },
       computed: {
       ...mapGetters(['nbActions','nbStructures','montant']),
-      ...mapState(['filteredData','filterCode','filterKey']),
+      ...mapState(['filteredData','filterCode','filterTheme']),
   },
 }
 </script>

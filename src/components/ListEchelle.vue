@@ -5,14 +5,10 @@
                 id="select-echelle"
                 v-model="selected"
                 :onchange="changeRoute">
-            <option disabled>{{selected}}</option>
+            <option disabled hidden>{{selected}}</option>
             <option v-for="option in options" :value="option.path" :key="option">
                 {{ option.name }}
             </option>
-            <!-- <option value="national">Hors contrat de ville - ensemble QPV</option>
-            <option value="region">Hors contrat de ville - tous les QPV d'une région</option>
-            <option value="departement">Hors contrat de ville - tous les QPV d'un département</option>
-            <option selected value="contrat-de-ville">En contrat de ville</option> -->
         </select>
     </div>
 </template>
@@ -27,6 +23,10 @@ export default {
                 {
                     name:'Global',
                     path:'global'
+                },
+                {
+                    name:'National',
+                    path:'national'
                 },
                 {
                     name:'Région',

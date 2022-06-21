@@ -57,8 +57,8 @@ export default {
     methods: {
         onChange() {
             this.$store.state.filterCode = this.selected;
-            this.$store.commit('crossFilter', {
-                type:'cdv',
+            this.$store.dispatch('crossFilter', {
+                type:'codgeo',
                 value:this.selected
             })
         }

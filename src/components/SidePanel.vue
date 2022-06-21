@@ -46,7 +46,7 @@
         </Card>
         <Card :title="`Répartition par sous-thème de pilier`"
               :about="`Survolez chaque barre pour connaître le sous-thème correspondant et la valeur exacte de son montant.`">
-          <SubThemeChart v-if="filterKey"/>
+          <SubThemeChart v-if="filterTheme"/>
           <span class="msg-else" v-else>Sélectionnez un thème pour accéder à la répartition par sous-thème</span>
         </Card>
       </div>
@@ -71,21 +71,16 @@ export default {
   components: {
     ThemeChart,
     SubThemeChart,
-    // ListGeo,
-    // ListYear,
-    // ListEchelle,
     Number,
     Card,
   },
   computed: {
       ...mapGetters(['nbActions','nbStructures','montant','population']),
-      ...mapState(['filteredData','filterCode','filterKey']),
+      ...mapState(['filteredData','filterCode','filterTheme']),
   },
   methods: {
     resetData() {
       this.$store.state.filteredData = this.$store.state.data;
-      this.$store.commit('clearFilter','cdv')
-      this.$store.commit('clearFilter','theme')
     }
   },
 }

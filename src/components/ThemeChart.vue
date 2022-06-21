@@ -106,8 +106,8 @@ export default {
                 this.selected = themeSelected;
 
                 // filtre le filteredData dans le store
-                this.$store.commit('crossFilter',{type:'theme',value:themeSelected}); // filtrage de tout le jeu de données sur le thème
-                this.$store.commit('updateThemeColor',color); // thème sélectionné à appliquer à la carte
+                this.$store.dispatch('crossFilter',{type:'theme',value:themeSelected}); // filtrage de tout le jeu de données sur le thème
+                this.$store.dispatch('updateThemeColor',color); // thème sélectionné à appliquer à la carte
 
                 // style en gris les autres éléments du graphique
                 for(let i=0;i<datasetColors.length;i++) {
@@ -159,7 +159,7 @@ export default {
           plugins: {
               legend: {
                   display: true,
-                  position:'right',
+                  position:'top',
                   direction:'vertical',
                   // align: "start",  // alignement à gauche 
                   labels:{

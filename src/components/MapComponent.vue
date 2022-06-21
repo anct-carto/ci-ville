@@ -40,7 +40,7 @@ export default {
     // plutôt que de faire à chaque fois return this.$store.state.data ... etc.
     ...mapState({
       actions: state => state.data,
-      filterKey: state => state.filterKey,
+      filterTheme: state => state.filterTheme,
       filterCodeGlobal: state => state.filterCode,
       themeColor: state => state.themeColor,
       annee: state => state.annee
@@ -144,7 +144,7 @@ export default {
     }
   },
   watch: {
-    filterKey() {
+    filterTheme() {
       this.updateBubbles();
     },    
     annee() {
@@ -223,9 +223,9 @@ export default {
     computeData() {
       let data = this.actions;
       // filtrer sur modalité sélectionnée dans le doghnut (si sélectionnée)
-      if(this.filterKey) {
+      if(this.filterTheme) {
         data = data.filter(e => {
-          return e.theme == this.filterKey
+          return e.theme == this.filterTheme
         });
       }
 
@@ -312,7 +312,7 @@ export default {
           .on("click", (e) => {
             L.DomEvent.stopPropagation(e);
             let code = feature.properties[this.idGeo];
-            this.$store.commit('crossFilter',{type:'cdv',value:code});
+            this.$store.dispatch('crossFilter',{type:'codgeo',value:code});
 
             this.clickedBubbleLayer.clearLayers();
             this.pinSelected(code).addTo(this.clickedBubbleLayer)

@@ -20,8 +20,9 @@ export default {
     computed: {
         ...mapState({
             actions: state => state.filteredData,
-            filterTheme: state => state.filterKey,
+            filterTheme: state => state.filterTheme,
             filterCode: state => state.filterCode,
+            annee: state => state.annee,
             themeColor: state => state.themeColor,
         }),
         countPerSubTheme() {
@@ -78,6 +79,9 @@ export default {
             this.updateChart()
         },
         filterCode() {
+            this.updateChart()
+        },
+        annee() {
             this.updateChart()
         }
     },
