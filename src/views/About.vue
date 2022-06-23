@@ -21,7 +21,7 @@
       <h3>Crédits et licence</h3>
       <p>
         Cet outil de datavisualisation a été développé par le <a href="https://cartotheque.anct.gouv.fr" target="_blank">service cartographie</a> (pôle Analyse et diagnostics territoriaux) de l'ANCT, 
-        à la demande et avec l'appui de la <a href="https://agence-cohesion-territoires.gouv.fr/soutien-la-vie-associative-et-mediation-sociale-49" target="_blank">mission Soutien à la vie associative et médiation sociale</a>
+        à la demande et avec l'appui de la <a href="https://agence-cohesion-territoires.gouv.fr/soutien-la-vie-associative-et-mediation-sociale-49" target="_blank">mission Soutien à la vie associative et médiation sociale</a>.
       </p>
       <p>
         Les données des subventions politique de la ville sont publiées, sous  Licence Ouverte 2.0, sur 
@@ -29,8 +29,8 @@
       </p>
       <p>
         Le code source de l'outil est publié sous Licence Ouverte 2.0 sur <a href="https://www.github.com/anct-carto" target="_blank">Github</a>
-        et a été écrit en HTML/CSS/Javascript à l'aide des dépendances suivantes : Bootstrap 5.1, Vue.js 3, Chart.js 3.5, Leaflet 1.0.7. 
-        <br> Le autres dépendances utilisées consultables sur le dépôt Github.
+        et a été écrit en HTML/CSS/Javascript à l'aide des dépendances suivantes : 
+        <br>Bootstrap 5.1, Vue.js 3, Chart.js 3.5, Leaflet 1.0.7. Les autres dépendances utilisées consultables sur le dépôt Github.
       </p>
       <h3>Ressources et liens utiles</h3>
       <ul>

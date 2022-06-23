@@ -12,7 +12,7 @@
         </select> -->
         <label for="select-territoire">
             Territoire
-            <span v-if="route=='Contrat de Ville'">
+            <span v-if="route=='Contrat de ville'">
                 (trouvez le nom de votre contrat de ville sur <a href="https://sig.ville.gouv.fr/" target="_blank">SIG Ville</a>)
             </span>
         </label>

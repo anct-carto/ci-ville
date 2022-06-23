@@ -4,21 +4,6 @@
     <div class="row w-100 g-0"> 
         <div id="nav" class="nav">
           <router-link to="/">Accueil</router-link> 
-          <!-- <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-              Maille d'analyse
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <span>Hors contrat de ville</span>
-              <router-link to="/national">National</router-link> 
-              <router-link to="/region">Région</router-link> 
-              <router-link to="/departement">Département</router-link> 
-              <span>
-                En contrat de ville
-              </span>
-              <router-link to="/contrat-de-ville">Contrat de ville</router-link> 
-            </ul>
-          </div> -->
           <router-link to="/panorama">Visualisation</router-link> 
           <router-link to="/a-propos">À propos</router-link> 
         </div>

@@ -48,7 +48,7 @@ export default createStore({
           state.data = state.data.filter(e => e.echelle == "dep" || e.echelle == "cdv")
           state.data.forEach(e => e.codgeo = e.insee_dep)
           break;
-        case "Contrat de Ville":
+        case "Contrat de ville":
           state.data = state.data.filter(e => e.echelle == "cdv")
           state.data.forEach(e => e.codgeo = e.code_cv)
           break;

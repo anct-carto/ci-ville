@@ -37,7 +37,7 @@ const routes = [
       },
       {
         path: '/panorama/contrat-de-ville',
-        name: 'Contrat de Ville',
+        name: 'Contrat de ville',
         component:() => import(/* webpackChunkName: "contrat-de-ville" */ '../views/ContratDeVille.vue')
       },
     ]
