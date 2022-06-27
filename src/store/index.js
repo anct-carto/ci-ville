@@ -5,11 +5,15 @@ import actionsFinancees from '@/assets/actions-2020-2021.json'
 export default createStore({
   state: {
     annee:2021,
+    echelle:null,
     filterCode:null,
     filterTheme:null,
     themeColor:'gray',
   },
   getters: {
+    montant(state) {
+      return state.filteredData ? state.filteredData.map(e => e.montant).reduce((a,b) => a + b,0) : 0 
+    },
     nbActions(state) {
       return state.filteredData ? state.filteredData.length : 0
     },
@@ -24,17 +28,15 @@ export default createStore({
         return 0
       }
     },
-    montant(state) {
-      return state.filteredData ? state.filteredData.map(e => e.montant).reduce((a,b) => a + b,0) : 0 
-    },
     population(state) {
-      return state.filterCode ? state.cvList.filter(e => e.codgeo == state.filterCode)[0].pop : 5400000
+      return !state.filterCode ? 5400000: state.cvList.filter(e => e.codgeo == state.filterCode)[0].pop
     }
   },
   mutations: {
     CHANGE_ECHELLE(state,echelle) {
       // filtre les données en fonction de l'échelle choisie ; par défaut, contrat de ville
       state.data = actionsFinancees.filter(e => e.annee == state.annee)
+      // state.data = require(`@/assets/actions-${state.annee}.json`)
       state.echelle = echelle
       switch (echelle) {
         case "National":
@@ -113,6 +115,7 @@ export default createStore({
     },
     changeEchelle({commit},echelle) {
       commit('CHANGE_ECHELLE',echelle)
+      commit('CHANGE_ANNEE',2021);
     },
     changeAnnee({commit,state},annee) {
       commit('CHANGE_ANNEE',annee);
