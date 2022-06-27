@@ -9,6 +9,8 @@ Travaux restants
 - rétablir liste "national" avec crédits P/N 
 21/06 : ok
 
+- ajout spinner chargement données
+
 
 ---- COMPOSANTS ----
 
@@ -27,6 +29,7 @@ Liste territoire
 
 Doghnut / répartition par pilier
 - résoudre bug couleurs lors d'un filtrage
+24/06 ok
 - sélection d'un thème au clic sur la légende
 
 Carte 
@@ -39,6 +42,7 @@ Carte
 ---- STORE ----
 
 - supprimer les lenteurs (passage d'une année à l'autre pour un territoire sélectionné)
+21/06 : ok
 - simplifier process d'appel aux pages
 21/06 : ok
 
