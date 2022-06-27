@@ -4,22 +4,21 @@
       </div>
 </template>
 
-
 <script>
 
 import Chart from 'chart.js/auto';
 import * as _ from "underscore"
 import {mapState} from 'vuex'
 
-Chart.defaults.font.size = 11;
+Chart.defaults.font.size = 10.5;
 
 export default {
   name: 'ThemeChart',
   data() {
     this.chart = null
     return {
-      filterMode:false,
-      clicked:false
+      selected:null,
+      colors:['#3b5fa9','#009f79','#293173','#ff9b4f']
     }
   },
   computed: {
@@ -30,7 +29,7 @@ export default {
       filteredData: state => state.filteredData
     }),
     actionsCount() {
-      let actionsCount;    
+      let actionsCount;
       if(this.filterCode || this.annee) {
         let filteredData = this.actions.filter(e => {
           if(this.filterCode) {
@@ -39,9 +38,9 @@ export default {
             return e.annee == this.annee
           }
         });
-        actionsCount = this.countActions(filteredData);        
+        actionsCount = this.transformData(filteredData);        
       } else {
-        actionsCount = this.countActions(this.actions)
+        actionsCount = this.transformData(this.actions)
       }
       return actionsCount
     },
@@ -65,25 +64,17 @@ export default {
   },
   methods: {
     createChart() {
-      let labels = this.actionsCount.map(e => {
-        return e.theme
-      });
-      
-      let dataset = this.actionsCount.map(e => {
-        return e.count
-      });
-
       const ctx = document.getElementById('theme-chart');
 
       let chartOptions = {
         type: 'doughnut',   // le type du graphique
         data:{
-          labels: labels,
+          labels: this.labels,
           datasets:[{
             label:'actionsCount',
-            data:dataset,
-            labels:labels,
-            backgroundColor: this.getbgColors(),
+            data:this.dataset,
+            labels:this.labels,
+            backgroundColor: this.colors,
             hoverOffset: 5,
             hoverBorderColor:'red',
             hoverBorderWidth:3,
@@ -94,64 +85,34 @@ export default {
             // 1. récupérer les nouvellles modalités ...
             let point = chart.getElementsAtEventForMode(evt, 'point', { intersect: true}, true);
             if(point.length) {
-              chart.data.datasets[point[0].datasetIndex].backgroundColor = this.getbgColors();
-
-              let color = chart.data.datasets[point[0].datasetIndex].backgroundColor[point[0].index];
-              let themeSelected = chart.data.datasets[point[0].datasetIndex].labels[point[0].index];
-              let datasetColors = chart.data.datasets[point[0].datasetIndex].backgroundColor;
-              this.datasetColors = datasetColors
+              let themeSelected = chart.data.datasets[point[0].datasetIndex].labels[point[0].index]; // récupère le nom du segment sélectionné
+              let color = this.getColor(themeSelected); // récupère la couleur correspondante
 
               // 2. ... à transmettre au store
               // 2.1 ...si thème sélectionné est nouveau ou est différent du précédent sélectionné
               if(themeSelected != this.selected) {
-                // enregistre la nouvelle variable
+                // enregistre le nom du theme sélectionné pour l'utiliser dans la fonction updateChart()
                 this.selected = themeSelected;
 
-                // filtre le filteredData dans le store
+                // filtre la variable filteredData dans le store
                 this.$store.dispatch('crossFilter',{type:'theme',value:themeSelected}); // filtrage de tout le jeu de données sur le thème
                 this.$store.dispatch('updateThemeColor',color); // thème sélectionné à appliquer à la carte
-
-                // style en gris les autres éléments du graphique
-                for(let i=0;i<datasetColors.length;i++) {
-                  if(datasetColors[i] != color) {
-                    datasetColors[i] = "lightgrey"
-                  } else {
-                    console.log("%c"+themeSelected,"background-color:"+this.getbgColors()[i]);
-                    datasetColors[i] = this.getbgColors()[i]
-                  }
-                }
-              } else {
-                // 2.2 .. sinon efface le filtre thème appliqué
-                // enregistre la nouvelle variable
-                this.selected = null;
-
-                this.$store.dispatch('resetTheme');
-
-                // remet les couleurs d'origine 
-                for(let i=0;i<datasetColors.length;i++) {
-                  datasetColors[i] = this.getbgColors()[i]
-                }
               }
-              
+
               // actualise le graphique
-              this.chart.update();
+              this.updateChart()
             } else {
               // 2.2 .. sinon efface le filtre thème appliqué
-              // enregistre la nouvelle variable
+              // efface la variable
               this.selected = null;
 
               this.$store.dispatch('resetTheme');
 
-              // remet les couleurs d'origine 
-              for(let i=0;i<this.datasetColors.length;i++) {
-                this.datasetColors[i] = this.getbgColors()[i]
-              }
-              this.chart.update();
-
+              // actualise le graphique en remettant les segements et couleurs d'origine
+              this.updateChart()
             }
           },
           onHover:(evt,activeElem) => {
-            // console.log(e);
             // 3. surligne  l'élément cliqué
             activeElem.length > 0 ? evt.chart.canvas.style.cursor = 'pointer' : evt.chart.canvas.style.cursor = 'default';
           },
@@ -170,19 +131,28 @@ export default {
                       family:'Marianne-Regular'
                     }
                   },
-                  onClick: null, // désactive le filtre au clic sur un item de légende
-                  // onHover: function handleHover(evt, item, legend) {
-                  //   legend.chart.data.datasets[0].backgroundColor.forEach((color, index, colors) => {
-                  //     colors[index] = index === item.index || color.length === 9 ? color : color + '4D';
-                  //   });
-                  //   legend.chart.update();
-                  // },
-                  // onLeave: function handleLeave(evt, item, legend) {
-                  //   legend.chart.data.datasets[0].backgroundColor.forEach((color, index, colors) => {
-                  //     colors[index] = color.length === 9 ? color.slice(0, -2) : color;
-                  //   });
-                  //   legend.chart.update();
-                  // }
+                  onClick:(evt,el) => {
+                    console.log(el);
+                    let themeSelected = el.text;
+                    let color = this.getColor(themeSelected); // récupère la couleur correspondante
+
+                    // 2. ... à transmettre au store
+                    // 2.1 ...si thème sélectionné est nouveau ou est différent du précédent sélectionné
+                    if(themeSelected != this.selected) {
+                      // enregistre le nom du theme sélectionné pour l'utiliser dans la fonction updateChart()
+                      this.selected = themeSelected;
+
+                      // filtre la variable filteredData dans le store
+                      this.$store.dispatch('crossFilter',{type:'theme',value:themeSelected}); // filtrage de tout le jeu de données sur le thème
+                      this.$store.dispatch('updateThemeColor',color); // thème sélectionné à appliquer à la carte
+                    }
+
+                    // actualise le graphique
+                    this.updateChart()
+                  },
+                  onHover:(evt) => {
+                    evt.native.target.style.cursor = 'pointer';
+                  },
               },
               title: {
                 display:false,
@@ -214,41 +184,52 @@ export default {
       };
       
       // initialisation sur la page
-      let chart = new Chart(ctx, chartOptions);
+      const chart = new Chart(ctx, chartOptions);
       this.chart = chart;
-  
     },
     updateChart() {
-      this.chart.data.labels = this.labels;
-      this.chart.data.datasets[0].data = this.dataset;
-      this.chart.data.datasets[0].labels = this.labels;
-      // this.chart.data.datasets[0].backgroundColor = this.getbgColors();
+      const chartData = this.chart.data;
+      // mise à jour des items et des valeurs par items
+
+      // 1. légende
+      chartData.labels = this.labels; 
+      
+      // 2. données
+      chartData.datasets[0].data = this.dataset;
+      chartData.datasets[0].labels = this.labels;
+      
+      // mise à jour des couleurs en fonction des items présents
+      chartData.datasets[0].backgroundColor = [];
+      const newColors = chartData.datasets[0].backgroundColor
+
+      this.labels.forEach(theme => {
+        if(this.selected) {
+          if(theme == this.selected) {
+            newColors.push(this.getColor(theme))
+          } else {
+            newColors.push('lightgrey')
+          }
+        } else {
+          newColors.push(this.getColor(theme))
+        }
+      })
       
       this.chart.update()
     },
-    getbgColors() {
-      let bgColorsArray = [];
-      let themes = this.actionsCount.map(e => e.theme);
-      themes.forEach(theme => {
+    getColor(theme) {
         let themeCode = theme.substring(0,1)
         switch (themeCode) {
           case "1":
-            bgColorsArray.push('#3b5fa9')
-            break
+            return this.colors[0]
           case "2":
-            bgColorsArray.push('#009f79')
-            break
+            return this.colors[1]
           case "3":
-            bgColorsArray.push('#293173') 
-            break
+            return this.colors[2]
           case "4":
-            bgColorsArray.push('#ff9b4f')
-            break
+            return this.colors[3]
         }
-      });
-      return bgColorsArray
     },
-    countActions(data) {
+    transformData(data) {
       let actionsCount = _.groupBy(data,'theme')
       actionsCount = _.map(actionsCount,(value,key) => {
         return {
@@ -267,13 +248,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-div {
-  width: 100%;
-  /* background-color: white; */
-  padding:1px;
-}
-
-
-
+  div {
+    width: 100%;
+    padding:1px;
+  }
 </style>
