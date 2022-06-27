@@ -1,10 +1,9 @@
 <template>
   <div class="hello">
     <img :src="logo_anct" alt="" id="logo-anct"><br><br>
-    <!-- <h1>{{ msg }}</h1> -->
     <b style="color:red">! Site web en cours de développement !</b><br>
     <div class="app-name">
-        Cartes interactives<br> des actions politique de la ville<br>subventionnées par année
+        Cartes interactives des actions de la<br> politique de la ville subventionnées par année
     </div>
     <div class="row">
       <div class="col-4">
@@ -14,7 +13,7 @@
         <div class="row btns">
           <div class="row btns">
             <div class="col-6">
-              <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'contrat-de-ville'}}" class = "btn btn-primary btn-principal">Accéder aux cartes</router-link> 
+              <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'contrat-de-ville'}}" class = "btn btn-primary btn-principal">Accès aux cartes</router-link> 
             </div>
             <div class="col-6">
               <router-link to="a-propos" class = "btn btn-primary btn-principal">En savoir plus</router-link> 
@@ -59,7 +58,6 @@
         </div> -->
       </div>
     </div>
-    <!-- <img :src="bg" alt="" srcset="" class="bg-img"> -->
   </div>
 </template>
 
@@ -94,7 +92,7 @@ export default {
   color:rgb(41, 49, 115);
   text-transform: uppercase;
   font-size:2.5em;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 li {

@@ -80,7 +80,7 @@ export default {
 }
 
 html, body {
-  font-size:11px;
+  font-size:11.5px;
   font-family: 'Marianne-Regular', Arial, Helvetica, sans-serif !important;
   background-color: #e6eaf5 !important;
   margin:0;

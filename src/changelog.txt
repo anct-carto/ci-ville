@@ -1,5 +1,18 @@
 -----------------------------------------------------------------
 
+## au 27 juin
+
+Travaux restants
+
+---- UI ----
+
+- ajout spinner chargement données
+27/06 (ok)
+
+- modal "n'est pas optimisé pour les écrans de smartphone ou tablette"
+
+-----------------------------------------------------------------
+
 ## au 16 juin
 
 Travaux restants
@@ -8,8 +21,6 @@ Travaux restants
 
 - rétablir liste "national" avec crédits P/N 
 21/06 : ok
-
-- ajout spinner chargement données
 
 
 ---- COMPOSANTS ----
