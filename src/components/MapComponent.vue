@@ -47,7 +47,7 @@ export default {
       annee: state => state.annee
     }),
     // choix du fichier de géométrie à charger en fonction del'échelle choisie : reg, dep ou cdv
-    cvGeom() {
+    baseGeom() {
     // baseGeom() {
       if(this.echelle == "cdv") {
         return cv_geom
@@ -191,7 +191,7 @@ export default {
         pointToLayer: function (feature, latlng) {
           return L.marker(latlng,{
             icon:createLabelIcon("labelClassDep", feature.properties.libgeom),
-            interactive: false
+            interactive: false,
           })
         },
         filter : function (feature) {
@@ -235,7 +235,8 @@ export default {
       function createLabelIcon(labelClass,labelText){
           return L.divIcon({
               className: svgText(labelClass),
-              html: svgText(labelText)
+              html: svgText(labelText),
+              iconAnchor:   [23, 10],
           })
       }
       function svgText(txt) {
@@ -319,7 +320,7 @@ export default {
       // .objects();
 
       // jointure géomtries CV / nb d'actions par CV
-      this.cvGeom.features.forEach(e => {
+      this.baseGeom.features.forEach(e => {
         // supprimer au préalable le champ "count" car valeur précédente gardée si aucune actions dans le thème sélectionée
         if(e.properties.count) {
           delete e.properties.count
@@ -337,13 +338,13 @@ export default {
       });
 
       // tri décroissant pour afficher les plus petites valeurs en premier
-      this.cvGeom.features.sort(function (a, b) {
+      this.baseGeom.features.sort(function (a, b) {
         if (a.properties.count > b.properties.count) { return -1 }
         if (a.properties.count < b.properties.count) { return 1 }
       });
       
       // alimenter liste contrats de ville présents sur la carte vers liste déroulante
-      this.$store.state.cvList = this.cvGeom.features.filter(e => e.properties.count>0).
+      this.$store.state.cvList = this.baseGeom.features.filter(e => e.properties.count>0).
       map(e => {
         return {
           codgeo:e.properties[this.idGeo],
@@ -358,7 +359,7 @@ export default {
     },
     // représentation carto
     drawBubbles() {
-      new L.GeoJSON(this.cvGeom, {
+      new L.GeoJSON(this.baseGeom, {
         interactive:true,
         filter:(feature) => {
           if(feature.properties.count > 0) {
@@ -452,7 +453,7 @@ export default {
     },
     // créé un cercle correspond similaire à celui qui a été cliqué
     pinSelected(code) {
-      let selectedFeature = new L.GeoJSON(this.cvGeom, {
+      let selectedFeature = new L.GeoJSON(this.baseGeom, {
         filter:feature => {
           return feature.properties[this.idGeo] == code
         },
