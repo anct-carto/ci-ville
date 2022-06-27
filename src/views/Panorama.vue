@@ -13,11 +13,17 @@ export default {
       type:String,
     }
   },
+  watch: {
+    $route() {
+      if(this.$route.name == "Panorama") {
+        this.$router.push({path:`/panorama/contrat-de-ville`})
+      }
+    }
+  },
   mounted() {
     const echelleFromParams = this.$route.params.echelle;
-    console.log(this.$route);
     const echelleFromPath = this.$route.fullPath.split('/')[2]
-    console.log(echelleFromPath);
+
     if(echelleFromParams) {
        this.$router.push({path:`/panorama/${echelleFromParams}`}) 
     } else if (echelleFromPath) {
