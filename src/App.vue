@@ -8,6 +8,7 @@
           <router-link to="/a-propos">À propos</router-link> 
         </div>
       <div class="row app-view">
+        <!-- écran de chargement -->
         <div id="loading" v-if="!this.$store.state.filteredData">
             <div class="row">
                 <div class="spinner-border" role="status"></div>
@@ -16,6 +17,23 @@
                 <p>Chargement en cours ...</p>
             </div>
         </div>
+        <!-- popup message non adapté aux téléphones -->
+        <div class="modal fade" id="exampleModal" tabindex="10000" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Ce site n'est pas adapté aux écrans de smartphones et tablettes.  
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn-principal" data-bs-dismiss="modal">Fermer</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <router-view/>
       </div>
     </div>
@@ -23,6 +41,8 @@
 </template>
 
 <script>
+import { Modal } from "bootstrap"
+
 export default {
   watch: {
     $route() {
@@ -31,6 +51,17 @@ export default {
       }
       this.currentRoute = this.$route.name;
     }
+  },
+  mounted() {
+    let local = sessionStorage.getItem('session_local');
+    console.log(local); 
+    if(!local) {
+      sessionStorage.setItem("session_local",'ok')
+      const exampleModalEl = document.getElementById('exampleModal');
+      const modal = new Modal(exampleModalEl);
+      setTimeout(() => modal.show(), 500);
+    } 
+       
   },
   methods: {
     updateData(filter) {
@@ -162,6 +193,30 @@ select,option {
   flex-direction: column;
   overflow-x: hidden;
 }
+
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-principal {
+  font-size: 1.3em;
+  border-radius: 20px;
+  text-transform: uppercase;
+  width: 20%;
+  color:white;
+  background: #d24b6b;
+  border: solid 1px #d24b6b;
+  font-family: 'Marianne-Bold';
+}
+
+.btn-principal:hover {
+  background: none;
+  border: solid 1px #d24b6b;
+  color: #d24b6b;
+}
+
 
 
 @import'~bootstrap/dist/css/bootstrap.css'

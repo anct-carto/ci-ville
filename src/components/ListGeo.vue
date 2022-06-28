@@ -81,7 +81,7 @@ export default {
 
     .select-input {
         background: white;
-        z-index: 10000 !important;
+        z-index: 50;
     }
 
     a {

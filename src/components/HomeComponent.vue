@@ -118,13 +118,13 @@ li {
   /* display: inline-block;
   width: 50%; */
   background: #d24b6b;
-  border: solid 2px #d24b6b;
+  border: solid 1px #d24b6b;
   font-family: 'Marianne-Bold';
 }
 
 .btn-principal:hover {
   background: none;
-  border: solid 2px #d24b6b;
+  border: solid 1px #d24b6b;
   color: #d24b6b;
 }
 
