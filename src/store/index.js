@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import _ from 'underscore'
-import actionsFinancees from '@/assets/actions-2020-2021.json'
+// import actionsFinancees from '@/assets/actions-2020-2021.json'
 
 export default createStore({
   state: {
@@ -35,8 +35,8 @@ export default createStore({
   mutations: {
     CHANGE_ECHELLE(state,echelle) {
       // filtre les données en fonction de l'échelle choisie ; par défaut, contrat de ville
-      state.data = actionsFinancees.filter(e => e.annee == state.annee)
-      // state.data = require(`@/assets/actions-${state.annee}.json`)
+      // state.data = actionsFinancees.filter(e => e.annee == state.annee)
+      state.data = require(`@/assets/actions-${state.annee}.json`)
       state.echelle = echelle
       switch (echelle) {
         case "National":
