@@ -114,8 +114,8 @@ export default createStore({
       commit('CROSS_FILTER',{type:"codgeo",value:null})
     },
     changeEchelle({commit},echelle) {
-      commit('CHANGE_ECHELLE',echelle)
       commit('CHANGE_ANNEE',2021);
+      commit('CHANGE_ECHELLE',echelle)
     },
     changeAnnee({commit,state},annee) {
       commit('CHANGE_ANNEE',annee);
