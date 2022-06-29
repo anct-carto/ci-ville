@@ -132,7 +132,6 @@ export default {
                     }
                   },
                   onClick:(evt,el) => {
-                    console.log(el);
                     let themeSelected = el.text;
                     let color = this.getColor(themeSelected); // récupère la couleur correspondante
 
