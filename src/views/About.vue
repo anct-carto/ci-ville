@@ -80,6 +80,10 @@ export default {
 </script>
 
 <style scoped>
+  .row {
+    padding-left:25px
+  }
+
   .footer {
     display: flex;
     flex-direction: column wrap;
