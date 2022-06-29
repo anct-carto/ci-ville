@@ -39,6 +39,10 @@
           <a href="https://usager-dauphin.cget.gouv.fr/" target="_blank">usager-dauphin.anct.gouv.fr</a> 
         </li>
         <li>
+          Plateforme collaborative de La Grande équipe : 
+          <a href="https://acteurs.lagrandeequipe.fr/" target="_blank">acteurs.lagrandeequipe.fr</a> 
+        </li>
+        <li>
           Système d'information géographique de la politique de la ville (SIG Ville) :
           <a href="http://sig.ville.gouv.fr" target="_blank">sig.ville.gouv.fr</a>
         </li>
