@@ -31,17 +31,18 @@ import {mapState} from 'vuex'
 export default {
     computed: {
       ...mapState({
-          actionsList: state => state.filteredData,
+          actionsList: state => state.filteredData.sort((a,b) => {
+            // tri par ordre alphabétique du nom de porteur
+            if(a.raison_sociale<b.raison_sociale) return -1
+            if(a.raison_sociale>b.raison_sociale) return 1
+            return 0
+          }),
           filterCode: state => state.filterCode,
         }),
         route() {
-            console.log(this.$route.name);
             return this.$route.name
         }
     },
-    mounted() {
-        // console.log(this.route);
-    }
 }
 </script>
 
