@@ -1,19 +1,6 @@
 <template>
       <div id="sidepanel" class="d-flex flex-column h-100">
         <div class="row">
-          <!-- <div class="col-12">
-            <div class="row">
-              <div class="col-3">
-                <ListEchelle/>
-              </div>
-              <div class="col-2">
-                <ListYear/>
-              </div>
-              <div class="col-7" v-if="this.$route.name != 'National'">
-                <ListGeo id="select-territoire" :filterCodeFromStore="filterCode"/>
-              </div>
-            </div>
-          </div> -->
           <div class="col-3">
             <Number :chiffreCle="Math.round(montant)" 
                     :texte="'Montant engagé (€)'"
@@ -34,11 +21,6 @@
                     :texte="'Habitants en QPV'"
                     />
           </div>
-          <!-- <div class="col-3">
-            <Number :chiffreCle="0" 
-                    :texte="'habitants en QPV'"
-                    />
-          </div> -->
         </div>
         <Card :title="`Répartition par pilier`" 
               :about='"Sélectionnez un thème pour filtrer les chiffres clés, la carte et la répartition dans les sous-thèmes correspondants"'>
@@ -57,10 +39,6 @@
 
 import ThemeChart from "@/components/ThemeChart.vue";
 import SubThemeChart from "@/components/SubThemeChart.vue";
-// import ListGeo from "@/components/ListGeo.vue";
-// import ListYear from "@/components/ListYear.vue";
-// import ListEchelle from "@/components/ListEchelle.vue";
-// import Table from "@/components/Table.vue";
 import Number from "@/components/Number.vue";
 import Card from "@/components/CardComponent.vue";
 import {mapGetters} from 'vuex'
@@ -77,11 +55,6 @@ export default {
   computed: {
       ...mapGetters(['nbActions','nbStructures','montant','population']),
       ...mapState(['filteredData','filterCode','filterTheme']),
-  },
-  methods: {
-    resetData() {
-      this.$store.state.filteredData = this.$store.state.data;
-    }
   },
 }
 </script>
