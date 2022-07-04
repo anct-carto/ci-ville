@@ -11,12 +11,12 @@
         Les cercles figurant sur les cartes sont proportionnels au montant octroyé.
       </p>
       <p>
-        La liste des actions financées permet également d'avoir accès au nom et aux porteurs des projets.
+        La liste des actions financées permet d’accéder au libellé des actions ainsi qu’au nom des porteurs de projet.
       </p>
       <p>
         Le nombre d’habitants en QPV est à comprendre comme étant la population municipale vivant en QPV au dernier recensement de la population de l'Insee (RP 2018, recensement exhaustif de 2017 pour Mayotte). 
         <br>
-        Sur la visualisation, ce chiffre ne varie qu'en fonction du territoire sélectionné et n'est en quelconque manière dépendant du filtre "pilier".
+        Sur la visualisation, ce chiffre ne varie qu'en fonction du territoire sélectionné et n'est en aucune  manière dépendant du filtre "pilier".
       </p>
       <h3>Crédits et licence</h3>
       <p>
@@ -29,8 +29,8 @@
       </p>
       <p>
         Le code source de l'outil est publié sous Licence Ouverte 2.0 sur <a href="https://www.github.com/anct-carto" target="_blank">Github</a>
-        et a été écrit en HTML/CSS/Javascript à l'aide des dépendances suivantes : 
-        <br>Bootstrap 5.1, Vue.js 3, Chart.js 3.5, Leaflet 1.0.7. Les autres dépendances utilisées consultables sur le dépôt Github.
+        et a été écrit en HTML/CSS/Javascript à l'aide des librairies 
+        Bootstrap 5.1, Vue.js 3, Chart.js 3.5, Leaflet 1.0.7. Les autres dépendances utilisées consultables sur le dépôt Github.
       </p>
       <h3>Ressources et liens utiles</h3>
       <ul>

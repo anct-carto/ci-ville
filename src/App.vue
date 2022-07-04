@@ -53,6 +53,7 @@ export default {
     }
   },
   mounted() {
+    document.title = 'Ci-VILLE'
     let local = localStorage.getItem('session_local');
     if(!local) {
       localStorage.setItem("session_local",'ok')
