@@ -1,14 +1,20 @@
 <template>
   <div class="hello">
-    <img :src="logo_anct" alt="" id="logo-anct"><br><br>
-    <b style="color:red">! Site web en cours de développement !</b><br>
-    <div class="app-name">
-        Cartes interactives des actions de la<br> politique de la ville subventionnées par année
+    <div class="header-container">
+      <img :src="logo_anct" id="logo-anct">
+      <br>
+      <p class="bienvenue">Bienvenue sur</p>
+      <span class="app-name">
+        Ci-VILLE
+      </span><br>
+      <i>
+        Cartes interactives de la politique de la ville
+      </i>
     </div>
     <div class="row">
       <div class="col-4">
         <p>
-          Cet outil de datavisualisation présente une répartition multi-échelle et pluri-thématique des crédits alloués aux actions subventionnées dans les quartiers de la politique de la ville.
+          Cet outil permet de visualiser la répartition géographique et thématique des subventions de l'État aux actions en faveur des habitants des quartiers prioritaires de la politique de la ville.
         </p>
         <div class="row btns">
           <div class="row btns">
@@ -21,41 +27,22 @@
           </div>
         </div>
         <p>
-          Quatre échelles géographiques sont fléchées :
+          Quatre échelles géographiques sont proposées :
           <ul>
             <li>
-              le national : les valeurs agrègent tous les crédits affectés, qu'ils soient en contrat de ville ou hors contrat de ville. 
+              nationale : les valeurs représentent les subventions d'actions à dimension nationale ;
             </li>
             <li>
-              le régional : les valeurs agrègent les crédits affectés aux contrats de ville de la région, ainsi que les crédits hors contrat de ville. 
+              régionale : les valeurs agrègent les crédits affectés aux contrats de ville d'une région, ainsi que les crédits hors contrat de ville ;
             </li>
             <li>
-              le départemental : les valeurs agrègent les crédits affectés aux contrats de ville du département, ainsi que les crédits hors contrat de ville. 
+              départementale : les valeurs agrègent les crédits affectés aux contrats de ville du département, ainsi que les crédits hors contrat de ville ;
             </li>
             <li>
-              Le contrat de ville : sont exclus de cette vue les crédits fléchés sur plusieurs contrats de ville, qu'ils soient instruits par le niveau national, régional ou départemental
+              échelle du contrat de ville : les valeurs agrègent les crédits affectés à un contrat de ville.
             </li>
           </ul>
         </p>
-        <!-- <div class="row">
-          <div class="col-6">
-            <p>ou explorer les actions à l'échelle : </p>
-            <ul>
-              <li>
-                <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'contrat-de-ville'}}" class = "btn-shortcut">Contrat de ville</router-link> 
-              </li>
-              <li>
-                <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'departement'}}" class = "btn-shortcut">Département</router-link> 
-              </li>
-              <li>
-                <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'region'}}" class = "btn-shortcut">Région</router-link> 
-              </li>
-              <li>
-                <router-link :to="{name:'Panorama',path:'panorama',params:{echelle:'national'}}" class = "btn-shortcut">National</router-link>  
-              </li>
-            </ul>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
@@ -83,26 +70,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.hello {
-  padding-left:25px;
-}
-
-.app-name {
-  font-family: 'Marianne-Bold';
-  color:rgb(41, 49, 115);
-  text-transform: uppercase;
-  font-size:2.5em;
-  margin-bottom: 10px;
-}
-
-li {
-   list-style: square !important;
-}
-
-
-#logo-anct {
-  width:200px;
-}
 
 .bg-img {
   position: absolute;
@@ -110,8 +77,46 @@ li {
   height: auto;
 }
 
+
+.hello {
+  padding-left:25px;
+}
+
+.header-container {
+  margin-bottom: 10px;
+  color:#3b5fa9
+}
+
+#logo-anct {
+  width:200px;
+  margin-bottom: 10px;
+}
+
+.bienvenue {
+  margin-bottom: 5px;
+}
+
+.app-name {
+  font-family: 'Marianne-Bold';
+  background-color: #3b5fa9;
+  letter-spacing: 0.25em;
+  padding: 5px;
+  color:white;
+  font-size:3.35em;
+}
+
+li {
+   list-style: square !important;
+}
+
+.btns {
+  margin-top:7x;
+  margin-bottom:7px
+}
+
+
 .btn-principal {
-  font-size: 1.3em;
+  font-size: 1.2em;
   border-radius: 20px;
   text-transform: uppercase;
   width: 100%;
@@ -128,10 +133,6 @@ li {
   color: #d24b6b;
 }
 
-.btns {
-  margin-top:10px;
-  margin-bottom:10px
-}
 
 .btn-shortcut  {
   text-transform: uppercase;
