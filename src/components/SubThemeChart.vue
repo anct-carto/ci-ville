@@ -39,7 +39,6 @@ export default {
             .sortBy('count')
             .reverse()
             ._wrapped
-
             // let count = _.countBy(this.actions,'sous_theme')
             // count = _.chain(count)
             // .map((value,key) => {
@@ -58,13 +57,6 @@ export default {
         labels() {
             let labels = this.countPerSubTheme.map(e => e.sous_theme )
             return labels
-            // let newLabels = [];
-            // labels.forEach(e => {
-            //     let newEl = e.split(' - ')[1]
-            //     newEl = this.strToArray(newEl,10);
-            //     newLabels.push(newEl)
-            // })
-            // return newLabels
         } 
     },
     watch: {
@@ -90,14 +82,6 @@ export default {
     },
     methods: {
         createChart() {
-            // let labels = this.countPerSubTheme.map(e => {
-            //     return e.sous_theme
-            // });
-            
-            // let dataset = this.countPerSubTheme.map(e => {
-            //     return e.count
-            // });
-
             const ctx = document.getElementById('subtheme-chart');
             let chartOptions = {
                 type: 'bar',   // le type du graphique
@@ -153,7 +137,7 @@ export default {
                             // formattage texte tooltip
                             callbacks: {
                                 label: tooltip => {
-                                    return `${tooltip.label} : ${tooltip.raw.toLocaleString("fr-FR")} €`
+                                    return `${tooltip.raw.toLocaleString("fr-FR")} €`
                                 }
                             }
                         }
@@ -206,26 +190,24 @@ export default {
             this.chart.update()
         },
         // https://github.com/chartjs/Chart.js/issues/608#issuecomment-646318994
-        strToArray (str, limit) {
-            const words = str.split(' ')
-            let aux = []
-            let concat = []
-
-            for (let i = 0; i < words.length; i++) {
-                concat.push(words[i])
-                let join = concat.join(' ')
-                if (join.length > limit) {
-                    aux.push(join)
-                    concat = []
-                }
-            }
-
-            if (concat.length) {
-                aux.push(concat.join(' ').trim())
-            }
-
-            return aux
-        }
+        // retour à la ligne chaine de caractères longue (inutilisée ici)
+        // strToArray (str, limit) {
+        //     const words = str.split(' ')
+        //     let aux = []
+        //     let concat = []
+        //     for (let i = 0; i < words.length; i++) {
+        //         concat.push(words[i])
+        //         let join = concat.join(' ')
+        //         if (join.length > limit) {
+        //             aux.push(join)
+        //             concat = []
+        //         }
+        //     }
+        //     if (concat.length) {
+        //         aux.push(concat.join(' ').trim())
+        //     }
+        //     return aux
+        // }
     },
 
 }
@@ -234,13 +216,7 @@ export default {
 <style scoped>   
     div {
         width: 100%;
-        /* background-color: white; */
         padding:1px;
-    }
-
-    .text-select-territoire {
-        text-align: center;
-        font-style: italic;
     }
 
 </style>
