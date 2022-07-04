@@ -9,6 +9,7 @@
         <div class="col-4" v-if="this.$route.name != 'National' && this.$route.name != 'Global'">
             <ListGeo id="select-territoire" :filterCodeFromStore="filterCode"/>
         </div>
+        <!-- filtres actifs (fonctionnalité désactivée) -->
         <!-- <div class="col-4 filter-indicator" v-if="filterTheme||filterCode">
             Filtres actifs :<br>
             <span class="filter-info" v-if="filterTheme">{{ filterTheme }}</span>
@@ -48,6 +49,7 @@ export default {
     .parent {
         display: flex;
         flex: row;
+        margin-top: 10px;
         margin-bottom: 10px;
     }
 
