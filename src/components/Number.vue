@@ -23,13 +23,11 @@ export default {
     },
     computed: {
         animatedNumber() {
-            // this.tweenedNumber = this.tweenedNumber.toFixed(0);
             if(this.chiffreCle>1000000) {
                 return (this.tweenedNumber/1000000).toLocaleString("fr-FR", {maximumFractionDigits: 2}) + " M"
             } else {
                 return (this.tweenedNumber).toLocaleString("fr-FR", { maximumFractionDigits: 0})
             }
-            // return this.tweenedNumber.toFixed(0)
         }
     },
     watch: {
@@ -51,7 +49,7 @@ export default {
 
 .chiffre-cle {
     color:#d24b6b;
-    font-size: 23px;
+    font-size: 20px;
     text-align: left;
     font-family: 'Marianne-Extrabold';
 }
