@@ -1,15 +1,5 @@
 <template>
     <div>
-        <!-- <select class="form-select" 
-                id="select-geo"
-                autocomplete="off"
-                v-model = "selected"
-                placeholder="Sélectionnez un territoire"
-                :onchange="onChange">
-            <option v-for="cv in cvList" :value="cv.codgeo" :key="cv.codgeo"> 
-                {{ cv.libgeo}} ({{ cv.codgeo }})
-            </option>
-        </select> -->
         <label for="select-territoire">
             Territoire
             <span v-if="route=='Contrat de ville'">
@@ -75,13 +65,9 @@ export default {
 </script>
 
 <style scoped>
-    /* select {
-        display: block;
-    } */
-
     .select-input {
         background: white;
-        z-index: 50;
+        z-index: 1000;
     }
 
     a {

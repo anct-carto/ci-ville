@@ -13,7 +13,6 @@ import cercles_drom from '@/assets/cercles_drom.json'
 import labels from '@/assets/labels.json'
 import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
-// import * as aq from 'arquero'
 import {mapState} from 'vuex'
 import * as _ from "underscore"
 
@@ -32,7 +31,8 @@ export default {
   data() {
     return {
       depGeom:dep_geom,
-      cerclesDrom:cercles_drom
+      cerclesDrom:cercles_drom,
+      radiusCoeff:70
     }
   },
   computed: {
@@ -57,21 +57,9 @@ export default {
         return reg_geom_ctr
       }
     },
-    // colonne d'identifiant geographique
-    // idGeo() {
-    // // baseGeom() {
-    //   if(this.echelle == "cdv") {
-    //     return "code_cv"
-    //   } else if (this.echelle == "dep") {
-    //     return "insee_dep"
-    //   } else {
-    //     return "insee_reg"
-    //   }
-    // },
     // 2. Initialisation carte avec fond 
     map() {
       // let extent = this.$route.query['@'].split(',');
-      // console.log(extent);
       let map = L.map('map', {
         zoomControl:false,
         zoomSnap:0.05,
@@ -80,6 +68,7 @@ export default {
       // .setView([46.413220, 1.219482],6);
 
       L.control.zoom({position:'topright'}).addTo(map);
+      
       // ajout fond cercles drom
       new L.GeoJSON(this.cerclesDrom, {
         interactive:false,
@@ -102,7 +91,6 @@ export default {
         }
       }).addTo(map)
       
-      // map.fitBounds(geomDepLayer.getBounds())
       map.fitBounds(bgGeom.getBounds().pad(0.1,0.1,0.1,0.1))
 
       map.on("click", () => {
@@ -273,21 +261,19 @@ export default {
         // </div>`
 
         // function createLegendBubble(r) {
-        //   let radius = Math.sqrt(r)*(65/Math.sqrt(1500000))
+        //   let radius = Math.sqrt(r)*(this.radiusCoeff/Math.sqrt(1500000))
         //   return radius
         // }
 
         legendContainer.innerHTML += "<b>Montant total en euros</b><br><i>Les cercles sont<br>proportionnels aux<br>montants des subventions";
         // legendContainer.innerHTML += legend;
 
-
-
         return legendContainer
       }
       legend.addTo(this.map)
     },
     // FONCTIONS APPELEES
-    // agrégation par code cv avant de faire la carte
+    // agrégation par code territoire avant de faire la carte
     computeData() {
       let data = this.actions;
       // filtrer sur modalité sélectionnée dans le doghnut (si sélectionnée)
@@ -297,14 +283,7 @@ export default {
         });
       }
 
-      // grouper pour compter par code
-      // let actionsCount = _.countBy(data,'codgeo')
-      // actionsCount = _.map(actionsCount,(value,key) => {
-      //   return {
-      //     codgeo:key,
-      //     count:value
-      //   }
-      // })
+      // grouper pour sommer les montants par territoire
       let actionsCount = _.groupBy(data,'codgeo')
       actionsCount = _.map(actionsCount, (v,k) => {
         return {
@@ -314,10 +293,6 @@ export default {
           },0)
         }
       })
-      // let actionsCount = aq.from(data)
-      // .groupby('codgeo')
-      // .count()
-      // .objects();
 
       // jointure géomtries CV / nb d'actions par CV
       this.baseGeom.features.forEach(e => {
@@ -390,14 +365,6 @@ export default {
             e.originalEvent.stopPropagation();
             this.hoveredFeature = feature.properties[this.idGeo]
             this.stylishHovered(feature)
-
-            // new L.marker(e.sourceTarget._latlng)
-            // .bindTooltip(feature.properties[this.libGeo] + " : " + feature.properties.count.toLocaleString(), {
-            //   permanent:true,
-            //   direction:'top',
-            //   className:'leaflet-tooltip'
-            // })
-            // .addTo(this.hoveredLayer);
           })
           .on("mouseout", () => {
             this.hoveredLayer.clearLayers();
@@ -458,7 +425,6 @@ export default {
           return feature.properties[this.idGeo] == code
         },
         pointToLayer: (feature, latlng) => {
-          // this.map.flyTo(latlng)
           return L.circleMarker(latlng, {
             radius:this.computeRadius(feature.properties["count"]),
             color:'red',
@@ -478,12 +444,11 @@ export default {
         interactive:false
       });
       return selectedFeature;
-      // selectedFeature.addTo(this.clickedBubbleLayer)
     },
     // calcul du rayon des cercles
     computeRadius(baseCount) {
       // changer la valeur "100" pour agrandir ou réduire la taille max des cercles
-      return Math.sqrt(baseCount)*(80/Math.sqrt(this.maxCount))
+      return Math.sqrt(baseCount)*(this.radiusCoeff/Math.sqrt(this.maxCount))
     },
     setMapExtent() {
       let map = this.map;

@@ -53,10 +53,9 @@ export default {
     }
   },
   mounted() {
-    let local = sessionStorage.getItem('session_local');
-    console.log(local); 
+    let local = localStorage.getItem('session_local');
     if(!local) {
-      sessionStorage.setItem("session_local",'ok')
+      localStorage.setItem("session_local",'ok')
       const exampleModalEl = document.getElementById('exampleModal');
       const modal = new Modal(exampleModalEl);
       setTimeout(() => modal.show(), 500);
