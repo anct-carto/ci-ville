@@ -51,7 +51,6 @@
 <script>
 
 import logo_anct from "@/assets/logo_anct.png"
-import bg from "@/assets/bg.svg"
 
 export default {
   name: 'HelloWorld',
@@ -61,7 +60,6 @@ export default {
   data() {
     return {
       logo_anct:logo_anct,
-      bg:bg
     }
   }
 }
@@ -120,8 +118,6 @@ li {
   border-radius: 20px;
   text-transform: uppercase;
   width: 100%;
-  /* display: inline-block;
-  width: 50%; */
   background: #d24b6b;
   border: solid 1px #d24b6b;
   font-family: 'Marianne-Bold';
@@ -141,7 +137,6 @@ li {
   text-decoration: none;
   display: inline-block;
   text-align: center;
-  /* transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important; */
   letter-spacing: 1px;
 }
 
