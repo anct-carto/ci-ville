@@ -45,7 +45,8 @@ export default {
       return actionsCount
     },
     labels() {
-      return this.actionsCount.map(e => e.theme)
+      let labels = this.actionsCount.map(e => e.theme)
+      return labels
     },
     dataset() {
       return this.actionsCount.map(e => e.count)
@@ -77,7 +78,7 @@ export default {
             backgroundColor: this.colors,
             hoverOffset: 5,
             hoverBorderColor:'red',
-            hoverBorderWidth:3,
+            hoverBorderWidth:2,
           }]
         },
         options:{
