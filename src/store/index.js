@@ -37,7 +37,6 @@ export default createStore({
       // filtre les données en fonction de l'échelle choisie ; par défaut, contrat de ville
       // state.data = actionsFinancees.filter(e => e.annee == state.annee)
       // state.data = await import(`@/assets/actions-${state.annee}.json`)
-      console.log(state.data[0]);
       for(let i = 0;i<state.data.length;i++) {
         // label thème
         let theme = state.data[i].theme 
