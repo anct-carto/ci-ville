@@ -36,7 +36,76 @@ export default createStore({
     CHANGE_ECHELLE(state,echelle) {
       // filtre les données en fonction de l'échelle choisie ; par défaut, contrat de ville
       // state.data = actionsFinancees.filter(e => e.annee == state.annee)
-      state.data = require(`@/assets/actions-${state.annee}.json`)
+      // state.data = await import(`@/assets/actions-${state.annee}.json`)
+      console.log(state.data[0]);
+      for(let i = 0;i<state.data.length;i++) {
+        // label thème
+        let theme = state.data[i].theme 
+        switch (theme) {
+          case "1":
+            theme = "1 - Cohésion sociale"
+            break;
+          case "2":
+            theme = "2 - Développement économique et emploi"
+            break;
+          case "3":
+            theme = "3 - Cadre de vie et renouvellement urbain"
+            break;
+          case "4":
+            theme = "4 - Pilotage, ingénierie, ressources et évaluations"
+            break;
+        }
+        state.data[i].theme = theme;
+
+        // label sous thème
+        let sous_theme = state.data[i].sous_theme 
+        switch (sous_theme) {
+          case "1.1":
+            sous_theme = "1.1 - Education"
+            break;
+          case "1.2":
+            sous_theme = "1.2 - Santé"
+            break;
+          case "1.3":
+            sous_theme =  "1.3 - Parentalité et droits sociaux"
+            break;
+          case "1.4":
+            sous_theme =  "1.4 - Culture et expression artistique"
+            break;
+          case "1.5":
+            sous_theme =  "1.5 - Lien social, citoyenneté et participation des habitants"
+            break;
+          case "1.5a":
+            sous_theme =  "1.5a - Jeunesse"
+            break;
+          case "1.5b":
+            sous_theme =  "1.5b - Sport et loisir"
+            break;
+          case "1.6":
+            sous_theme =  "1.6 - Prévention et lutte contre les discriminations liées à l'origine et à l'adresse"
+            break;
+          case "2.1":
+            sous_theme =  "2.1 - Emploi"
+            break;
+          case "2.2":
+            sous_theme =  "2.2 - Développement économique"
+            break;
+          case "3.1":
+            sous_theme =  "3.1 - Cadre de vie et renouvellement urbain" 
+            break;
+          case "3.2":
+            sous_theme =  "3.2 - Tranquillité et sûreté publique"
+            break;
+          case "4.1":
+            sous_theme =  "4.1 - Pilotage, ingénierie, ressources et évaluations"
+            break;
+          case "4.2":
+            sous_theme =  "4.2 - Structures mutualisatrices"
+            break;
+          }
+          state.data[i].sous_theme = sous_theme;
+      }
+
       state.echelle = echelle
       switch (echelle) {
         case "National":
@@ -95,8 +164,9 @@ export default createStore({
         ))
       }
     },
-    CHANGE_ANNEE(state,annee) {
+    async CHANGE_ANNEE(state,annee) {
       state.annee = annee;
+      state.data = require(`@/assets/actions-${state.annee}.json`)
     },
   },
   actions: {
