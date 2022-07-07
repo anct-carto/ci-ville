@@ -5,7 +5,7 @@ Cartes interactives de la politique de la ville
 
 Panorama interactif montrant la répartition géographique et thématique des subventions de l'État aux actions en faveur des habitants des quartiers prioritaires de la politique de la ville depuis 2020.
 
-Les données source sont diffusées sous Licence ouverte 2.0 sur [data.gouv.fr] (https://www.data.gouv.fr/fr/datasets/subventions-politique-de-la-ville/)
+Les données source sont diffusées sous Licence ouverte 2.0 sur [data.gouv.fr](https://www.data.gouv.fr/fr/datasets/subventions-politique-de-la-ville/)
 
 ## Clone project
 ```
