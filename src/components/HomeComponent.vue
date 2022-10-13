@@ -1,7 +1,9 @@
 <template>
   <div class="hello">
     <div class="header-container">
-      <img :src="logo_anct" id="logo-anct">
+      <a href="https://agence-cohesion-territoires.gouv.fr/" target="_blank">
+        <img :src="logo_anct" id="logo-anct">
+      </a>
       <br>
       <p class="bienvenue">Bienvenue sur</p>
       <span class="app-name">
@@ -14,7 +16,7 @@
     <div class="row">
       <div class="col-4">
         <p>
-          Cet outil permet de visualiser la répartition géographique et thématique des subventions de l'État aux actions en faveur des habitants des quartiers prioritaires de la politique de la ville.
+          L’État attribue annuellement des subventions à des porteurs de projets œuvrant en faveur des habitants des quartiers prioritaires de la politique de la ville. Les cartes interactives permettent de visualiser, par année, la répartition géographique et thématique de ces subventions.
         </p>
         <div class="row btns">
           <div class="row btns">
