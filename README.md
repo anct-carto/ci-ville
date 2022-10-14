@@ -1,15 +1,29 @@
-# Ci-VILLE
-Cartes interactives de la politique de la ville
+# Ci-VILLE 
+(Cartes interactives de la politique de la ville)
 
-/!\ en cours de développement /!\ 
+![alt text](preview.JPG)
 
-Panorama interactif montrant la répartition géographique et thématique des subventions de l'État aux actions en faveur des habitants des quartiers prioritaires de la politique de la ville depuis 2020.
+Panorama interactif de la répartition par thème et par territoire des subventions politique de la ville financées par l'État depuis 2020.
 
-Les données source sont diffusées sous Licence ouverte 2.0 sur [data.gouv.fr](https://www.data.gouv.fr/fr/datasets/subventions-politique-de-la-ville/).
+Page officielle : acteurs.lagrandeequipe.fr/article/74845 
+
+Lien direct : carto.pages.sit.incubateur.tech/vie-associative/
+
+## Données
+
+Les données source sont issues de la plateforme collaborative de la politique de la ville Dauphin. Elles sont diffusées sous Licence ouverte 2.0 sur [data.gouv.fr](https://www.data.gouv.fr/fr/datasets/subventions-politique-de-la-ville/).
+
+## Technologies
+
+Cet outil, conçu et développé par le service cartographie de l'ANCT, a été réalisé à l'aide du framework Vue.js 3.x et de ses extensions VueX et Vue-router. Il utilise les librairies Leaflet.js, Chart.js, Bootstrap, Gsap
+
+## En savoir plus sur les subventions politique de la ville : 
+
+Sur le site ANCT : https://agence-cohesion-territoires.gouv.fr/subventions-de-la-politique-de-la-ville-101
 
 ## Clone project
 ```
-git clone https://datahub.incubateur.tech/carto/vie-associative.git
+git clone https://www.github.com/anct-carto/ci-ville.git
 ```
 
 ## Project setup
