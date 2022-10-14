@@ -5,9 +5,9 @@
 
 Panorama interactif de la répartition par thème et par territoire des subventions politique de la ville financées par l'État depuis 2020.
 
-Page officielle : acteurs.lagrandeequipe.fr/article/74845 
+[Page officielle](acteurs.lagrandeequipe.fr/article/74845)
 
-Lien direct : carto.pages.sit.incubateur.tech/vie-associative/
+[Lien direct](carto.pages.sit.incubateur.tech/vie-associative/)
 
 ## Données
 
@@ -19,7 +19,7 @@ Cet outil, conçu et développé par le service cartographie de l'ANCT, a été 
 
 ## En savoir plus sur les subventions politique de la ville : 
 
-Sur le site ANCT : https://agence-cohesion-territoires.gouv.fr/subventions-de-la-politique-de-la-ville-101
+Sur le site ANCT : [https://agence-cohesion-territoires.gouv.fr/subventions-de-la-politique-de-la-ville-101](https://agence-cohesion-territoires.gouv.fr/subventions-de-la-politique-de-la-ville-101)
 
 ## Clone project
 ```
