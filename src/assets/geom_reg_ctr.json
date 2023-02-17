@@ -16,9 +16,10 @@
 { "type": "Feature", "properties": { "insee_reg": "44", "lib_reg": "Grand Est", "pop": 384984.0 }, "geometry": { "type": "Point", "coordinates": [ 5.6188254064862, 48.689690720054116 ] } },
 { "type": "Feature", "properties": { "insee_reg": "52", "lib_reg": "Pays de la Loire", "pop": 152195.0 }, "geometry": { "type": "Point", "coordinates": [ -0.82151136910495, 47.476285340522246 ] } },
 { "type": "Feature", "properties": { "insee_reg": "53", "lib_reg": "Bretagne", "pop": 88315.0 }, "geometry": { "type": "Point", "coordinates": [ -2.835710439004594, 48.182168460266269 ] } },
-{ "type": "Feature", "properties": { "insee_reg": "75", "lib_reg": "Nouvelle-Aquitaine", "pop": 207641.0 }, "geometry": { "type": "Point", "coordinates": [ 0.202335932945354, 45.188754992634706 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "75", "lib_reg": "Nouvelle-Aquitaine", "pop": 208746.0 }, "geometry": { "type": "Point", "coordinates": [ 0.202335932945354, 45.188754992634706 ] } },
 { "type": "Feature", "properties": { "insee_reg": "76", "lib_reg": "Occitanie", "pop": 357683.0 }, "geometry": { "type": "Point", "coordinates": [ 2.137892675539813, 43.702083779144793 ] } },
 { "type": "Feature", "properties": { "insee_reg": "84", "lib_reg": "Auvergne-Rhône-Alpes", "pop": 403543.0 }, "geometry": { "type": "Point", "coordinates": [ 4.538112189628711, 45.515764890017891 ] } },
-{ "type": "Feature", "properties": { "insee_reg": "93", "lib_reg": "Provence-Alpes-Côte d'Azur", "pop": 510302.0 }, "geometry": { "type": "Point", "coordinates": [ 6.062126642247654, 43.956875405688621 ] } }
+{ "type": "Feature", "properties": { "insee_reg": "93", "lib_reg": "Provence-Alpes-Côte d'Azur", "pop": 510302.0 }, "geometry": { "type": "Point", "coordinates": [ 6.062126642247654, 43.956875405688621 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "94", "lib_reg": "Corse", "pop": 15162.0 }, "geometry": { "type": "Point", "coordinates": [ 9.106067171546066, 42.149674801502989 ] } }
 ]
 }
