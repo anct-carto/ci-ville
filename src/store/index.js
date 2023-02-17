@@ -1,10 +1,9 @@
 import { createStore } from 'vuex'
 import _ from 'underscore'
-// import actionsFinancees from '@/assets/actions-2020-2021.json'
 
 export default createStore({
   state: {
-    annee:2021,
+    annee:2022,
     echelle:null,
     filterCode:null,
     filterTheme:null,
@@ -34,9 +33,6 @@ export default createStore({
   },
   mutations: {
     CHANGE_ECHELLE(state,echelle) {
-      // filtre les données en fonction de l'échelle choisie ; par défaut, contrat de ville
-      // state.data = actionsFinancees.filter(e => e.annee == state.annee)
-      // state.data = await import(`@/assets/actions-${state.annee}.json`)
       for(let i = 0;i<state.data.length;i++) {
         // label thème
         let theme = state.data[i].theme 
@@ -183,7 +179,7 @@ export default createStore({
       commit('CROSS_FILTER',{type:"codgeo",value:null})
     },
     changeEchelle({commit},echelle) {
-      commit('CHANGE_ANNEE',2021);
+      commit('CHANGE_ANNEE',2022);
       commit('CHANGE_ECHELLE',echelle)
     },
     changeAnnee({commit,state},annee) {

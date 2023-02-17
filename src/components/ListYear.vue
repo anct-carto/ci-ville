@@ -6,8 +6,9 @@
                 placeholder="Année"
                 v-model="selected"
                 :onchange="onChange">
-            <option selected value="2020">2020</option>
+            <option value="2020">2020</option>
             <option value="2021">2021</option>
+            <option value="2022">2022</option>
         </select>
     </div>
 </template>
@@ -17,7 +18,7 @@ export default {
     name:'ListYear',
     data() {
         return {
-            selected:'2021'
+            selected:'2022'
         }
     },
     methods: {
