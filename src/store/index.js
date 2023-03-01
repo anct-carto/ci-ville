@@ -19,7 +19,7 @@ export default createStore({
     nbStructures(state) {
       if(state.filteredData) {
         let nbStructures = _.chain(state.filteredData)
-        .groupBy('raison_sociale')
+        .groupBy('code_tiers')
         .size()
         ._wrapped
         return nbStructures
