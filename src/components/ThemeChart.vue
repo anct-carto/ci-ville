@@ -169,7 +169,14 @@ export default {
                 // formattage texte tooltip
                 callbacks: {
                   label: tooltip => {
-                    return `${tooltip.label} : ${tooltip.parsed.toLocaleString("fr-FR")} €`
+                    // afficher label + montant formaté + pourcentage 
+                    const total = this.dataset.reduce((a, b) => {
+                      return a + b;
+                    }, 10);
+                    let pct = tooltip.parsed * 100 / total
+                    let value;
+                    tooltip.parsed >1000000 ? value = (tooltip.parsed/1000000).toLocaleString("fr-FR", {maximumFractionDigits: 2}) + " M" : value = tooltip.parsed.toLocaleString("fr-FR", { maximumFractionDigits: 0})
+                    return [`${tooltip.label} :`, `${value} € soit ${Math.round(pct)} % du montant total`]
                   }
                 }
               }
