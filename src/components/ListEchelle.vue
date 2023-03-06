@@ -5,8 +5,7 @@
                 id="select-echelle"
                 v-model="selected"
                 :onchange="changeRoute">
-            <option disabled hidden>{{selected}}</option>
-            <option v-for="option in options" :value="option.path" :key="option">
+            <option v-for="option in options" :value="option.name" :key="option">
                 {{ option.name }}
             </option>
         </select>
@@ -18,42 +17,20 @@ export default {
     name:'ListEchelle',
     data() {
         return {
-            selected:this.route,
-            options:[
-                {
-                    name:'Global',
-                    path:'global'
-                },
-                {
-                    name:'National',
-                    path:'national'
-                },
-                {
-                    name:'Région',
-                    path:'region'
-                },
-                {
-                    name:'Département',
-                    path:'departement'
-                },
-                {
-                    name:'Contrat de ville',
-                    path:'contrat-de-ville'
-                },
-            ],
+            selected:this.$route.name,    
         }
     },
     computed: {
-        route() {
-            return this.$route.name
+        options() {
+            const routes = this.$router.getRoutes()
+            let options = routes.filter(e => e.path.search("panorama/") == true)
+            return options
         }
-    },
-    created() {
-        this.selected = this.route
     },
     methods: {
         changeRoute() {
-            this.$router.push({path:this.selected})
+            const path = this.options.find(e => e.name == this.selected).path;
+            this.$router.push({path:path});
         }
     }
 }
