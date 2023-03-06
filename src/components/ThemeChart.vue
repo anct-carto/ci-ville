@@ -182,7 +182,7 @@ export default {
               }
           },
           layout: {
-            padding:5
+            padding:2.5
           },
           responsive:true,
           maintainAspectRatio:false,

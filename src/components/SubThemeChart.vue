@@ -106,7 +106,7 @@ export default {
                 }]
                 },
                 options:{
-                    // indexAxis:'y',
+                    indexAxis:'y',
                     plugins: {
                         legend: {
                             display: false,
@@ -151,12 +151,12 @@ export default {
                         }
                     },
                     layout: {
-                        padding:20
+                        padding:10
                     },
                     scales: {
                         x: {
                             grid: {
-                                display:false
+                                display:true
                             },
                             ticks:{
                                 display:false,
@@ -169,11 +169,12 @@ export default {
                         y: {
                             labelMaxWidth:10,
                             grid: {
-                                display:true
+                                display:false
                             },
                             ticks: {
                                 precision:0,
                                 font: {
+                                    size:10, 
                                     family: 'Marianne-Regular'
                                 }
                             }
