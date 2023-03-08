@@ -14,12 +14,22 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
+
 export default {
     name:'ListYear',
     data() {
         return {
-            selected:'2022'
+            selected:null
         }
+    },
+    computed: {
+        // récupère l'année du store ...
+        ...mapState({annee: state => state.annee})
+    },
+    mounted() {
+        this.selected = this.annee // pour la garder sélectionée dans la liste en changeant de page / changeant d'échelle
     },
     methods: {
         onChange() {

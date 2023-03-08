@@ -3,7 +3,7 @@ import _ from 'underscore'
 
 export default createStore({
   state: {
-    annee:2022,
+    annee:null,
     echelle:null,
     filterCode:null,
     filterTheme:null,
@@ -178,8 +178,12 @@ export default createStore({
     resetCodegeo({commit}) {
       commit('CROSS_FILTER',{type:"codgeo",value:null})
     },
-    changeEchelle({commit},echelle) {
-      commit('CHANGE_ANNEE',2022);
+    changeEchelle({commit,state},echelle) {
+      let selectedAnnee;
+      // pour garder en cache la dernière année sélectionnée : 
+      // s'il y a une valeur garde cette valeur sinon par défaut mets 2022
+      state.annee ? selectedAnnee = state.annee : selectedAnnee = 2022 
+      commit('CHANGE_ANNEE',selectedAnnee);
       commit('CHANGE_ECHELLE',echelle)
     },
     changeAnnee({commit,state},annee) {

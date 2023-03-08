@@ -78,7 +78,7 @@ export default {
             backgroundColor: this.colors,
             hoverOffset: 5,
             hoverBorderColor:'red',
-            hoverBorderWidth:2,
+            hoverBorderWidth:1.5,
           }]
         },
         options:{
