@@ -7,6 +7,7 @@
         Elles représentent le montant financé sous forme de subvention par le programme 147 - politique de la ville,
         les actions déployées ainsi que les tiers concernés. Les postes adultes relais et Fonjep ne sont pas représentés.
       </p>
+      <CartesStatiques/>
       <p>
         Les cercles figurant sur les cartes sont proportionnels au montant octroyé.
       </p>
@@ -72,9 +73,12 @@
 
 <script>
 // import logo_anct from "@/assets/logo_anct.png"
+import CartesStatiques from "@/components/CartesStatiques.vue";
+
 
 export default {
   name: 'About',
+  components: { CartesStatiques },
   data() {
     return {
       // logo_anct:logo_anct,
