@@ -28,9 +28,9 @@
         <a href="https://www.data.gouv.fr/fr/datasets/subventions-politique-de-la-ville/" target="_blank">data.gouv.fr</a>.
       </p>
       <p>
-        Le code source de l'outil est publié sous Licence Ouverte 2.0 sur <a href="https://www.github.com/anct-carto" target="_blank">Github</a>
+        Le code source de l'outil est publié sous Licence Ouverte 2.0 sur <a href="https://www.github.com/anct-carto/ci-ville" target="_blank">Github</a>
         et a été écrit en HTML/CSS/Javascript à l'aide des librairies 
-        Bootstrap 5.1, Vue.js 3, Chart.js 3.5, Leaflet 1.0.7. Les autres dépendances utilisées consultables sur le dépôt Github.
+        Bootstrap 5.1, Vue.js 3, Chart.js 3.5, Leaflet 1.0.7. Les autres dépendances sont consultables sur le dépôt Github.
       </p>
       <h3>Ressources et liens utiles</h3>
       <ul>
