@@ -59,11 +59,15 @@ export default {
     },
     // 2. Initialisation carte avec fond 
     map() {
+      let soutWest = L.latLng(55, -23);
+      let northEast = L.latLng(37, 26);
+      let bounds = L.latLngBounds(soutWest, northEast);
       // let extent = this.$route.query['@'].split(',');
       let map = L.map('map', {
         zoomControl:false,
         zoomSnap:0.05,
         minZoom:5,
+        maxBounds:bounds ,
       })
       // .setView([46.413220, 1.219482],6);
 
