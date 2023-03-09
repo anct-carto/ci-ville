@@ -106,7 +106,7 @@ export default {
                 }]
                 },
                 options:{
-                    indexAxis:'y',
+                    // indexAxis:'y',
                     plugins: {
                         legend: {
                             display: false,
@@ -156,7 +156,7 @@ export default {
                     scales: {
                         x: {
                             grid: {
-                                display:true
+                                display:false
                             },
                             ticks:{
                                 display:false,
@@ -169,7 +169,7 @@ export default {
                         y: {
                             labelMaxWidth:10,
                             grid: {
-                                display:false
+                                display:true
                             },
                             ticks: {
                                 precision:0,
