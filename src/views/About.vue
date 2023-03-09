@@ -7,7 +7,6 @@
         Elles représentent le montant financé sous forme de subvention par le programme 147 - politique de la ville,
         les actions déployées ainsi que les tiers concernés. Les postes adultes relais et Fonjep ne sont pas représentés.
       </p>
-      <!-- <CartesStatiques/> -->
       <p>
         Les cercles figurant sur les cartes sont proportionnels au montant octroyé.
       </p>
@@ -19,6 +18,8 @@
         <br>
         Sur la visualisation, ce chiffre ne varie qu'en fonction du territoire sélectionné et n'est en aucune  manière dépendant du filtre "pilier".
       </p>
+      <!-- titres à changer "programme 147" => "crédits de la politique de la ville" -->
+      <!-- <CartesStatiques/> -->
       <h3>Crédits et licence</h3>
       <p>
         Cet outil de datavisualisation a été développé par le <a href="https://cartotheque.anct.gouv.fr" target="_blank">service cartographie</a> (pôle Analyse et diagnostics territoriaux) de l'ANCT, 
