@@ -144,7 +144,7 @@ export default {
                                     let pct = tooltip.raw * 100 / total
                                     let value;
                                     tooltip.raw >1000000 ? value = (tooltip.raw/1000000).toLocaleString("fr-FR", {maximumFractionDigits: 2}) + " M" : value = tooltip.raw.toLocaleString("fr-FR", { maximumFractionDigits: 0})
-                                    return [`${value} € soit ${Math.round(pct)} % du montant du thème sélectionné`]
+                                    return [`${value} € soit ${pct.toLocaleString("fr-FR", { maximumFractionDigits: 1})} % du montant du thème sélectionné`]
                                     // return `${tooltip.raw.toLocaleString("fr-FR")} €`
                                 }
                             }
