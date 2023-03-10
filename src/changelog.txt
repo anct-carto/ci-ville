@@ -1,3 +1,42 @@
+----------------------------------------------------------------
+
+## au 10 mars 2023
+
+Fait 
+
+----- Données -----
+
+- nouveauté : ajout données 2022 
+- résolution de bug : ajout données corse pour 2020 et 2021
+- résolution de bug : réassignation des échelles région, département et contrat de ville pour 2020 et 2021 
+
+----- UI -----
+- résolution de bug : liste navigation "échelle géographique" : seul le nom de la modalité s'affiche 
+
+
+----- Expérience utilisateur -----
+- Nouveauté : sur le filtre "année", en changeant de vue sur la liste "échelle géographique", l'année sélectionnée est sauvegardée
+
+
+----- Graphiques thème et sous thème -----
+- Nouveauté : ajout de la part du montant par rapport au montant en total (en %)
+
+
+----- Table / liste actions -----
+- Nouveauté : migration vers un module de table permettant de
+    * trier par colonne
+    * naviguer par page
+
+
+----- Données -----
+
+- nouveauté : ajout données 2022 
+- résolution de bug : ajout données corse pour 2020 et 2021
+- résolution de bug : réassignation des échelles région, département et contrat de ville pour 2020 et 2021 
+
+
+
+
 -----------------------------------------------------------------
 
 ## au 27 juin

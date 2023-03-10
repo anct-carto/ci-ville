@@ -1,34 +1,37 @@
 <template>
-    <div class="table-responsive w-100">
-        <!-- <span>Liste des actions dans le contrat de ville</span> -->
-        <table class="table" data-toggle="table" data-pagination="true">
-            <thead>
-                <tr>
-                    <th scope="col">Libellé de l'action</th>
-                    <th scope="col">Structure porteuse</th>
-                    <th scope="col">Objectif</th>
-                    <th scope="col" class="col-montant">Montant (€)</th>
-                </tr>
-            </thead>
-            <tbody v-if="filterCode || route == 'National'">
-                <tr v-for="action in actionsList" :key="action.id_action">
-                    <td>{{ action.lib_action }}</td>
-                    <td>{{ action.raison_sociale }}</td>
-                    <td>{{ action.objectif }}</td>
-                    <td class="col-montant">{{ action.montant.toLocaleString("fr-FR")}}</td>
-                </tr>
-            </tbody>
-            <div class="text-select-territoire" v-else>
-                <i>Sélectionnez un territoire pour consulter la liste des actions</i>
-            </div>
-        </table>
+    <div class="table-container">
+        <EasyDataTable 
+            class="table"
+            id="table-actions"
+            :headers="headers"
+            :items="actionsList"
+            :rowsPerPageMessage="'Nombre de lignes par page'"
+            :themeColor="'#5770be'"
+        />
+        <!-- <span v-else>Sélectionnez un territoire</span> -->
     </div>
 </template>
 
 <script>
+import Vue3EasyDataTable from 'vue3-easy-data-table';
+import 'vue3-easy-data-table/dist/style.css';
+
 import {mapState} from 'vuex'
 
 export default {
+    components:{
+        EasyDataTable:Vue3EasyDataTable
+    },
+    data() {
+        return {
+            headers: [
+                { text: "Libellé de l'action", value: "lib_action", sortable: true },
+                { text: "Porteur", value: "raison_sociale", sortable: true},
+                { text: "Objectif", value: "objectif", sortable: true },
+                { text: "Montant (€)", value: "montant", sortable: true },
+            ]
+        }
+    },
     computed: {
       ...mapState({
           actionsList: state => state.filteredData.sort((a,b) => {
@@ -43,10 +46,20 @@ export default {
             return this.$route.name
         }
     },
+    mounted() {
+        // document.body.innerHTML = document.body.innerHTML.replace('rows','yaya')
+    }
 }
 </script>
 
 <style>
+    .table-container {
+        height:calc(100vh - 150px) !important;
+        background: white;
+        text-align: center;
+        vertical-align: middle;
+    }
+
     .table {
         overflow-y:auto;
         display:inline-block;
@@ -58,6 +71,8 @@ export default {
         padding-left:10px;
         padding-right:10px;
         margin-bottom:0px;
+        --easy-table-body-item-padding: 5px 10px;
+        --easy-table-header-font-size: 10px;
     }
 
     thead {
