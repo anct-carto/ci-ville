@@ -6,7 +6,7 @@
         <div class="col-1">
             <ListYear/>
         </div>
-        <div class="col-4" v-if="this.$route.name != 'National' && this.$route.name != 'Global'">
+        <div class="col-5" v-if="this.$route.name != 'National' && this.$route.name != 'Global'">
             <ListGeo id="select-territoire" :filterCodeFromStore="filterCode"/>
         </div>
         <!-- filtres actifs (fonctionnalité désactivée) -->
