@@ -49,7 +49,7 @@ export default {
 
 .chiffre-cle {
     color:#d24b6b;
-    font-size: 20px;
+    font-size: 19px;
     text-align: left;
     font-family: 'Marianne-Extrabold';
 }
