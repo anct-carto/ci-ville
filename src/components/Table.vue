@@ -3,12 +3,13 @@
         <EasyDataTable 
             class="table"
             id="table-actions"
+            v-if="filterCode"
             :headers="headers"
             :items="actionsList"
             :rowsPerPageMessage="'Nombre de lignes par page'"
             :themeColor="'#5770be'"
         />
-        <!-- <span v-else>Sélectionnez un territoire</span> -->
+        <span class="else-msg" v-else><i>Sélectionnez un territoire pour consulter la liste des actions</i></span>
     </div>
 </template>
 
@@ -54,10 +55,11 @@ export default {
 
 <style>
     .table-container {
+        display: block;
         height:calc(100vh - 150px) !important;
         background: white;
         text-align: center;
-        vertical-align: middle;
+        align-items: center;
     }
 
     .table {
@@ -96,5 +98,11 @@ export default {
     .col-montant {
         text-align: right;
         min-width: 100px;
+    }
+
+    .else-msg {
+        flex-direction: column;
+        text-align: center;
+        vertical-align: middle;
     }
 </style>
