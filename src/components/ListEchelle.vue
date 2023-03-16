@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label for="select-annee">Échelle géographique</label>
+        <label for="select-annee">Échelle</label>
         <select class="form-select" 
                 id="select-echelle"
                 v-model="selected"

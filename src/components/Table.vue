@@ -3,7 +3,7 @@
         <EasyDataTable 
             class="table"
             id="table-actions"
-            v-if="filterCode"
+            v-if="filterCode || route == 'National'"
             :headers="headers"
             :items="actionsList"
             :rowsPerPageMessage="'Nombre de lignes par page'"
