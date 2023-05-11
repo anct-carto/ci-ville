@@ -1,6 +1,27 @@
 <template>
   <div class="row">
     <div class="col-7">
+      <h3>Qu'est-ce que Ci.ville ?</h3>
+      <p>
+        L’État attribue annuellement des subventions à des porteurs de projets œuvrant en faveur des habitants des quartiers prioritaires de la politique de la ville. Les cartes interactives permettent de visualiser, par année, la répartition géographique et thématique de ces subventions.
+      </p>
+      <p>
+        Quatre échelles géographiques sont proposées :
+        <ul>
+          <li>
+            nationale : les valeurs représentent les subventions d'actions à dimension nationale ;
+          </li>
+          <li>
+            régionale : les valeurs agrègent les crédits affectés aux contrats de ville d'une région, ainsi que les crédits hors contrat de ville ;
+          </li>
+          <li>
+            départementale : les valeurs agrègent les crédits affectés aux contrats de ville du département, ainsi que les crédits hors contrat de ville ;
+          </li>
+          <li>
+            échelle du contrat de ville : les valeurs agrègent les crédits affectés à un contrat de ville.
+          </li>
+        </ul>
+      </p>
       <h3>Quelles sont les données représentées ?</h3>
       <p>
         Les données sont issues des systèmes d'information de l'État.
