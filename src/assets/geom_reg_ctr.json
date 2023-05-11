@@ -20,6 +20,8 @@
 { "type": "Feature", "properties": { "insee_reg": "76", "lib_reg": "Occitanie", "pop": 357683.0 }, "geometry": { "type": "Point", "coordinates": [ 2.137892675539813, 43.702083779144793 ] } },
 { "type": "Feature", "properties": { "insee_reg": "84", "lib_reg": "Auvergne-Rhône-Alpes", "pop": 403543.0 }, "geometry": { "type": "Point", "coordinates": [ 4.538112189628711, 45.515764890017891 ] } },
 { "type": "Feature", "properties": { "insee_reg": "93", "lib_reg": "Provence-Alpes-Côte d'Azur", "pop": 510302.0 }, "geometry": { "type": "Point", "coordinates": [ 6.062126642247654, 43.956875405688621 ] } },
-{ "type": "Feature", "properties": { "insee_reg": "94", "lib_reg": "Corse", "pop": 15162.0 }, "geometry": { "type": "Point", "coordinates": [ 9.106067171546066, 42.149674801502989 ] } }
+{ "type": "Feature", "properties": { "insee_reg": "94", "lib_reg": "Corse", "pop": 15162.0 }, "geometry": { "type": "Point", "coordinates": [ 9.106067171546066, 42.149674801502989 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "978", "lib_reg": "Saint-Martin", "pop": 9571.0 }, "geometry": { "type": "Point", "coordinates": [ -4.519598017344241, 46.487013022420129 ] } },
+{ "type": "Feature", "properties": { "insee_reg": "987", "lib_reg": "Papeete", "pop": 70678.0 }, "geometry": { "type": "Point", "coordinates": [ -3.011794503477498, 46.565381217097766 ] } }
 ]
 }

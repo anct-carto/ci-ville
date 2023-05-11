@@ -102,6 +102,8 @@
 { "type": "Feature", "properties": { "insee_dep": "972", "lib_dep": "Martinique", "insee_reg": "02", "pop": 24301.0 }, "geometry": { "type": "Point", "coordinates": [ -3.646802124660707, 44.080677840013998 ] } },
 { "type": "Feature", "properties": { "insee_dep": "973", "lib_dep": "Guyane", "insee_reg": "03", "pop": 123543.0 }, "geometry": { "type": "Point", "coordinates": [ -2.947225877822382, 42.414002865194675 ] } },
 { "type": "Feature", "properties": { "insee_dep": "974", "lib_dep": "La Réunion", "insee_reg": "04", "pop": 159312.0 }, "geometry": { "type": "Point", "coordinates": [ -2.296061458561577, 44.555709045589133 ] } },
-{ "type": "Feature", "properties": { "insee_dep": "976", "lib_dep": "Mayotte", "insee_reg": "06", "pop": 170801.0 }, "geometry": { "type": "Point", "coordinates": [ -2.162370866991066, 45.541728491367039 ] } }
+{ "type": "Feature", "properties": { "insee_dep": "976", "lib_dep": "Mayotte", "insee_reg": "06", "pop": 170801.0 }, "geometry": { "type": "Point", "coordinates": [ -2.162370866991066, 45.541728491367039 ] } },
+{ "type": "Feature", "properties": { "insee_dep": "978", "lib_dep": "Saint-Martin", "insee_reg": "978", "pop": 9571.0 }, "geometry": { "type": "Point", "coordinates": [ -4.519598017344241, 46.487013022420129 ] } },
+{ "type": "Feature", "properties": { "insee_dep": "987", "lib_dep": "Papeete", "insee_reg": "987", "pop": 70678.0 }, "geometry": { "type": "Point", "coordinates": [ -3.011794503477498, 46.565381217097766 ] } }
 ]
 }
