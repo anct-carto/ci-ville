@@ -51,15 +51,15 @@ export default {
 <style>
 
 .widget {
-  background: white;
-  position: relative;
-  box-shadow: 0 2px 2px rgba(0,0,0,.02), 0 0px 2px rgba(0,0,0,.01);
-  border-radius: 5px;
-  padding:5px;
-  margin:0;
-  /* margin-bottom:10px; */
-  margin-top:10px;
-  /* border:solid 1px #dfdfdf */
+    background: white;
+    position: relative;
+    box-shadow: 0 2px 2px rgba(0,0,0,.02), 0 0px 2px rgba(0,0,0,.01);
+    border-radius: 8px;
+    border:  1px solid #DADAF0 ;
+    padding:5px;
+    margin:0;
+    /* margin-bottom:10px; */
+    margin-top:10px;
 }
 
 .header {

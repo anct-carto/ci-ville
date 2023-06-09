@@ -41,7 +41,8 @@ export default {
 <style>
 .chiffre-cle-wrapper {
     background: white;
-    border-radius: 5px;
+    border-radius: 8px;
+    border:  1px solid #DADAF0 ;
     padding: 5px;
     padding-left:10px;
     padding-right:10px;
