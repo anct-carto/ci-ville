@@ -1,36 +1,46 @@
 <template>
       <div id="sidepanel" class="d-flex flex-column h-100">
         <div class="row">
-          <div class="col-3">
-            <Number :chiffreCle="Math.round(montant)" 
-                    :texte="'Montant engagé (€)'"
-                    />
-          </div>
-          <div class="col-3">
-            <Number :chiffreCle="nbActions" 
-                    :texte="`Actions financées`"
-                    />
-          </div>
-          <div class="col-3">
-            <Number :chiffreCle="nbStructures" 
-                    :texte="'Porteurs de projets'"
-                    />
-          </div>
-          <div class="col-3">
-            <Number :chiffreCle="population" 
-                    :texte="'Habitants en QPV'"
-                    />
+              <div class="col-3 d-flex flex-column h-100">            
+                <div class="ro">
+                  <Number :chiffreCle="Math.round(montant)" 
+                          :texte="'Montant engagé (€)'"
+                          />
+                </div>
+                  <Number :chiffreCle="nbActions" 
+                          :texte="`Actions financées`"
+                          />
+                  <Number :chiffreCle="nbStructures" 
+                          :texte="'Porteurs de projets'"
+                          />
+                  <Number :chiffreCle="population" 
+                          :texte="'Habitants en QPV'"
+                          />
+                  <Number :chiffreCle="Math.round(montant)" 
+                          :texte="'Montant engagé (€)'"
+                          />
+                  <Number :chiffreCle="nbActions" 
+                          :texte="`Actions financées`"
+                          />
+                  <Number :chiffreCle="nbStructures" 
+                          :texte="'Porteurs de projets'"
+                          />
+                  <Number :chiffreCle="population" 
+                          :texte="'Habitants en QPV'"
+                          />
+              </div>
+            <div class="col-9 d-flex flex-column h-100">
+                <Card :title="`Répartition par pilier`" 
+                      :about='"Sélectionnez un thème pour filtrer les chiffres clés, la carte et la répartition dans les sous-thèmes correspondants"'>
+                  <ThemeChart/>
+                </Card>
+                <Card :title="`Répartition par sous-thème de pilier`"
+                      :about="`Survolez chaque barre pour connaître le sous-thème correspondant et la valeur exacte de son montant.`">
+                  <SubThemeChart v-if="filterTheme"/>
+                  <span class="msg-else" v-else>Sélectionnez un thème pour accéder à la répartition par sous-thème</span>
+                </Card>
           </div>
         </div>
-        <Card :title="`Répartition par pilier`" 
-              :about='"Sélectionnez un thème pour filtrer les chiffres clés, la carte et la répartition dans les sous-thèmes correspondants"'>
-          <ThemeChart/>
-        </Card>
-        <Card :title="`Répartition par sous-thème de pilier`"
-              :about="`Survolez chaque barre pour connaître le sous-thème correspondant et la valeur exacte de son montant.`">
-          <SubThemeChart v-if="filterTheme"/>
-          <span class="msg-else" v-else>Sélectionnez un thème pour accéder à la répartition par sous-thème</span>
-        </Card>
       </div>
 </template>
 

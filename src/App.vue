@@ -3,7 +3,15 @@
     <!-- ajouter g-0 (gutters=0) permet de ne pas avoir d'ascenseur en horizontal -->
     <div class="row w-100 g-0"> 
         <div id="nav" class="nav">
-          <router-link to="/">Accueil</router-link> 
+          <div id="logo">
+            <a href="https://agence-cohesion-territoires.gouv.fr/" target="_blank">
+              <img :src="logo_anct" id="logo-anct">
+            </a>
+            <span class="app-name">
+              CI.Ville
+            </span><br>
+          </div>
+          <!-- <router-link to="/">Accueil</router-link>  -->
           <router-link to="/panorama">Visualisation</router-link> 
           <router-link to="/a-propos">À propos</router-link> 
         </div>
@@ -42,8 +50,15 @@
 
 <script>
 import { Modal } from "bootstrap"
+import logo_anct from "@/assets/logo_anct.png"
+
 
 export default {
+  data() {
+    return {
+      logo_anct:logo_anct,
+    }
+  },
   watch: {
     $route() {
       if(this.currentRoute | this.currentRoute != this.$route.name) {
@@ -120,11 +135,25 @@ html, body {
 
 
 #nav {
-  /* background: #5473b6; */
   padding: 0px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  vertical-align: center;
 }
+
+#logo-anct {
+  width:200px;
+}
+
+.app-name {
+  font-family: 'Marianne-Bold';
+  background-color: #3b5fa9;
+  letter-spacing: 0.1em;
+  /* padding: 5px; */
+  color:white;
+  font-size:4em;
+}
+
 
 #dropdownMenu2 {
   background: none;
