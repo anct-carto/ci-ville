@@ -1,12 +1,10 @@
 <template>
       <div id="sidepanel" class="d-flex flex-column h-100">
         <div class="row">
-              <div class="col-3 d-flex flex-column h-100">            
-                <div class="ro">
+              <div class="col-3 d-flex flex-column">            
                   <Number :chiffreCle="Math.round(montant)" 
                           :texte="'Montant engagé (€)'"
                           />
-                </div>
                   <Number :chiffreCle="nbActions" 
                           :texte="`Actions financées`"
                           />
@@ -24,6 +22,9 @@
                           />
                   <Number :chiffreCle="nbStructures" 
                           :texte="'Porteurs de projets'"
+                          />
+                  <Number :chiffreCle="population" 
+                          :texte="'Habitants en QPV'"
                           />
                   <Number :chiffreCle="population" 
                           :texte="'Habitants en QPV'"

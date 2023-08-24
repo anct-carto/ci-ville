@@ -46,6 +46,7 @@ export default {
     padding: 5px;
     padding-left:10px;
     padding-right:10px;
+    margin-top:10px;
 }
 
 .chiffre-cle {
