@@ -5,17 +5,14 @@
                   <Number :chiffreCle="Math.round(montant)" 
                           :texte="'Montant engagé (€)'"
                           />
-                  <Number :chiffreCle="nbActions" 
-                          :texte="`Actions financées`"
-                          />
-                  <Number :chiffreCle="nbStructures" 
-                          :texte="'Porteurs de projets'"
-                          />
-                  <Number :chiffreCle="population" 
-                          :texte="'Habitants en QPV'"
-                          />
                   <Number :chiffreCle="Math.round(montant)" 
-                          :texte="'Montant engagé (€)'"
+                          :texte="`dont subventions`"
+                          />
+                  <Number :chiffreCle="nbStructures" 
+                          :texte="'dont Fonjep'"
+                          />
+                  <Number :chiffreCle="population" 
+                          :texte="'dont Adulte-relais'"
                           />
                   <Number :chiffreCle="nbActions" 
                           :texte="`Actions financées`"
@@ -24,7 +21,10 @@
                           :texte="'Porteurs de projets'"
                           />
                   <Number :chiffreCle="population" 
-                          :texte="'Habitants en QPV'"
+                          :texte="'Postes Fonjep'"
+                          />
+                  <Number :chiffreCle="population" 
+                          :texte="'Postes Adulte-relais'"
                           />
                   <Number :chiffreCle="population" 
                           :texte="'Habitants en QPV'"
