@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-7">
-      <h3>Qu'est-ce que Ci.ville ?</h3>
+      <h3>Qu'est-ce que CI.Ville ?</h3>
       <p>
         L’État attribue annuellement des subventions à des porteurs de projets œuvrant en faveur des habitants des quartiers prioritaires de la politique de la ville. Les cartes interactives permettent de visualiser, par année, la répartition géographique et thématique de ces subventions.
       </p>
