@@ -30,7 +30,7 @@
                           :texte="'Habitants en QPV'"
                           />
               </div>
-            <div class="col-9 d-flex flex-column h-100">
+            <div class="col-9 d-flex flex-column h-100" id="charts">
                 <Card :title="`Répartition par pilier`" 
                       :about='"Sélectionnez un thème pour filtrer les chiffres clés, la carte et la répartition dans les sous-thèmes correspondants"'>
                   <ThemeChart/>
@@ -81,6 +81,10 @@ export default {
   position: absolute;
   text-align: center;
   width: 100%;
+}
+
+#charts {
+        height:calc(100vh - 115px) !important;
 }
 
 </style>
