@@ -3,16 +3,16 @@
     <!-- ajouter g-0 (gutters=0) permet de ne pas avoir d'ascenseur en horizontal -->
     <div class="row w-100 g-0"> 
         <div id="nav" class="nav">
-          <div id="logo">
+          <div id="logos">
             <a href="https://agence-cohesion-territoires.gouv.fr/" target="_blank">
               <img :src="logoAnct" id="logo-anct">
             </a>
-            <a href="https://agence-cohesion-territoires.gouv.fr/" target="_blank">
+            <!-- <a href="" target="_blank"> -->
               <img :src="logoApp" id="logo-app">
-            </a>
+            <!-- </a> -->
           </div>
           <!-- <router-link to="/">Accueil</router-link>  -->
-          <router-link to="/panorama">Visualisation</router-link> 
+          <router-link to="/panorama">Accueil</router-link> 
           <router-link to="/a-propos">À propos</router-link> 
         </div>
       <div class="row app-view">
@@ -147,6 +147,10 @@ html, body {
   width:200px;
 }
 
+#logos {
+  z-index: 1000;
+}
+
 .app-name {
   font-family: 'Marianne-Bold';
   background-color: #3b5fa9;
@@ -173,6 +177,7 @@ html, body {
   text-align: center;
   /* transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important; */
   letter-spacing: 1px;
+  z-index: 1000;
 }
 
   /*Hover effect underline*/
