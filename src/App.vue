@@ -137,7 +137,7 @@ html, body {
 
 
 #nav {
-  padding: 0px;
+  padding: 10px;
   display: flex;
   justify-content: left;
   vertical-align: center;
@@ -168,20 +168,27 @@ html, body {
   color: var(--rose-gerr); 
 }
 
-#nav a  {
+#nav > a  {
   text-transform: uppercase;
-  color: var(--rose-gerr); 
+  background: none;
+  color:var(--rose-gerr);
+  border:solid 1px var(--rose-gerr);
+  height: 36px;
   margin: 5px 10px 2px 10px;
+  padding:5px;
+  border-radius:20px;
   text-decoration: none;
   display: inline-block;
   text-align: center;
   /* transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important; */
   letter-spacing: 1px;
   z-index: 1000;
+  font-size: 17px;
+  margin-top: 15px;
 }
 
   /*Hover effect underline*/
-#nav a::after {
+/* #nav a::after {
   content: "";
   display:block;
   margin:0 auto;
@@ -197,12 +204,20 @@ html, body {
 #nav a:hover:after {
   visibility: visible;
   transform: scaleX(1);
+} */
+
+#nav > a:hover {
+  background-color: var(--rose-gerr); 
+  color:white;
+  transition: 0.5s;
 }
 
 #nav a.router-link-active {
   font-family: 'Marianne-Bold';
-  border-bottom: solid 2px var(--rose-gerr);
-  border-bottom-width: 50% !important;
+  background-color: var(--rose-gerr); 
+  color:white;
+  /* border-bottom: solid 2px var(--rose-gerr);
+  border-bottom-width: 50% !important; */
 }
 
 .nav-link {
@@ -242,15 +257,15 @@ select,option {
   text-transform: uppercase;
   width: 20%;
   color:white;
-  background: #d24b6b;
-  border: solid 1px #d24b6b;
+  background: var(--rose-gerr);
+  border: solid 1px var(--rose-gerr);
   font-family: 'Marianne-Bold';
 }
 
 .btn-principal:hover {
   background: none;
-  border: solid 1px #d24b6b;
-  color: #d24b6b;
+  border: solid 1px var(--rose-gerr);
+  color: var(--rose-gerr);
 }
 
 
