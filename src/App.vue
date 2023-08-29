@@ -5,11 +5,11 @@
         <div id="nav" class="nav">
           <div id="logo">
             <a href="https://agence-cohesion-territoires.gouv.fr/" target="_blank">
-              <img :src="logo_anct" id="logo-anct">
+              <img :src="logoAnct" id="logo-anct">
             </a>
-            <span class="app-name">
-              CI.Ville
-            </span><br>
+            <a href="https://agence-cohesion-territoires.gouv.fr/" target="_blank">
+              <img :src="logoApp" id="logo-app">
+            </a>
           </div>
           <!-- <router-link to="/">Accueil</router-link>  -->
           <router-link to="/panorama">Visualisation</router-link> 
@@ -50,13 +50,15 @@
 
 <script>
 import { Modal } from "bootstrap"
-import logo_anct from "@/assets/logo_anct.png"
+import logoAnct from "@/assets/img/logo-anct.svg"
+import logoApp from "@/assets/img/logo-civille.svg"
 
 
 export default {
   data() {
     return {
-      logo_anct:logo_anct,
+      logoAnct:logoAnct,
+      logoApp:logoApp,
     }
   },
   watch: {
@@ -141,7 +143,7 @@ html, body {
   vertical-align: center;
 }
 
-#logo-anct {
+#logo-anct, #logo-app {
   width:200px;
 }
 
