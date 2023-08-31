@@ -268,6 +268,22 @@ select,option {
   color: var(--rose-gerr);
 }
 
+/* .form-select {
+  border:1px solid #DADAF0;
+  border-radius: 8px !important;
+  padding:8px 10px;
+  height:35px;
+}
+
+.form-select:focus {
+  border-color: black !important;
+  box-shadow: 0 0 0 0.2rem rgba(0,0,0, 0.25) !important;
+}
+
+label {
+  font-size:13px;
+  font-weight: 400;
+} */
 
 
 @import'~bootstrap/dist/css/bootstrap.css'
