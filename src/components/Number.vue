@@ -1,7 +1,7 @@
 <template>
-    <div class="chiffre-cle-wrapper">
-        <div class="text"> {{ texte }}</div>
-        <div class="chiffre-cle">{{ animatedNumber }}</div>
+    <div class="chiffre-cle-wrapper flex-grow-1">
+        <div class="text flex-grow-1"> {{ texte }}</div>
+        <div class="chiffre-cle flex-grow-1">{{ animatedNumber }}</div>
     </div>
 </template>
 
@@ -43,15 +43,15 @@ export default {
     background: white;
     border-radius: 8px;
     border:  1px solid #DADAF0 ;
-    padding: 5px;
-    padding-left:10px;
-    padding-right:10px;
+    padding: 5px 10px 5px 10px;
     margin-top:10px;
+    flex-grow: 1;
+    flex-direction: row;
 }
 
 .chiffre-cle {
     color:#d24b6b;
-    font-size: 25px;
+    font-size: 1.4vw;
     text-align: left;
     font-family: 'Marianne-Extrabold';
 }
@@ -59,7 +59,15 @@ export default {
 .text {
     color:#d24b6b;
     text-align: left;
-    font-size:0.9rem;
+    font-size:0.55vw;
+}
+
+.body > div {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 </style>
