@@ -8,13 +8,20 @@ export default createStore({
     filterCode:null,
     filterTheme:null,
     themeColor:'gray',
+    dataFonjep:null,
   },
   getters: {
-    montant(state) {
+    montantSubventions(state) {
       return state.filteredData ? state.filteredData.map(e => e.montant).reduce((a,b) => a + b,0) : 0 
+    },
+    montantFonjep(state) {
+      return state.filteredDataFonjep ? state.filteredDataFonjep.map(e => e.montant).reduce((a,b) => a + b,0) : 0 
     },
     nbActions(state) {
       return state.filteredData ? state.filteredData.length : 0
+    },
+    nbFonjep(state) {
+      return state.filteredDataFonjep ? state.filteredDataFonjep.length : 0
     },
     nbStructures(state) {
       if(state.filteredData) {
@@ -109,14 +116,17 @@ export default createStore({
         case "Région":
           state.data = state.data.filter(e => e.echelle != "nat") // 1. Filtrage sur les échelles concernées par l'option choisie
           state.data.forEach(e => e.codgeo = e.insee_reg) // 2. assignation du code géographique correspond : reg, dep ou cdv 
+          state.dataFonjep.forEach(e => e.codgeo = e.insee_reg) // 2. assignation du code géographique correspond : reg, dep ou cdv 
           break;
         case "Département":
           state.data = state.data.filter(e => e.echelle == "dep" || e.echelle == "cdv")
           state.data.forEach(e => e.codgeo = e.insee_dep)
+          state.dataFonjep.forEach(e => e.codgeo = e.insee_dep)
           break;
         case "Contrat de ville":
           state.data = state.data.filter(e => e.echelle == "cdv")
           state.data.forEach(e => e.codgeo = e.code_cv)
+          state.dataFonjep.forEach(e => e.codgeo = e.code_cv)
           break;
       }
       state.filteredData = state.data
@@ -126,8 +136,8 @@ export default createStore({
     },
     CROSS_FILTER(state,filterParams) {
       // 1. récupère les valeurs de filtres (même si elles sont vides)
-      let filterName = filterParams.type;
-      let value = filterParams.value;
+      const filterName = filterParams.type;
+      const value = filterParams.value;
       switch (filterName) {
         case "theme":
           state.filterTheme = value
@@ -152,16 +162,20 @@ export default createStore({
       if(state.filterTheme == null && state.filterCode == null) {
         // 4.1 ... renvoie les données par défaut
         state.filteredData = state.data
+        state.filteredDataFonjep = state.dataFonjep
       } else {
         // 4.2 ... sinon filtre le tableau sur la base de la liste des filtres non vides
         state.filteredData = state.data.filter(e => selectedFilterKeys.every(key => 
             filters[key] === e[key] 
         ))
+        state.filteredDataFonjep = state.dataFonjep.filter(e => e.codgeo == state.filterCode)
       }
+      console.log(state.filteredDataFonjep.length);
     },
     async CHANGE_ANNEE(state,annee) {
       state.annee = annee;
       state.data = require(`@/assets/actions-${state.annee}.json`)
+      state.dataFonjep = require(`@/assets/postes-fonjep-${state.annee}.json`)
     },
   },
   actions: {

@@ -2,16 +2,16 @@
       <div id="sidepanel" class="d-flex flex-column h-100">
         <div class="row">
               <div class="col-3 d-flex flex-column">            
-                  <Number :chiffreCle="Math.round(montant)" 
+                  <Number :chiffreCle="montantSubventions + montantFonjep" 
                           :texte="'Montant engagé (€)'"
                           />
-                  <Number :chiffreCle="Math.round(montant)" 
+                  <Number :chiffreCle="Math.round(montantSubventions)" 
                           :texte="`dont subventions`"
                           />
-                  <Number :chiffreCle="nbStructures" 
+                  <Number :chiffreCle="montantFonjep" 
                           :texte="'dont Fonjep'"
                           />
-                  <Number :chiffreCle="population" 
+                  <Number :chiffreCle="montantFonjep" 
                           :texte="'dont Adulte-relais'"
                           />
                   <Number :chiffreCle="nbActions" 
@@ -20,10 +20,10 @@
                   <Number :chiffreCle="nbStructures" 
                           :texte="'Porteurs de projets'"
                           />
-                  <Number :chiffreCle="population" 
+                  <Number :chiffreCle="nbFonjep" 
                           :texte="'Postes Fonjep'"
                           />
-                  <Number :chiffreCle="population" 
+                  <Number :chiffreCle="nbFonjep" 
                           :texte="'Postes Adulte-relais'"
                           />
                   <Number :chiffreCle="population" 
@@ -64,7 +64,7 @@ export default {
     Card,
   },
   computed: {
-      ...mapGetters(['nbActions','nbStructures','montant','population']),
+      ...mapGetters(['nbActions','nbStructures','montantSubventions','montantFonjep','nbFonjep','population']),
       ...mapState(['filteredData','filterCode','filterTheme']),
   },
 }
