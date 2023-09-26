@@ -55,7 +55,6 @@ export default {
                 nb_postes:value
                 }
             })
-            console.log(actionsCount);
             return actionsCount
         },
     },
