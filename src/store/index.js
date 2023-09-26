@@ -168,7 +168,13 @@ export default createStore({
         state.filteredData = state.data.filter(e => selectedFilterKeys.every(key => 
             filters[key] === e[key] 
         ))
-        // filtrage fonjep par code géo
+        // filtrage fonjep par code géo et par territoire présents sur la carte
+        let codgeoMatchingTheme = [];
+        for(let i=0; i<state.filteredData.length; i++) {
+          const codgeoAction = state.filteredData[i].codgeo;
+          codgeoMatchingTheme.push(codgeoAction)
+        }
+        state.filteredDataFonjep = state.dataFonjep.filter(e => codgeoMatchingTheme.includes(e.codgeo))
         if(state.filterCode != null) {
           state.filteredDataFonjep = state.dataFonjep.filter(e => e.codgeo == state.filterCode)
         }
