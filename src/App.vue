@@ -175,9 +175,13 @@ html, body {
 
 .nav-link {
   font-family: 'Marianne-Bold';
-  font-size: 1.2em !important;
+  font-size: 1.3em !important;
+  color:var(--rose-gerr) !important;
 }
 
+.nav-link.active {
+  color:var(--bs-body-color) !important
+}
 
 #logo-anct {
   width:155px;
