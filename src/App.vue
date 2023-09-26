@@ -71,7 +71,7 @@ export default {
     }
   },
   mounted() {
-    document.title = 'Ci-VILLE'
+    document.title = 'CI.Ville'
     let local = localStorage.getItem('session_local');
     if(!local) {
       localStorage.setItem("session_local",'ok')
@@ -99,7 +99,6 @@ export default {
 	--jaune-anct:#ffe800;
 	--vert-anct:#00ac8c;
   --rose-gerr:#d24b6b;
-	--font-size-global:1.1em;
 	--thumbNumber:"10";
 }
 
