@@ -43,7 +43,7 @@
                 <Card :title="`Répartition par sous-thème de pilier`"
                       :about="`Survolez chaque barre pour connaître le sous-thème correspondant et la valeur exacte de son montant.`">
                   <SubThemeChart v-if="filterTheme"/>
-                  <span class="msg-else" v-else>Sélectionnez un thème pour accéder à la répartition par sous-thème</span>
+                  <span class="msg-else" v-else>Sélectionnez un pilier pour voir à la répartition par sous-thème</span>
                 </Card>
           </div>
         </div>
@@ -92,7 +92,6 @@ export default {
   display: flex;
   justify-content: center;
   vertical-align: middle;
-  position: absolute;
   text-align: center;
   width: 100%;
 }
