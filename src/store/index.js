@@ -168,9 +168,11 @@ export default createStore({
         state.filteredData = state.data.filter(e => selectedFilterKeys.every(key => 
             filters[key] === e[key] 
         ))
-        state.filteredDataFonjep = state.dataFonjep.filter(e => e.codgeo == state.filterCode)
+        // filtrage fonjep par code géo
+        if(state.filterCode != null) {
+          state.filteredDataFonjep = state.dataFonjep.filter(e => e.codgeo == state.filterCode)
+        }
       }
-      console.log(state.filteredDataFonjep.length);
     },
     async CHANGE_ANNEE(state,annee) {
       state.annee = annee;
