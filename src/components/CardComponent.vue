@@ -25,7 +25,16 @@
 
 <script>
 export default {
-    props: ['title','about'],
+    props: {
+        title:{
+            type:String,
+            required:true,
+        },
+        about:{
+            type:String,
+            required:true,
+        }
+    },
     data() {
         return {
             showTooltip:false,
