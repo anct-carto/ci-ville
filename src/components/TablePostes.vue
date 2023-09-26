@@ -5,7 +5,7 @@
             id="table-fonjep"
             v-if="filterCode || route == 'National'"
             :headers="headers"
-            :items="actionsList"
+            :items="liste"
             :rowsPerPageMessage="'Nombre de lignes par page'"
             :emptyMessage="'Aucun poste financé'"
             :themeColor="'#5770be'"
@@ -17,6 +17,8 @@
 <script>
 import Vue3EasyDataTable from 'vue3-easy-data-table';
 import 'vue3-easy-data-table/dist/style.css';
+import * as _ from "underscore"
+
 
 import {mapState} from 'vuex'
 
@@ -28,7 +30,7 @@ export default {
         return {
             headers: [
                 { text: "Bénéficiaire", value: "raison_sociale", sortable: true},
-                { text: "Montant (€)", value: "montant", sortable: true },
+                { text: "Nombre de postes", value: "nb_postes", sortable: true },
             ]
         }
     },
@@ -44,7 +46,18 @@ export default {
         }),
         route() {
             return this.$route.name
-        }
+        },
+        liste() {
+            let actionsCount = _.countBy(this.actionsList,'raison_sociale')
+            actionsCount = _.map(actionsCount,(value,key) => {
+                return {
+                raison_sociale:key,
+                nb_postes:value
+                }
+            })
+            console.log(actionsCount);
+            return actionsCount
+        },
     },
 }
 </script>
