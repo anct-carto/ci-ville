@@ -7,6 +7,7 @@
             :headers="headers"
             :items="actionsList"
             :rowsPerPageMessage="'Nombre de lignes par page'"
+            :emptyMessage="'Aucun poste financé'"
             :themeColor="'#5770be'"
         />
         <span class="else-msg" v-else><i>Sélectionnez un territoire pour consulter les postes financés par structure</i></span>
