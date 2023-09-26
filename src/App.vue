@@ -157,7 +157,7 @@ html, body {
   letter-spacing: 0.1em;
   /* padding: 5px; */
   color:white;
-  font-size:4em;
+  font-size:3.5rem;
 }
 
 
@@ -169,22 +169,18 @@ html, body {
 }
 
 #nav > a  {
-  text-transform: uppercase;
   background: none;
   color:var(--rose-gerr);
   border:solid 1px var(--rose-gerr);
-  height: 36px;
-  margin: 5px 10px 2px 10px;
+  margin: 15px 0px 15px 10px;
   padding:5px;
   border-radius:20px;
   text-decoration: none;
   display: inline-block;
   text-align: center;
-  /* transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important; */
-  letter-spacing: 1px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
   z-index: 1000;
-  font-size: 17px;
-  margin-top: 15px;
+  font-size: 1.1vw;
 }
 
   /*Hover effect underline*/
