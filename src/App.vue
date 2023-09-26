@@ -7,12 +7,13 @@
             <a href="https://agence-cohesion-territoires.gouv.fr/" target="_blank">
               <img :src="logoAnct" id="logo-anct">
             </a>
+            <router-link to="/panorama"><img :src="logoApp" id="logo-app"></router-link>
             <!-- <a href="" target="_blank"> -->
-              <img :src="logoApp" id="logo-app">
+              <!-- <img :src="logoApp" id="logo-app"> -->
             <!-- </a> -->
           </div>
           <!-- <router-link to="/">Accueil</router-link>  -->
-          <router-link to="/panorama">Accueil</router-link> 
+          <!-- <router-link to="/panorama">Accueil</router-link>  -->
           <router-link to="/a-propos">À propos</router-link> 
         </div>
       <div class="row app-view">
@@ -143,17 +144,58 @@ html, body {
   vertical-align: center;
 }
 
+#nav > a  {
+  background: none;
+  color:var(--rose-gerr);
+  border:solid 1px var(--rose-gerr);
+  margin: 7px 0px 10px 10px;
+  padding:5px;
+  border-radius:20px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
+  z-index: 1000;
+  font-size: 14px;
+}
+
+#nav > a:hover {
+  background-color: var(--rose-gerr); 
+  color:white;
+  transition: 0.5s;
+}
+
+#nav a.router-link-active {
+  font-family: 'Marianne-Bold';
+  background-color: var(--rose-gerr); 
+  color:white;
+  /* border-bottom: solid 2px var(--rose-gerr);
+  border-bottom-width: 50% !important; */
+}
+
+.nav-link {
+  font-family: 'Marianne-Bold';
+  font-size: 1.2em !important;
+}
+
+
 #logo-anct {
   width:155px;
 }
 
 #logo-app {
   width:180px;
+  margin-left: 10px;
+  color: none !important;
+  background-color: none !important;
+  padding:0;
 }
 
-#logo-app {
-  margin-left: 10px;
-}
+#logo-app a.router-link-active {
+  font-family: 'Marianne-Bold';
+  background-color: none !important; 
+  color:white;
+} 
 
 #logos {
   z-index: 1000;
@@ -178,20 +220,6 @@ html, body {
   color: var(--rose-gerr); 
 }
 
-#nav > a  {
-  background: none;
-  color:var(--rose-gerr);
-  border:solid 1px var(--rose-gerr);
-  margin: 7px 0px 10px 10px;
-  padding:5px;
-  border-radius:20px;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
-  z-index: 1000;
-  font-size: 16px;
-}
 
   /*Hover effect underline*/
 /* #nav a::after {
@@ -212,24 +240,6 @@ html, body {
   transform: scaleX(1);
 } */
 
-#nav > a:hover {
-  background-color: var(--rose-gerr); 
-  color:white;
-  transition: 0.5s;
-}
-
-#nav a.router-link-active {
-  font-family: 'Marianne-Bold';
-  background-color: var(--rose-gerr); 
-  color:white;
-  /* border-bottom: solid 2px var(--rose-gerr);
-  border-bottom-width: 50% !important; */
-}
-
-.nav-link {
-  font-family: 'Marianne-Bold';
-  font-size: 1.2em !important;
-}
 
 select,option {
   cursor:pointer
