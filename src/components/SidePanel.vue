@@ -16,18 +16,23 @@
                           />
                   <Number :chiffreCle="nbActions" 
                           :texte="`Actions financées`"
+                          :color="color.bleuGrandeEquipe"
                           />
                   <Number :chiffreCle="nbStructures" 
                           :texte="'Porteurs de projets'"
+                          :color="color.bleuGrandeEquipe"
                           />
                   <Number :chiffreCle="nbFonjep" 
                           :texte="'Postes Fonjep'"
+                          :color="color.bleuGrandeEquipe"
                           />
                   <Number :chiffreCle="nbFonjep" 
                           :texte="'Postes Adulte-relais'"
+                          :color="color.bleuGrandeEquipe"
                           />
                   <Number :chiffreCle="population" 
                           :texte="'Habitants en QPV'"
+                          :color="color.bleuGrandeEquipe"
                           />
               </div>
             <div class="col-9 d-flex flex-column h-100" id="charts">
@@ -67,6 +72,15 @@ export default {
       ...mapGetters(['nbActions','nbStructures','montantSubventions','montantFonjep','nbFonjep','population']),
       ...mapState(['filteredData','filterCode','filterTheme']),
   },
+  data() {
+        return {
+                color:{
+                        roseGrandeEquipe:"#d24b6b",
+                        bleuGrandeEquipe:'#5770be',
+        
+                }
+        }
+  }
 }
 </script>
 

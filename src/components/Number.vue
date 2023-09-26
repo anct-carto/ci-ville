@@ -1,5 +1,5 @@
 <template>
-    <div class="chiffre-cle-wrapper flex-grow-1">
+    <div class="chiffre-cle-wrapper flex-grow-1" :style="'color:'+color">
         <div class="text flex-grow-1"> {{ texte }}</div>
         <div class="chiffre-cle flex-grow-1">{{ animatedNumber }}</div>
     </div>
@@ -13,7 +13,11 @@ export default {
     name:'Number',
     props:{
         chiffreCle:Number,
-        texte:String
+        texte:String,
+        color:{
+            type:String,
+            default:'#d24b6b'
+        }
     },
     // animation compteur
     data() {
@@ -28,7 +32,7 @@ export default {
             } else {
                 return (this.tweenedNumber).toLocaleString("fr-FR", { maximumFractionDigits: 0})
             }
-        }
+        },
     },
     watch: {
         chiffreCle(newVal) {
@@ -50,14 +54,14 @@ export default {
 }
 
 .chiffre-cle {
-    color:#d24b6b;
+    /* color:#d24b6b; */
     font-size: 1.6vw;
     text-align: left;
     font-family: 'Marianne-Extrabold';
 }
 
 .text {
-    color:#d24b6b;
+    /* color:#d24b6b; */
     text-align: left;
     font-size:0.7vw;
 }
