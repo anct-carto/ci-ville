@@ -143,8 +143,16 @@ html, body {
   vertical-align: center;
 }
 
-#logo-anct, #logo-app {
-  width:200px;
+#logo-anct {
+  width:155px;
+}
+
+#logo-app {
+  width:180px;
+}
+
+#logo-app {
+  margin-left: 10px;
 }
 
 #logos {
@@ -155,9 +163,11 @@ html, body {
   font-family: 'Marianne-Bold';
   background-color: #3b5fa9;
   letter-spacing: 0.1em;
-  /* padding: 5px; */
   color:white;
-  font-size:3.5rem;
+  /* font-size:3.5rem; */
+  font-size: 2vw;
+  padding-top:10px;
+  padding-bottom:10px;
 }
 
 
@@ -172,7 +182,7 @@ html, body {
   background: none;
   color:var(--rose-gerr);
   border:solid 1px var(--rose-gerr);
-  margin: 15px 0px 15px 10px;
+  margin: 7px 0px 10px 10px;
   padding:5px;
   border-radius:20px;
   text-decoration: none;
@@ -180,7 +190,7 @@ html, body {
   text-align: center;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
   z-index: 1000;
-  font-size: 1.1vw;
+  font-size: 16px;
 }
 
   /*Hover effect underline*/
