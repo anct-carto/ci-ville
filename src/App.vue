@@ -8,12 +8,8 @@
               <img :src="logoAnct" id="logo-anct">
             </a>
             <router-link to="/panorama"><img :src="logoApp" id="logo-app"></router-link>
-            <!-- <a href="" target="_blank"> -->
-              <!-- <img :src="logoApp" id="logo-app"> -->
-            <!-- </a> -->
           </div>
           <!-- <router-link to="/">Accueil</router-link>  -->
-          <!-- <router-link to="/panorama">Accueil</router-link>  -->
           <router-link to="/a-propos">À propos</router-link> 
         </div>
       <div class="row app-view">
@@ -172,26 +168,13 @@ html, body {
   border-bottom-width: 50% !important; */
 }
 
-.nav-link {
-  font-family: 'Marianne-Bold';
-  font-size: 1.3em !important;
-  color:var(--rose-gerr) !important;
-}
-
-.nav-link.active {
-  color:var(--bs-body-color) !important
-}
-
 #logo-anct {
   width:155px;
+  margin-right: 10px; /* cacher le surlignage */
 }
 
 #logo-app {
   width:180px;
-  margin-left: 10px;
-  color: none !important;
-  background-color: none !important;
-  padding:0;
 }
 
 #logo-app a.router-link-active {
@@ -201,20 +184,8 @@ html, body {
 } 
 
 #logos {
-  z-index: 1000;
+  z-index: 1;
 }
-
-.app-name {
-  font-family: 'Marianne-Bold';
-  background-color: #3b5fa9;
-  letter-spacing: 0.1em;
-  color:white;
-  /* font-size:3.5rem; */
-  font-size: 2vw;
-  padding-top:10px;
-  padding-bottom:10px;
-}
-
 
 #dropdownMenu2 {
   background: none;
