@@ -187,15 +187,7 @@ html, body {
   z-index: 1;
 }
 
-#dropdownMenu2 {
-  background: none;
-  border:none;
-  text-transform: uppercase;
-  color: var(--rose-gerr); 
-}
-
-
-  /*Hover effect underline*/
+/*Hover effect underline*/
 /* #nav a::after {
   content: "";
   display:block;
@@ -213,6 +205,17 @@ html, body {
   visibility: visible;
   transform: scaleX(1);
 } */
+
+/* style boutons onglets cartes/tableaux */
+.nav-link {
+  font-family: 'Marianne-Bold';
+  font-size: 1.3em !important;
+  color:var(--rose-gerr) !important;
+}
+
+.nav-link.active {
+  color:var(--bs-body-color) !important
+}
 
 
 select,option {
@@ -241,7 +244,7 @@ select,option {
   justify-content: flex-end;
 }
 
-.btn-principal {
+/* .btn-principal {
   font-size: 1.3em;
   border-radius: 20px;
   text-transform: uppercase;
@@ -256,7 +259,7 @@ select,option {
   background: none;
   border: solid 1px var(--rose-gerr);
   color: var(--rose-gerr);
-}
+} */
 
 /* .form-select {
   border:1px solid #DADAF0;
