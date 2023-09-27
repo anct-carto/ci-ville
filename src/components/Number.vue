@@ -47,22 +47,20 @@ export default {
     background: white;
     border-radius: 8px;
     border:  1px solid #DADAF0 ;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 15px 5px 10px;
     margin-top:10px;
     flex-grow: 1;
     flex-direction: row;
 }
 
 .chiffre-cle {
-    /* color:#d24b6b; */
-    font-size: 1.6vw;
-    text-align: left;
+    font-size: 1.2vw;
+    text-align: right;
     font-family: 'Marianne-Extrabold';
 }
 
 .text {
-    /* color:#d24b6b; */
-    text-align: left;
+    text-align: center;
     font-size:0.7vw;
 }
 
