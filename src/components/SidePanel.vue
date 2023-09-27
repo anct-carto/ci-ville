@@ -36,11 +36,11 @@
                           />
               </div>
             <div class="col-9 d-flex flex-column h-100" id="charts">
-                <Card :title="`Répartition par pilier`" 
+                <Card :title="`Répartition subventions par pilier de contrat de ville`" 
                       :about='"Sélectionnez un thème pour filtrer les chiffres clés, la carte et la répartition dans les sous-thèmes correspondants"'>
                   <ThemeChart/>
                 </Card>
-                <Card :title="`Répartition par sous-thème de pilier`"
+                <Card :title="`Répartition subventions par sous-thème`"
                       :about="`Survolez chaque barre pour connaître le sous-thème correspondant et la valeur exacte de son montant.`">
                   <SubThemeChart v-if="filterTheme"/>
                   <span class="msg-else" v-else>Sélectionnez un pilier pour voir à la répartition par sous-thème</span>
