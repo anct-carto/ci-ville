@@ -10,8 +10,8 @@
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Montant subventions par contrat de ville</button>
-                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Liste des actions</button>
-                <button class="nav-link" id="nav-postes-tab" data-bs-toggle="tab" data-bs-target="#nav-postes" type="button" role="tab" aria-controls="nav-postes" aria-selected="false">Liste des emplois</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Liste actions subventionnées</button>
+                <button class="nav-link" id="nav-postes-tab" data-bs-toggle="tab" data-bs-target="#nav-postes" type="button" role="tab" aria-controls="nav-postes" aria-selected="false">Liste aides à l'emploi</button>
               </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
