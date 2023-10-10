@@ -1,7 +1,7 @@
 <template>
   <div class="row">
-    <div class="col-7">
-      <h3>Qu'est-ce que CI.Ville ?</h3>
+    <div class="col-8">
+      <h3>Qu'est-ce que Ci.Ville ?</h3>
       <p>
         L’État attribue annuellement des subventions à des porteurs de projets œuvrant en faveur des habitants des quartiers prioritaires de la politique de la ville. Les cartes interactives permettent de visualiser, par année, la répartition géographique et thématique de ces subventions.
       </p>
@@ -88,43 +88,22 @@
       </p>
     </div>
   </div>
-  <div class="footer">
-        <!-- <img :src="logo_anct" alt="" id="logo-anct"><br><br> -->
-  </div>
 </template>
 
 <script>
-// import logo_anct from "@/assets/logo_anct.png"
 // import CartesStatiques from "@/components/CartesStatiques.vue";
 
 
 export default {
   name: 'About',
   // components: { CartesStatiques },
-  data() {
-    return {
-      // logo_anct:logo_anct,
-    }
-  }
 }
 </script>
 
 <style scoped>
   .row {
+    font-size: 1.15rem !important;
     padding-left:25px
-  }
-
-  .footer {
-    display: flex;
-    flex-direction: column wrap;
-    flex-grow: row;
-    justify-content: center;
-    margin:20px
-  }
-
-  #logo-anct {
-    bottom:0px;
-    width:300px;
   }
 
   h3 {
