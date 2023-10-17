@@ -13,6 +13,7 @@ import cercles_drom from '@/assets/cercles_drom.json'
 import labels from '@/assets/labels.json'
 import L from 'leaflet'
 import "leaflet/dist/leaflet.css";
+import "leaflet.zoomhome/dist/leaflet.zoomhome.js";
 import {mapState} from 'vuex'
 import * as _ from "underscore"
 
@@ -21,7 +22,7 @@ delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 })
 
 
@@ -71,8 +72,6 @@ export default {
       })
       // .setView([46.413220, 1.219482],6);
 
-      L.control.zoom({position:'topright'}).addTo(map);
-      
       // ajout fond cercles drom
       new L.GeoJSON(this.cerclesDrom, {
         interactive:false,
@@ -96,6 +95,13 @@ export default {
       }).addTo(map)
       
       map.fitBounds(bgGeom.getBounds().pad(0.1,0.1,0.1,0.1))
+
+      const zoomHome = L.Control.zoomHome({ 
+        position : 'topright',
+        // icon: 
+      });
+      zoomHome.addTo(map)
+
 
       map.on("click", () => {
         this.clickedBubbleLayer.clearLayers()
@@ -170,7 +176,7 @@ export default {
     this.computeData();
     this.drawBubbles();
     this.createLegend();
-    this.displayChefsLieux()
+    this.displayChefsLieux();
     // this.map.on('moveend',this.setMapExtent);
   },
   methods: {

@@ -10,7 +10,7 @@
             <router-link to="/panorama"><img :src="logoApp" id="logo-app"></router-link>
           </div>
           <!-- <router-link to="/">Accueil</router-link>  -->
-          <router-link to="/a-propos">À propos</router-link> 
+          <router-link to="/a-propos"><i class="fa fa-question-circle" style="margin-right:5px"></i>À propos</router-link> 
         </div>
       <div class="row app-view">
         <!-- écran de chargement -->
@@ -279,6 +279,6 @@ label {
 }
 
 
-@import'~bootstrap/dist/css/bootstrap.css'
+@import'~bootstrap/dist/css/bootstrap.css ~font-awesome/css/font-awesome.min.css'
 
 </style>
