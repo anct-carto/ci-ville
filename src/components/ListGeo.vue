@@ -73,6 +73,14 @@ export default {
         padding:6px 2px;
         z-index:1001;
     }
+
+    #select-territoire .vs__dropdown-toggle {
+        max-height:35px;
+    }
+
+    #select-territoire .vs__selected {
+        max-height: 15px;
+    }
    
     #select-territoire .vs__dropdown-option--highlight {
         background: var(--bleu-second);
