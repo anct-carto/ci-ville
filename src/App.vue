@@ -261,7 +261,7 @@ select,option {
   color: var(--rose-gerr);
 } */
 
-/* .form-select {
+.form-select {
   border:1px solid #DADAF0;
   border-radius: 8px !important;
   padding:8px 10px;
@@ -276,7 +276,7 @@ select,option {
 label {
   font-size:13px;
   font-weight: 400;
-} */
+}
 
 
 @import'~bootstrap/dist/css/bootstrap.css'
