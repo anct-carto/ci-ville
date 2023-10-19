@@ -15,14 +15,7 @@
       </div>
       <div class="row app-view">
         <!-- écran de chargement -->
-        <div id="loading" v-if="!this.$store.state.filteredData">
-            <div class="row">
-                <div class="spinner-border" role="status"></div>
-            </div>
-            <div class="row">
-                <p>Chargement en cours ...</p>
-            </div>
-        </div>
+        <Loading v-if="!this.$store.state.filteredData"/>
         <!-- popup message non adapté aux téléphones -->
         <div class="modal fade" id="exampleModal" tabindex="10000" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -51,10 +44,11 @@ import { Modal } from "bootstrap"
 import logoAnct from "@/assets/img/logo-anct.svg"
 import logoApp from "@/assets/img/logo-civille.svg"
 import LayoutTop from "./components/LayoutTop.vue"
+import Loading from "./components/Loading.vue"
 
 
 export default {
-  components:{LayoutTop},
+  components:{LayoutTop,Loading},
   data() {
     return {
       logoAnct:logoAnct,
@@ -227,23 +221,6 @@ html, body {
 select,option {
   cursor:pointer
 }
-
-#loading {
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  left:0;
-  top:0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(0,0,0,.7);
-  z-index: 20000;
-  color:white;
-  flex-direction: column;
-  overflow-x: hidden;
-}
-
 
 .modal-footer {
   display: flex;
