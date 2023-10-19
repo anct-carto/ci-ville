@@ -1,7 +1,7 @@
 <template>
       <div id="sidepanel" class="d-flex flex-column h-100">
         <div class="row">
-              <div class="col-3 d-flex flex-column">            
+              <div class="col-12 col-md-3 d-flex flex-column">            
                   <Number :chiffreCle="montantSubventions + montantFonjep" 
                           :texte="'Montant engagé (€)'"
                           />
@@ -35,7 +35,7 @@
                           :color="color.bleuGrandeEquipe"
                           />
               </div>
-            <div class="col-9 d-flex flex-column h-100" id="charts">
+            <div class="col-12 col-sm-9 d-flex flex-column h-100" id="charts">
                 <Card :title="`Répartition subventions par pilier de contrat de ville`" 
                       :about='"Sélectionnez un thème pour filtrer les chiffres clés, la carte et la répartition dans les sous-thèmes correspondants"'>
                   <ThemeChart/>
@@ -88,12 +88,12 @@ export default {
 <style scoped>
 
 .msg-else {
-  font-style: italic;
-  display: flex;
-  justify-content: center;
-  vertical-align: middle;
-  text-align: center;
-  width: 100%;
+        font-style: italic;
+        display: flex;
+        justify-content: center;
+        vertical-align: middle;
+        text-align: center;
+        width: 100%;
 }
 
 #charts {
