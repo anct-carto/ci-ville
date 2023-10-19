@@ -10,29 +10,14 @@
           <router-link to="/panorama"><img :src="logoApp" id="logo-app"></router-link>
         </div>
         <LayoutTop v-if="this.$route.name != 'A propos'"></LayoutTop>
-        <!-- <router-link to="/">Accueil</router-link>  -->
         <router-link to="/a-propos" id="a-propos-btn"><i class="fa fa-question-circle" style="margin-right:5px"></i>À propos</router-link> 
       </div>
       <div class="row app-view">
         <!-- écran de chargement -->
         <Loading v-if="!this.$store.state.filteredData"/>
         <!-- popup message non adapté aux téléphones -->
-        <div class="modal fade" id="exampleModal" tabindex="10000" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Attention</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Ce site n'est pas adapté aux écrans de smartphones et tablettes.  
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn-principal" data-bs-dismiss="modal">Fermer</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PopupEcranMobile/>
+        <!-- vues -->
         <router-view/>
       </div>
     </div>
@@ -40,15 +25,15 @@
 </template>
 
 <script>
-import { Modal } from "bootstrap"
 import logoAnct from "@/assets/img/logo-anct.svg"
 import logoApp from "@/assets/img/logo-civille.svg"
 import LayoutTop from "./components/LayoutTop.vue"
 import Loading from "./components/Loading.vue"
+import PopupEcranMobile from "./components/PopupEcranMobile.vue"
 
 
 export default {
-  components:{LayoutTop,Loading},
+  components:{LayoutTop,Loading,PopupEcranMobile},
   data() {
     return {
       logoAnct:logoAnct,
@@ -65,13 +50,6 @@ export default {
   },
   mounted() {
     document.title = 'Ci.Ville'
-    let local = localStorage.getItem('session_local');
-    if(!local) {
-      localStorage.setItem("session_local",'ok')
-      const exampleModalEl = document.getElementById('exampleModal');
-      const modal = new Modal(exampleModalEl);
-      setTimeout(() => modal.show(), 500);
-    } 
   },
   methods: {
     updateData(filter) {
@@ -217,32 +195,10 @@ html, body {
   color:var(--bs-body-color) !important
 }
 
-
+/* style filtres (excepté la recherche territoire) */
 select,option {
   cursor:pointer
 }
-
-.modal-footer {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* .btn-principal {
-  font-size: 1.3em;
-  border-radius: 20px;
-  text-transform: uppercase;
-  width: 20%;
-  color:white;
-  background: var(--rose-gerr);
-  border: solid 1px var(--rose-gerr);
-  font-family: 'Marianne-Bold';
-}
-
-.btn-principal:hover {
-  background: none;
-  border: solid 1px var(--rose-gerr);
-  color: var(--rose-gerr);
-} */
 
 .form-select {
   border:1px solid #DADAF0;
