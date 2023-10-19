@@ -1,7 +1,7 @@
 <template>
-      <div class="row">
+      <!-- <div class="row">
           <LayoutTop/>
-      </div>
+      </div> -->
       <div class="row">
           <div :class="'col-sm-'+colWidth" id="sidepanel-container">
               <SidePanel id="sidepanel"/>
@@ -39,14 +39,14 @@ import MapComponent from '@/components/MapComponent.vue';
 import SidePanel from '@/components/SidePanel.vue';
 import Table from '@/components/Table.vue';
 import TablePostes from '@/components/TablePostes.vue';
-import LayoutTop from "@/components/LayoutTop.vue";
+// import LayoutTop from "@/components/LayoutTop.vue";
 
 
 export default {
   components: {
     MapComponent,
     SidePanel,
-    LayoutTop,
+    // LayoutTop,
     Table,
     TablePostes,
   },

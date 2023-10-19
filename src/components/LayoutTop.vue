@@ -1,12 +1,12 @@
 <template class="parent">
-    <div class="row parent">
-        <div class="col-1">
+    <div class="row parent w-50">
+        <div class="col-2">
             <ListEchelle/>
         </div>
-        <div class="col-1">
+        <div class="col-2">
             <ListYear/>
         </div>
-        <div class="col-4" v-if="this.$route.name != 'National' && this.$route.name != 'Global'">
+        <div class="col-8" v-if="this.$route.name != 'National' && this.$route.name != 'Global'">
             <ListGeo id="select-territoire" :filterCodeFromStore="filterCode"/>
         </div>
         <!-- filtres actifs (fonctionnalité désactivée) -->
@@ -47,12 +47,13 @@ export default {
 
 <style scoped>
     .parent {
-        display: flex;
-        flex: row;
+        margin-left: 5px;
+        /* display: flex;
+        flex: row; */
         /* margin-top: 10px;
         margin-bottom: 10px; */
-        margin-top: -75px;
-        justify-content: right;
+        /* margin-top: -75px;
+        justify-content: right; */
     }
 
     .filter-indicator {

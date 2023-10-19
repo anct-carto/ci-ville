@@ -2,16 +2,17 @@
   <body class="container-fluid d-flex flex-column">
     <!-- ajouter g-0 (gutters=0) permet de ne pas avoir d'ascenseur en horizontal -->
     <div class="row w-100 g-0"> 
-        <div id="nav" class="nav">
-          <div id="logos">
-            <a href="https://agence-cohesion-territoires.gouv.fr/" target="_blank">
-              <img :src="logoAnct" id="logo-anct">
-            </a>
-            <router-link to="/panorama"><img :src="logoApp" id="logo-app"></router-link>
-          </div>
-          <!-- <router-link to="/">Accueil</router-link>  -->
-          <router-link to="/a-propos"><i class="fa fa-question-circle" style="margin-right:5px"></i>À propos</router-link> 
+      <div id="nav" class="nav">
+        <div id="logos">
+          <a href="https://agence-cohesion-territoires.gouv.fr/" target="_blank">
+            <img :src="logoAnct" id="logo-anct">
+          </a>
+          <router-link to="/panorama"><img :src="logoApp" id="logo-app"></router-link>
         </div>
+        <LayoutTop v-if="this.$route.name != 'A propos'"></LayoutTop>
+        <!-- <router-link to="/">Accueil</router-link>  -->
+        <router-link to="/a-propos" id="a-propos-btn"><i class="fa fa-question-circle" style="margin-right:5px"></i>À propos</router-link> 
+      </div>
       <div class="row app-view">
         <!-- écran de chargement -->
         <div id="loading" v-if="!this.$store.state.filteredData">
@@ -49,9 +50,11 @@
 import { Modal } from "bootstrap"
 import logoAnct from "@/assets/img/logo-anct.svg"
 import logoApp from "@/assets/img/logo-civille.svg"
+import LayoutTop from "./components/LayoutTop.vue"
 
 
 export default {
+  components:{LayoutTop},
   data() {
     return {
       logoAnct:logoAnct,
@@ -75,7 +78,6 @@ export default {
       const modal = new Modal(exampleModalEl);
       setTimeout(() => modal.show(), 500);
     } 
-       
   },
   methods: {
     updateData(filter) {
@@ -143,7 +145,7 @@ html, body {
   background: none;
   color:var(--rose-gerr);
   border:solid 1px var(--rose-gerr);
-  margin: 7px 0px 10px 10px;
+  margin: 7px 0px 15px 10px;
   padding:5px;
   border-radius:20px;
   text-decoration: none;
@@ -155,7 +157,7 @@ html, body {
 }
 
 #nav > a:hover {
-  background-color: var(--rose-gerr); 
+  background-color: var(--rose-gerr);
   color:white;
   transition: 0.5s;
 }
@@ -181,10 +183,14 @@ html, body {
   font-family: 'Marianne-Bold';
   background-color: none !important; 
   color:white;
-} 
+}
 
 #logos {
   z-index: 1;
+}
+
+#a-propos-btn {
+  margin-left: auto !important;
 }
 
 /*Hover effect underline*/
