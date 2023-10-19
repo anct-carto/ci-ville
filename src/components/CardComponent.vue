@@ -94,14 +94,14 @@ export default {
 .card-tooltip {
     margin-left: auto;
     position:fixed;
-    background: #5473b6;
+    background: rgba(0,0,0,.8);
     color:white;
     box-shadow: 0 2px 2px rgba(0,0,0,.09), 0 0px 2px rgba(0,0,0,.1);
-    max-width: 350px;
+    max-width: 450px;
     z-index: 500;
     padding: 5px 10px 5px 10px;
     font-family:'Marianne-Regular';
-    font-size:0.7em;
+    font-size:0.8em;
     border-radius: 4px;
 }
 
