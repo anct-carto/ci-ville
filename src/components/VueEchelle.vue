@@ -6,7 +6,7 @@
           <div :class="'col-sm-'+colWidth" id="sidepanel-container">
               <SidePanel id="sidepanel"/>
           </div>
-          <div class="col-sm-7 map-container" v-if="echelle != 'National' | echelle != 'Global'">
+          <div class="col-sm-7 map-container" v-if="idEchelle != 'National' | idEchelle != 'Global'">
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Montant subventions par {{ libEchelle }}</button>
