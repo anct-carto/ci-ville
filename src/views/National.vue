@@ -25,14 +25,12 @@
 // @ is an alias to /src
 import SidePanel from '@/components/SidePanel.vue'
 import Table from '@/components/Table.vue'
-import LayoutTop from "@/components/LayoutTop.vue";
 
 export default {
   name: 'Home',
   components: { 
     SidePanel,
     Table,
-    LayoutTop
   }
 }
 
