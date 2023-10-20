@@ -11,7 +11,7 @@
                   <Number :chiffreCle="montantFonjep" 
                           :texte="'dont Fonjep'"
                           />
-                  <Number :chiffreCle="montantFonjep" 
+                  <Number :chiffreCle="montantAdulteRelais" 
                           :texte="'dont Adulte-relais'"
                           />
                   <Number :chiffreCle="nbActions" 
@@ -26,7 +26,7 @@
                           :texte="'Postes Fonjep'"
                           :color="color.bleuGrandeEquipe"
                           />
-                  <Number :chiffreCle="nbFonjep" 
+                  <Number :chiffreCle="nbAdulteRelais" 
                           :texte="'Postes Adulte-relais'"
                           :color="color.bleuGrandeEquipe"
                           />
@@ -69,7 +69,7 @@ export default {
     Card,
   },
   computed: {
-      ...mapGetters(['nbActions','nbStructures','montantSubventions','montantFonjep','nbFonjep','population']),
+      ...mapGetters(['nbActions','nbStructures','montantSubventions','montantFonjep','montantAdulteRelais','nbFonjep','nbAdulteRelais','population']),
       ...mapState(['filteredData','filterCode','filterTheme']),
   },
   data() {

@@ -9,6 +9,7 @@ export default createStore({
     filterTheme:null,
     themeColor:'gray',
     dataFonjep:null,
+    dataAdulteRelais:null,
   },
   getters: {
     montantSubventions(state) {
@@ -17,11 +18,17 @@ export default createStore({
     montantFonjep(state) {
       return state.filteredDataFonjep ? state.filteredDataFonjep.map(e => e.montant).reduce((a,b) => a + b,0) : 0 
     },
+    montantAdulteRelais(state) {
+      return state.filteredDataAdulteRelais ? state.filteredDataAdulteRelais.map(e => e.montant).reduce((a,b) => a + b,0) : 0 
+    },
     nbActions(state) {
       return state.filteredData ? state.filteredData.length : 0
     },
     nbFonjep(state) {
       return state.filteredDataFonjep ? state.filteredDataFonjep.length : 0
+    },
+    nbAdulteRelais(state) {
+      return state.filteredDataAdulteRelais ? state.filteredDataAdulteRelais.length : 0
     },
     nbStructures(state) {
       if(state.filteredData) {
@@ -117,16 +124,19 @@ export default createStore({
           state.data = state.data.filter(e => e.echelle != "nat") // 1. Filtrage sur les échelles concernées par l'option choisie
           state.data.forEach(e => e.codgeo = e.insee_reg) // 2. assignation du code géographique correspond : reg, dep ou cdv 
           state.dataFonjep.forEach(e => e.codgeo = e.insee_reg) // 2. assignation du code géographique correspond : reg, dep ou cdv 
+          state.dataAdulteRelais.forEach(e => e.codgeo = e.insee_reg) // 2. assignation du code géographique correspond : reg, dep ou cdv 
           break;
         case "Département":
           state.data = state.data.filter(e => e.echelle == "dep" || e.echelle == "cdv")
           state.data.forEach(e => e.codgeo = e.insee_dep)
           state.dataFonjep.forEach(e => e.codgeo = e.insee_dep)
+          state.dataAdulteRelais.forEach(e => e.codgeo = e.insee_dep)
           break;
         case "Contrat de ville":
           state.data = state.data.filter(e => e.echelle == "cdv")
           state.data.forEach(e => e.codgeo = e.code_cv)
           state.dataFonjep.forEach(e => e.codgeo = e.code_cv)
+          state.dataAdulteRelais.forEach(e => e.codgeo = e.code_cv)
           break;
       }
       state.filteredData = state.data
@@ -146,7 +156,6 @@ export default createStore({
           state.filterCode = value
           break;
       }
-
       // 2. créé une liste des filtres avec leurs valeurs
       let filters = {theme:state.filterTheme,codgeo:state.filterCode}
       // dans cette liste, supprime les filtres dont la valeur est null
@@ -163,6 +172,7 @@ export default createStore({
         // 4.1 ... renvoie les données par défaut
         state.filteredData = state.data
         state.filteredDataFonjep = state.dataFonjep
+        state.filteredDataAdulteRelais = state.dataAdulteRelais
       } else {
         // 4.2 ... sinon filtre le tableau sur la base de la liste des filtres non vides
         state.filteredData = state.data.filter(e => selectedFilterKeys.every(key => 
@@ -178,6 +188,7 @@ export default createStore({
         // state.filteredDataFonjep = state.dataFonjep.filter(e => codgeoMatchingTheme.includes(e.codgeo))
         if(state.filterCode != null) {
           state.filteredDataFonjep = state.dataFonjep.filter(e => e.codgeo == state.filterCode)
+          state.filteredDataAdulteRelais = state.dataAdulteRelais.filter(e => e.codgeo == state.filterCode)
         }
       }
     },
@@ -185,6 +196,7 @@ export default createStore({
       state.annee = annee;
       state.data = require(`@/assets/actions-${state.annee}.json`)
       state.dataFonjep = require(`@/assets/postes-fonjep-${state.annee}.json`)
+      state.dataAdulteRelais = require(`@/assets/adulte-relais-${state.annee}.json`)    
     },
   },
   actions: {

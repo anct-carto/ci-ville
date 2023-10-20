@@ -30,13 +30,20 @@ export default {
         return {
             headers: [
                 { text: "Bénéficiaire", value: "raison_sociale", sortable: true},
+                { text: "Contrat", value: "type_poste", sortable: true},
                 { text: "Nombre de postes", value: "nb_postes", sortable: true },
             ]
         }
     },
     computed: {
       ...mapState({
-          actionsList: state => state.filteredDataFonjep.sort((a,b) => {
+          listFonjep: state => state.filteredDataFonjep.sort((a,b) => {
+            // tri par ordre alphabétique du nom de porteur
+            if(a.raison_sociale<b.raison_sociale) return -1
+            if(a.raison_sociale>b.raison_sociale) return 1
+            return 0
+          }),
+          listARelais: state => state.filteredDataAdulteRelais.sort((a,b) => {
             // tri par ordre alphabétique du nom de porteur
             if(a.raison_sociale<b.raison_sociale) return -1
             if(a.raison_sociale>b.raison_sociale) return 1
@@ -48,16 +55,28 @@ export default {
             return this.$route.name
         },
         liste() {
-            let actionsCount = _.countBy(this.actionsList,'raison_sociale')
-            actionsCount = _.map(actionsCount,(value,key) => {
+            // on compte le nombre de postes financés en distiguant type de poste/contrat (fonjep ou AR)
+            const countFonjep = this.countNbPostes(this.listFonjep);
+            countFonjep.forEach(e => e.type_poste = "Fonjep");
+            const countARelais = this.countNbPostes(this.listARelais);
+            countARelais.forEach(e => e.type_poste = "Adulte-relais"); 
+            // on fusionne les deux tables
+            const total = countFonjep.concat(countARelais);
+            return total
+        },
+    },
+    methods:{
+        countNbPostes(tableau) {
+            let count = _.countBy(tableau,'raison_sociale');
+            count = _.map(count,(value,key) => {
                 return {
                 raison_sociale:key,
                 nb_postes:value
                 }
             })
-            return actionsCount
-        },
-    },
+            return count
+        }
+    }
 }
 </script>
 
