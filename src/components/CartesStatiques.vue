@@ -23,7 +23,7 @@ export default {
             urlCarte:{
                 "2020":"https://cartotheque.anct.gouv.fr/media/raw/record/eyJpIjoiZGVmYXVsdCIsIm0iOm51bGwsImQiOjEsInIiOjQ3Njd9/",
                 "2021":"https://cartotheque.anct.gouv.fr/media/raw/record/eyJpIjoiZGVmYXVsdCIsIm0iOm51bGwsImQiOjEsInIiOjQ3NjR9/",
-                "2022":"https://cartotheque.anct.gouv.fr/media/raw/record/eyJpIjoiZGVmYXVsdCIsIm0iOm51bGwsImQiOjEsInIiOjQ3NjZ9/",
+                "2022":"https://cartotheque.anct.gouv.fr/media/raw/record/eyJpIjoiZGVmYXVsdCIsIm0iOm51bGwsImQiOjEsInIiOjQ4ODN9/",
             },
 
         }
