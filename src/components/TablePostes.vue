@@ -9,8 +9,9 @@
             :rowsPerPageMessage="'Nombre de lignes par page'"
             :emptyMessage="'Aucun poste financé'"
             :themeColor="'#5770be'"
+            :key="renderKey"
         />
-        <span class="else-msg" v-else><i>Sélectionnez un territoire pour consulter les postes financés par structure</i></span>
+        <!-- <span class="else-msg" v-else><i>Sélectionnez un territoire pour consulter les postes financés par structure</i></span> -->
     </div>
 </template>
 
@@ -28,6 +29,7 @@ export default {
     },
     data() {
         return {
+            renderKey:0,
             headers: [
                 { text: "Bénéficiaire", value: "raison_sociale", sortable: true},
                 { text: "Contrat", value: "type_poste", sortable: true},
@@ -62,6 +64,7 @@ export default {
             countARelais.forEach(e => e.type_poste = "Adulte-relais"); 
             // on fusionne les deux tables
             const total = countFonjep.concat(countARelais);
+            this.reRender(); // rafraichir la table pour la faire retourner à la première page des résultats (sinon bug)
             return total
         },
     },
@@ -75,6 +78,9 @@ export default {
                 }
             })
             return count
+        },
+        reRender() {
+            this.renderKey++
         }
     }
 }

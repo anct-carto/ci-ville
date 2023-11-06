@@ -8,6 +8,7 @@
             :items="actionsList"
             :rowsPerPageMessage="'Nombre de lignes par page'"
             :themeColor="'#5770be'"
+            :key="renderKey"
         />
         <span class="else-msg" v-else><i>Sélectionnez un territoire pour consulter la liste des actions</i></span>
     </div>
@@ -25,6 +26,7 @@ export default {
     },
     data() {
         return {
+            renderKey:0,
             headers: [
                 { text: "Libellé de l'action", value: "lib_action", sortable: true },
                 { text: "Porteur", value: "raison_sociale", sortable: true},
@@ -47,8 +49,15 @@ export default {
             return this.$route.name
         }
     },
-    mounted() {
-        // document.body.innerHTML = document.body.innerHTML.replace('rows','yaya')
+    watch:{
+        actionsList() {
+            this.reRender(); // rafraichir la table pour la faire retourner à la première page des résultats (sinon bug)
+        }
+    },
+    methods:{
+        reRender() {
+            this.renderKey++
+        },
     }
 }
 </script>
