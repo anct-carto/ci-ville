@@ -10,6 +10,7 @@
           <router-link to="/panorama"><img :src="logoApp" id="logo-app"></router-link>
         </div>
         <LayoutTop v-if="this.$route.name != 'A propos'"></LayoutTop>
+        <router-link to="/panorama" v-if="this.$route.name == 'A propos'"><i class="fa fa-arrow-left" style="margin-right:5px"></i>Retour à l'accueil</router-link> 
         <router-link to="/a-propos" id="a-propos-btn"><i class="fa fa-question-circle" style="margin-right:5px"></i>À propos</router-link> 
       </div>
       <div class="row app-view">
