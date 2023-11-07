@@ -98,7 +98,7 @@ export default {
 }
 
 html, body {
-  font-size:.7rem;
+  font-size:11px;
   font-family: 'Marianne-Regular', Arial, Helvetica, sans-serif !important;
   background-color: #e6eaf5 !important;
   margin:0;
