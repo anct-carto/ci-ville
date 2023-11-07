@@ -187,7 +187,7 @@ html, body {
 /* style boutons onglets cartes/tableaux */
 .nav-link {
   font-family: 'Marianne-Bold';
-  font-size: 1.3em !important;
+  font-size: 15px !important;
   color:var(--rose-gerr) !important;
 }
 
