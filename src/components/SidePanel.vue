@@ -2,7 +2,7 @@
       <div id="sidepanel" class="d-flex flex-column h-100">
         <div class="row">
               <div class="col-12 col-md-3 d-flex flex-column">            
-                  <Number :chiffreCle="montantSubventions + montantFonjep" 
+                  <Number :chiffreCle="montantSubventions + montantFonjep + montantAdulteRelais" 
                           :texte="'Montant engagé (€)'"
                           />
                   <Number :chiffreCle="Math.round(montantSubventions)" 

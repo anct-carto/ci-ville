@@ -1,7 +1,7 @@
 <template>
   <div id="container">
     <div class="row gx-1">
-        <Number :chiffreCle="montantSubventions + montantFonjep" 
+        <Number :chiffreCle="montantSubventions + montantFonjep + montantAdulteRelais" 
               class="col-sm-1"
               :texte="'Montant engagé (€)'"
                 />
