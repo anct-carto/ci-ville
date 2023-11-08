@@ -11,7 +11,7 @@
             :themeColor="'#5770be'"
             :key="renderKey"
         />
-        <!-- <span class="else-msg" v-else><i>Sélectionnez un territoire pour consulter les postes financés par structure</i></span> -->
+        <span class="else-msg" v-else><i>Sélectionnez un territoire pour consulter les postes financés par structure</i></span>
     </div>
 </template>
 
