@@ -144,12 +144,12 @@ html, body {
 }
 
 #logo-anct {
-  width:155px;
+  width:186px;
   margin-right: 10px; /* cacher le surlignage */
 }
 
 #logo-app {
-  width:180px;
+  width:220px;
 }
 
 #logo-app a.router-link-active {
