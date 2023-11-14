@@ -9,14 +9,14 @@
           </a>
           <router-link to="/panorama"><img :src="logoApp" id="logo-app"></router-link>
         </div>
-        <LayoutTop v-if="this.$route.name != 'En savoir plus'"></LayoutTop>
+        <LayoutTop v-if="this.$route.name != 'A propos'"></LayoutTop>
         <router-link to="/panorama" v-if="this.$route.name == 'A propos'"><i class="fa fa-arrow-left" style="margin-right:5px"></i>Retour à l'accueil</router-link> 
         <router-link to="/a-propos" id="a-propos-btn"><i class="fa fa-question-circle" style="margin-right:5px"></i>En savoir plus</router-link> 
       </div>
       <div class="row app-view">
         <!-- écran de chargement -->
         <Loading v-if="!this.$store.state.filteredData"/>
-        <!-- popup message non adapté aux téléphones -->
+        <!-- popup pour message non adapté aux téléphones -->
         <PopupEcranMobile/>
         <!-- vues -->
         <router-view/>
@@ -63,7 +63,9 @@ export default {
 </script>
 
 <style>
+/* params généraux */
 
+/* COULEURS GOBALES */
 :root {
 	--bleu-anct:rgb(41, 49, 115);
 	--bleu-second:#5770be;
@@ -73,6 +75,7 @@ export default {
 	--thumbNumber:"10";
 }
 
+/* dimension body hors header (= sans tenir compte de la hauteur de la barre logos + filtres) */
 .app-view {
   padding:10px;
   height:calc(100vh - 110px);
@@ -98,6 +101,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* params généraux */
 html, body {
   font-size:11px;
   font-family: 'Marianne-Regular', Arial, Helvetica, sans-serif !important;
@@ -106,7 +110,7 @@ html, body {
   height: 100%;
 }
 
-
+/* apparence boutons header */
 #nav {
   padding: 10px;
   display: flex;
@@ -118,7 +122,7 @@ html, body {
   background: none;
   color:var(--rose-gerr);
   border:solid 1px var(--rose-gerr);
-  margin: 7px 0px 15px 10px;
+  margin: 7px 15px 20px 10px;
   padding:5px;
   border-radius:20px;
   text-decoration: none;
@@ -136,13 +140,11 @@ html, body {
 }
 
 #nav a.router-link-active {
-  font-family: 'Marianne-Bold';
   background-color: var(--rose-gerr); 
   color:white;
-  /* border-bottom: solid 2px var(--rose-gerr);
-  border-bottom-width: 50% !important; */
 }
 
+/* logos */
 #logo-anct {
   width:186px;
   margin-right: 10px; /* cacher le surlignage */
@@ -150,12 +152,6 @@ html, body {
 
 #logo-app {
   width:220px;
-}
-
-#logo-app a.router-link-active {
-  font-family: 'Marianne-Bold';
-  background-color: none !important; 
-  color:white;
 }
 
 #logos {
@@ -166,26 +162,8 @@ html, body {
   margin-left: auto !important;
 }
 
-/*Hover effect underline*/
-/* #nav a::after {
-  content: "";
-  display:block;
-  margin:0 auto;
-  margin-bottom: -2px;
-  height: 2px;
-  background-color: var(--rose-gerr);
-  visibility: hidden;
-  z-index: 1000;
-  transform: scaleX(0);  
-  transition: transform 200ms ease-in-out;
-}
 
-#nav a:hover:after {
-  visibility: visible;
-  transform: scaleX(1);
-} */
-
-/* style boutons onglets cartes/tableaux */
+/* apparence boutons onglets cartes/tableaux */
 .nav-link {
   font-family: 'Marianne-Bold';
   font-size: 15px !important;
@@ -196,7 +174,7 @@ html, body {
   color:var(--bs-body-color) !important
 }
 
-/* style filtres (excepté la recherche territoire) */
+/* apparence filtres (excepté la recherche territoire) */
 select,option {
   cursor:pointer
 }
@@ -218,7 +196,7 @@ label {
   font-weight: 400;
 }
 
-
+/* import bootstrap TRES IMPORTANT */
 @import'~bootstrap/dist/css/bootstrap.css ~font-awesome/css/font-awesome.min.css'
 
 </style>
