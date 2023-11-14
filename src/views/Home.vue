@@ -1,3 +1,5 @@
+<!-- !!!! Cette vue est dépréciée ; il ne faut plus l'utiliser !!-->
+
 <template>
   <div id="home">
     <HomeComponent msg="Panorama des actions financées par les subventions politiques de la ville"/>
