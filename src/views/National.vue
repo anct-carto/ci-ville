@@ -1,8 +1,5 @@
 <template>
     <div class="row">
-        <LayoutTop/>
-    </div>
-    <div class="row">
       <div class="col-sm-5" id="sidepanel-container">
          <SidePanel id="sidepanel"/>
       </div>
