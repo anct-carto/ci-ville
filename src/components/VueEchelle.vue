@@ -23,7 +23,7 @@
                               v-if="idEchelle"/>
               </div>
               <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                  <Table id="table-actions"/>
+                  <TableActions id="table-actions"/>
               </div>
               <div class="tab-pane fade" id="nav-postes" role="tabpanel" aria-labelledby="nav-postes-tab">
                   <TablePostes id="table-postes"/>
@@ -37,7 +37,7 @@
 // @ is an alias to /src
 import MapComponent from '@/components/MapComponent.vue';
 import SidePanel from '@/components/SidePanel.vue';
-import Table from '@/components/Table.vue';
+import TableActions from '@/components/TableActions.vue';
 import TablePostes from '@/components/TablePostes.vue';
 // import LayoutTop from "@/components/LayoutTop.vue";
 
@@ -46,8 +46,7 @@ export default {
   components: {
     MapComponent,
     SidePanel,
-    // LayoutTop,
-    Table,
+    TableActions,
     TablePostes,
   },
   props:['libEchelle','idEchelle','idGeo','libGeo'],
