@@ -6,15 +6,18 @@
               :texte="'Montant engagé (€)'"
                 />
         <Number :chiffreCle="Math.round(montantSubventions)" 
-        class="col-sm-1"
+                class="col-sm-1"
+                :about="`Montant financé sous forme de subvention par le programme 147 - politique de la ville`"
                 :texte="`dont subventions`"
                 />
         <Number :chiffreCle="montantFonjep" 
-        class="col-sm-1"
+                :about="`Les aides aux postes Fonjep sont matérialisées par les effectifs présents au 31/12/N enregistrés à date avec les coûts (théoriques) associés.`"
+                class="col-sm-1"        
                 :texte="'dont Fonjep'"
                 />
         <Number :chiffreCle="montantAdulteRelais" 
-        class="col-sm-1"
+                class="col-sm-1"
+                :about="'Les aides versées dans le cadre du dispositif adultes relais correspondent au nombre de postes théoriques (postes vacants liés au recrutement et postes non occupés compris) associés au montant forfaitaire annuel de chaque poste.'"
                 :texte="'dont Adulte-relais'"
                 />
         <Number :chiffreCle="nbActions" 
