@@ -385,7 +385,12 @@ export default {
     updateBubbles() {
       this.computeData();
       this.createLegend();
-      // méthode 1 : animation cercles
+
+      // méthode 1 : regénérer les cercles (un peu plus long)
+      this.bubbleLayer.clearLayers();
+      this.drawBubbles();
+
+      // méthode 2 : animation cercles (fonctionne mal)
       // this.bubbleLayer.eachLayer(layer => {
       //   layer.setStyle({fillColor:this.themeColor});
       //   let intervalDuration = 10
@@ -413,9 +418,6 @@ export default {
       //     } 
       //   })
       // })
-      // méthode 2 : regénérer les cercles (un peu plus long)
-      this.bubbleLayer.clearLayers();
-      this.drawBubbles();
 
       // regnérer la taille du cercle cliqué
       this.clickedBubbleLayer.clearLayers();
@@ -461,6 +463,9 @@ export default {
       return Math.sqrt(baseCount)*(this.radiusCoeff/Math.sqrt(this.maxCount))
     },
     setMapExtent() {
+      // ajoute lat lng zoom à l'URL 
+      // n'est pas utilisé mais utile pour partager la vue de l'appli
+      // à partir de l'URL avec d'autres paramètres
       let map = this.map;
       let center = map.getCenter();
       let lat = center.lat.toFixed(4);
