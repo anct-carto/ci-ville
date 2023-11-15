@@ -14,7 +14,7 @@
                           :texte="'dont Fonjep'"
                           />
                   <Number :chiffreCle="montantAdulteRelais" 
-                          :about="'Les aides versées dans le cadre du dispositif adultes relais correspondent au nombre de postes théoriques (postes vacants liés au recrutement et postes non occupés compris) associés au montant forfaitaire annuel de chaque poste.'"
+                          :about="'Les aides versées dans le cadre du dispositif adultes relais correspondent au nombre de postes théoriques au 31/12/N (postes vacants liés au recrutement et postes non occupés compris) associés au montant forfaitaire annuel de chaque poste.'"
                           :texte="'dont Adulte-relais'"
                           />
                   <Number :chiffreCle="nbActions" 
