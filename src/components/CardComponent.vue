@@ -101,7 +101,7 @@ export default {
     z-index: 500;
     padding: 5px 10px 5px 10px;
     font-family:'Marianne-Regular';
-    font-size:10px;
+    font-size:12px;
     /* font-size:0.8em; */
     border-radius: 4px;
 }
