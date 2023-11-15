@@ -21,30 +21,30 @@ Cet outil, conçu et développé par le service cartographie de l'ANCT, a été 
 
 Sur le site ANCT : [https://agence-cohesion-territoires.gouv.fr/subventions-de-la-politique-de-la-ville-101](https://agence-cohesion-territoires.gouv.fr/subventions-de-la-politique-de-la-ville-101)
 
-## Clone project
+## Cloner le projet
 ```
 git clone https://www.github.com/anct-carto/ci-ville.git
 ```
 
-## Project setup
+## Installation des dépendances
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compilation et hot-reloads pour le développement
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compilation et minimification pour la mise en production
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Lints et réparation de fichiers
 ```
 npm run lint
 ```
 
-### Customize configuration
+### Personalisation de la configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
