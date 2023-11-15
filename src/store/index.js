@@ -194,7 +194,7 @@ export default createStore({
     },
     async CHANGE_ANNEE(state,annee) {
       state.annee = annee;
-      state.data = require(`@/assets/actions-${state.annee}.json`)
+      state.data = require(`@/assets/subventions-${state.annee}.json`)
       state.dataFonjep = require(`@/assets/postes-fonjep-${state.annee}.json`)
       state.dataAdulteRelais = require(`@/assets/adulte-relais-${state.annee}.json`)    
     },
