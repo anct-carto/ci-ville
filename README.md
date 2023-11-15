@@ -3,7 +3,7 @@
 
 ![alt text](preview.JPG)
 
-Panorama interactif de la répartition par thème et par territoire des subventions politique de la ville financées par l'État depuis 2020.
+Présentation interactive par thème et par territoire des crédits de la politique de la ville, alloués par l'État sous forme de subventions pour des porteurs d'actions ou de contrats aidés Fonjep et Adulte-relais depuis 2020.
 
 [Page officielle](https://acteurs.lagrandeequipe.fr/article/74845)
 
