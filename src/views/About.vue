@@ -86,7 +86,7 @@
         Pour toute question relative aux données, vous pouvez contacter l'équipe de la mission Soutien à la vie associative et à la médiation sociale : <a href="mailto:mission.soutienvieassociative@anct.gouv.fr">mission.soutienvieassociative@anct.gouv.fr</a> 
       </p>
       <p>
-        Si vous constatez la présence d'un problème technique lors de la navigation sur le site ou une idée d'amélioration, vous pouvez ouvrir un ticket sur <a href="https://www.github.com/anct-carto" target="_blank">Github</a>.
+        Si vous constatez la présence d'un problème technique lors de la navigation sur le site ou une idée d'amélioration, vous pouvez ouvrir un ticket sur <a href="https://www.github.com/anct-carto/ci-ville" target="_blank">Github</a>.
       </p>
     </div>
   </div>
