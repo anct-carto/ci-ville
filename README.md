@@ -1,4 +1,4 @@
-# Ci-VILLE 
+# Ci.Ville
 (Cartes interactives de la politique de la ville)
 
 ![alt text](preview.JPG)
