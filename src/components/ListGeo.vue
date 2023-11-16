@@ -3,7 +3,7 @@
         <label for="select-territoire">
             Territoire
             <span v-if="route=='Contrat de ville'">
-                (trouvez le nom de votre contrat de ville sur <a href="https://sig.ville.gouv.fr/" target="_blank">SIG Ville</a>)
+                (trouvez votre contrat de ville sur <a class="link" href="https://sig.ville.gouv.fr/" target="_blank">SIG Ville</a>)
             </span>
         </label>
         <v-select :options="cvList"
@@ -64,20 +64,36 @@ export default {
 }
 </script>
 
-<style scoped>
-    .select-input {
+<style>
+    #select-territoire .vs__dropdown-toggle,
+    #select-territoire .vs__dropdown-menu {
         background: white;
-        z-index: 1000;
+        border:1px solid #DADAF0;
+        border-radius: 8px;
+        padding:6px 2px;
+        z-index:1001;
     }
 
-    a {
-        color:var(--rose-gerr);
-        text-decoration: none;
+    #select-territoire .vs__dropdown-toggle {
+        max-height:35px;
     }
 
-    a:hover {
-        color:var(--rose-gerr);
-        text-decoration: underline;
+    #select-territoire .vs__selected {
+        max-height: 15px;
+    }
+   
+    #select-territoire .vs__dropdown-option--highlight {
+        background: var(--bleu-second);
+    }
+
+    a.link {
+        color:var(--rose-gerr) !important;
+        text-decoration: none !important;
+    }
+
+    a.link:hover {
+        color:var(--rose-gerr) !important;
+        text-decoration: underline !important;
     }
 
 </style>

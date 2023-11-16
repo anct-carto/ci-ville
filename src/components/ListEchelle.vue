@@ -17,7 +17,7 @@ export default {
     name:'ListEchelle',
     data() {
         return {
-            selected:this.$route.name,    
+            selected:null,
         }
     },
     computed: {
@@ -27,11 +27,16 @@ export default {
             return options
         }
     },
+    watch: {
+        $route() {
+            this.selected = this.$route.name
+        }
+    },
     methods: {
         changeRoute() {
             const path = this.options.find(e => e.name == this.selected).path;
             this.$router.push({path:path});
         }
-    }
+    },
 }
 </script>

@@ -3,7 +3,7 @@
 
 ![alt text](preview.JPG)
 
-Panorama interactif de la répartition par thème et par territoire des subventions politique de la ville financées par l'État depuis 2020.
+Présentation interactive par thème et par territoire des crédits de la politique de la ville, alloués par l'État sous forme de subventions pour des porteurs d'actions ou de contrats aidés Fonjep et Adulte-relais depuis 2020.
 
 [Page officielle](https://acteurs.lagrandeequipe.fr/article/74845)
 
@@ -21,30 +21,30 @@ Cet outil, conçu et développé par le service cartographie de l'ANCT, a été 
 
 Sur le site ANCT : [https://agence-cohesion-territoires.gouv.fr/subventions-de-la-politique-de-la-ville-101](https://agence-cohesion-territoires.gouv.fr/subventions-de-la-politique-de-la-ville-101)
 
-## Clone project
+## Cloner le projet
 ```
 git clone https://www.github.com/anct-carto/ci-ville.git
 ```
 
-## Project setup
+## Installation des dépendances
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compilation et hot-reloads pour le développement
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compilation et minimification pour la mise en production
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Lints et réparation de fichiers
 ```
 npm run lint
 ```
 
-### Customize configuration
+### Personalisation de la configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

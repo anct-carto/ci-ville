@@ -25,3 +25,4 @@ pnpm-debug.log*
 *.pdf
 App_old.vue
 *.ai
+package.json
