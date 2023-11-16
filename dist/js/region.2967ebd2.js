@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["region"],{"5e90":function(e,n,o){"use strict";o.r(n);var c=o("7a23");function r(e,n,o,r,l,i){var t=Object(c["resolveComponent"])("VueEchelle");return Object(c["openBlock"])(),Object(c["createBlock"])(t,{libEchelle:"région",idEchelle:"reg",idGeo:"insee_reg",libGeo:"lib_reg"})}var l=o("4b5f"),i={components:{VueEchelle:l["a"]}},t=o("d959"),a=o.n(t);const b=a()(i,[["render",r]]);n["default"]=b}}]);
+//# sourceMappingURL=region.2967ebd2.js.map

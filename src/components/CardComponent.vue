@@ -25,7 +25,16 @@
 
 <script>
 export default {
-    props: ['title','about'],
+    props: {
+        title:{
+            type:String,
+            required:true,
+        },
+        about:{
+            type:String,
+            required:true,
+        }
+    },
     data() {
         return {
             showTooltip:false,
@@ -64,7 +73,7 @@ export default {
 
 .header {
     font-family: 'Marianne-Bold';
-    font-size: 1.3em;
+    font-size: 15px;
     display: flex;
 }
 
@@ -85,16 +94,15 @@ export default {
 .card-tooltip {
     margin-left: auto;
     position:fixed;
-    /* background: rgb(252, 252, 252); */
-    background: #5473b6;
+    background: rgba(0,0,0,.8);
     color:white;
     box-shadow: 0 2px 2px rgba(0,0,0,.09), 0 0px 2px rgba(0,0,0,.1);
-    /* z-index: 1000; */
-    max-width: 350px;
+    max-width: 450px;
     z-index: 500;
     padding: 5px 10px 5px 10px;
     font-family:'Marianne-Regular';
-    font-size:0.7em;
+    font-size:12px;
+    /* font-size:0.8em; */
     border-radius: 4px;
 }
 

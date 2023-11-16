@@ -1,5 +1,5 @@
 {
-  "name": "vie-associative",
+  "name": "ci-ville",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,8 +12,10 @@
     "bootstrap": "^5.1.3",
     "chart.js": "^3.7.0",
     "core-js": "^3.20.3",
+    "font-awesome": "^4.7.0",
     "gsap": "^3.10.4",
     "leaflet": "^1.7.1",
+    "leaflet.zoomhome": "^1.0.0",
     "underscore": "^1.13.2",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",

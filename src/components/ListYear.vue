@@ -28,8 +28,11 @@ export default {
         // récupère l'année du store ...
         ...mapState({annee: state => state.annee})
     },
-    mounted() {
-        this.selected = this.annee // pour la garder sélectionée dans la liste en changeant de page / changeant d'échelle
+    // pour la garder sélectionée dans la liste en changeant de page / changeant d'échelle
+    watch: {
+        $route() {
+            this.selected = this.annee
+        }
     },
     methods: {
         onChange() {
