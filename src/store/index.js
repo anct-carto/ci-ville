@@ -4,6 +4,8 @@ import _ from 'underscore'
 export default createStore({
   state: {
     annee:null,
+    // ici ajouter au tableau l'année pour lire les nouveaux fichiers
+    listAnnees:["2022","2021","2020"], 
     echelle:null,
     filterCode:null,
     filterTheme:null,
@@ -216,10 +218,10 @@ export default createStore({
     changeEchelle({commit,state},echelle) {
       let selectedAnnee;
       // pour garder en cache la dernière année sélectionnée : 
-      // s'il y a une valeur garde cette valeur sinon par défaut mets 2022
-      state.annee ? selectedAnnee = state.annee : selectedAnnee = 2022 
+      // s'il y a une valeur garde cette valeur sinon par défaut mets la première année du tableau
+      state.annee ? selectedAnnee = state.annee : selectedAnnee = state.listAnnees[0];
       commit('CHANGE_ANNEE',selectedAnnee);
-      commit('CHANGE_ECHELLE',echelle)
+      commit('CHANGE_ECHELLE',echelle);
     },
     changeAnnee({commit,state},annee) {
       commit('CHANGE_ANNEE',annee);

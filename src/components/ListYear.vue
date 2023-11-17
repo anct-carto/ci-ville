@@ -6,9 +6,7 @@
                 placeholder="Année"
                 v-model="selected"
                 :onchange="onChange">
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2020">2020</option>
+            <option v-for="annee in listAnnees" :value="annee" :key="annee">{{ annee }}</option>
         </select>
     </div>
 </template>
@@ -26,7 +24,10 @@ export default {
     },
     computed: {
         // récupère l'année du store ...
-        ...mapState({annee: state => state.annee})
+        ...mapState({
+            annee: state => state.annee,
+            listAnnees:state => state.listAnnees
+        })
     },
     // pour la garder sélectionée dans la liste en changeant de page / changeant d'échelle
     watch: {
