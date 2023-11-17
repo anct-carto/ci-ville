@@ -73,7 +73,6 @@ export default {
 
 .header {
     font-family: 'Marianne-Bold';
-    font-size: 15px;
     display: flex;
 }
 

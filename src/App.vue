@@ -77,7 +77,6 @@ export default {
 
 /* dimension body hors header (= sans tenir compte de la hauteur de la barre logos + filtres) */
 .app-view {
-  padding:10px;
   height:calc(100vh - 110px);
 }
 
@@ -165,13 +164,24 @@ html, body {
 
 /* apparence boutons onglets cartes/tableaux */
 .nav-link {
-  font-family: 'Marianne-Bold';
-  font-size: 15px !important;
   color:var(--rose-gerr) !important;
+  font-family: 'Marianne-Bold';
 }
 
 .nav-link.active {
   color:var(--bs-body-color) !important
+}
+
+@media screen and (min-width: 1200px) {
+  .nav-link, .header {
+    font-size: 15px !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .nav-link, .header {
+    font-size: 13px !important;
+  }
 }
 
 /* apparence filtres (excepté la recherche territoire) */
