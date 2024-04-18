@@ -5,7 +5,7 @@ export default createStore({
   state: {
     annee:null,
     // ici ajouter au tableau l'année pour lire les nouveaux fichiers
-    listAnnees:["2022","2021","2020"], 
+    listAnnees:["2023","2022","2021","2020"], 
     echelle:null,
     filterCode:null,
     filterTheme:null,
