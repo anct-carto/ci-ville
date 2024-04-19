@@ -2,12 +2,10 @@
     <div class="chiffre-cle-wrapper flex-grow-1" :style="'color:'+color">
         <div class="text flex-grow-1"> 
             {{ texte }} 
-            <span class="circle"
+            <i class="fa fa-question-circle"
                     v-if="about"
                     @mousemove="displayTooltip" 
-                    @mouseout="showTooltip=false">
-                    ?
-            </span>
+                    @mouseout="showTooltip=false"></i>
         </div>
         <div class="card-tooltip" v-if="showTooltip" 
                     id="cardTooltip"
@@ -72,25 +70,27 @@ export default {
 
 <style scoped>
 .chiffre-cle-wrapper {
+    color:#d24b6b;
     background: white;
     border-radius: 8px;
-    border:  1px solid #DADAF0 ;
-    padding: 5px 15px 5px 10px;
+    border: 1px solid #DADAF0 ;
+    vertical-align: middle !important;
+    padding: 5px 10px 5px 8px;
     margin-top:10px;
     flex-grow: 1;
     flex-direction: row;
-    color:#d24b6b
-}
-
-.chiffre-cle {
-    font-size: 1.2vw;
-    text-align: right;
-    font-family: 'Marianne-Extrabold';
 }
 
 .text {
     text-align: center;
-    font-size:0.7vw;
+    font-size:0.71vw;
+}
+
+.chiffre-cle {
+    font-size: 1.35vw;
+    text-align: right;
+    font-family: 'Marianne-Extrabold';
+    vertical-align: middle;
 }
 
 .body > div {
@@ -99,19 +99,6 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-}
-
-.circle {
-    margin-left: auto;
-    border:solid 1px #d24b6b;
-    border-radius:10px !important;
-    padding-left:4px;
-    padding-right:4px;
-    font-size: 10px;
-    vertical-align: middle;
-    text-align: center;
-    align-items: center;
-    cursor:default;
 }
 
 .card-tooltip {
