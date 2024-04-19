@@ -45,7 +45,7 @@
       <!-- <CartesStatiques/> -->
       <h3>Crédits et licence</h3>
       <p>
-        Cet outil de datavisualisation a été développé par le <a href="https://cartotheque.anct.gouv.fr" target="_blank">service cartographie</a> (pôle Analyse et diagnostics territoriaux) de l'ANCT, 
+        Cet outil de datavisualisation a été développé par le <a href="https://cartotheque.anct.gouv.fr" target="_blank">service cartographie</a> de l'ANCT, 
         à la demande et avec l'appui de la <a href="https://agence-cohesion-territoires.gouv.fr/soutien-la-vie-associative-et-mediation-sociale-49" target="_blank">mission Soutien à la vie associative et médiation sociale</a>.
       </p>
       <p>
